@@ -3,237 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lucas de Castro — Product Designer</title>
-<meta name="description" content="Portfolio de Lucas de Castro — Product Designer com 10+ anos, Salvador BA.">
+<title>Lucas de Castro, Product Designer</title>
+<meta name="description" content="Portfolio de Lucas de Castro, Product Designer com 10+ anos, Salvador BA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#faf8f5; --text:#1c1c1c; --muted:#888; --dim:#ccc;
-  --border:rgba(28,28,28,.1); --gold:#b8a06e; --gold-lt:#f0e8d8;
-  --ff:'Playfair Display',Georgia,serif; --fb:'DM Sans',system-ui,sans-serif;
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.7;overflow-x:hidden}
-img{display:block;max-width:100%;height:auto} a{color:inherit;text-decoration:none} button{cursor:pointer;font-family:var(--fb);border:none;background:none}
-
-/* PAGES */
-.page{display:none;min-height:100vh}
-.page.active{display:block}
-
-/* NAV */
-nav{
-  position:sticky;top:0;z-index:200;
-  padding:1rem 2.5rem;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(250,248,245,.94);backdrop-filter:blur(14px);
-  border-bottom:.5px solid var(--border);
-}
-.logo{font-family:var(--ff);font-size:.95rem;font-weight:700;letter-spacing:-.01em;cursor:pointer;transition:opacity .2s}
-.logo:hover{opacity:.7}
-.nav-links{display:flex;gap:0}
-.nav-links button{font-size:.76rem;font-weight:400;color:var(--muted);padding:.4rem .85rem;border-radius:100px;letter-spacing:.05em;text-transform:uppercase;transition:color .2s,background .2s}
-.nav-links button:hover,.nav-links button.on{color:var(--text);background:rgba(28,28,28,.06)}
-.nav-cta{font-size:.76rem;font-weight:500;background:var(--text);color:var(--bg);padding:.48rem 1.2rem;border-radius:100px;transition:opacity .2s}
-.nav-cta:hover{opacity:.8}
-@media(max-width:640px){nav{padding:.9rem 1.25rem}.nav-links{display:none}}
-
-/* ══════════════════════════════
-   HOME
-══════════════════════════════ */
-.hero{max-width:660px;margin:0 auto;padding:5rem 2rem 3rem;text-align:center}
-.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:500;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.75rem}
-.edot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2.5s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
-
-.hero-imgs{display:flex;justify-content:center;align-items:center;height:118px;position:relative;margin-bottom:2rem}
-.himg{width:94px;height:94px;border-radius:16px;position:absolute;overflow:hidden;border:.5px solid var(--border);transition:transform .5s cubic-bezier(.34,1.4,.64,1)}
-.himg:nth-child(1){transform:rotate(-5deg) translateX(-78px);background:#e4f4ec}
-.himg:nth-child(2){transform:rotate(2deg) translateY(-10px);background:var(--gold-lt);z-index:1}
-.himg:nth-child(3){transform:rotate(-3deg) translateX(78px);background:#e4ecf8}
-.hero-imgs:hover .himg:nth-child(1){transform:rotate(-7deg) translateX(-92px) translateY(-6px)}
-.hero-imgs:hover .himg:nth-child(2){transform:rotate(4deg) translateY(-18px) scale(1.06)}
-.hero-imgs:hover .himg:nth-child(3){transform:rotate(-5deg) translateX(92px) translateY(-6px)}
-.himg img,.himg-ph{width:100%;height:100%;object-fit:cover}
-.himg-ph{display:flex;align-items:center;justify-content:center;font-family:var(--ff);font-size:1.2rem;font-weight:700;color:rgba(28,28,28,.18)}
-
-h1.big{font-family:var(--ff);font-size:clamp(3rem,9vw,5.5rem);font-weight:900;line-height:.92;letter-spacing:-.035em;margin-bottom:.75rem}
-h1.big em{font-style:italic;color:var(--gold)}
-.hero-sub{font-size:1rem;font-weight:300;color:var(--muted);margin-bottom:2rem;line-height:1.7}
-.hero-sub strong{color:var(--text);font-weight:500}
-
-.chips{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-bottom:2.5rem}
-.chip{font-size:.7rem;color:#666;background:#eeeae4;padding:.28rem .85rem;border-radius:100px;border:.5px solid rgba(28,28,28,.08)}
-.hero-btns{display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:.4rem;font-size:.84rem;font-weight:500;padding:.62rem 1.35rem;border-radius:100px;transition:all .2s;cursor:pointer}
-.btn-dark{background:var(--text);color:var(--bg)}
-.btn-dark:hover{opacity:.85;transform:translateY(-1px)}
-.btn-outline{border:.5px solid rgba(28,28,28,.2);color:var(--muted)}
-.btn-outline:hover{border-color:rgba(28,28,28,.4);color:var(--text)}
-
-/* SECTION HEADER */
-.sec-hd{padding:3.5rem 2.5rem 1.25rem;display:flex;align-items:baseline;justify-content:space-between;max-width:960px;margin:0 auto}
-.sec-label{font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.sec-count{font-family:var(--ff);font-size:.9rem;font-weight:700;color:var(--dim)}
-
-/* CAROUSEL */
-.carousel-wrap{overflow:hidden;position:relative}
-.carousel-wrap::after{content:'';position:absolute;right:0;top:0;bottom:0;width:90px;background:linear-gradient(to left,var(--bg),transparent);pointer-events:none;z-index:2}
-.drag-hint{display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:.67rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.1rem;padding:0 2.5rem}
-.da{display:inline-block;animation:sway 1.8s ease-in-out infinite}
-@keyframes sway{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
-.track{display:flex;gap:14px;padding:6px 2.5rem 1.75rem;width:max-content;user-select:none;-webkit-user-select:none;will-change:transform}
-
-/* CARDS */
-.card{
-  width:280px;flex-shrink:0;border-radius:16px;overflow:hidden;
-  border:.5px solid rgba(28,28,28,.1);background:#fff;cursor:pointer;
-  transition:transform .35s cubic-bezier(.34,1.2,.64,1),box-shadow .35s,border-color .2s;
-}
-.card:hover{transform:translateY(-7px);box-shadow:0 20px 50px rgba(28,28,28,.11);border-color:rgba(28,28,28,.22)}
-.card-thumb{height:200px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:1rem}
-.card-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.card:hover .card-thumb img{transform:scale(1.05)}
-.card-num{position:absolute;top:.85rem;right:1rem;font-family:var(--ff);font-size:3.5rem;font-weight:900;line-height:1;letter-spacing:-.05em;opacity:.12;pointer-events:none}
-.card-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem}
-.card-ph span{font-size:.58rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:rgba(28,28,28,.28);background:rgba(255,255,255,.65);padding:.18rem .5rem;border-radius:4px}
-.cchips{display:flex;gap:.35rem;flex-wrap:wrap;position:relative;z-index:1}
-.cchip{font-size:.58rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.22rem .62rem;border-radius:100px;backdrop-filter:blur(6px)}
-.card-body{padding:1.1rem 1.25rem 1.25rem}
-.card-title{font-family:var(--ff);font-size:1rem;font-weight:700;letter-spacing:-.01em;color:var(--text);margin-bottom:.3rem;line-height:1.2}
-.card-desc{font-size:.78rem;font-weight:300;color:var(--muted);line-height:1.65;margin-bottom:1rem}
-.card-foot{display:flex;align-items:center;justify-content:space-between;padding-top:.85rem;border-top:.5px solid rgba(28,28,28,.08)}
-.card-co{font-size:.62rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:#bbb}
-.card-arrow{width:30px;height:30px;border-radius:50%;border:.5px solid rgba(28,28,28,.14);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:#bbb;transition:all .2s}
-.card:hover .card-arrow{background:var(--text);color:#fff;border-color:var(--text)}
-
-.dots{display:flex;justify-content:center;gap:5px;padding:.25rem 0 3rem}
-.dot{width:5px;height:5px;border-radius:50%;background:var(--dim);transition:width .3s,background .3s}
-.dot.on{width:18px;border-radius:3px;background:var(--text)}
-
-/* ABOUT */
-.about{background:#1c1c1c;padding:5rem 2rem}
-.about-in{max-width:640px;margin:0 auto;text-align:center}
-.about-ey{font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#444;margin-bottom:1.5rem}
-.about-photo{width:110px;height:110px;border-radius:50%;margin:0 auto 2.25rem;overflow:hidden;border:3px solid rgba(184,160,110,.3)}
-.about-photo img{width:100%;height:100%;object-fit:cover}
-.about-photo-ph{width:100%;height:100%;background:#252525;display:flex;align-items:center;justify-content:center;font-family:var(--ff);font-size:1.5rem;font-weight:700;color:#333}
-.about h2{font-family:var(--ff);font-size:clamp(1.9rem,4.5vw,3rem);font-weight:900;letter-spacing:-.025em;color:#faf8f5;line-height:1.05;margin-bottom:1.5rem}
-.about h2 em{font-style:italic;color:var(--gold)}
-.about p{font-size:.9rem;font-weight:300;color:#888;line-height:1.85;margin-bottom:.85rem}
-.about p strong{color:#ccc;font-weight:500}
-.areas{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin:2rem 0;background:#2a2a2a;border-radius:12px;overflow:hidden}
-.area{background:#1c1c1c;padding:1.25rem 1rem;text-align:left}
-.area-t{font-size:.78rem;font-weight:500;color:#ddd;margin-bottom:.3rem}
-.area-d{font-size:.72rem;font-weight:300;color:#555;line-height:1.5}
-.bq{margin:2.25rem 0;padding:1.1rem 1.5rem;border-left:2px solid var(--gold);background:rgba(184,160,110,.06);border-radius:0 8px 8px 0;text-align:left}
-.bq p{font-family:var(--ff);font-size:.95rem;font-style:italic;color:#aaa;line-height:1.5}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:2.5rem;background:#2a2a2a;border-radius:12px;overflow:hidden}
-.stat{background:#1c1c1c;padding:1.25rem 1rem;text-align:left}
-.stat-n{font-family:var(--ff);font-size:2rem;font-weight:900;letter-spacing:-.04em;color:#faf8f5;line-height:1}
-.stat-n em{font-style:normal;color:var(--gold);font-size:1.2rem}
-.stat-l{font-size:.6rem;color:#555;text-transform:uppercase;letter-spacing:.06em;margin-top:.3rem;line-height:1.4}
-.alinks{display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem}
-.alink{font-size:.8rem;font-weight:400;padding:.55rem 1.25rem;border-radius:100px;border:.5px solid rgba(255,255,255,.14);color:#888;transition:all .2s}
-.alink:hover{border-color:rgba(255,255,255,.4);color:#fff}
-.alink.gold{background:var(--gold);color:#1c1c1c;border-color:var(--gold);font-weight:500}
-.alink.gold:hover{opacity:.85}
-@media(max-width:500px){.stats{grid-template-columns:repeat(2,1fr)}.areas{grid-template-columns:1fr}}
-
-/* EXPERIENCE */
-.exp-sec{padding:5rem 2rem;max-width:780px;margin:0 auto}
-.exp-list{margin-top:2rem}
-.exp-item{display:grid;grid-template-columns:110px 1fr;gap:1.5rem;padding:1.5rem 0;border-bottom:.5px solid var(--border)}
-.exp-item:first-child{border-top:.5px solid var(--border)}
-.exp-year{font-size:.72rem;color:var(--muted);padding-top:.2rem;line-height:1.4}
-.exp-role{font-size:.95rem;font-weight:500;color:var(--text);line-height:1.3}
-.exp-co{font-size:.8rem;font-weight:300;color:var(--muted);margin-top:.2rem}
-.exp-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.65rem}
-.exp-tag{font-size:.6rem;color:#888;background:#eeeae4;padding:.2rem .65rem;border-radius:100px}
-
-/* CONTACT */
-.ct-sec{padding:5rem 2rem;text-align:center;max-width:580px;margin:0 auto}
-.ct-sec h2{font-family:var(--ff);font-size:clamp(2rem,5vw,3.25rem);font-weight:900;letter-spacing:-.025em;line-height:1.05;margin-bottom:.75rem}
-.ct-sec h2 em{font-style:italic;color:var(--gold)}
-.ct-sec p{font-size:.9rem;color:var(--muted);font-weight:300;margin-bottom:2.25rem}
-.ct-links{display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap}
-.cl{font-size:.8rem;font-weight:400;padding:.55rem 1.25rem;border-radius:100px;border:.5px solid rgba(28,28,28,.2);color:#666;transition:all .2s}
-.cl:hover{border-color:var(--text);color:var(--text)}
-.cl.p{background:var(--text);color:var(--bg);border-color:var(--text);font-weight:500}
-.cl.p:hover{opacity:.82}
-
-footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:.7rem;color:var(--muted)}
-
-/* ══════════════════════════════
-   CASE PAGE
-══════════════════════════════ */
-.case-page #page-case-nav{
-  position:sticky;top:0;z-index:200;
-  background:rgba(250,248,245,.94);backdrop-filter:blur(14px);
-  border-bottom:.5px solid var(--border);
-  padding:1rem 2.5rem;display:flex;align-items:center;gap:1rem;
-}
-.back-btn{
-  display:flex;align-items:center;gap:.45rem;
-  font-size:.78rem;font-weight:500;color:var(--muted);
-  padding:.38rem .85rem;border-radius:100px;
-  border:.5px solid var(--border);transition:all .2s;
-}
-.back-btn:hover{color:var(--text);border-color:rgba(28,28,28,.25)}
-.case-nav-title{font-family:var(--ff);font-size:.88rem;font-weight:700;color:var(--text);letter-spacing:-.01em}
-
-.case-body{max-width:720px;margin:0 auto;padding:3rem 2rem 5rem}
-.case-ey{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
-.case-body h1{font-family:var(--ff);font-size:clamp(2.2rem,6vw,4rem);font-weight:900;letter-spacing:-.035em;line-height:.95;margin-bottom:.75rem}
-.case-body h1 em{font-style:italic;color:var(--gold)}
-.case-tl{font-size:1rem;font-weight:300;color:var(--muted);margin-bottom:2.5rem;line-height:1.7;max-width:520px}
-
-.case-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:10px;overflow:hidden;margin-bottom:3rem}
-.meta-item{background:#fff;padding:1rem 1.1rem}
-.meta-label{font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
-.meta-val{font-size:.88rem;font-weight:500;color:var(--text);line-height:1.4}
-
-/* placeholders */
-.ph{
-  border-radius:12px;margin:1.5rem 0;
-  background:repeating-linear-gradient(45deg,#f0ece6,#f0ece6 6px,#e8e4de 6px,#e8e4de 12px);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:.5rem;padding:2rem 1rem;text-align:center;min-height:220px;
-}
-.ph.sm{min-height:150px}
-.ph span{font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(28,28,28,.3)}
-.ph code{font-size:.58rem;color:rgba(28,28,28,.4);background:rgba(28,28,28,.07);padding:.15rem .4rem;border-radius:4px;font-family:monospace}
-.ph-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.5rem 0}
-
-/* case typography */
-.case-sec h2{font-family:var(--ff);font-size:1.5rem;font-weight:700;letter-spacing:-.02em;color:var(--text);margin:2.75rem 0 1rem}
-.case-sec h3{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:1.75rem 0 .65rem;padding-bottom:.4rem;border-bottom:.5px solid var(--border)}
-.case-sec p{font-size:.9rem;font-weight:300;color:#444;line-height:1.85;margin-bottom:.85rem}
-.case-sec p strong{color:var(--text);font-weight:500}
-.case-sec ul{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:.85rem}
-.case-sec ul li{font-size:.88rem;font-weight:300;color:#444;line-height:1.7;padding-left:1.2rem;position:relative}
-.case-sec ul li::before{content:'·';position:absolute;left:0;color:var(--gold);font-size:1.2rem;line-height:1.4}
-
-.results{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:1.75rem 0}
-.result{background:#fff;border:.5px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem}
-.r-n{font-family:var(--ff);font-size:1.75rem;font-weight:900;color:var(--text);letter-spacing:-.03em;line-height:1}
-.r-n em{font-style:normal;color:var(--gold)}
-.r-l{font-size:.75rem;color:var(--muted);margin-top:.25rem;font-weight:300;line-height:1.4}
-
-.insight-box{margin:2rem 0;padding:1.25rem 1.5rem;background:var(--gold-lt);border-radius:12px;border:.5px solid rgba(184,160,110,.3)}
-.insight-box p{font-family:var(--ff);font-size:.95rem;font-style:italic;color:#6b5a3a;line-height:1.55;margin:0}
-.insight-box p strong{font-style:normal;font-weight:600;color:#5a4420}
-
-@media(max-width:600px){
-  .case-meta{grid-template-columns:1fr 1fr}
-  .ph-grid{grid-template-columns:1fr}
-  .results{grid-template-columns:1fr 1fr}
-  .case-body{padding:2rem 1.25rem 4rem}
-  #page-case-nav{padding:1rem 1.25rem}
-}
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -314,7 +89,7 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
             </div>
           </div>
           <div class="card-body">
-            <div class="card-title">Perfil Credenciados — Kivid</div>
+            <div class="card-title">Perfil Credenciados / Kivid</div>
             <div class="card-desc">Conectar pacientes e profissionais de saúde com clareza e confiança numa única tela.</div>
             <div class="card-foot"><span class="card-co">Kivid · HealthTech · 3 semanas</span><div class="card-arrow">↗</div></div>
           </div>
@@ -330,8 +105,8 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
             </div>
           </div>
           <div class="card-body">
-            <div class="card-title">Checkout — Kivid</div>
-            <div class="card-desc">Processo de compra ágil — 15% mais conversão e 20% menos abandono de carrinho.</div>
+            <div class="card-title">Checkout / Kivid</div>
+            <div class="card-desc">Processo de compra ágil: +15% conversão e -20% abandono.</div>
             <div class="card-foot"><span class="card-co">Kivid · HealthTech · 10 semanas</span><div class="card-arrow">↗</div></div>
           </div>
         </div>
@@ -346,7 +121,7 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
             </div>
           </div>
           <div class="card-body">
-            <div class="card-title">Avaliação NPS — Kivid</div>
+            <div class="card-title">Avaliação NPS / Kivid</div>
             <div class="card-desc">Sistema de feedback que transforma avaliações de pacientes em dados acionáveis.</div>
             <div class="card-foot"><span class="card-co">Kivid · HealthTech · 2 semanas</span><div class="card-arrow">↗</div></div>
           </div>
@@ -365,8 +140,8 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
       <div class="about-ey">Sobre mim</div>
       <div class="about-photo"><div class="about-photo-ph">LC</div></div>
       <h2>Design com alma.<br><em>Dados</em> com verdade.</h2>
-      <p>Levo um estilo de vida ativo — corrida, musculação e futevolei me ajudam a manter foco e disciplina, qualidades que trago para o trabalho. Acredito que um bom design resulta de <strong>empatia, pesquisa e atenção aos detalhes</strong>.</p>
-      <p>Passei por agências, emissoras e startups — Google, Ambev, Disney, Bradesco, Rede Bahia, Kinvo e Kivid. Hoje expando para <strong>análise de dados</strong> para decisões com mais evidência.</p>
+      <p>Levo um estilo de vida ativo: corrida, musculação e futevolei me ajudam a manter foco e disciplina, qualidades que trago para o trabalho. Acredito que um bom design resulta de <strong>empatia, pesquisa e atenção aos detalhes</strong>.</p>
+      <p>Passei por agências, emissoras e startups: Google, Ambev, Disney, Bradesco, Rede Bahia, Kinvo e Kivid. Hoje expando para <strong>análise de dados</strong> para decisões com mais evidência.</p>
       <div class="areas">
         <div class="area"><div class="area-t">Design de Produto</div><div class="area-d">Soluções escaláveis que aumentaram conversão e retenção.</div></div>
         <div class="area"><div class="area-t">UX/UI Design</div><div class="area-d">Interfaces intuitivas com foco em usabilidade e acessibilidade.</div></div>
@@ -392,12 +167,12 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
   <section id="experiencia" class="exp-sec">
     <div class="sec-label">Experiência profissional</div>
     <div class="exp-list">
-      <div class="exp-item"><div class="exp-year">2024 – presente</div><div><div class="exp-role">Designer de Produto Pleno</div><div class="exp-co">Branef / FESF — GovTech · Salvador, BA</div><div class="exp-tags"><span class="exp-tag">Product Design</span><span class="exp-tag">Design Systems</span><span class="exp-tag">GovTech</span></div></div></div>
-      <div class="exp-item"><div class="exp-year">2024</div><div><div class="exp-role">Product Designer</div><div class="exp-co">BomConsórcio — Fintech · Salvador, BA</div><div class="exp-tags"><span class="exp-tag">UX/UI</span><span class="exp-tag">Fintech</span><span class="exp-tag">Mobile</span></div></div></div>
-      <div class="exp-item"><div class="exp-year">2022 – 2024</div><div><div class="exp-role">Product Designer</div><div class="exp-co">Kivid — HealthTech · Salvador, BA</div><div class="exp-tags"><span class="exp-tag">Product Design</span><span class="exp-tag">UX Research</span><span class="exp-tag">HealthTech</span><span class="exp-tag">+25k usuários</span></div></div></div>
-      <div class="exp-item"><div class="exp-year">2020 – 2022</div><div><div class="exp-role">Product Designer</div><div class="exp-co">Kinvo (BTG Pactual) — Fintech · SP</div><div class="exp-tags"><span class="exp-tag">Product Design</span><span class="exp-tag">Fintech</span><span class="exp-tag">700k usuários</span></div></div></div>
-      <div class="exp-item"><div class="exp-year">2018 – 2020</div><div><div class="exp-role">UX/UI Designer</div><div class="exp-co">Rede Bahia — Maior emissora do Nordeste · BA</div><div class="exp-tags"><span class="exp-tag">UX/UI</span><span class="exp-tag">+150% Instagram</span><span class="exp-tag">700k usuários</span></div></div></div>
-      <div class="exp-item"><div class="exp-year">2015 – 2018</div><div><div class="exp-role">UX/UI Designer — Agências</div><div class="exp-co">California, EngenhoNovo, Rocha · Salvador, BA</div><div class="exp-tags"><span class="exp-tag">Google</span><span class="exp-tag">Ambev</span><span class="exp-tag">Disney</span><span class="exp-tag">Bradesco</span><span class="exp-tag">HitLab 400%</span></div></div></div>
+      <div class="exp-item"><div class="exp-year">2024 – presente</div><div><div class="exp-role">Designer de Produto Pleno</div><div class="exp-co">Branef / FESF, GovTech · Salvador, BA</div><div class="exp-tags"><span class="exp-tag">Product Design</span><span class="exp-tag">Design Systems</span><span class="exp-tag">GovTech</span></div></div></div>
+      <div class="exp-item"><div class="exp-year">2024</div><div><div class="exp-role">Product Designer</div><div class="exp-co">BomConsórcio, Fintech · Salvador, BA</div><div class="exp-tags"><span class="exp-tag">UX/UI</span><span class="exp-tag">Fintech</span><span class="exp-tag">Mobile</span></div></div></div>
+      <div class="exp-item"><div class="exp-year">2022 – 2024</div><div><div class="exp-role">Product Designer</div><div class="exp-co">Kivid, HealthTech · Salvador, BA</div><div class="exp-tags"><span class="exp-tag">Product Design</span><span class="exp-tag">UX Research</span><span class="exp-tag">HealthTech</span><span class="exp-tag">+25k usuários</span></div></div></div>
+      <div class="exp-item"><div class="exp-year">2020 – 2022</div><div><div class="exp-role">Product Designer</div><div class="exp-co">Kinvo (BTG Pactual), Fintech · SP</div><div class="exp-tags"><span class="exp-tag">Product Design</span><span class="exp-tag">Fintech</span><span class="exp-tag">700k usuários</span></div></div></div>
+      <div class="exp-item"><div class="exp-year">2018 – 2020</div><div><div class="exp-role">UX/UI Designer</div><div class="exp-co">Rede Bahia, maior emissora do Nordeste · BA</div><div class="exp-tags"><span class="exp-tag">UX/UI</span><span class="exp-tag">+150% Instagram</span><span class="exp-tag">700k usuários</span></div></div></div>
+      <div class="exp-item"><div class="exp-year">2015 – 2018</div><div><div class="exp-role">UX/UI Designer, Agências</div><div class="exp-co">California, EngenhoNovo, Rocha · Salvador, BA</div><div class="exp-tags"><span class="exp-tag">Google</span><span class="exp-tag">Ambev</span><span class="exp-tag">Disney</span><span class="exp-tag">Bradesco</span><span class="exp-tag">HitLab 400%</span></div></div></div>
     </div>
   </section>
 
@@ -443,16 +218,16 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
         <h2>O Ponto de Partida</h2>
         <p>Sou usuário ativo do Wellhub há anos. Mais de <strong>340 check-ins registrados</strong>. Cada um representou uma decisão de sair do sofá, ir à academia, investir na saúde.</p>
         <p>E o app? Tratava todos eles exatamente igual. Sem diferença entre o primeiro treino e o treino de número 300. Sem celebração, sem progresso visível, sem conexão emocional.</p>
-        <div class="insight-box"><p>"O botão de check-in é o ápice emocional da jornada — o momento em que o usuário cumpriu o que se propôs. Era tratado como uma função técnica qualquer."</p></div>
+        <div class="insight-box"><p>"O botão de check-in é o ápice emocional da jornada. O momento em que o usuário cumpriu o que se propôs. Era tratado como função técnica qualquer."</p></div>
 
         <h2>O Problema de Negócio</h2>
-        <p>Aplicativos de bem-estar vivem de <strong>recorrência</strong>. Usuários que criam hábito retornam. Usuários que não sentem progresso somem. O check-in era a maior oportunidade de reforçar o hábito — e estava sendo desperdiçada.</p>
+        <p>Aplicativos de bem-estar vivem de <strong>recorrência</strong>. Usuários que criam hábito retornam. Usuários que não sentem progresso somem. O check-in era a maior oportunidade de reforçar o hábito, e estava sendo desperdiçada.</p>
 
         <div class="results">
           <div class="result"><div class="r-n"><em>↓</em></div><div class="r-l">Engajamento pós check-in: zero feedback emocional</div></div>
           <div class="result"><div class="r-n"><em>✗</em></div><div class="r-l">Nenhuma visualização de progresso acumulado</div></div>
           <div class="result"><div class="r-n"><em>↓</em></div><div class="r-l">Recomendações genéricas, sem personalização</div></div>
-          <div class="result"><div class="r-n"><em>↓</em></div><div class="r-l">Hierarquia visual confusa — tudo compete</div></div>
+          <div class="result"><div class="r-n"><em>↓</em></div><div class="r-l">Hierarquia visual confusa, tudo competindo</div></div>
         </div>
 
         <h3>OKR que guiou o projeto</h3>
@@ -464,18 +239,18 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
         </div>
 
         <h2>Diagnóstico da Tela Atual</h2>
-        <div class="ph sm"><span>Tela antiga — Wellhub</span><code>wellhub-antes.jpg</code></div>
+        <div class="ph sm"><span>Tela antiga Wellhub</span><code>wellhub-antes.jpg</code></div>
         <h3>Problemas mapeados</h3>
         <ul>
-          <li>Hierarquia visual quebrada — elementos competem pelo olhar sem prioridade clara</li>
-          <li>Zero feedback emocional após o check-in — nenhuma celebração, nenhum reconhecimento</li>
+          <li>Hierarquia visual quebrada, elementos competindo pelo olhar sem prioridade clara</li>
+          <li>Zero feedback emocional após o check-in. Nenhuma celebração, nenhum reconhecimento</li>
           <li>Botão de check-in pequeno, escondido, sem recompensa visual ou sensação de conquista</li>
           <li>Recomendações totalmente genéricas, sem conexão com histórico ou preferências do usuário</li>
         </ul>
 
         <h2>A Virada Estratégica</h2>
         <p>O reframing que mudou tudo: <strong>de botão para ritual. De função para celebração. De ação neutra para microvitória reconhecida.</strong></p>
-        <p>A questão não era apenas visual — era sobre qual comportamento o design estava reforçando. Um check-in tratado como dado bruto nunca vai criar o mesmo vínculo que um check-in tratado como conquista.</p>
+        <p>A questão não era apenas visual. Era sobre qual comportamento o design estava reforçando. Um check-in tratado como dado bruto nunca vai criar o mesmo vínculo que um check-in tratado como conquista.</p>
 
         <h2>Referências e Benchmark</h2>
         <p>Analisei apps com excelência em recorrência e reforço comportamental: <strong>Duolingo, Apple Fitness, TotalPass e Strava</strong>. O padrão comum? Todos celebram o momento presente e mostram onde o usuário chegou.</p>
@@ -492,13 +267,13 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
 
         <h2>Impacto e Resultados</h2>
         <div class="results">
-          <div class="result"><div class="r-n">340<em>+</em></div><div class="r-l">Check-ins reais como usuário — validação autêntica do problema</div></div>
+          <div class="result"><div class="r-n">340<em>+</em></div><div class="r-l">Check-ins reais como usuário, validação autêntica do problema</div></div>
           <div class="result"><div class="r-n"><em>✓</em></div><div class="r-l">Feedback positivo na validação com usuários reais do Wellhub</div></div>
           <div class="result"><div class="r-n"><em>↑</em></div><div class="r-l">Engajamento percebido pós check-in nos testes de usabilidade</div></div>
           <div class="result"><div class="r-n"><em>✓</em></div><div class="r-l">Senso de progresso e personalização validados em entrevistas</div></div>
         </div>
 
-        <div class="insight-box" style="margin-top:2rem"><p>"No fim, esse projeto não é sobre design. É sobre reconhecer esforço, criar conexão e transformar hábito em orgulho. O design foi o meio — o comportamento foi o objetivo."</p></div>
+        <div class="insight-box" style="margin-top:2rem"><p>"No fim, esse projeto não é sobre design. É sobre reconhecer esforço, criar conexão e transformar hábito em orgulho. O design foi o meio. O comportamento foi o objetivo."</p></div>
 
       </div>
     </div>
@@ -521,7 +296,7 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
         <h2>A Cena do Crime</h2>
         <p>Imagine que você está com dor, precisa marcar uma consulta e abre o app do seu plano de saúde. A tela mostra o nome do médico e um número de telefone. Só isso.</p>
         <p>Sem endereço completo. Sem horários disponíveis. Sem convênios aceitos. Sem avaliações. Nada que te ajudasse a decidir se aquele era o profissional certo.</p>
-        <p>O usuário fechava o app e ia buscar no Google. <strong>O Kivid havia construído uma rede de credenciados — mas não conseguia conectá-la ao paciente.</strong></p>
+        <p>O usuário fechava o app e ia buscar no Google. <strong>O Kivid havia construído uma rede de credenciados, mas não conseguia conectá-la ao paciente.</strong></p>
 
         <div class="insight-box"><p>"A lista existia. Os dados existiam. O problema era que ninguém havia pensado em montar uma experiência em volta deles."</p></div>
 
@@ -549,11 +324,11 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
           <li>Usuário precisava sair do app para encontrar o endereço completo</li>
           <li>Sem informação de horários → impossível saber se o médico atendia no turno disponível</li>
           <li>Layout confuso, hierarquia quebrada, experiência inconsistente entre dispositivos</li>
-          <li>Frustração virava ligação para o suporte — custo operacional direto para o negócio</li>
+          <li>Frustração virava ligação para o suporte, custo operacional direto para o negócio</li>
         </ul>
 
         <h2>A Solução: Tudo em Um Lugar</h2>
-        <p>Uma página de perfil completa — o equivalente digital do cartão de visita profissional + agenda + mapa, tudo junto, sem sair do app.</p>
+        <p>Uma página de perfil completa: o equivalente digital do cartão de visita profissional + agenda + mapa, tudo junto, sem sair do app.</p>
         <p>Nome, especialidade, avaliação, endereço com mapa integrado, telefone direto, horários de atendimento e convênios aceitos. <strong>Decisão tomada em segundos, sem fricção.</strong></p>
         <div class="ph-grid">
           <div class="ph sm"><span>Busca e filtros</span><code>cred-tela1.jpg</code></div>
@@ -576,7 +351,7 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
 
         <h2>Impacto e Resultados</h2>
         <div class="results">
-          <div class="result"><div class="r-n"><em>✓</em></div><div class="r-l">Feedback positivo nas validações — "finalmente tudo no lugar certo"</div></div>
+          <div class="result"><div class="r-n"><em>✓</em></div><div class="r-l">Feedback positivo nas validações: "finalmente tudo no lugar certo"</div></div>
           <div class="result"><div class="r-n"><em>↑</em></div><div class="r-l">Facilidade percebida para agendar consultas e exames</div></div>
           <div class="result"><div class="r-n"><em>↑</em></div><div class="r-l">Uso da funcionalidade de busca de credenciados no app</div></div>
           <div class="result"><div class="r-n"><em>↓</em></div><div class="r-l">Tempo para localizar dados essenciais sobre um profissional</div></div>
@@ -600,15 +375,15 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
       <div class="case-sec">
 
         <h2>Quem Estava do Outro Lado da Tela</h2>
-        <div class="ph sm"><span>Persona — Adriana Santos</span><code>checkout-persona.jpg</code></div>
+        <div class="ph sm"><span>Adriana Santos, persona</span><code>checkout-persona.jpg</code></div>
         <p><strong>Adriana Santos, 56 anos.</strong> Professora, casada, dois filhos. Classe C/D. Busca saúde acessível para a família toda. Quando entra numa tela de checkout, precisa de três coisas: clareza, segurança e velocidade. Qualquer dúvida vira abandono.</p>
-        <p>Adriana não é exceção — ela é a maioria dos usuários do Kivid. Projetar para ela era projetar para o negócio.</p>
+        <p>Adriana não é exceção. Ela é a maioria dos usuários do Kivid. Projetar para ela era projetar para o negócio.</p>
 
         <h2>O Funil Estava Quebrado</h2>
         <p>O processo de compra exigia informações excessivas logo de início, era fragmentado em múltiplas etapas e não deixava claro o que estava sendo comprado nem quanto custaria no final. Nenhuma visibilidade do que estava pela frente.</p>
 
         <div class="results">
-          <div class="result"><div class="r-n">~50<em>%</em></div><div class="r-l">Taxa de abandono no checkout — oportunidade enorme na mesa</div></div>
+          <div class="result"><div class="r-n">~50<em>%</em></div><div class="r-l">Taxa de abandono no checkout: oportunidade enorme na mesa</div></div>
           <div class="result"><div class="r-n"><em>↑</em></div><div class="r-l">Formulários longos com dados desnecessários no início do fluxo</div></div>
           <div class="result"><div class="r-n"><em>↓</em></div><div class="r-l">Clareza sobre valor total e etapas restantes</div></div>
           <div class="result"><div class="r-n"><em>✗</em></div><div class="r-l">Nenhum suporte visível para dúvidas durante a compra</div></div>
@@ -624,14 +399,14 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
         </div>
 
         <h2>O Que os Dados Mostraram</h2>
-        <p>Com Clarity mapeamos onde os usuários travavam. Os heatmaps eram reveladores: <strong>o maior ponto de abandono era justamente o primeiro campo do formulário</strong> — onde pedia dados que poderiam ser preenchidos automaticamente.</p>
+        <p>Com Clarity mapeamos onde os usuários travavam. Os heatmaps eram reveladores: <strong>o maior ponto de abandono era justamente o primeiro campo do formulário</strong>, onde pedia dados que poderiam ser preenchidos automaticamente.</p>
         <div class="ph-grid">
           <div class="ph sm"><span>Checkout antigo 1</span><code>checkout-old1.jpg</code></div>
           <div class="ph sm"><span>Checkout antigo 2</span><code>checkout-old2.jpg</code></div>
         </div>
 
         <h2>A Solução: Menos é Mais Conversão</h2>
-        <p>Unifiquei todas as etapas em <strong>uma única página</strong>. Automatizei o preenchimento via CPF — o usuário digitava um campo e o sistema preenchia nome e dados automaticamente. Removi tudo que era opcional ou desnecessário para a conclusão da compra.</p>
+        <p>Unifiquei todas as etapas em <strong>uma única página</strong>. Automatizei o preenchimento via CPF: o usuário digitava um campo e o sistema preenchia nome e dados automaticamente. Removi tudo que era opcional ou desnecessário para a conclusão da compra.</p>
         <p>O resumo do pedido ficou sempre visível, dinâmico e transparente. Sem surpresas no final. Sem perguntas sem resposta.</p>
         <div class="ph"><span>Nova página de checkout</span><code>checkout-novo.jpg</code></div>
 
@@ -645,13 +420,13 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
 
         <h2>Os Números Que Importam</h2>
         <div class="results">
-          <div class="result"><div class="r-n">15<em>%</em></div><div class="r-l">Aumento na taxa de conversão — OKR atingido</div></div>
-          <div class="result"><div class="r-n">20<em>%</em></div><div class="r-l">Redução no abandono de carrinho — KR2 atingido</div></div>
-          <div class="result"><div class="r-n"><em>↓</em></div><div class="r-l">Tempo médio de conclusão da compra — menos fricção</div></div>
-          <div class="result"><div class="r-n"><em>✓</em></div><div class="r-l">Feedback positivo — "muito mais simples e rápido"</div></div>
+          <div class="result"><div class="r-n">15<em>%</em></div><div class="r-l">Aumento na taxa de conversão, OKR atingido</div></div>
+          <div class="result"><div class="r-n">20<em>%</em></div><div class="r-l">Redução no abandono de carrinho, KR2 atingido</div></div>
+          <div class="result"><div class="r-n"><em>↓</em></div><div class="r-l">Tempo médio de conclusão da compra, menos fricção</div></div>
+          <div class="result"><div class="r-n"><em>✓</em></div><div class="r-l">Feedback positivo: "muito mais simples e rápido"</div></div>
         </div>
 
-        <div class="insight-box" style="margin-top:2rem"><p>"Cada ponto percentual de conversão a mais não é só número — é uma família que agora tem acesso a saúde. Design que resolve problema real tem esse peso."</p></div>
+        <div class="insight-box" style="margin-top:2rem"><p>"Cada ponto percentual de conversão a mais não é só número. É uma família que agora tem acesso a saúde. Design que resolve problema real tem esse peso."</p></div>
 
       </div>
     </div>
@@ -672,7 +447,7 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
       <div class="case-sec">
 
         <h2>Decidir no Escuro</h2>
-        <p>Como você melhora um serviço de saúde se nunca perguntou ao paciente o que ele achou? O Kivid tinha uma rede ativa de atendimentos — e nenhum dado de satisfação estruturado.</p>
+        <p>Como você melhora um serviço de saúde se nunca perguntou ao paciente o que ele achou? O Kivid tinha uma rede ativa de atendimentos, sem nenhum dado de satisfação estruturado.</p>
         <p>Decisões eram tomadas com base em feeling, suposições e reclamações espontâneas no suporte. <strong>Não havia linha de base. Não havia como medir evolução. Não havia cultura de feedback.</strong></p>
 
         <div class="insight-box"><p>"Você não consegue melhorar o que não mede. E você não consegue medir o que não pergunta."</p></div>
@@ -680,7 +455,7 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
         <h2>O Problema em Números</h2>
 
         <div class="results">
-          <div class="result"><div class="r-n"><em>✗</em></div><div class="r-l">Zero NPS coletado — nenhuma linha de base para o produto</div></div>
+          <div class="result"><div class="r-n"><em>✗</em></div><div class="r-l">Zero NPS coletado, nenhuma linha de base para o produto</div></div>
           <div class="result"><div class="r-n"><em>✗</em></div><div class="r-l">Nenhum dado qualitativo dos pacientes sobre o atendimento</div></div>
           <div class="result"><div class="r-n"><em>↑</em></div><div class="r-l">Decisões tomadas por feeling, sem evidência de satisfação</div></div>
           <div class="result"><div class="r-n"><em>↓</em></div><div class="r-l">Confiança dos pacientes sem canal de expressão para dúvidas</div></div>
@@ -699,7 +474,7 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
         <p>Analisamos as melhores práticas de saúde digital: <strong>Doctoralia, Dr.consulta, Docway e Boa Consulta</strong>.</p>
         <h3>Aprendizados do benchmark</h3>
         <ul>
-          <li><strong>Velocidade é tudo:</strong> quanto mais rápida a avaliação, maior a taxa de resposta — o usuário já saiu do contexto</li>
+          <li><strong>Velocidade é tudo:</strong> quanto mais rápida a avaliação, maior a taxa de resposta: o usuário já saiu do contexto</li>
           <li><strong>Timing é decisivo:</strong> envio imediato após o atendimento captura o momento emocional</li>
           <li><strong>Qualitativo como bônus:</strong> comentário aberto gera riqueza, mas nunca pode ser obrigatório</li>
           <li><strong>Microcopy importa:</strong> mensagens que valorizam a opinião do paciente aumentam a conversão de resposta</li>
@@ -721,10 +496,10 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
         <p>Além do canal de coleta, o impacto mais relevante foi comportamental: <strong>o time de produto passou a ter dados para discutir prioridades</strong>. O NPS virou pauta de reunião. Os feedbacks qualitativos começaram a embasar decisões sobre atendimento e treinamento dos credenciados.</p>
 
         <div class="results">
-          <div class="result"><div class="r-n"><em>✓</em></div><div class="r-l">Canal estruturado criado — linha de base de satisfação estabelecida</div></div>
+          <div class="result"><div class="r-n"><em>✓</em></div><div class="r-l">Canal estruturado criado, linha de base de satisfação estabelecida</div></div>
           <div class="result"><div class="r-n"><em>↑</em></div><div class="r-l">Feedbacks espontâneos incentivados por microcopy empático</div></div>
           <div class="result"><div class="r-n"><em>✓</em></div><div class="r-l">Dados NPS acionáveis chegando ao time de produto toda semana</div></div>
-          <div class="result"><div class="r-n"><em>↑</em></div><div class="r-l">Confiança dos pacientes — sentiam que sua voz importava</div></div>
+          <div class="result"><div class="r-n"><em>↑</em></div><div class="r-l">Confiança dos pacientes: sentiam que sua voz importava</div></div>
         </div>
 
         <div class="insight-box" style="margin-top:2rem"><p>"Criar o canal de NPS não foi só um projeto de design. Foi a fundação para um produto que aprende com quem usa. Dois anos depois, esses dados ainda alimentam decisões no Kivid."</p></div>
@@ -737,104 +512,6 @@ footer{padding:2rem 2.5rem;border-top:.5px solid var(--border);display:flex;alig
 
      JAVASCRIPT
 ══════════════════════════════════════════ -->
-<script>
-/* ── Navegação entre páginas ── */
-const caseNames = {
-  wellhub:      'Redesign Check-in — Wellhub',
-  credenciados: 'Perfil Credenciados — Kivid',
-  checkout:     'Checkout — Kivid',
-  nps:          'Avaliação NPS — Kivid',
-};
-
-function goTo(page, caseId) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + page).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  if (page === 'case' && caseId) {
-    document.querySelectorAll('[id^="case-"]').forEach(el => el.style.display = 'none');
-    document.getElementById('case-' + caseId).style.display = 'block';
-    document.getElementById('case-title-bar').textContent = caseNames[caseId] || '';
-  }
-}
-
-function navScroll(id) {
-  if (!document.getElementById('page-home').classList.contains('active')) {
-    goTo('home');
-    setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 80);
-  } else {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-
-/* ── Carousel ── */
-const track  = document.getElementById('track');
-const outer  = document.getElementById('c-outer');
-const dotsEl = document.querySelectorAll('.dot');
-
-let dragging = false, startX = 0, curX = 0;
-let vel = 0, lastX = 0, lastT = 0, raf, moved = false;
-
-const clamp  = (v,a,b) => Math.max(a, Math.min(b,v));
-const getMax = ()      => Math.max(0, track.scrollWidth - outer.clientWidth);
-const cw     = ()      => (track.children[0]?.offsetWidth || 280) + 14;
-
-function setX(x, anim) {
-  curX = clamp(x, 0, getMax());
-  track.style.transition = anim ? 'transform .4s cubic-bezier(.4,0,.2,1)' : 'none';
-  track.style.transform  = `translateX(-${curX}px)`;
-  const idx = Math.min(Math.round(curX / cw()), dotsEl.length - 1);
-  dotsEl.forEach((d,i) => d.classList.toggle('on', i===idx));
-}
-function snap() { setX(Math.round(curX / cw()) * cw(), true); }
-
-/* mouse */
-outer.addEventListener('mousedown', e => {
-  dragging = true; moved = false;
-  startX = e.clientX + curX; vel = 0; lastX = e.clientX; lastT = Date.now();
-  cancelAnimationFrame(raf); e.preventDefault();
-});
-window.addEventListener('mousemove', e => {
-  if (!dragging) return;
-  const now = Date.now(), dt = now - lastT || 1;
-  vel = (lastX - e.clientX) / dt; lastX = e.clientX; lastT = now;
-  if (Math.abs(e.clientX - (startX - curX)) > 4) moved = true;
-  setX(startX - e.clientX);
-});
-window.addEventListener('mouseup', () => {
-  if (!dragging) return;
-  dragging = false;
-  let v = vel * 120;
-  const go = () => { if (Math.abs(v) < .5) { snap(); return; } setX(curX + v); v *= .87; raf = requestAnimationFrame(go); };
-  go();
-});
-
-/* click → open case (só se não arrastou) */
-track.querySelectorAll('.card').forEach(card => {
-  card.addEventListener('click', () => {
-    if (moved) { moved = false; return; }
-    const id = card.dataset.case;
-    if (id) goTo('case', id);
-  });
-});
-
-/* touch */
-outer.addEventListener('touchstart', e => {
-  startX = e.touches[0].clientX + curX; vel = 0;
-  lastX = e.touches[0].clientX; lastT = Date.now();
-  cancelAnimationFrame(raf);
-}, { passive: true });
-outer.addEventListener('touchmove', e => {
-  const now = Date.now();
-  vel = (lastX - e.touches[0].clientX) / (now - lastT || 1);
-  lastX = e.touches[0].clientX; lastT = now;
-  setX(startX - e.touches[0].clientX);
-}, { passive: true });
-outer.addEventListener('touchend', () => {
-  let v = vel * 120;
-  const go = () => { if (Math.abs(v) < .5) { snap(); return; } setX(curX + v); v *= .87; raf = requestAnimationFrame(go); };
-  go();
-});
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
