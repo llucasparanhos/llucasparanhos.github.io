@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucas de Castro — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- cursor -->
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="cur-ring"></div>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="sp-inner">
+    <div class="sp-line"></div>
+    <div class="sp-txt">Chegou na hora certa.</div>
+    <div class="sp-line"></div>
+  </div>
+</div>
+
+<!-- ══ HOME ══ -->
+<div id="page-home" class="page active">
+
+  <!-- TESTEIRA -->
+  <nav class="nav" id="main-nav">
+    <div class="nav-name" onclick="window.scrollTo({top:0,behavior:'smooth'})">Lucas de Castro</div>
+    <div class="nav-links">
+      <a href="https://linkedin.com/in/llucasdecastro" target="_blank" class="nav-link">LinkedIn</a>
+      <div class="nav-sep"></div>
+      <a href="mailto:llucastourinho@gmail.com" class="nav-link">Contato</a>
+      <div class="nav-sep"></div>
+      <button class="nav-feedback" onclick="openFeedback()"><span class="nav-feedback-dot"></span>Feedback</button>
+    </div>
+    <button class="nav-ham" id="nav-ham">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mob-menu" id="mob-menu">
+    <div class="mob-hd">
+      <div class="mob-hd-name">Lucas de Castro</div>
+      <div class="mob-close" id="mob-close">✕</div>
+    </div>
+    <nav class="mob-nav">
+      <a class="mob-item" href="#sobre">Quem é esse cara?</a>
+      <a class="mob-item" href="#cases">Cases</a>
+      <a class="mob-item" href="#trajetoria">Trajetória</a>
+      <a class="mob-item" href="#contato">Ele tá afim de quê?</a>
+    </nav>
+    <div class="mob-foot">
+      <a href="mailto:llucastourinho@gmail.com" class="mob-btn hi">Contato</a>
+      <a href="https://linkedin.com/in/llucasdecastro" target="_blank" class="mob-btn">LinkedIn ↗</a>
+      <a href="https://drive.google.com/file/d/1rpBL4lilBW7JevMA1ANdUOhJQWg-CA8v/view" target="_blank" class="mob-btn">CV ↓</a>
+    </div>
+  </div>
+
+  <!-- HOME CANVAS -->
+  <div class="home-canvas" id="home-canvas">
+
+    <!-- 3 fotos natureza — sem sombra, sem borda arredondada -->
+    <div class="hp hp1 ca">
+      <img src="img/home-01.jpg" alt="">
+    </div>
+    <div class="hp hp2 ca">
+      <img src="img/home-02.jpg" alt="">
+    </div>
+    <div class="hp hp3 ca">
+      <img src="img/home-03.jpg" alt="">
+    </div>
+
+    <!-- FRASE CENTRAL — centralizada, sem laterais -->
+    <div class="home-phrase">
+      <span class="home-phrase-main">Tava te esperando.</span>
+      <span class="home-phrase-sub">Product Designer · Salvador, BA · 2025</span>
+    </div>
+
+    <!-- TAGS — desktop: posicionadas absolutas. Mobile: via home-tags-mobile -->
+    <!-- Storytelling: à direita da hp2 (bottom:10% left:4%, width:~20vw), com distância -->
+    <div class="ftag ftag-1 ca desktop-only" style="bottom:16%;left:27%">Storytelling</div>
+    <!-- UX/UI restaurada — direita baixo -->
+    <div class="ftag ftag-2 ca desktop-only" style="top:62%;right:5%">UX / UI</div>
+    <div class="ftag ftag-3 ca desktop-only" style="bottom:8%;right:22%">SQL · Python · Power BI</div>
+    <div class="ftag ftag-4 ca desktop-only" style="top:30%;left:6%">Product Analytics</div>
+    <!-- Design Systems entre hp3 e hp1 -->
+    <div class="ftag ftag-5 ca desktop-only" style="top:12%;left:52%">Design Systems</div>
+
+    <!-- Tags mobile — enfileiradas -->
+    <div class="home-tags-mobile">
+      <div class="ftag">Design Systems</div>
+      <div class="ftag">UX / UI</div>
+      <div class="ftag">SQL · Python · Power BI</div>
+      <div class="ftag">Product Analytics</div>
+      <div class="ftag">Storytelling</div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
+      <div class="scroll-hint-line"></div>
+      <div class="scroll-hint-txt">scroll</div>
+    </div>
+
+  </div>
+
+  <!-- SOBRE — acordeão com foto -->
+  <section id="sobre" class="sobre-section">
+
+    <!-- Cabeçalho acordeão -->
+    <div class="sobre-toggle" id="sobre-toggle" onclick="toggleSobre()">
+      <div class="sobre-toggle-left">
+        <h2 class="sobre-toggle-title">Quem é esse cara?</h2>
+      </div>
+      <div class="sobre-toggle-right">
+        <div class="sobre-avail-badge">
+          <div class="sobre-avail-dot"></div>
+          Disponível · Pleno · Salvador ou Remoto
+        </div>
+        <div class="sobre-chevron" id="sobre-chevron">↓</div>
+      </div>
+    </div>
+
+    <!-- Conteúdo expansível -->
+    <div class="sobre-body" id="sobre-body">
+      <div class="sobre-inner">
+        <!-- Foto -->
+        <div class="sobre-photo reveal-scale">
+          <div class="sobre-photo-ph">
+            <span>foto.jpg</span>
+          </div>
+        </div>
+        <!-- Texto -->
+        <div class="sobre-text reveal-left">
+          <p class="sobre-quote">"Filho de artesão e de uma mãe do sertão. Cresci trigêmeo: aprendi a compartilhar, cocriar, e entender que resultado bom é sempre conjunto. O que faço hoje tem a mesma lógica. Não tem atalho. Vem da persistência, tem método, tem cuidado e tem volta quando precisa. O processo nunca para."</p>
+          <p class="sobre-p">Passei por agências, emissoras e startups criando para <strong>Google, YouTube, Rede Bahia, BTG, Prefeitura de Salvador</strong>. Hoje curso Product Analytics na PM3 e aplico SQL e Python no dia a dia para somar design com dados e tomar decisões com mais evidência.</p>
+          <div class="sobre-areas stagger">
+            <div class="sa"><div class="sa-t">Design de Produto</div><div class="sa-d">Soluções escaláveis com impacto real.</div></div>
+            <div class="sa"><div class="sa-t">UX / UI</div><div class="sa-d">Interfaces com foco em usabilidade.</div></div>
+            <div class="sa"><div class="sa-t">Design Systems</div><div class="sa-d">Componentes que escalam.</div></div>
+            <div class="sa"><div class="sa-t">Análise de Dados</div><div class="sa-d">Python, SQL e Power BI.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO TICKER — prova social -->
+  <div class="ticker-wrap reveal-fade">
+    <div class="ticker-track-wrap">
+      <div class="ticker-track" id="ticker-track">
+        <span class="tlogo">Google</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">Rede Bahia</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">BTG Pactual</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">Wellhub</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">YouTube</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">Prefeitura de Salvador</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">YouTube</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">Kinvo</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">Kivid</span>
+        <span class="tsep">·</span>
+        <!-- duplicado para loop infinito -->
+        <span class="tlogo">Google</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">Rede Bahia</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">BTG Pactual</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">Wellhub</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">YouTube</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">Prefeitura de Salvador</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">YouTube</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">Kinvo</span>
+        <span class="tsep">·</span>
+        <span class="tlogo">Kivid</span>
+        <span class="tsep">·</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASES -->
+  <section id="cases" class="cases">
+    <div class="cases-hd reveal">
+      <div class="cases-title">Projetos</div>
+    </div>
+    <div class="cases-grid">
+
+      <div class="cc reveal-scale" onclick="openCase('wellhub','340 treinos. Nenhuma celebração.')">
+        <div class="cc-img" style="background:#2a2a2a">
+          <div class="cc-img-ph"><div class="cc-img-ph-lbl" style="color:rgba(255,255,255,.3);background:rgba(255,255,255,.08)">wellhub-hero.jpg</div></div>
+          <div class="cc-num">02</div>
+          <div class="cc-tagrow">
+            <span class="cc-tag" style="color:#111;background:#d8d8d8">UX/UI</span>
+            <span class="cc-tag" style="color:#111;background:#d8d8d8">Gamification</span>
+          </div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-ctx">Wellhub · Wellness</div>
+          <div class="cc-ttl">340 treinos. Nenhuma celebração.</div>
+          <div class="cc-desc">Transformar o check-in num momento de conquista com design emocional.</div>
+          <div class="cc-foot"><span class="cc-meta">Product Designer · 2 semanas</span><div class="cc-arrow-wrap">↗</div></div>
+        </div>
+      </div>
+
+      <div class="cc reveal-scale d1" onclick="openCase('credenciados','O usuário foi no Google.')">
+        <div class="cc-img" style="background:#2a2a2a">
+          <div class="cc-img-ph"><div class="cc-img-ph-lbl" style="color:rgba(255,255,255,.3);background:rgba(255,255,255,.08)">credenciados-hero.jpg</div></div>
+          <div class="cc-num">03</div>
+          <div class="cc-tagrow">
+            <span class="cc-tag" style="color:#111;background:#d8d8d8">HealthTech</span>
+            <span class="cc-tag" style="color:#111;background:#d8d8d8">UX Research</span>
+          </div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-ctx">Kivid · HealthTech</div>
+          <div class="cc-ttl">O usuário fechou o app e foi no Google.</div>
+          <div class="cc-desc">Conectar pacientes e profissionais com clareza numa única tela.</div>
+          <div class="cc-foot"><span class="cc-meta">Kivid · 3 semanas</span><div class="cc-arrow-wrap">↗</div></div>
+        </div>
+      </div>
+
+      <div class="cc reveal-scale d2" onclick="openCase('checkout','Metade desistia no checkout.')">
+        <div class="cc-img" style="background:#2a2a2a">
+          <div class="cc-img-ph"><div class="cc-img-ph-lbl" style="color:rgba(255,255,255,.3);background:rgba(255,255,255,.08)">checkout-hero.jpg</div></div>
+          <div class="cc-num">04</div>
+          <div class="cc-tagrow">
+            <span class="cc-tag" style="color:#111;background:#d8d8d8">Conversão</span>
+            <span class="cc-tag" style="color:#111;background:#d8d8d8">Mobile</span>
+          </div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-ctx">Kivid · HealthTech</div>
+          <div class="cc-ttl">Metade desistia no meio do checkout.</div>
+          <div class="cc-desc">+15% conversão e -20% abandono de carrinho.</div>
+          <div class="cc-foot"><span class="cc-meta">Kivid · 10 semanas</span><div class="cc-arrow-wrap">↗</div></div>
+        </div>
+      </div>
+
+      <div class="cc reveal-scale d3" onclick="openCase('nps','O time decidia sem ouvir ninguém.')">
+        <div class="cc-img" style="background:#2a2a2a">
+          <div class="cc-img-ph"><div class="cc-img-ph-lbl" style="color:rgba(255,255,255,.3);background:rgba(255,255,255,.08)">nps-hero.jpg</div></div>
+          <div class="cc-num">05</div>
+          <div class="cc-tagrow">
+            <span class="cc-tag" style="color:#111;background:#d8d8d8">NPS</span>
+            <span class="cc-tag" style="color:#111;background:#d8d8d8">Data</span>
+          </div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-ctx">Kivid · HealthTech</div>
+          <div class="cc-ttl">O time decidia sem ouvir ninguém.</div>
+          <div class="cc-desc">Sistema de feedback que gerou cultura data-driven.</div>
+          <div class="cc-foot"><span class="cc-meta">Kivid · 2 semanas</span><div class="cc-arrow-wrap">↗</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRAJETÓRIA -->
+  <section id="trajetoria" class="exp">
+    <div class="exp-sticky reveal">
+      <div class="sec-label">Trajetória</div>
+      <div class="exp-title">Por onde<br>ele passou.</div>
+    </div>
+    <div class="exp-list">
+      <div class="ei reveal"><div class="ei-yr">2024 – hoje</div><div><div class="ei-role">Product Designer</div><div class="ei-co">Branef / FESF · GovTech · Salvador, BA</div><div class="ei-tags"><span class="ei-tag">Product Design</span><span class="ei-tag">Design Systems</span></div></div></div>
+      <div class="ei reveal d1"><div class="ei-yr">2024</div><div><div class="ei-role">Product Designer</div><div class="ei-co">BomConsórcio · Fintech · Salvador, BA</div><div class="ei-tags"><span class="ei-tag">UX/UI</span><span class="ei-tag">Mobile</span></div></div></div>
+      <div class="ei reveal d2"><div class="ei-yr">2022 – 2024</div><div><div class="ei-role">Product Designer</div><div class="ei-co">Kivid · HealthTech · Salvador, BA</div><div class="ei-tags"><span class="ei-tag">UX Research</span><span class="ei-tag">25k usuários</span></div></div></div>
+      <div class="ei reveal d3"><div class="ei-yr">2020 – 2022</div><div><div class="ei-role">Product Designer</div><div class="ei-co">Kinvo (BTG Pactual) · Fintech · SP</div><div class="ei-tags"><span class="ei-tag">700k usuários</span><span class="ei-tag">+25% faturamento</span></div></div></div>
+      <div class="ei reveal d4"><div class="ei-yr">2018 – 2020</div><div><div class="ei-role">Designer</div><div class="ei-co">Rede Bahia · Mídia · Salvador, BA</div><div class="ei-tags"><span class="ei-tag">+150% Instagram</span></div></div></div>
+      <div class="ei reveal d4"><div class="ei-yr">2015 – 2018</div><div><div class="ei-role">Designer</div><div class="ei-co">California, EngenhoNovo, Rocha</div><div class="ei-tags"><span class="ei-tag">Google</span><span class="ei-tag">YouTube</span><span class="ei-tag">Rede Bahia</span><span class="ei-tag">Prefeitura de Salvador</span><span class="ei-tag">BTG</span><span class="ei-tag">YouTube</span></div></div></div>
+    </div>
+  </section>
+
+  <!-- FOOTER PRETO com 4 botões -->
+  <footer class="site-footer">
+    <div class="footer-btns">
+      <a href="mailto:llucastourinho@gmail.com" class="fbtn fbtn-hi">
+        <span class="fbtn-val">llucastourinho@gmail.com</span>
+        <span class="fbtn-arr">↗</span>
+      </a>
+      <a href="https://linkedin.com/in/llucasdecastro" target="_blank" rel="noopener" class="fbtn">
+        <span class="fbtn-val">LinkedIn</span>
+        <span class="fbtn-arr">↗</span>
+      </a>
+      <a href="https://drive.google.com/file/d/1rpBL4lilBW7JevMA1ANdUOhJQWg-CA8v/view" target="_blank" rel="noopener" class="fbtn">
+        <span class="fbtn-val">Currículo</span>
+        <span class="fbtn-arr">↓</span>
+      </a>
+      <a href="tel:+5571992080680" class="fbtn">
+        <span class="fbtn-val">(71) 99208-0680</span>
+        <span class="fbtn-arr">↗</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- FEEDBACK MODAL -->
+  <div class="fb-overlay" id="fb-overlay" onclick="closeFeedbackOutside(event)">
+    <div class="fb-modal">
+      <button class="fb-close" onclick="closeFeedback()">×</button>
+      <div class="fb-title">O que você achou?</div>
+      <div class="fb-sub">Recrutador, designer ou visitante — qualquer feedback ajuda a melhorar esse portfólio.</div>
+      <textarea class="fb-textarea" id="fb-text" rows="5" placeholder="Escreve aqui. Pode ser direto."></textarea>
+      <div class="fb-foot">
+        <span class="fb-anon">Anônimo por padrão.</span>
+        <button class="fb-send" onclick="sendFeedback()">Enviar →</button>
+      </div>
+      <div class="fb-thanks" id="fb-thanks">Obrigado. Vai ajudar muito.</div>
+    </div>
+  </div>
+</div><!-- /page-home -->
+
+<!-- ══ CASE PAGE ══ -->
+<div id="page-case" class="page">
+  <nav class="nav">
+    <div class="nav-name" onclick="closeCase()">Lucas de Castro</div>
+    <div class="nav-links">
+      <a href="https://linkedin.com/in/llucasdecastro" target="_blank" class="nav-link">LinkedIn</a>
+      <div class="nav-sep"></div>
+      <a href="mailto:llucastourinho@gmail.com" class="nav-link">Contato</a>
+      <div class="nav-sep"></div>
+      <button class="nav-feedback" onclick="openFeedback()"><span class="nav-feedback-dot"></span>Feedback</button>
+    </div>
+    <button class="nav-ham" id="case-ham"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="case-nav-bar">
+    <button class="case-back" onclick="closeCase()">← Voltar</button>
+    <div class="case-ttl-nav" id="case-ttl-nav"></div>
+  </div>
+  <div id="case-slot"></div>
+</div>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
