@@ -143,7 +143,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 }
 /* posições e tamanhos desconstruídos */
 /* 4 — hp1 menor (-40% vertical) e mais ao centro */
-.hp1{width:clamp(140px,17vw,260px);aspect-ratio:3/5;top:22%;right:17%}
+.hp1{width:clamp(126px,15vw,234px);aspect-ratio:3/6;top:22%;right:22%}
 /* hp2 mantida */
 .hp2{width:clamp(160px,20vw,300px);aspect-ratio:4/3;bottom:10%;left:17%;transform:rotate(-1.5deg)}
 /* 5 — hp3 deslocada 25% pro centro */
