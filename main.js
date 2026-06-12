@@ -296,76 +296,63 @@ const CASES={
 
 function openCase(id,title){
   const c=CASES[id];
+  if(!c){console.error('Case not found:',id);return;}
   document.getElementById('case-ttl-nav').textContent=title;
-  document.getElementById('case-slot').innerHTML=`
-    <div class="ch" style="--case-color:${c.color}">
-      <div class="ch-ct">
-        <div class="ch-ey">${c.ey}</div>
-        <div class="ch-title">${c.ttl}</div>
-        <div class="ch-meta-row">${c.meta.map(m=>`<span>${m}</span>`).join('')}</div>
-      </div>
-      <div class="ch-img-area" style="background:#111">
-        <div class="ch-img-ph">${id}-hero.jpg</div>
-      </div>
-    </div>
-    <div class="ch-bd">
-      <div class="ch-hook">${c.hook}</div>
 
-      <h3>Contexto e problema</h3>
-      ${c.context}
+  const slot=document.getElementById('case-slot');
+  slot.innerHTML='';
 
-      <div class="ch-imgs">
-        <div class="ch-img-slot wide"><div class="ch-img-slot-lbl">${id}-contexto.jpg</div></div>
-      </div>
+  const ch=document.createElement('div');
+  ch.className='ch';
+  ch.style.setProperty('--case-color',c.color);
 
-      <h3>Diagnóstico</h3>
-      <div class="ch-diag-grid">${c.diags.map(d=>`
-        <div class="ch-diag">
-          <div class="ch-diag-icon">${d.icon}</div>
-          <div class="ch-diag-body">
-            <div class="ch-diag-title">${d.title}</div>
-            <div class="ch-diag-desc">${d.desc}</div>
-          </div>
-        </div>`).join('')}</div>
+  // Header
+  const ct=document.createElement('div');
+  ct.className='ch-ct';
+  ct.innerHTML='<div class="ch-ey">'+c.ey+'</div>'
+    +'<div class="ch-title">'+c.ttl+'</div>'
+    +'<div class="ch-meta-row">'+c.meta.map(function(m){return'<span>'+m+'</span>';}).join('')+'</div>';
+  ch.appendChild(ct);
 
-      <div class="ch-imgs">
-        <div class="ch-img-slot"><div class="ch-img-slot-lbl">${id}-antes.jpg</div></div>
-        <div class="ch-img-slot"><div class="ch-img-slot-lbl">${id}-wireframe.jpg</div></div>
-      </div>
+  // Hero image
+  const imgArea=document.createElement('div');
+  imgArea.className='ch-img-area';
+  imgArea.style.background='#111';
+  imgArea.innerHTML='<div class="ch-img-ph">'+id+'-hero.jpg</div>';
+  ch.appendChild(imgArea);
 
-      <h3>KPIs que guiaram as decisões</h3>
-      <div class="ch-kpi-grid">${c.kpis.map(k=>`
-        <div class="ch-kpi">
-          <div class="ch-kpi-icon">${k.icon}</div>
-          <div class="ch-kpi-label">${k.label}</div>
-          <div class="ch-kpi-val">${k.val}</div>
-          <div class="ch-kpi-desc">${k.desc}</div>
-        </div>`).join('')}</div>
+  // Body
+  const bd=document.createElement('div');
+  bd.className='ch-bd';
 
-      <div class="ch-okr-block">
-        <div class="ch-okr-head">
-          <span class="ch-okr-head-icon">◎</span>
-          <span class="ch-okr-head-label">Objetivo</span>
-          <span class="ch-okr-head-obj">${c.objetivo}</span>
-        </div>
-        <div class="ch-kr-list">${c.krs.map((kr,i)=>`
-          <div class="ch-kr">
-            <div class="ch-kr-num">KR${i+1}</div>
-            <div class="ch-kr-txt">${kr.txt}</div>
-            <div class="ch-kr-badge">${kr.meta}</div>
-          </div>`).join('')}</div>
-      </div>
+  bd.innerHTML='<div class="ch-hook">'+c.hook+'</div>'
+    +'<h3>Contexto e problema</h3>'
+    +c.context
+    +'<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-contexto.jpg</div></div></div>'
+    +'<h3>Diagnóstico</h3>'
+    +'<div class="ch-diag-grid">'+c.diags.map(function(d){
+      return'<div class="ch-diag"><div class="ch-diag-icon">'+d.icon+'</div><div class="ch-diag-body"><div class="ch-diag-title">'+d.title+'</div><div class="ch-diag-desc">'+d.desc+'</div></div></div>';
+    }).join('')+'</div>'
+    +'<div class="ch-imgs"><div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-antes.jpg</div></div><div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-wireframe.jpg</div></div></div>'
+    +'<h3>KPIs que guiaram as decisões</h3>'
+    +'<div class="ch-kpi-grid">'+c.kpis.map(function(k){
+      return'<div class="ch-kpi"><div class="ch-kpi-icon">'+k.icon+'</div><div class="ch-kpi-label">'+k.label+'</div><div class="ch-kpi-val">'+k.val+'</div><div class="ch-kpi-desc">'+k.desc+'</div></div>';
+    }).join('')+'</div>'
+    +'<div class="ch-okr-block"><div class="ch-okr-head"><span class="ch-okr-head-icon">◎</span><span class="ch-okr-head-label">Objetivo</span><span class="ch-okr-head-obj">'+c.objetivo+'</span></div>'
+    +'<div class="ch-kr-list">'+c.krs.map(function(kr,i){
+      return'<div class="ch-kr"><div class="ch-kr-num">KR'+(i+1)+'</div><div class="ch-kr-txt">'+kr.txt+'</div><div class="ch-kr-badge">'+kr.meta+'</div></div>';
+    }).join('')+'</div></div>'
+    +'<h3>A solução</h3>'
+    +c.sol
+    +'<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-solucao.jpg</div></div></div>'
+    +'<h3>Resultados</h3>'
+    +'<div class="res-grid">'+c.results.map(function(r){
+      return'<div class="res-item"><div class="res-n">'+r[0]+'</div><div class="res-l">'+r[1]+'</div></div>';
+    }).join('')+'</div>';
 
-      <h3>A solução</h3>
-      ${c.sol}
+  ch.appendChild(bd);
+  slot.appendChild(ch);
 
-      <div class="ch-imgs">
-        <div class="ch-img-slot wide"><div class="ch-img-slot-lbl">${id}-solucao.jpg</div></div>
-      </div>
-
-      <h3>Resultados</h3>
-      <div class="res-grid">${c.results.map(r=>`<div class="res-item"><div class="res-n">${r[0]}</div><div class="res-l">${r[1]}</div></div>`).join('')}</div>
-    </div>`;
   document.getElementById('page-home').classList.remove('active');
   document.getElementById('page-case').classList.add('active');
   window.scrollTo({top:0,behavior:'instant'});
@@ -378,7 +365,7 @@ function closeCase(){
   window.scrollTo({top:0,behavior:'instant'});
 }
 
-/* ── FEEDBACK MODAL v2 ── */
+/* ── FEEDBACK MODAL ── */
 function openFeedback(){
   document.getElementById('fb-overlay').classList.add('open');
   document.body.style.overflow='hidden';
