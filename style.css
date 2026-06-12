@@ -232,7 +232,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 /* ══ SOBRE — acordeão ══ */
 .sobre-section{border-top:none;background:var(--text);}
 
-.sobre-toggle{padding:56px 240px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background .2s;user-select:none;border-bottom:0.5px solid rgba(255,255,255,.1);}
+.sobre-toggle{padding:56px 240px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background .2s;user-select:none;}
 .sobre-toggle:hover{background:rgba(255,255,255,.04)}
 .sobre-toggle-left{display:flex;align-items:center}
 .sobre-toggle-title{
@@ -271,11 +271,12 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
   max-height:0;overflow:hidden;
   transition:max-height .6s var(--ease);
   background:var(--text);
+  border-top:none;
 }
 .sobre-body.open{max-height:800px}
 
 .sobre-inner{
-  padding:0 240px 80px;
+  padding:60px 240px 80px;
   display:grid;grid-template-columns:280px 1fr;gap:60px;
   align-items:start;
 }
