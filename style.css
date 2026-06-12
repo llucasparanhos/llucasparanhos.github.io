@@ -230,7 +230,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 @keyframes sh-entry{to{opacity:.4}}
 
 /* ══ SOBRE — acordeão ══ */
-.sobre-section{border-top:none;background:#111;}
+.sobre-section{border-top:0.5px solid rgba(255,255,255,.15);background:#111;}
 
 .sobre-toggle{padding:56px 240px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background .2s;user-select:none;}
 .sobre-toggle:hover{background:rgba(255,255,255,.04)}
@@ -515,7 +515,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 }
 
 /* ══ FOOTER PRETO — compacto, centralizado ══ */
-.site-footer{background:#111;padding:56px 240px;display:flex;justify-content:center;}
+.site-footer{background:#111;padding:56px 240px;display:flex;justify-content:center;border-top:0.5px solid rgba(255,255,255,.15);}
 .footer-top{display:none}
 .footer-name{font-size:.78rem;font-weight:500;color:rgba(255,255,255,.35)}
 .footer-copy{font-size:.6rem;color:rgba(255,255,255,.2)}
