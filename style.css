@@ -72,7 +72,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
   background:none;border:none;cursor:pointer;
 }
 .nav-ham span{
-  display:block;width:20px;height:1px;background:#fff;
+  display:block;width:20px;height:1px;background:rgba(255,255,255,.8);
   border-radius:1px;transition:all .3s;
 }
 .nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
@@ -230,7 +230,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 @keyframes sh-entry{to{opacity:.4}}
 
 /* ══ SOBRE — acordeão ══ */
-.sobre-section{border-top:none;background:var(--text);}
+.sobre-section{border-top:none;background:#111;}
 
 .sobre-toggle{padding:56px 240px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background .2s;user-select:none;}
 .sobre-toggle:hover{background:rgba(255,255,255,.04)}
@@ -270,7 +270,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 .sobre-body{
   max-height:0;overflow:hidden;
   transition:max-height .6s var(--ease);
-  background:var(--text);
+  background:#111;
   border-top:none;
 }
 .sobre-body.open{max-height:800px}
@@ -515,7 +515,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 }
 
 /* ══ FOOTER PRETO — compacto, centralizado ══ */
-.site-footer{background:var(--text);padding:56px 240px;display:flex;justify-content:center;}
+.site-footer{background:#111;padding:56px 240px;display:flex;justify-content:center;}
 .footer-top{display:none}
 .footer-name{font-size:.78rem;font-weight:500;color:rgba(255,255,255,.35)}
 .footer-copy{font-size:.6rem;color:rgba(255,255,255,.2)}
@@ -530,12 +530,12 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
   transition:background .2s,border-color .2s;
 }
 .fbtn:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.5)}
-.fbtn-hi{background:#fff;border-color:#fff;border-radius:100px;}
-.fbtn-hi:hover{background:#efefef}
+.fbtn-hi{background:#333;border-color:#555;border-radius:100px;}
+.fbtn-hi:hover{background:#444}
 .fbtn-val{font-size:.78rem;font-weight:400;color:#fff;white-space:nowrap}
-.fbtn-hi .fbtn-val{color:#111}
+.fbtn-hi .fbtn-val{color:#fff}
 .fbtn-arr{font-size:.72rem;color:rgba(255,255,255,.3)}
-.fbtn-hi .fbtn-arr{color:rgba(17,17,17,.4)}
+.fbtn-hi .fbtn-arr{color:rgba(255,255,255,.4)}
 .fbtn-lbl{display:none}
 
 /* ══ ANIMAÇÕES DE ENTRADA E SCROLL ══ */
@@ -722,7 +722,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
   border-radius:12px;
 }
 .ch-okr-head{
-  background:var(--text);color:#fff;
+  background:#222;color:#fff;
   padding:14px 18px;
   display:flex;align-items:center;gap:10px;
 }
