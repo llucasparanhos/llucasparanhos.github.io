@@ -7,7 +7,7 @@ window.addEventListener('load',()=>{
 /* ── CANVAS HEIGHT ── */
 function setH(){
   const c=document.getElementById('home-canvas');
-  if(c)c.style.height=(window.innerHeight-52)+'px';
+  if(c)c.style.height=Math.round((window.innerHeight-52)*0.85)+'px';
 }
 setH();window.addEventListener('resize',setH);
 
