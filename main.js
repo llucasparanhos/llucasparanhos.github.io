@@ -95,6 +95,12 @@ const obs = new IntersectionObserver(entries=>{
   });
 },{threshold:.06,rootMargin:'0px 0px -40px 0px'});
 allReveal.forEach(r=>obs.observe(r));
+/* Fallback: force visible after 1s */
+setTimeout(()=>{
+  document.querySelectorAll('.reveal,.reveal-scale,.reveal-left,.reveal-fade,.stagger').forEach(el=>{
+    el.classList.add('visible');
+  });
+},1000);
 
 /* ── PARALLAX SUAVE NO SCROLL ── */
 let ticking=false;
