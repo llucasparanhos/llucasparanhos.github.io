@@ -202,6 +202,8 @@ const CASES={
       {icon:'📊',label:'Taxa de abandono',val:'Fluxo de check-in',desc:'Usuários que iniciam mas não completam o check-in'},
       {icon:'⭐',label:'NPS de personalização',val:'Percepção do usuário',desc:'Sensação de que o app reconhece e valoriza o esforço'}
     ],
+    role:'Product Designer responsável de ponta a ponta: pesquisa, benchmark, wireframes, protótipo e testes de usabilidade.',
+    insight:'<p>Todo mundo via o check-in como um <strong>botão</strong>. Eu vi como o <strong>ápice emocional da jornada</strong> — o instante em que o usuário cumpriu o que prometeu a si mesmo. Essa mudança de enquadramento mudou tudo: não era sobre confirmar uma presença, era sobre reconhecer um esforço.</p>',
     objetivo:'Transformar o check-in num ritual de conquista que reforce o hábito.',
     krs:[
       {txt:'Aumentar o tempo de permanência na tela pós check-in',meta:'+30%'},
@@ -229,6 +231,8 @@ const CASES={
       {icon:'📅',label:'Agendamentos no app',val:'% do total',desc:'Consultas iniciadas dentro do Kivid vs fora'},
       {icon:'🎧',label:'Tickets de suporte',val:'Sobre credenciados',desc:'Chamados sobre informações básicas de profissionais'}
     ],
+    role:'Product Designer responsável pela descoberta, pesquisa com usuários internos, arquitetura da informação, protótipo e validação.',
+    insight:'<p>A lista de credenciados existia. Os dados existiam. Mas estavam <strong>espalhados e sem hierarquia</strong>. O insight não foi criar informação nova — foi perceber que o problema era de <strong>experiência, não de dados</strong>. Bastava montar uma jornada de decisão em volta do que já existia.</p>',
     objetivo:'Tornar a busca de profissionais confiável, completa e rápida o suficiente para eliminar a necessidade de sair do app.',
     krs:[
       {txt:'Reduzir taxa de abandono da tela de credenciados',meta:'-30%'},
@@ -256,6 +260,8 @@ const CASES={
       {icon:'🛒',label:'Abandono de carrinho',val:'% por etapa',desc:'Em qual passo os usuários desistem com mais frequência'},
       {icon:'⚡',label:'Tempo de conclusão',val:'Média por sessão',desc:'Minutos do início ao fim de uma compra concluída'}
     ],
+    role:'Product Designer responsável pela análise de dados (Clarity), redesenho do fluxo, protótipo e acompanhamento de métricas.',
+    insight:'<p>Os heatmaps do Clarity revelaram o ponto exato de abandono: o <strong>primeiro campo do formulário</strong>. A virada foi entender que cada campo a mais era uma chance de desistência. Em vez de pedir dados, o sistema passou a <strong>preencher dados</strong> — via CPF, automaticamente. Menos fricção, mais conversão.</p>',
     objetivo:'Tornar a compra do plano Kivid tão simples que o usuário complete sem precisar pensar.',
     krs:[
       {txt:'Aumentar taxa de conversão do checkout',meta:'+15%'},
@@ -283,6 +289,8 @@ const CASES={
       {icon:'💬',label:'Insights acionáveis',val:'Por mês',desc:'Feedbacks que geram mudanças concretas no produto ou no atendimento'},
       {icon:'📏',label:'Linha de base',val:'Score trimestral',desc:'Referência para medir evolução de satisfação ao longo do tempo'}
     ],
+    role:'Product Designer responsável pela concepção do canal, benchmark, fluxo, microcopy e protótipo.',
+    insight:'<p>O problema não era falta de tela — era <strong>falta de cultura de escuta</strong>. O insight foi tratar a coleta como parte invisível da jornada: <strong>rápida, leve, no momento emocional certo</strong>, logo após o atendimento. Emojis no lugar de escalas frias. O qualitativo como bônus, nunca obrigação.</p>',
     objetivo:'Criar uma cultura de feedback contínuo que alimente decisões de produto com dados reais dos pacientes.',
     krs:[
       {txt:'Coletar NPS de pelo menos 30% dos atendimentos mensais',meta:'30%'},
@@ -326,18 +334,20 @@ function openCase(id,title){
   bd.className='ch-bd';
 
   bd.innerHTML='<div class="ch-hook">'+c.hook+'</div>'
-    +'<h3>Contexto e problema</h3>'
+    +'<div class="ch-role"><span class="ch-role-lbl">Meu papel</span><span class="ch-role-txt">'+c.role+'</span></div>'
+    +'<h3>O problema</h3>'
     +c.context
     +'<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-contexto.jpg</div></div></div>'
-    +'<h3>Diagnóstico</h3>'
+    +'<h3>O que estava quebrado</h3>'
     +'<div class="ch-diag-grid">'+c.diags.map(function(d){
       return'<div class="ch-diag"><div class="ch-diag-icon">'+d.icon+'</div><div class="ch-diag-body"><div class="ch-diag-title">'+d.title+'</div><div class="ch-diag-desc">'+d.desc+'</div></div></div>';
     }).join('')+'</div>'
-    +'<div class="ch-imgs"><div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-antes.jpg</div></div><div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-wireframe.jpg</div></div></div>'
     +'<h3>KPIs que guiaram as decisões</h3>'
     +'<div class="ch-kpi-grid">'+c.kpis.map(function(k){
       return'<div class="ch-kpi"><div class="ch-kpi-icon">'+k.icon+'</div><div class="ch-kpi-label">'+k.label+'</div><div class="ch-kpi-val">'+k.val+'</div><div class="ch-kpi-desc">'+k.desc+'</div></div>';
     }).join('')+'</div>'
+    +'<div class="ch-insight"><div class="ch-insight-lbl">A virada</div>'+c.insight+'</div>'
+    +'<div class="ch-imgs"><div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-antes.jpg</div></div><div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-wireframe.jpg</div></div></div>'
     +'<div class="ch-okr-block"><div class="ch-okr-head"><span class="ch-okr-head-icon">◎</span><span class="ch-okr-head-label">Objetivo</span><span class="ch-okr-head-obj">'+c.objetivo+'</span></div>'
     +'<div class="ch-kr-list">'+c.krs.map(function(kr,i){
       return'<div class="ch-kr"><div class="ch-kr-num">KR'+(i+1)+'</div><div class="ch-kr-txt">'+kr.txt+'</div><div class="ch-kr-badge">'+kr.meta+'</div></div>';

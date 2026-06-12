@@ -673,6 +673,40 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
   padding:20px 20px 20px 18px;border-left:1.5px solid var(--text);
   background:rgba(17,17,17,.03);margin-bottom:40px;font-style:italic;
 }
+
+/* Meu papel — bloco de credibilidade */
+.ch-role{
+  display:flex;flex-direction:column;gap:6px;
+  padding:18px 20px;margin-bottom:40px;
+  background:rgba(255,255,255,.04);
+  border-radius:12px;
+  border-left:2px solid var(--case-color,#666);
+}
+.ch-role-lbl{
+  font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--case-color,rgba(255,255,255,.5));
+}
+.ch-role-txt{
+  font-size:.88rem;font-weight:300;color:rgba(255,255,255,.7);line-height:1.6;
+}
+
+/* A virada — insight de raciocínio */
+.ch-insight{
+  margin:36px 0;padding:28px 28px;
+  background:rgba(255,255,255,.05);
+  border-radius:14px;
+  border:0.5px solid rgba(255,255,255,.1);
+  position:relative;
+}
+.ch-insight-lbl{
+  font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--case-color,rgba(255,255,255,.6));margin-bottom:12px;
+}
+.ch-insight p{
+  font-size:1.05rem;font-weight:300;color:#fff;line-height:1.7;margin:0;
+}
+.ch-insight p strong{font-weight:600;color:#fff}
+
 .ch-bd h3{
   font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
   color:var(--muted);margin:32px 0 10px;padding-bottom:8px;
