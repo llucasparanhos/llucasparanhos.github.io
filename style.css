@@ -230,14 +230,14 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 @keyframes sh-entry{to{opacity:.4}}
 
 /* ══ SOBRE — acordeão ══ */
-.sobre-section{border-top:0.5px solid var(--border)}
+.sobre-section{border-top:none;background:var(--text);}
 
-.sobre-toggle{padding:56px 240px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background .2s;user-select:none;}
-.sobre-toggle:hover{background:rgba(17,17,17,.015)}
+.sobre-toggle{padding:56px 240px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background .2s;user-select:none;border-bottom:0.5px solid rgba(255,255,255,.1);}
+.sobre-toggle:hover{background:rgba(255,255,255,.04)}
 .sobre-toggle-left{display:flex;align-items:center}
 .sobre-toggle-title{
   font-size:clamp(1.6rem,3vw,2.8rem);font-weight:600;
-  letter-spacing:-.03em;color:var(--text);
+  letter-spacing:-.03em;color:#fff;
 }
 .sobre-name{
   font-size:clamp(1.6rem,3vw,2.8rem);font-weight:600;
@@ -249,7 +249,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 .sobre-avail-badge{
   display:flex;align-items:center;gap:8px;
   font-size:.72rem;font-weight:500;letter-spacing:.04em;
-  color:var(--text);background:var(--bg2);
+  color:#fff;background:rgba(255,255,255,.1);
   padding:8px 16px;
   border-radius:12px;
 }
@@ -260,7 +260,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 }
 
 .sobre-chevron{
-  font-size:1.2rem;color:var(--muted);
+  font-size:1.2rem;color:rgba(255,255,255,.5);
   transition:transform .4s var(--ease);
   line-height:1;
 }
@@ -270,6 +270,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 .sobre-body{
   max-height:0;overflow:hidden;
   transition:max-height .6s var(--ease);
+  background:var(--text);
 }
 .sobre-body.open{max-height:800px}
 
@@ -299,29 +300,29 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 
 .sobre-quote{
   font-size:clamp(1rem,1.8vw,1.5rem);font-weight:400;
-  line-height:1.55;color:var(--text);letter-spacing:-.01em;
+  line-height:1.55;color:#fff;letter-spacing:-.01em;
 }
 .sobre-quote strong{font-weight:600}
 .sobre-p{
   font-size:clamp(.9rem,1.4vw,1.1rem);
-  font-weight:300;color:var(--muted);line-height:1.75;
+  font-weight:300;color:rgba(255,255,255,.55);line-height:1.75;
 }
-.sobre-p strong{color:var(--text);font-weight:500}
+.sobre-p strong{color:#fff;font-weight:500}
 .sobre-areas{
   display:grid;grid-template-columns:1fr 1fr;gap:1px;
-  background:var(--border);
+  background:rgba(255,255,255,.1);
   border-radius:12px;overflow:hidden;
 }
-.sa{background:var(--bg);padding:16px}
-.sa-t{font-size:.8rem;font-weight:500;margin-bottom:4px}
-.sa-d{font-size:.7rem;font-weight:300;color:var(--muted);line-height:1.55}
+.sa{background:rgba(255,255,255,.06);padding:16px}
+.sa-t{font-size:.8rem;font-weight:500;margin-bottom:4px;color:#fff}
+.sa-d{font-size:.7rem;font-weight:300;color:rgba(255,255,255,.4);line-height:1.55}
 
 /* ══ LOGO TICKER ══ */
 .ticker-wrap{
   padding:52px 0;
   overflow:hidden;
   background:var(--bg);
-  border-top:0.5px solid var(--border);
+  border-top:none;
   border-bottom:0.5px solid var(--border);
 }
 .ticker-eyebrow{
@@ -390,6 +391,8 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
   aspect-ratio:16/9;overflow:hidden;
   position:relative;
   background:#111;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
 }
 .cc-img img,.cc-img-ph{
   width:100%;height:100%;object-fit:cover;
