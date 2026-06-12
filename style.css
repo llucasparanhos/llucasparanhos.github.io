@@ -384,7 +384,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 
 /* Card */
 .cc{
-  background:#1e1e1e;border:0.5px solid rgba(255,255,255,.07);
+  background:#111;border:0.5px solid rgba(255,255,255,.07);
   cursor:pointer;overflow:hidden;
   border-radius:12px;
   transition:border-color .3s,transform .35s cubic-bezier(.34,1.2,.64,1),box-shadow .35s;
