@@ -523,17 +523,18 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 .footer-top{display:none}
 .footer-name{font-size:.78rem;font-weight:500;color:rgba(255,255,255,.35)}
 .footer-copy{font-size:.6rem;color:rgba(255,255,255,.2)}
-.footer-btns{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;}
+.footer-btns{display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:center;}
 .fbtn{
   display:inline-flex;align-items:center;gap:8px;
   padding:9px 18px;
   background:transparent;
   border:0.5px solid rgba(255,255,255,.22);
+  border-radius:100px;
   text-decoration:none;font-family:var(--ff);
   transition:background .2s,border-color .2s;
 }
 .fbtn:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.5)}
-.fbtn-hi{background:#fff;border-color:#fff}
+.fbtn-hi{background:#fff;border-color:#fff;border-radius:100px;}
 .fbtn-hi:hover{background:#efefef}
 .fbtn-val{font-size:.78rem;font-weight:400;color:#fff;white-space:nowrap}
 .fbtn-hi .fbtn-val{color:#111}
@@ -944,5 +945,5 @@ body:has(.cc:hover) .cursor-ring,.cursor-ring.big{width:80px;height:80px}
 @media(max-width:480px){
   .res-grid{grid-template-columns:1fr}
   .sobre-areas{grid-template-columns:1fr}
-  .footer-btns{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;}
+  .footer-btns{display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:center;}
 }
