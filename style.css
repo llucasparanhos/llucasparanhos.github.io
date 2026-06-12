@@ -129,6 +129,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
   background:var(--bg);
   padding-left:240px;
   padding-right:240px;
+  height:85vh;
 }
 
 /* ── Fotos ── */
