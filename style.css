@@ -127,8 +127,6 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
   position:relative;
   overflow:hidden;
   background:var(--bg);
-  padding-left:240px;
-  padding-right:240px;
   height:85vh;
 }
 
@@ -154,7 +152,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 /* ── Frase central ── */
 .home-phrase{
   position:absolute;
-  top:50%;left:0;right:0;
+  top:50%;left:240px;right:240px;
   transform:translateY(-50%);
   z-index:10;
   text-align:center;
@@ -190,13 +188,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 .desktop-only{display:block}
 
 /* ── Scroll hint ── */
-.scroll-hint{
-  position:absolute;bottom:28px;left:50%;
-  transform:translateX(-50%);
-  z-index:10;display:flex;flex-direction:column;
-  align-items:center;gap:6px;cursor:pointer;
-  opacity:.4;transition:opacity .2s;
-}
+.scroll-hint{display:none}
 .scroll-hint:hover{opacity:.8}
 .scroll-hint-line{
   width:0.5px;height:40px;background:var(--text);
@@ -228,13 +220,13 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 .ftag-3{animation:ca-fade .8s var(--ease) 1.35s forwards}
 .ftag-4{animation:ca-fade .8s var(--ease) 1.45s forwards}
 .ftag-5{animation:ca-fade .8s var(--ease) 1.55s forwards}
-.scroll-hint{opacity:0;animation:ca-fade .8s var(--ease) 1.8s forwards}
+.scroll-hint{display:none}
 .ftag-1{animation-delay:1s}
 .ftag-2{animation-delay:1.1s}
 .ftag-3{animation-delay:1.2s}
 .ftag-4{animation-delay:1.3s}
 .ftag-5{animation-delay:1.4s}
-.scroll-hint{opacity:0;animation:sh-entry .8s var(--ease) 1.6s forwards}
+.scroll-hint{display:none}
 @keyframes sh-entry{to{opacity:.4}}
 
 /* ══ SOBRE — acordeão ══ */
@@ -890,7 +882,7 @@ body:has(.cc:hover) .cursor-ring,.cursor-ring.big{width:80px;height:80px}
     justify-content:center;padding:0;margin-top:18px;width:100%;
   }
   .ftag{position:static!important;transform:none!important;display:inline-flex;font-size:.56rem;padding:5px 11px}
-  .scroll-hint{position:static;transform:none;margin-top:20px}
+  .scroll-hint{display:none}
 
   /* SOBRE acordeão mobile */
   .sobre-toggle{padding:28px 20px;display:flex;align-items:center;justify-content:space-between;}
