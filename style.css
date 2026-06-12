@@ -856,7 +856,7 @@ body:has(.cc:hover) .cursor-ring,.cursor-ring.big{width:80px;height:80px}
 
   /* CONTAINMENT — evita scroll horizontal */
   html,body{overflow-x:hidden;width:100%;max-width:100%}
-  .page,#page-home,#page-case{width:100%;max-width:100%;overflow-x:hidden}
+  .page{width:100%;max-width:100%;overflow-x:hidden}
 
   /* NAV */
   .nav-role,.nav-links{display:none}
