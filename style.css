@@ -1,12 +1,12 @@
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#ffffff;
-  --bg2:#f5f5f5;
-  --text:#111111;
-  --muted:#888;
+  --bg:#111111;
+  --bg2:#1e1e1e;
+  --text:#ffffff;
+  --muted:#666;
   --dim:#ccc;
-  --border:rgba(17,17,17,.1);
+  --border:rgba(255,255,255,.1);
   --gold:#b8a06e;
   --ff:'Inter',system-ui,sans-serif;
   --fb:'DM Sans',system-ui,sans-serif;
@@ -47,8 +47,8 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
   position:relative;z-index:200;
   height:88px;padding:0 240px;
   display:flex;align-items:center;justify-content:space-between;
-  background:var(--text);backdrop-filter:blur(16px);
-  border-bottom:0.5px solid rgba(255,255,255,.1);
+  background:var(--bg);backdrop-filter:blur(16px);
+  border-bottom:0.5px solid rgba(255,255,255,.08);
 }
 .nav-name{
   font-size:1.1rem;font-weight:600;letter-spacing:-.01em;color:#fff;
@@ -81,7 +81,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 
 /* MOB MENU */
 .mob-menu{
-  display:none;position:fixed;inset:0;background:var(--bg);
+  display:none;position:fixed;inset:0;background:#111;
   z-index:300;flex-direction:column;
   clip-path:inset(0 0 100% 0);
   transition:clip-path .5s var(--ease);
@@ -314,7 +314,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
   background:rgba(255,255,255,.1);
   border-radius:12px;overflow:hidden;
 }
-.sa{background:rgba(255,255,255,.06);padding:16px}
+.sa{background:rgba(255,255,255,.04);padding:16px}
 .sa-t{font-size:.8rem;font-weight:500;margin-bottom:4px;color:#fff}
 .sa-d{font-size:.7rem;font-weight:300;color:rgba(255,255,255,.4);line-height:1.55}
 
@@ -323,8 +323,8 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
   padding:52px 0;
   overflow:hidden;
   background:var(--bg);
-  border-top:none;
-  border-bottom:0.5px solid var(--border);
+  border-top:0.5px solid rgba(255,255,255,.08);
+  border-bottom:0.5px solid rgba(255,255,255,.08);
 }
 .ticker-eyebrow{
   font-size:.58rem;font-weight:500;letter-spacing:.24em;
@@ -349,7 +349,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 .tlogo{
   font-size:.8rem;font-weight:400;letter-spacing:.12em;
   text-transform:uppercase;
-  color:rgba(17,17,17,.4);
+  color:rgba(255,255,255,.4);
   padding:0 44px;
   white-space:nowrap;
   transition:color .2s;
@@ -364,23 +364,23 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 
 /* ══ CASES ══ */
 .cases{
-  padding:100px 240px;border-top:none;
-  background:var(--text);
+  padding:100px 240px;border-top:0.5px solid rgba(255,255,255,.08);
+  background:var(--bg);
 }
 .cases-hd{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:48px;}
 .cases-title{
   font-size:clamp(1.6rem,3vw,2.8rem);font-weight:600;
-  letter-spacing:-.03em;color:#fff;
+  letter-spacing:-.03em;color:var(--text);
 }
 .cases-cnt{
   font-size:.62rem;font-weight:400;letter-spacing:.18em;
-  text-transform:uppercase;color:rgba(255,255,255,.3);
+  text-transform:uppercase;color:var(--muted);
 }
 .cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
 
 /* Card */
 .cc{
-  background:#111;border:0.5px solid rgba(255,255,255,.07);
+  background:#1a1a1a;border:0.5px solid rgba(255,255,255,.1);
   cursor:pointer;overflow:hidden;
   border-radius:12px;
   transition:border-color .3s,transform .35s cubic-bezier(.34,1.2,.64,1),box-shadow .35s;
@@ -391,7 +391,7 @@ button{cursor:pointer;font-family:var(--ff);border:none;background:none}
 .cc-img{
   aspect-ratio:16/9;overflow:hidden;
   position:relative;
-  background:#111;
+  background:#0d0d0d;
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
 }
