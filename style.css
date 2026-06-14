@@ -234,7 +234,7 @@ img { display:block; max-width:100%; }
 .tsep { color:var(--c-line); padding:0 .5rem; }
 
 /* ── PROJETOS ── */
-.projects { padding:var(--gap-sec) var(--gap-nav); }
+.projects { padding:calc(var(--gap-sec) * .8) var(--gap-nav) var(--gap-sec); }
 .projects-hd {
   display:flex; align-items:baseline; justify-content:space-between;
   padding-bottom:1.5rem; border-bottom:1px solid var(--c-line);
