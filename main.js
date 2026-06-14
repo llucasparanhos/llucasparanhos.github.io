@@ -371,13 +371,22 @@ function openCase(id,title){
     /* DESTAQUE 2 — KPIs & OKRs */
     +'<div class="ch-highlight">'
       +'<div class="ch-highlight-label">KPIs &amp; OKRs</div>'
-      +'<div class="ch-okr-block"><div class="ch-okr-head"><span class="ch-okr-head-icon">◎</span><span class="ch-okr-head-label">Objetivo</span><span class="ch-okr-head-obj">'+c.objetivo+'</span></div>'
+      +'<div class="ch-okr-block">'
+      /* Objetivo */
+      +'<div class="ch-okr-head"><div class="ch-okr-head-icon">◎</div><div><span class="ch-okr-head-label">Objetivo</span><div class="ch-okr-head-obj">'+c.objetivo+'</div></div></div>'
+      /* Trunk → KRs */
+      +'<div class="ch-okr-trunk"></div>'
+      +'<div class="ch-kr-branch"><div class="ch-kr-branch-l"></div><div class="ch-kr-branch-r"></div></div>'
+      +'<div class="ch-kr-dots"><div class="ch-kr-dot"></div><div class="ch-kr-dot"></div><div class="ch-kr-dot"></div></div>'
       +'<div class="ch-kr-list">'+c.krs.map(function(kr,i){
         return'<div class="ch-kr"><div class="ch-kr-num">KR'+(i+1)+'</div><div class="ch-kr-txt">'+kr.txt+'</div><div class="ch-kr-badge">'+kr.meta+'</div></div>';
-      }).join('')+'</div></div>'
+      }).join('')+'</div>'
+      /* KR → KPI drops */
+      +'<div class="ch-kpi-drops"><div class="ch-kpi-drop"></div><div class="ch-kpi-drop"></div><div class="ch-kpi-drop"></div></div>'
       +'<div class="ch-kpi-grid">'+c.kpis.map(function(k){
         return'<div class="ch-kpi"><div class="ch-kpi-label">'+k.label+'</div><div class="ch-kpi-val">'+k.val+'</div><div class="ch-kpi-desc">'+k.desc+'</div></div>';
       }).join('')+'</div>'
+      +'</div>'
     +'</div>'
 
     /* DESTAQUE 3 — Como pensei a solução */
