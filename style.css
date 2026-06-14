@@ -718,57 +718,16 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 .ch-okr-head-obj { font-size:1.05rem; font-weight:600; color:var(--c-text); line-height:1.35; }
 
 /* Trunk — vertical line from objetivo to KRs */
-.ch-okr-trunk {
-  height:24px; position:relative;
-  display:flex; justify-content:center;
-}
-.ch-okr-trunk::after {
-  content:''; position:absolute;
-  left:50%; width:1px; top:0; bottom:0;
-  background:rgba(255,255,255,.15);
-}
+.ch-okr-trunk { display:none; }
 
 /* Branch — horizontal bar connecting KRs */
-.ch-kr-branch {
-  position:relative; height:1px;
-  background:rgba(255,255,255,.15);
-  margin:0 calc(100%/6);
-}
-.ch-kr-branch-l {
-  position:absolute; left:0; top:-12px;
-  width:1px; height:12px;
-  background:rgba(255,255,255,.15);
-}
-.ch-kr-branch-r {
-  position:absolute; right:0; top:-12px;
-  width:1px; height:12px;
-  background:rgba(255,255,255,.15);
-}
+.ch-kr-branch, .ch-kr-branch-l, .ch-kr-branch-r { display:none; }
 
 /* Dots at top of each KR */
-.ch-kr-dots {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:8px; margin-bottom:4px; margin-top:0;
-}
-.ch-kr-dot {
-  display:flex; justify-content:center;
-  position:relative;
-}
-.ch-kr-dot::before {
-  content:''; display:block;
-  width:1px; height:12px;
-  background:rgba(255,255,255,.15);
-  position:absolute; top:-12px; left:50%;
-}
-.ch-kr-dot::after {
-  content:''; display:block;
-  width:7px; height:7px; border-radius:50%;
-  background:var(--c-gold);
-  position:absolute; top:-4px; left:50%; transform:translateX(-50%);
-}
+.ch-kr-dots, .ch-kr-dot { display:none; }
 
 /* KR cards — 3 cols */
-.ch-kr-list { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.ch-kr-list { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:1rem 0; }
 .ch-kr {
   background:var(--c-bg2); border:1px solid var(--c-line);
   border-radius:8px; padding:1rem 1.1rem;
@@ -788,16 +747,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 }
 
 /* KPI drop connectors */
-.ch-kpi-drops { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:0; }
-.ch-kpi-drop {
-  display:flex; justify-content:center;
-  height:20px; position:relative;
-}
-.ch-kpi-drop::after {
-  content:''; position:absolute;
-  left:50%; width:1px; height:100%;
-  background:rgba(255,255,255,.15);
-}
+.ch-kpi-drops, .ch-kpi-drop { display:none; }
 
 /* KPI cards */
 .ch-kpi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:0 0 3rem; }
