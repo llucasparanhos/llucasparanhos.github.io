@@ -224,11 +224,11 @@ img { display:block; max-width:100%; }
   letter-spacing:.2em; color:var(--c-dim);
 }
 
-/* Grid assimétrico 6 cards */
+/* Grid 2 colunas simples — estilo Bortoletto */
 .projects-grid {
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:1px; background:var(--c-line);
+  gap:2px; background:var(--c-line);
 }
 .pc {
   background:var(--c-bg); cursor:pointer;
@@ -238,16 +238,7 @@ img { display:block; max-width:100%; }
 }
 .pc:hover { background:var(--c-bg2); }
 .pc:focus-visible { outline:2px solid var(--c-gold); outline-offset:2px; }
-
-/* Variações assimétricas */
-.pc:nth-child(1) { grid-column:span 2; }
-.pc:nth-child(1) .pc-img { aspect-ratio:21/9; }
-.pc:nth-child(2) .pc-img { aspect-ratio:4/3; }
-.pc:nth-child(3) .pc-img { aspect-ratio:4/3; }
-.pc:nth-child(4) { grid-column:span 2; }
-.pc:nth-child(4) .pc-img { aspect-ratio:3/1; }
-.pc:nth-child(5) .pc-img { aspect-ratio:1/1; }
-.pc:nth-child(6) .pc-img { aspect-ratio:1/1; }
+.pc .pc-img { aspect-ratio:4/3; }
 
 .pc-img {
   overflow:hidden; background:var(--c-bg3);
@@ -478,12 +469,15 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   .mob-menu { display:flex; }
   .hero { min-height:70vh; padding-top:2.5rem; }
   .hero-geo { display:none; }
-  .projects-grid { grid-template-columns:1fr; background:none; gap:0; border-top:1px solid var(--c-line); }
-  .pc { border-bottom:1px solid var(--c-line); }
-  .pc:nth-child(1) .pc-img, .pc:nth-child(4) .pc-img { aspect-ratio:16/9; }
-  .pc:nth-child(2) .pc-img, .pc:nth-child(3) .pc-img { aspect-ratio:16/9; }
-  .pc:nth-child(5) .pc-img, .pc:nth-child(6) .pc-img { aspect-ratio:16/9; }
-  .pc--wide { grid-column:span 1; }
+  .projects-grid { grid-template-columns:1fr; gap:1px; }
+  .pc { border-bottom:none; }
+  .pc:nth-child(1), .pc:nth-child(4) { grid-column:span 1; }
+  .pc:nth-child(1) .pc-img,
+  .pc:nth-child(2) .pc-img,
+  .pc:nth-child(3) .pc-img,
+  .pc:nth-child(4) .pc-img,
+  .pc:nth-child(5) .pc-img,
+  .pc:nth-child(6) .pc-img { aspect-ratio:16/9; }
   .sobre-body-grid { grid-template-columns:1fr; }
   .sobre-skills { grid-template-columns:1fr 1fr; }
   .sobre-stats { grid-template-columns:1fr 1fr; }
