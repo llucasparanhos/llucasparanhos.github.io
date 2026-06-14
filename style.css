@@ -228,7 +228,7 @@ img { display:block; max-width:100%; }
 .projects-grid {
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:2px; background:var(--c-line);
+  gap:8px; background:var(--c-bg);
 }
 .pc {
   background:var(--c-bg); cursor:pointer;
