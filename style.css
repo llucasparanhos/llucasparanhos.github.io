@@ -400,9 +400,9 @@ img { display:block; max-width:100%; }
 .sobre-page { padding:var(--gap-sec) var(--gap-nav); }
 .sobre-eyebrow { font-family:var(--ff-mono); font-size:var(--t-mono); letter-spacing:.22em; text-transform:uppercase; color:var(--c-dim); margin-bottom:1.5rem; }
 .sobre-headline { font-family:var(--ff-display); font-size:clamp(2.5rem,5.5vw,5rem); font-weight:800; letter-spacing:-.045em; line-height:.9; color:var(--c-text); max-width:18ch; margin-bottom:var(--gap-in); }
-.sobre-body-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--gap-in); padding-top:var(--gap-in); border-top:1px solid var(--c-line); margin-bottom:var(--gap-sec); align-items:start; }
-.sobre-photo { background:var(--c-bg3); overflow:hidden; height:100%; }
-.sobre-photo img { width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
+.sobre-body-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--gap-in); padding-top:var(--gap-in); border-top:1px solid var(--c-line); margin-bottom:var(--gap-sec); align-items:start; grid-template-columns:320px 1fr; }
+.sobre-photo { background:var(--c-bg3); overflow:hidden; max-height:480px; }
+.sobre-photo img { width:100%; height:480px; object-fit:cover; object-position:top; display:block; }
 .sobre-text-col { display:flex; flex-direction:column; gap:1.5rem; }
 .sobre-quote { font-family:var(--ff-display); font-size:clamp(1.1rem,1.8vw,1.5rem); font-weight:700; letter-spacing:-.02em; line-height:1.25; color:var(--c-text); }
 .sobre-p { font-size:.9rem; font-weight:300; color:var(--c-muted); line-height:1.85; }
