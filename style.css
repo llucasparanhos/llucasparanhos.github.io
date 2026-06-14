@@ -139,7 +139,7 @@ img { display:block; max-width:100%; }
 
 /* ── HERO — onyourtiptoes style ── */
 .hero {
-  position:relative; min-height:88vh;
+  position:relative; min-height:74.8vh;
   display:flex; flex-direction:column; justify-content:center;
   padding:0 var(--gap-nav); overflow:hidden;
   cursor:none;
@@ -280,15 +280,15 @@ img { display:block; max-width:100%; }
 }
 .pc:hover .pc-overlay { opacity:1; }
 .pc-overlay-meta {
-  font-family:var(--ff-mono); font-size:.6rem;
+  font-family:var(--ff-mono); font-size:.72rem;
   letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.5);
 }
 .pc-overlay-title {
-  font-family:var(--ff-body); font-size:clamp(.9rem,1.4vw,1.2rem);
+  font-family:var(--ff-body); font-size:clamp(1.08rem,1.68vw,1.44rem);
   font-weight:700; color:#fff; line-height:1.25;
 }
 .pc-overlay-arr {
-  font-family:var(--ff-mono); font-size:.6rem;
+  font-family:var(--ff-mono); font-size:.72rem;
   letter-spacing:.14em; text-transform:uppercase;
   color:rgba(255,255,255,.45); margin-top:.25rem;
 }
@@ -560,7 +560,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   .sobre-page { padding:2rem var(--gap-nav) 4rem !important; }
   .sb-top { display:flex !important; flex-direction:column !important; width:100% !important; gap:1.5rem; }
   .sb-photo { width:100% !important; height:380px !important; border-radius:8px; overflow:hidden; }
-  .sb-photo img { object-fit:cover !important; object-position:center top !important; width:100% !important; height:100% !important; }
+  .sb-photo img { object-fit:cover !important; object-position:center 20% !important; width:100% !important; height:100% !important; }
   .sb-text { width:100%; }
   .sb-skills { display:flex !important; flex-direction:column !important; gap:0; }
   .sb-sk { border-right:none; border-bottom:1px solid var(--c-line); padding:1rem 0; }
