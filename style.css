@@ -376,8 +376,8 @@ img { display:block; max-width:100%; }
 
 .ch-wrap { max-width:100%; margin:0 auto; padding:var(--gap-in) 240px var(--gap-sec); }
 .ch-ey { font-family:var(--ff-mono); font-size:var(--t-mono); letter-spacing:.2em; text-transform:uppercase; color:var(--c-dim); margin-bottom:.875rem; }
-.ch-title { font-family:var(--ff-display); font-size:clamp(2.5rem,5.5vw,4.5rem); font-weight:800; letter-spacing:-.045em; line-height:.88; color:var(--c-text); margin-bottom:1.5rem; }
-.ch-title em { font-style:italic; color:var(--c-gold); }
+.ch-title { font-family:var(--ff-serif); font-size:clamp(2.5rem,5.5vw,4.5rem); font-weight:400; letter-spacing:-.01em; line-height:.95; color:var(--c-text); margin-bottom:1.5rem; }
+.ch-title em { font-style:italic; color:var(--c-gold); font-weight:400; }
 .ch-meta { display:flex; gap:2.5rem; flex-wrap:wrap; margin-bottom:2.5rem; padding-bottom:2rem; border-bottom:1px solid var(--c-line); }
 .ch-meta-lbl { font-family:var(--ff-mono); font-size:.55rem; letter-spacing:.18em; text-transform:uppercase; color:var(--c-dim); margin-bottom:.25rem; }
 .ch-meta-val { font-size:.88rem; font-weight:500; color:var(--c-text); }
