@@ -375,6 +375,8 @@ img { display:block; max-width:100%; }
 .ch-img-ph { font-family:var(--ff-mono); font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; color:var(--c-dim); }
 
 .ch-wrap { max-width:100%; margin:0 auto; padding:var(--gap-in) 240px var(--gap-sec); }
+.ch-ct { padding:var(--gap-in) 240px 0; }
+.ch-bd { padding:0 240px var(--gap-sec); }
 .ch-ey { font-family:var(--ff-mono); font-size:var(--t-mono); letter-spacing:.2em; text-transform:uppercase; color:var(--c-dim); margin-bottom:.875rem; }
 .ch-title { font-family:var(--ff-serif); font-size:clamp(2.5rem,5.5vw,4.5rem); font-weight:400; letter-spacing:-.01em; line-height:.95; color:var(--c-text); margin-bottom:1.5rem; }
 .ch-title em { font-style:italic; color:var(--c-gold); font-weight:400; }
@@ -516,6 +518,8 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   .ch-imgs { grid-template-columns:1fr; }
   .ch-img-slot.wide { grid-column:span 1; aspect-ratio:16/9; }
   .ch-wrap { padding:2rem var(--gap-nav); }
+  .ch-ct { padding:2rem var(--gap-nav) 0; }
+  .ch-bd { padding:0 var(--gap-nav) 4rem; }
 }
 @media (max-width:480px) {
   .sobre-skills { grid-template-columns:1fr; }
