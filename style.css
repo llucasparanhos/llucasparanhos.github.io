@@ -518,3 +518,29 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   .sobre-skills { grid-template-columns:1fr; }
   .sobre-stats { grid-template-columns:1fr 1fr; }
 }
+
+/* ── BRANDS — prova social estática ── */
+.brands-section {
+  margin-top:var(--gap-in);
+  padding-top:var(--gap-in);
+  border-top:1px solid var(--c-line);
+}
+.brands-label {
+  font-family:var(--ff-mono); font-size:var(--t-mono);
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--c-dim); margin-bottom:1.25rem;
+}
+.brands-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px; background:var(--c-line);
+}
+.brand-item {
+  background:var(--c-bg);
+  padding:.875rem 1rem;
+  font-family:var(--ff-mono); font-size:var(--t-mono);
+  letter-spacing:.12em; text-transform:uppercase;
+  color:var(--c-muted);
+  transition:color .2s, background .2s;
+}
+.brand-item:hover { background:var(--c-bg2); color:var(--c-text); }
