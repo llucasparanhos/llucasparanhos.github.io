@@ -261,6 +261,8 @@ img { display:block; max-width:100%; }
   transition:background .25s;
   outline:none;
   border:1px solid #2a2a2a;
+  border-radius:12px;
+  overflow:hidden;
 }
 .pc:hover { background:var(--c-bg); }
 .pc:focus-visible { outline:2px solid var(--c-gold); outline-offset:2px; }
