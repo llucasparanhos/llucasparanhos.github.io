@@ -62,14 +62,65 @@ function closeMob(){
   const TEXT2 = 'Product Designer & Analytics';
   const TEXT3 = 'Salvador, Bahia · Disponível';
 
-  /* Custom cursor */
+  /* Animated auto-moving cursor — moves on its own like a real person */
   if(cursor){
-    hero.addEventListener('mouseenter', () => cursor.classList.add('visible'));
-    hero.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
-    hero.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top  = e.clientY + 'px';
-    });
+    const heroRect = () => hero.getBoundingClientRect();
+
+    /* Waypoints the cursor visits — relative to hero (0-1) */
+    const waypoints = [
+      {x:.15, y:.55},  /* starts left */
+      {x:.35, y:.42},  /* moves toward title */
+      {x:.55, y:.38},  /* hovers over text */
+      {x:.72, y:.38},  /* drags across selection */
+      {x:.52, y:.38},  /* back left — simulates selecting */
+      {x:.68, y:.62},  /* moves down */
+      {x:.25, y:.70},  /* swings left */
+      {x:.15, y:.55},  /* back to start */
+    ];
+
+    let wi = 0;
+    let curX = 0, curY = 0;
+    let targetX = 0, targetY = 0;
+    let visible = false;
+
+    function updateTarget(){
+      const r = heroRect();
+      const wp = waypoints[wi];
+      targetX = r.left + r.width  * wp.x;
+      targetY = r.top  + r.height * wp.y;
+      wi = (wi + 1) % waypoints.length;
+    }
+
+    /* Show cursor after typewriter starts */
+    setTimeout(() => {
+      const r = heroRect();
+      curX = r.left + r.width * .15;
+      curY = r.top  + r.height * .55;
+      cursor.style.left = curX + 'px';
+      cursor.style.top  = curY + 'px';
+      cursor.classList.add('visible');
+      visible = true;
+      updateTarget();
+    }, 600);
+
+    /* Move every N ms to next waypoint */
+    setInterval(() => { if(visible) updateTarget(); }, 2200);
+
+    /* Smooth lerp animation */
+    function animCursor(){
+      if(visible){
+        curX += (targetX - curX) * 0.045;
+        curY += (targetY - curY) * 0.045;
+        cursor.style.left = curX + 'px';
+        cursor.style.top  = curY + 'px';
+      }
+      requestAnimationFrame(animCursor);
+    }
+    animCursor();
+
+    /* Hide when user moves their own mouse over hero */
+    hero.addEventListener('mouseenter', () => { visible = false; cursor.classList.remove('visible'); });
+    hero.addEventListener('mouseleave', () => { visible = true;  cursor.classList.add('visible'); updateTarget(); });
   }
 
   /* Typewriter helper */
