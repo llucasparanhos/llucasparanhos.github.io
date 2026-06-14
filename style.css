@@ -430,11 +430,6 @@ img { display:block; max-width:100%; }
 .ch-kpi-label { font-family:var(--ff-mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--c-dim); }
 .ch-kpi-val { font-family:var(--ff-body); font-size:1.25rem; font-weight:700; letter-spacing:0; color:var(--c-text); }
 .ch-kpi-desc { font-size:.82rem; font-weight:300; color:var(--c-muted); line-height:1.5; }
-.ch-okr-block { margin:1rem 0 3rem; border:1px solid var(--c-line); overflow:hidden; }
-.ch-okr-head { background:var(--c-bg2); padding:.875rem 1.25rem; display:flex; align-items:baseline; gap:.75rem; border-bottom:1px solid var(--c-line); }
-.ch-okr-head-icon { font-size:.85rem; color:var(--c-dim); }
-.ch-okr-head-label { font-family:var(--ff-mono); font-size:.55rem; letter-spacing:.2em; text-transform:uppercase; color:var(--c-dim); }
-.ch-okr-head-obj { font-family:var(--ff-body); font-size:.88rem; font-weight:500; color:var(--c-text); flex:1; }
 .ch-kr { display:grid; grid-template-columns:34px 1fr auto; align-items:start; gap:.875rem; padding:.8rem 1.25rem; border-bottom:1px solid var(--c-line); }
 .ch-kr:last-child { border-bottom:none; }
 .ch-kr-num { font-family:var(--ff-mono); font-size:.55rem; letter-spacing:.1em; color:var(--c-dim); padding-top:2px; }
@@ -702,6 +697,129 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 .sb-logo-txt {
   font-family:var(--ff-mono); font-size:.65rem;
   letter-spacing:.12em; text-transform:uppercase; color:var(--c-dim);
+}
+
+
+/* ── OKR Tree ── */
+.ch-okr-block { margin:1rem 0 3rem; }
+
+/* Objetivo */
+.ch-okr-head {
+  background:var(--c-bg2); border:1px solid var(--c-line);
+  border-radius:8px; padding:1.25rem 1.5rem;
+  display:flex; align-items:flex-start; gap:.875rem;
+}
+.ch-okr-head-icon { color:var(--c-gold); font-size:1rem; flex-shrink:0; margin-top:3px; }
+.ch-okr-head-label {
+  font-family:var(--ff-mono); font-size:.62rem;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--c-gold); display:block; margin-bottom:5px;
+}
+.ch-okr-head-obj { font-size:1.05rem; font-weight:600; color:var(--c-text); line-height:1.35; }
+
+/* Trunk — vertical line from objetivo to KRs */
+.ch-okr-trunk {
+  height:24px; position:relative;
+  display:flex; justify-content:center;
+}
+.ch-okr-trunk::after {
+  content:''; position:absolute;
+  left:50%; width:1px; top:0; bottom:0;
+  background:rgba(255,255,255,.15);
+}
+
+/* Branch — horizontal bar connecting KRs */
+.ch-kr-branch {
+  position:relative; height:1px;
+  background:rgba(255,255,255,.15);
+  margin:0 calc(100%/6);
+}
+.ch-kr-branch-l {
+  position:absolute; left:0; top:-12px;
+  width:1px; height:12px;
+  background:rgba(255,255,255,.15);
+}
+.ch-kr-branch-r {
+  position:absolute; right:0; top:-12px;
+  width:1px; height:12px;
+  background:rgba(255,255,255,.15);
+}
+
+/* Dots at top of each KR */
+.ch-kr-dots {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:8px; margin-bottom:4px; margin-top:0;
+}
+.ch-kr-dot {
+  display:flex; justify-content:center;
+  position:relative;
+}
+.ch-kr-dot::before {
+  content:''; display:block;
+  width:1px; height:12px;
+  background:rgba(255,255,255,.15);
+  position:absolute; top:-12px; left:50%;
+}
+.ch-kr-dot::after {
+  content:''; display:block;
+  width:7px; height:7px; border-radius:50%;
+  background:var(--c-gold);
+  position:absolute; top:-4px; left:50%; transform:translateX(-50%);
+}
+
+/* KR cards — 3 cols */
+.ch-kr-list { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.ch-kr {
+  background:var(--c-bg2); border:1px solid var(--c-line);
+  border-radius:8px; padding:1rem 1.1rem;
+  display:flex; flex-direction:column; gap:.4rem;
+}
+.ch-kr-num {
+  font-family:var(--ff-mono); font-size:.58rem;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--c-gold);
+}
+.ch-kr-txt { font-size:.92rem; font-weight:400; color:var(--c-text); line-height:1.5; }
+.ch-kr-badge {
+  font-family:var(--ff-mono); font-size:.55rem;
+  letter-spacing:.08em; text-transform:uppercase;
+  color:var(--c-dim); background:var(--c-bg3);
+  padding:2px 8px; border-radius:4px;
+  align-self:flex-start; margin-top:.2rem;
+}
+
+/* KPI drop connectors */
+.ch-kpi-drops { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:0; }
+.ch-kpi-drop {
+  display:flex; justify-content:center;
+  height:20px; position:relative;
+}
+.ch-kpi-drop::after {
+  content:''; position:absolute;
+  left:50%; width:1px; height:100%;
+  background:rgba(255,255,255,.15);
+}
+
+/* KPI cards */
+.ch-kpi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:0 0 3rem; }
+.ch-kpi {
+  background:var(--c-bg3); border:1px solid var(--c-line);
+  border-radius:8px; padding:1.1rem;
+  display:flex; flex-direction:column; gap:.4rem;
+}
+.ch-kpi-icon { font-size:1.1rem; }
+.ch-kpi-label {
+  font-family:var(--ff-mono); font-size:.62rem;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--c-dim);
+}
+.ch-kpi-val { font-family:var(--ff-body); font-size:1.25rem; font-weight:700; color:var(--c-text); }
+.ch-kpi-desc { font-size:.82rem; font-weight:300; color:var(--c-muted); line-height:1.5; }
+
+/* Mobile — hide connectors, stack vertically */
+@media(max-width:900px){
+  .ch-okr-trunk, .ch-kr-branch, .ch-kr-branch-l, .ch-kr-branch-r,
+  .ch-kr-dots, .ch-kpi-drops { display:none; }
+  .ch-kr-list { grid-template-columns:1fr; }
+  .ch-kpi-grid { grid-template-columns:1fr; margin-bottom:2rem; }
 }
 
 /* ── CASE HIGHLIGHTS ── */
