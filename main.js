@@ -1,5 +1,5 @@
 /* ============================================================
-   main.js — Lucas de Castro Portfolio
+   main.js, Lucas de Castro Portfolio
    ============================================================ */
 
 /* ── SPLASH ── */
@@ -45,7 +45,7 @@ function closeMob(){
   document.body.style.overflow = '';
 }
 
-/* ── HERO — Typewriter + Seleção + Cursor (onyourtiptoes style) ── */
+/* ── HERO, Typewriter + Seleção + Cursor (onyourtiptoes style) ── */
 (function(){
   const hero       = document.querySelector('.hero');
   const cursor     = document.getElementById('hero-cursor');
@@ -62,17 +62,17 @@ function closeMob(){
   const TEXT2 = 'Product Designer & Analytics';
   const TEXT3 = 'Salvador, Bahia · Disponível';
 
-  /* Animated auto-moving cursor — moves on its own like a real person */
+  /* Animated auto-moving cursor, moves on its own like a real person */
   if(cursor){
     const heroRect = () => hero.getBoundingClientRect();
 
-    /* Waypoints the cursor visits — relative to hero (0-1) */
+    /* Waypoints the cursor visits, relative to hero (0-1) */
     const waypoints = [
       {x:.15, y:.55},  /* starts left */
       {x:.35, y:.42},  /* moves toward title */
       {x:.55, y:.38},  /* hovers over text */
       {x:.72, y:.38},  /* drags across selection */
-      {x:.52, y:.38},  /* back left — simulates selecting */
+      {x:.52, y:.38},  /* back left, simulates selecting */
       {x:.68, y:.62},  /* moves down */
       {x:.25, y:.70},  /* swings left */
       {x:.15, y:.55},  /* back to start */
@@ -226,15 +226,15 @@ const CASES={
       {icon:'⭐',label:'NPS de personalização',val:'Percepção do usuário',desc:'Sensação de que o app reconhece e valoriza o esforço'}
     ],
     role:'Product Designer responsável de ponta a ponta: pesquisa, benchmark, wireframes, protótipo e testes de usabilidade.',
-    insight:'<p>Todo mundo via o check-in como um <strong>botão</strong>. Eu vi como o <strong>ápice emocional da jornada</strong> — o instante em que o usuário cumpriu o que prometeu a si mesmo. Essa mudança de enquadramento mudou tudo: não era sobre confirmar uma presença, era sobre reconhecer um esforço.</p>',
+    insight:'<p>Todo mundo via o check-in como um <strong>botão</strong>. Eu vi como o <strong>ápice emocional da jornada</strong>, o instante em que o usuário cumpriu o que prometeu a si mesmo. Essa mudança de enquadramento mudou tudo: não era sobre confirmar uma presença, era sobre reconhecer um esforço.</p>',
     objetivo:'Transformar o check-in num ritual de conquista que reforce o hábito.',
     krs:[
       {txt:'Aumentar o tempo de permanência na tela pós check-in',meta:'+30%'},
       {txt:'Reduzir taxa de abandono no fluxo de check-in',meta:'-20%'},
       {txt:'Melhorar percepção de personalização no NPS',meta:'+15pts'}
     ],
-    sol:'<p>O reframing estratégico: <strong>de botão para ritual. De função para celebração. De ação neutra para microvitória reconhecida.</strong></p>     <p>Benchmark com Duolingo, Apple Fitness, TotalPass e Strava revelou o padrão comum: todos celebram o momento presente e mostram onde o usuário chegou. A gamificação leve — conquistas, streaks, progresso visual — reforça o comportamento sem virar jogo.</p>     <p>Criamos estados diferenciados: primeiro check-in, marcos de 10/50/100 check-ins, sequências semanais. Cada estado tem feedback visual e textual próprio, tornando cada treino único.</p>',
-    results:[['340+','Check-ins reais como usuário — validação autêntica do problema'],['✓','Feedback positivo nos testes com usuários reais do Wellhub'],['↑','Engajamento percebido pós check-in nos testes de usabilidade'],['✓','Senso de progresso e personalização validados em entrevistas']]
+    sol:'<p>O reframing estratégico: <strong>de botão para ritual. De função para celebração. De ação neutra para microvitória reconhecida.</strong></p>     <p>Benchmark com Duolingo, Apple Fitness, TotalPass e Strava revelou o padrão comum: todos celebram o momento presente e mostram onde o usuário chegou. A gamificação leve, conquistas, streaks, progresso visual, reforça o comportamento sem virar jogo.</p>     <p>Criamos estados diferenciados: primeiro check-in, marcos de 10/50/100 check-ins, sequências semanais. Cada estado tem feedback visual e textual próprio, tornando cada treino único.</p>',
+    results:[['340+','Check-ins reais como usuário, validação autêntica do problema'],['✓','Feedback positivo nos testes com usuários reais do Wellhub'],['↑','Engajamento percebido pós check-in nos testes de usabilidade'],['✓','Senso de progresso e personalização validados em entrevistas']]
   },
   credenciados:{
     color:'#185FA5',bg:'#111',
@@ -242,7 +242,7 @@ const CASES={
     ttl:'O usuário fechou<br>o app e foi no <em>Google.</em>',
     meta:['Product Designer','3 semanas','Figma'],
     hook:'"Imagine que você está com dor, precisa marcar uma consulta e abre o app do seu plano de saúde. A tela mostra o nome do médico e um número de telefone. Só isso. Sem endereço completo. Sem horários. Sem convênios. Nada que te ajudasse a decidir."',
-    context:'<p>O Kivid havia construído uma rede de credenciados robusta, mas não havia pensado em montar uma <strong>experiência</strong> em volta desses dados. A lista existia. As informações existiam. Estavam espalhadas, incompletas ou simplesmente ausentes na interface.</p>     <p>O impacto era direto: usuários saíam do app para buscar no Google, a taxa de agendamentos originados dentro do app era baixa e os tickets de suporte sobre informações básicas de credenciados eram altos — custo operacional direto para o negócio.</p>',
+    context:'<p>O Kivid havia construído uma rede de credenciados robusta, mas não havia pensado em montar uma <strong>experiência</strong> em volta desses dados. A lista existia. As informações existiam. Estavam espalhadas, incompletas ou simplesmente ausentes na interface.</p>     <p>O impacto era direto: usuários saíam do app para buscar no Google, a taxa de agendamentos originados dentro do app era baixa e os tickets de suporte sobre informações básicas de credenciados eram altos, custo operacional direto para o negócio.</p>',
     diags:[
       {icon:'🗺',title:'Endereço ausente',desc:'Usuário precisava sair do app para encontrar o endereço completo do profissional.'},
       {icon:'🕐',title:'Sem horários disponíveis',desc:'Impossível saber se o médico atendia no turno desejado.'},
@@ -255,7 +255,7 @@ const CASES={
       {icon:'🎧',label:'Tickets de suporte',val:'Sobre credenciados',desc:'Chamados sobre informações básicas de profissionais'}
     ],
     role:'Product Designer responsável pela descoberta, pesquisa com usuários internos, arquitetura da informação, protótipo e validação.',
-    insight:'<p>A lista de credenciados existia. Os dados existiam. Mas estavam <strong>espalhados e sem hierarquia</strong>. O insight não foi criar informação nova — foi perceber que o problema era de <strong>experiência, não de dados</strong>. Bastava montar uma jornada de decisão em volta do que já existia.</p>',
+    insight:'<p>A lista de credenciados existia. Os dados existiam. Mas estavam <strong>espalhados e sem hierarquia</strong>. O insight não foi criar informação nova, foi perceber que o problema era de <strong>experiência, não de dados</strong>. Bastava montar uma jornada de decisão em volta do que já existia.</p>',
     objetivo:'Tornar a busca de profissionais confiável, completa e rápida o suficiente para eliminar a necessidade de sair do app.',
     krs:[
       {txt:'Reduzir taxa de abandono da tela de credenciados',meta:'-30%'},
@@ -263,15 +263,15 @@ const CASES={
       {txt:'Reduzir tickets de suporte sobre credenciados',meta:'-40%'}
     ],
     sol:'<p>Uma página de perfil completa: o equivalente digital do cartão de visita profissional + agenda + mapa, tudo junto, sem sair do app.</p>     <p>Nome, especialidade, avaliação por estrelas, endereço com mapa integrado, telefone direto, horários de atendimento por dia da semana, convênios aceitos e fotos do consultório. <strong>Decisão tomada em segundos, sem fricção.</strong></p>     <p>Principal descoberta nos testes: o botão "Ligar" precisava estar visível sem scroll. Qualquer posição abaixo da dobra aumentava o abandono. Esse ajuste simples foi o de maior impacto.</p>',
-    results:[['✓','"Finalmente tudo no lugar certo" — feedback recorrente nos testes'],['↑','Facilidade percebida para agendar consultas e exames'],['↑','Taxa de uso da funcionalidade de busca no app'],['↓','Tempo médio para localizar dados essenciais de um profissional']]
+    results:[['✓','"Finalmente tudo no lugar certo", feedback recorrente nos testes'],['↑','Facilidade percebida para agendar consultas e exames'],['↑','Taxa de uso da funcionalidade de busca no app'],['↓','Tempo médio para localizar dados essenciais de um profissional']]
   },
   checkout:{
     color:'#993556',bg:'#111',
     ey:'Conversão · Mobile · HealthTech',
     ttl:'Metade desistia<br>no meio do <em>checkout.</em>',
     meta:['Product Designer','10 semanas','Figma · Clarity'],
-    hook:'"80% dos usuários chegavam até o checkout. Metade desistia no meio do processo. Cada abandono não era só um número — era uma família que não conseguiu contratar um plano de saúde acessível."',
-    context:'<p>A persona central do Kivid é Adriana Santos, 56 anos, professora, classe C/D, casada, dois filhos. Quando ela entra numa tela de checkout, precisa de três coisas: <strong>clareza, segurança e velocidade</strong>. Qualquer dúvida vira abandono.</p>     <p>O produto existente pedia informações excessivas logo no início, era fragmentado em múltiplas etapas sem progresso visível e não deixava claro o valor total até o final — exatamente o oposto do que Adriana precisava.</p>',
+    hook:'"80% dos usuários chegavam até o checkout. Metade desistia no meio do processo. Cada abandono não era só um número, era uma família que não conseguiu contratar um plano de saúde acessível."',
+    context:'<p>A persona central do Kivid é Adriana Santos, 56 anos, professora, classe C/D, casada, dois filhos. Quando ela entra numa tela de checkout, precisa de três coisas: <strong>clareza, segurança e velocidade</strong>. Qualquer dúvida vira abandono.</p>     <p>O produto existente pedia informações excessivas logo no início, era fragmentado em múltiplas etapas sem progresso visível e não deixava claro o valor total até o final, exatamente o oposto do que Adriana precisava.</p>',
     diags:[
       {icon:'📋',title:'Formulário longo no início',desc:'O sistema pedia dados que poderiam ser preenchidos automaticamente via CPF.'},
       {icon:'❓',title:'Valor total escondido',desc:'O preço final só aparecia na última etapa, gerando ansiedade e abandono.'},
@@ -284,15 +284,15 @@ const CASES={
       {icon:'⚡',label:'Tempo de conclusão',val:'Média por sessão',desc:'Minutos do início ao fim de uma compra concluída'}
     ],
     role:'Product Designer responsável pela análise de dados (Clarity), redesenho do fluxo, protótipo e acompanhamento de métricas.',
-    insight:'<p>Os heatmaps do Clarity revelaram o ponto exato de abandono: o <strong>primeiro campo do formulário</strong>. A virada foi entender que cada campo a mais era uma chance de desistência. Em vez de pedir dados, o sistema passou a <strong>preencher dados</strong> — via CPF, automaticamente. Menos fricção, mais conversão.</p>',
+    insight:'<p>Os heatmaps do Clarity revelaram o ponto exato de abandono: o <strong>primeiro campo do formulário</strong>. A virada foi entender que cada campo a mais era uma chance de desistência. Em vez de pedir dados, o sistema passou a <strong>preencher dados</strong>, via CPF, automaticamente. Menos fricção, mais conversão.</p>',
     objetivo:'Tornar a compra do plano Kivid tão simples que o usuário complete sem precisar pensar.',
     krs:[
       {txt:'Aumentar taxa de conversão do checkout',meta:'+15%'},
       {txt:'Reduzir abandono de carrinho',meta:'-20%'},
       {txt:'Diminuir tempo médio de conclusão da compra',meta:'-30%'}
     ],
-    sol:'<p>Unifiquei todas as etapas em <strong>uma única página</strong>. Preenchimento automático via CPF: o usuário digitava um campo e nome, endereço e dados básicos eram preenchidos automaticamente. Eliminamos tudo que era opcional ou desnecessário para a conclusão.</p>     <p>O resumo do pedido ficou sempre visível, dinâmico e transparente — o valor total aparece desde o primeiro momento, atualizando em tempo real conforme o usuário seleciona opções. Sem surpresas no final. Sem perguntas sem resposta.</p>     <p>Adicionamos indicadores de segurança (cadeado, selos) nas posições exatas onde os heatmaps mostravam maior hesitação. Pequeno detalhe, impacto mensurável na confiança.</p>',
-    results:[['15%','Aumento na taxa de conversão — KR1 atingido'],['20%','Redução no abandono de carrinho — KR2 atingido'],['↓','Tempo médio de conclusão da compra'],['✓','"Muito mais simples e rápido" — feedback recorrente']]
+    sol:'<p>Unifiquei todas as etapas em <strong>uma única página</strong>. Preenchimento automático via CPF: o usuário digitava um campo e nome, endereço e dados básicos eram preenchidos automaticamente. Eliminamos tudo que era opcional ou desnecessário para a conclusão.</p>     <p>O resumo do pedido ficou sempre visível, dinâmico e transparente, o valor total aparece desde o primeiro momento, atualizando em tempo real conforme o usuário seleciona opções. Sem surpresas no final. Sem perguntas sem resposta.</p>     <p>Adicionamos indicadores de segurança (cadeado, selos) nas posições exatas onde os heatmaps mostravam maior hesitação. Pequeno detalhe, impacto mensurável na confiança.</p>',
+    results:[['15%','Aumento na taxa de conversão, KR1 atingido'],['20%','Redução no abandono de carrinho, KR2 atingido'],['↓','Tempo médio de conclusão da compra'],['✓','"Muito mais simples e rápido", feedback recorrente']]
   },
   nps:{
     color:'#854F0B',bg:'#111',
@@ -300,7 +300,7 @@ const CASES={
     ttl:'O time decidia<br>sem ouvir <em>ninguém.</em>',
     meta:['Product Designer','2 semanas','Figma'],
     hook:'"O Kivid tinha uma rede ativa de atendimentos. Decisões sobre o produto eram tomadas com base em feeling, suposições e reclamações espontâneas no suporte. Não havia linha de base. Não havia como medir evolução. Não havia cultura de feedback."',
-    context:'<p>Você não consegue melhorar o que não mede. E você não consegue medir o que não pergunta. A ausência de dados de satisfação estruturados criava um ciclo vicioso: sem evidência, o time priorizava pelo que gritava mais alto — geralmente reclamações isoladas, não padrões reais.</p>     <p>O objetivo não era apenas criar uma tela de avaliação. Era <strong>criar uma cultura de escuta contínua</strong> que alimentasse decisões de produto com evidência real dos pacientes.</p>',
+    context:'<p>Você não consegue melhorar o que não mede. E você não consegue medir o que não pergunta. A ausência de dados de satisfação estruturados criava um ciclo vicioso: sem evidência, o time priorizava pelo que gritava mais alto, geralmente reclamações isoladas, não padrões reais.</p>     <p>O objetivo não era apenas criar uma tela de avaliação. Era <strong>criar uma cultura de escuta contínua</strong> que alimentasse decisões de produto com evidência real dos pacientes.</p>',
     diags:[
       {icon:'🌑',title:'Zero linha de base',desc:'Nenhum dado histórico de satisfação para medir evolução ou comparar períodos.'},
       {icon:'📢',title:'Decisões por feeling',desc:'O time priorizava pelo que gritava mais alto, não por padrões reais de insatisfação.'},
@@ -313,15 +313,15 @@ const CASES={
       {icon:'📏',label:'Linha de base',val:'Score trimestral',desc:'Referência para medir evolução de satisfação ao longo do tempo'}
     ],
     role:'Product Designer responsável pela concepção do canal, benchmark, fluxo, microcopy e protótipo.',
-    insight:'<p>O problema não era falta de tela — era <strong>falta de cultura de escuta</strong>. O insight foi tratar a coleta como parte invisível da jornada: <strong>rápida, leve, no momento emocional certo</strong>, logo após o atendimento. Emojis no lugar de escalas frias. O qualitativo como bônus, nunca obrigação.</p>',
+    insight:'<p>O problema não era falta de tela, era <strong>falta de cultura de escuta</strong>. O insight foi tratar a coleta como parte invisível da jornada: <strong>rápida, leve, no momento emocional certo</strong>, logo após o atendimento. Emojis no lugar de escalas frias. O qualitativo como bônus, nunca obrigação.</p>',
     objetivo:'Criar uma cultura de feedback contínuo que alimente decisões de produto com dados reais dos pacientes.',
     krs:[
       {txt:'Coletar NPS de pelo menos 30% dos atendimentos mensais',meta:'30%'},
       {txt:'Gerar ao menos 3 insights acionáveis por mês',meta:'3/mês'},
       {txt:'Estabelecer linha de base de satisfação trimestral',meta:'Q1 2024'}
     ],
-    sol:'<p>O fluxo precisava ser <strong>invisível na fricção mas significativo no resultado</strong>. Emojis para facilitar a expressão emocional sem exigir escrita, cores suaves que não criam ansiedade, textos curtíssimos que respeitam o contexto pós-consulta médica.</p>     <p>Cada elemento foi pensado para reduzir o esforço cognitivo de quem acabou de passar por um atendimento médico — momento em que a pessoa pode estar ansiosa, cansada ou aliviada. O campo qualitativo aberto aparece apenas após a avaliação numérica, como convite, nunca como obrigação.</p>     <p>O impacto mais relevante foi comportamental: o time de produto passou a ter dados para discutir prioridades. O NPS virou pauta de reunião semanal. Os feedbacks qualitativos passaram a embasar decisões sobre treinamento dos credenciados.</p>',
-    results:[['✓','Canal estruturado criado — linha de base de satisfação estabelecida'],['↑','Feedbacks qualitativos chegando ao time toda semana'],['✓','Dados NPS acionáveis integrando o processo de priorização'],['↑','Pacientes sentindo que sua voz importava no produto']]
+    sol:'<p>O fluxo precisava ser <strong>invisível na fricção mas significativo no resultado</strong>. Emojis para facilitar a expressão emocional sem exigir escrita, cores suaves que não criam ansiedade, textos curtíssimos que respeitam o contexto pós-consulta médica.</p>     <p>Cada elemento foi pensado para reduzir o esforço cognitivo de quem acabou de passar por um atendimento médico, momento em que a pessoa pode estar ansiosa, cansada ou aliviada. O campo qualitativo aberto aparece apenas após a avaliação numérica, como convite, nunca como obrigação.</p>     <p>O impacto mais relevante foi comportamental: o time de produto passou a ter dados para discutir prioridades. O NPS virou pauta de reunião semanal. Os feedbacks qualitativos passaram a embasar decisões sobre treinamento dos credenciados.</p>',
+    results:[['✓','Canal estruturado criado, linha de base de satisfação estabelecida'],['↑','Feedbacks qualitativos chegando ao time toda semana'],['✓','Dados NPS acionáveis integrando o processo de priorização'],['↑','Pacientes sentindo que sua voz importava no produto']]
   }
 };
 
@@ -362,13 +362,13 @@ function openCase(id,title){
     '<div class="ch-hook">'+c.hook+'</div>'
     +'<div class="ch-role"><span class="ch-role-lbl">Meu papel</span><span class="ch-role-txt">'+c.role+'</span></div>'
 
-    /* DESTAQUE 1 — O Problema */
+    /* DESTAQUE 1, O Problema */
     +'<div class="ch-highlight">'
       +'<div class="ch-highlight-label">O Problema</div>'
       +c.context
     +'</div>'
 
-    /* DESTAQUE 2 — KPIs & OKRs */
+    /* DESTAQUE 2, KPIs & OKRs */
     +'<div class="ch-highlight">'
       +'<div class="ch-highlight-label">KPIs &amp; OKRs</div>'
       +'<div class="ch-okr-block">'
@@ -389,7 +389,7 @@ function openCase(id,title){
       +'</div>'
     +'</div>'
 
-    /* DESTAQUE 3 — Como pensei a solução */
+    /* DESTAQUE 3, Como pensei a solução */
     +'<div class="ch-highlight">'
       +'<div class="ch-highlight-label">Como pensei a solução</div>'
       +c.insight
@@ -435,7 +435,7 @@ function closeFeedbackOutside(e){
 function sendFeedback(){
   const txt=document.getElementById('fb-text').value.trim();
   if(!txt)return;
-  /* Envia para mailto — substitua pela URL do Google Forms quando tiver */
+  /* Envia para mailto, substitua pela URL do Google Forms quando tiver */
   const subject=encodeURIComponent('Feedback Portfólio Lucas de Castro');
   const body=encodeURIComponent(txt);
   window.open('mailto:llucastourinho@gmail.com?subject='+subject+'&body='+body);
