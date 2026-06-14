@@ -357,28 +357,38 @@ function openCase(id,title){
   const bd=document.createElement('div');
   bd.className='ch-bd';
 
-  bd.innerHTML='<div class="ch-hook">'+c.hook+'</div>'
+  bd.innerHTML=
+    /* Hook */
+    '<div class="ch-hook">'+c.hook+'</div>'
     +'<div class="ch-role"><span class="ch-role-lbl">Meu papel</span><span class="ch-role-txt">'+c.role+'</span></div>'
-    +'<h3>O problema</h3>'
-    +c.context
-    +'<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-contexto.jpg</div></div></div>'
-    +'<h3>O que estava quebrado</h3>'
-    +'<div class="ch-diag-grid">'+c.diags.map(function(d){
-      return'<div class="ch-diag"><div class="ch-diag-icon">'+d.icon+'</div><div class="ch-diag-body"><div class="ch-diag-title">'+d.title+'</div><div class="ch-diag-desc">'+d.desc+'</div></div></div>';
-    }).join('')+'</div>'
-    +'<h3>KPIs que guiaram as decisões</h3>'
-    +'<div class="ch-kpi-grid">'+c.kpis.map(function(k){
-      return'<div class="ch-kpi"><div class="ch-kpi-icon">'+k.icon+'</div><div class="ch-kpi-label">'+k.label+'</div><div class="ch-kpi-val">'+k.val+'</div><div class="ch-kpi-desc">'+k.desc+'</div></div>';
-    }).join('')+'</div>'
-    +'<div class="ch-insight"><div class="ch-insight-lbl">A virada</div>'+c.insight+'</div>'
-    +'<div class="ch-imgs"><div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-antes.jpg</div></div><div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-wireframe.jpg</div></div></div>'
-    +'<div class="ch-okr-block"><div class="ch-okr-head"><span class="ch-okr-head-icon">◎</span><span class="ch-okr-head-label">Objetivo</span><span class="ch-okr-head-obj">'+c.objetivo+'</span></div>'
-    +'<div class="ch-kr-list">'+c.krs.map(function(kr,i){
-      return'<div class="ch-kr"><div class="ch-kr-num">KR'+(i+1)+'</div><div class="ch-kr-txt">'+kr.txt+'</div><div class="ch-kr-badge">'+kr.meta+'</div></div>';
-    }).join('')+'</div></div>'
-    +'<h3>A solução</h3>'
-    +c.sol
+
+    /* DESTAQUE 1 — O Problema */
+    +'<div class="ch-highlight">'
+      +'<div class="ch-highlight-label">O Problema</div>'
+      +c.context
+    +'</div>'
+
+    /* DESTAQUE 2 — KPIs & OKRs */
+    +'<div class="ch-highlight">'
+      +'<div class="ch-highlight-label">KPIs &amp; OKRs</div>'
+      +'<div class="ch-okr-block"><div class="ch-okr-head"><span class="ch-okr-head-icon">◎</span><span class="ch-okr-head-label">Objetivo</span><span class="ch-okr-head-obj">'+c.objetivo+'</span></div>'
+      +'<div class="ch-kr-list">'+c.krs.map(function(kr,i){
+        return'<div class="ch-kr"><div class="ch-kr-num">KR'+(i+1)+'</div><div class="ch-kr-txt">'+kr.txt+'</div><div class="ch-kr-badge">'+kr.meta+'</div></div>';
+      }).join('')+'</div></div>'
+      +'<div class="ch-kpi-grid">'+c.kpis.map(function(k){
+        return'<div class="ch-kpi"><div class="ch-kpi-label">'+k.label+'</div><div class="ch-kpi-val">'+k.val+'</div><div class="ch-kpi-desc">'+k.desc+'</div></div>';
+      }).join('')+'</div>'
+    +'</div>'
+
+    /* DESTAQUE 3 — Como pensei a solução */
+    +'<div class="ch-highlight">'
+      +'<div class="ch-highlight-label">Como pensei a solução</div>'
+      +c.insight
+      +c.sol
+    +'</div>'
     +'<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-solucao.jpg</div></div></div>'
+
+    /* Resultados */
     +'<h3>Resultados</h3>'
     +'<div class="res-grid">'+c.results.map(function(r){
       return'<div class="res-item"><div class="res-n">'+r[0]+'</div><div class="res-l">'+r[1]+'</div></div>';
