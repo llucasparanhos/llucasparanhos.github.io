@@ -483,3 +483,45 @@ function sendFeedback(){
   setTimeout(closeFeedback, 2200);
 }
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeFeedback(); });
+
+/* ── MOBILE CARDS — long press shows overlay ── */
+(function(){
+  var LONG = 320; // ms to trigger overlay
+  var cards = document.querySelectorAll('.pc');
+
+  cards.forEach(function(card){
+    var timer = null;
+    var overlay = card.querySelector('.pc-overlay');
+    var didLong = false;
+
+    function showOverlay(){
+      didLong = true;
+      if(overlay) overlay.classList.add('touch-active');
+    }
+
+    function hideOverlay(){
+      if(overlay) overlay.classList.remove('touch-active');
+    }
+
+    card.addEventListener('touchstart', function(e){
+      didLong = false;
+      timer = setTimeout(showOverlay, LONG);
+    }, {passive:true});
+
+    card.addEventListener('touchend', function(e){
+      clearTimeout(timer);
+      if(didLong){
+        // long press ended — hide overlay after 1.8s
+        setTimeout(hideOverlay, 1800);
+        e.preventDefault(); // prevent click firing
+      }
+      // short tap — let onclick fire normally
+    });
+
+    card.addEventListener('touchmove', function(){
+      clearTimeout(timer);
+      didLong = false;
+      hideOverlay();
+    }, {passive:true});
+  });
+})();
