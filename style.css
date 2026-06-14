@@ -649,11 +649,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   opacity:.75; transition:opacity .2s;
 }
 .sb-logo:hover img { opacity:1; }
-/* 7 logos: última linha tem 3 itens, centraliza o último */
-.sb-logos-grid .sb-logo:nth-child(5) { border-left:none; }
-.sb-logos-grid .sb-logo:last-child:nth-child(7) {
-  grid-column:4/5;
-}
+
 
 /* Mobile */
 @media(max-width:900px){
