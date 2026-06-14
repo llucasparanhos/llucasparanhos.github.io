@@ -362,26 +362,24 @@ function openCase(id,title){
     '<div class="ch-hook">'+c.hook+'</div>'
     +'<div class="ch-role"><span class="ch-role-lbl">Meu papel</span><span class="ch-role-txt">'+c.role+'</span></div>'
 
-    /* DESTAQUE 1, O Problema */
+    /* DESTAQUE 1 — O Problema + imagem do estado antigo */
     +'<div class="ch-highlight">'
       +'<div class="ch-highlight-label">O Problema</div>'
       +c.context
     +'</div>'
+    +'<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-problema.jpg</div></div></div>'
 
-    /* DESTAQUE 2, KPIs & OKRs */
+    /* DESTAQUE 2 — KPIs & OKRs */
     +'<div class="ch-highlight">'
       +'<div class="ch-highlight-label">KPIs &amp; OKRs</div>'
       +'<div class="ch-okr-block">'
-      /* Objetivo */
       +'<div class="ch-okr-head"><div class="ch-okr-head-icon">◎</div><div><span class="ch-okr-head-label">Objetivo</span><div class="ch-okr-head-obj">'+c.objetivo+'</div></div></div>'
-      /* Trunk → KRs */
       +'<div class="ch-okr-trunk"></div>'
       +'<div class="ch-kr-branch"><div class="ch-kr-branch-l"></div><div class="ch-kr-branch-r"></div></div>'
       +'<div class="ch-kr-dots"><div class="ch-kr-dot"></div><div class="ch-kr-dot"></div><div class="ch-kr-dot"></div></div>'
       +'<div class="ch-kr-list">'+c.krs.map(function(kr,i){
         return'<div class="ch-kr"><div class="ch-kr-num">KR'+(i+1)+'</div><div class="ch-kr-txt">'+kr.txt+'</div><div class="ch-kr-badge">'+kr.meta+'</div></div>';
       }).join('')+'</div>'
-      /* KR → KPI drops */
       +'<div class="ch-kpi-drops"><div class="ch-kpi-drop"></div><div class="ch-kpi-drop"></div><div class="ch-kpi-drop"></div></div>'
       +'<div class="ch-kpi-grid">'+c.kpis.map(function(k){
         return'<div class="ch-kpi"><div class="ch-kpi-label">'+k.label+'</div><div class="ch-kpi-val">'+k.val+'</div><div class="ch-kpi-desc">'+k.desc+'</div></div>';
@@ -389,13 +387,20 @@ function openCase(id,title){
       +'</div>'
     +'</div>'
 
-    /* DESTAQUE 3, Como pensei a solução */
+    /* DESTAQUE 3 — Como pensei a solução + processo + antes/depois */
     +'<div class="ch-highlight">'
       +'<div class="ch-highlight-label">Como pensei a solução</div>'
       +c.insight
       +c.sol
     +'</div>'
-    +'<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-solucao.jpg</div></div></div>'
+    /* Imagem do processo/sketch */
+    +'<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-processo.jpg</div></div></div>'
+    /* Par comparativo antes x depois */
+    +'<div class="ch-compare-label">Antes <span>×</span> Depois</div>'
+    +'<div class="ch-imgs">'
+      +'<div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-antes.jpg</div></div>'
+      +'<div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-depois.jpg</div></div>'
+    +'</div>'
 
     /* Resultados */
     +'<h3>Resultados</h3>'

@@ -823,3 +823,16 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 @media(max-width:900px){
   .ch-highlight-kpi { grid-template-columns:1fr 1fr; }
 }
+
+/* ── Comparativo Antes x Depois ── */
+.ch-compare-label {
+  font-family:var(--ff-mono); font-size:.72rem;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--c-dim); margin:2rem 0 .75rem;
+  display:flex; align-items:center; gap:.75rem;
+}
+.ch-compare-label::before,
+.ch-compare-label::after {
+  content:''; flex:1; height:1px; background:var(--c-line);
+}
+.ch-compare-label span { color:var(--c-gold); }
