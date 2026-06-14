@@ -234,7 +234,7 @@ img { display:block; max-width:100%; }
 .tsep { color:var(--c-line); padding:0 .5rem; }
 
 /* ── PROJETOS ── */
-.projects { padding:calc(var(--gap-sec) * .8) var(--gap-nav) calc(var(--gap-sec) * .6); }
+.projects { padding:calc(var(--gap-sec) * .64) var(--gap-nav) calc(var(--gap-sec) * .6); }
 .projects-hd {
   display:flex; align-items:baseline; justify-content:space-between;
   padding-bottom:1.5rem; border-bottom:1px solid var(--c-line);
@@ -315,8 +315,9 @@ img { display:block; max-width:100%; }
 
 .pc-body {
   padding:1.5rem 1.75rem 1.75rem;
-  flex:1; display:flex; flex-direction:column;
+  flex:1; flex-direction:column;
   border-top:1px solid #2a2a2a;
+  display:none;
 }
 .pc-meta {
   font-family:var(--ff-mono); font-size:var(--t-mono);
@@ -558,8 +559,8 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   /* Sobre mobile */
   .sobre-page { padding:2rem var(--gap-nav) 4rem !important; }
   .sb-top { display:flex !important; flex-direction:column !important; width:100% !important; gap:1.5rem; }
-  .sb-photo { width:100% !important; height:320px !important; border-radius:8px; overflow:hidden; }
-  .sb-photo img { object-fit:cover !important; object-position:center 5% !important; width:100%; height:100%; }
+  .sb-photo { width:100% !important; height:380px !important; border-radius:8px; overflow:hidden; }
+  .sb-photo img { object-fit:cover !important; object-position:center top !important; width:100% !important; height:100% !important; }
   .sb-text { width:100%; }
   .sb-skills { display:flex !important; flex-direction:column !important; gap:0; }
   .sb-sk { border-right:none; border-bottom:1px solid var(--c-line); padding:1rem 0; }
