@@ -3,297 +3,284 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lucas de Castro — Product Designer</title>
+<title>Lucas de Castro — Product Designer & Analytics</title>
+<meta name="description" content="Lucas de Castro — Product Designer com 10+ anos em UX/UI, Design Systems e dados. Projetos para Google, BTG, YouTube, Rede Bahia e HealthTechs. Salvador, BA.">
+<meta name="author" content="Lucas de Castro">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://llucasparanhos.github.io">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://llucasparanhos.github.io">
+<meta property="og:title" content="Lucas de Castro — Product Designer & Analytics">
+<meta property="og:description" content="10 anos construindo produtos digitais. Agora somando design com dados para decidir com mais verdade.">
+<meta property="og:image" content="https://llucasparanhos.github.io/img/og-image.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lucas de Castro — Product Designer & Analytics">
+<meta name="twitter:image" content="https://llucasparanhos.github.io/img/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230c0c0c'/><text y='.85em' font-size='55' font-family='system-ui' font-weight='700' fill='%23c9a96e'>LC</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Lucas de Castro","jobTitle":"Product Designer","url":"https://llucasparanhos.github.io","email":"llucastourinho@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Salvador","addressRegion":"BA","addressCountry":"BR"},"sameAs":["https://linkedin.com/in/llucasdecastro"]}
+</script>
 </head>
 <body>
-
-<!-- cursor -->
-<div class="cursor" id="cur"></div>
-<div class="cursor-ring" id="cur-ring"></div>
 
 <!-- SPLASH -->
 <div id="splash">
   <div class="sp-inner">
-    <div class="sp-line"></div>
-    <div class="sp-txt">Chegou na hora certa.</div>
-    <div class="sp-line"></div>
+    <span class="sp-word">Lucas de Castro</span>
   </div>
 </div>
 
-<!-- ══ HOME ══ -->
+<!-- NAV GLOBAL -->
+<nav class="nav" role="navigation" aria-label="Navegação principal">
+  <div class="nav-left">
+    <button class="nav-sobre" onclick="goToSobre()" aria-label="Ir para página Sobre">Sobre</button>
+  </div>
+
+  <div class="nav-name" id="nav-name" onclick="goToHome()" role="button" tabindex="0" aria-label="Voltar para home">
+    Lucas de Castro
+  </div>
+
+  <div class="nav-right">
+    <a href="https://linkedin.com/in/llucasdecastro" target="_blank" rel="noopener" class="nav-cl" aria-label="LinkedIn de Lucas de Castro">LinkedIn</a>
+    <a href="mailto:llucastourinho@gmail.com" class="nav-cl" aria-label="Enviar email">Email</a>
+    <a href="https://wa.me/5571992080680" target="_blank" rel="noopener" class="nav-cl" aria-label="WhatsApp">WhatsApp</a>
+    <button class="fb-btn" onclick="openFeedback()" aria-label="Deixar feedback">
+      <span class="fb-dot" aria-hidden="true"></span>Feedback
+    </button>
+  </div>
+
+  <button class="nav-ham" id="nav-ham" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mob-menu" role="dialog" aria-label="Menu mobile">
+  <button class="mob-close" id="mob-close" aria-label="Fechar menu">×</button>
+  <span class="mob-item" onclick="goToHome();closeMob()">Home</span>
+  <span class="mob-item" onclick="goToSobre();closeMob()">Sobre</span>
+  <a href="https://linkedin.com/in/llucasdecastro" target="_blank" rel="noopener" class="mob-item">LinkedIn</a>
+  <a href="mailto:llucastourinho@gmail.com" class="mob-item">Email</a>
+  <a href="https://wa.me/5571992080680" target="_blank" rel="noopener" class="mob-item">WhatsApp</a>
+</div>
+
+
+<!-- ════════════════════════════════════
+     PAGE: HOME
+════════════════════════════════════ -->
 <div id="page-home" class="page active">
 
-  <!-- TESTEIRA -->
-  <nav class="nav" id="main-nav">
-    <div class="nav-name" onclick="window.scrollTo({top:0,behavior:'smooth'})">Lucas de Castro</div>
-    <div class="nav-links">
-      <a href="https://linkedin.com/in/llucasdecastro" target="_blank" class="nav-link">LinkedIn</a>
-      <div class="nav-sep"></div>
-      <a href="mailto:llucastourinho@gmail.com" class="nav-link">Contato</a>
-      <div class="nav-sep"></div>
-      <button class="nav-feedback" onclick="openFeedback()"><span class="nav-feedback-dot"></span>Feedback</button>
-    </div>
-    <button class="nav-ham" id="nav-ham">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <!-- HERO -->
+  <section class="hero" aria-label="Apresentação">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
-  <!-- MOBILE MENU -->
-  <div class="mob-menu" id="mob-menu">
-    <div class="mob-hd">
-      <div class="mob-hd-name">Lucas de Castro</div>
-      <div class="mob-close" id="mob-close">✕</div>
-    </div>
-    <nav class="mob-nav">
-      <a class="mob-item" href="#sobre">Quem é esse cara?</a>
-      <a class="mob-item" href="#cases">Cases</a>
-      <a class="mob-item" href="#trajetoria">Trajetória</a>
-      <a class="mob-item" href="#contato">Ele tá afim de quê?</a>
-    </nav>
-    <div class="mob-foot">
-      <a href="mailto:llucastourinho@gmail.com" class="mob-btn hi">Contato</a>
-      <a href="https://linkedin.com/in/llucasdecastro" target="_blank" class="mob-btn">LinkedIn ↗</a>
-      <a href="https://drive.google.com/file/d/1rpBL4lilBW7JevMA1ANdUOhJQWg-CA8v/view" target="_blank" class="mob-btn">CV ↓</a>
-    </div>
-  </div>
-
-  <!-- HOME CANVAS -->
-  <div class="home-canvas" id="home-canvas">
-
-    <!-- 3 fotos natureza — sem sombra, sem borda arredondada -->
-    <div class="hp hp1 ca">
-      <img src="img/home-01.jpg" alt="Lucas de Castro">
-    </div>
-    <div class="hp hp2 ca">
-      <img src="img/home-02.jpg" alt="Lucas de Castro trabalhando">
-    </div>
-    <div class="hp hp3 ca">
-      <img src="img/home-03.jpg" alt="Lucas de Castro">
+    <!-- Elemento geométrico SVG animado -->
+    <div class="hero-geo" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Forma geométrica principal — inspirada em lapidação -->
+        <polygon points="100,8 180,54 180,146 100,192 20,146 20,54"
+          fill="rgba(201,169,110,.05)" stroke="rgba(201,169,110,.35)" stroke-width=".5"/>
+        <polygon points="100,8 180,54 100,100 20,54"
+          fill="rgba(201,169,110,.06)" stroke="rgba(201,169,110,.2)" stroke-width=".5"/>
+        <polygon points="100,100 180,54 180,146 100,192"
+          fill="rgba(201,169,110,.04)" stroke="rgba(201,169,110,.15)" stroke-width=".5"/>
+        <polygon points="100,100 20,54 20,146 100,192"
+          fill="rgba(201,169,110,.03)" stroke="rgba(201,169,110,.12)" stroke-width=".5"/>
+        <!-- Linha vertical central -->
+        <line x1="100" y1="8" x2="100" y2="192" stroke="rgba(201,169,110,.08)" stroke-width=".5"/>
+        <!-- Linha horizontal central -->
+        <line x1="20" y1="100" x2="180" y2="100" stroke="rgba(201,169,110,.08)" stroke-width=".5"/>
+        <!-- Pontos nos vértices -->
+        <circle cx="100" cy="8" r="2.5" fill="rgba(201,169,110,.7)"/>
+        <circle cx="180" cy="54" r="1.5" fill="rgba(201,169,110,.45)"/>
+        <circle cx="180" cy="146" r="1.5" fill="rgba(201,169,110,.45)"/>
+        <circle cx="100" cy="192" r="2" fill="rgba(201,169,110,.6)"/>
+        <circle cx="20" cy="146" r="1.5" fill="rgba(201,169,110,.45)"/>
+        <circle cx="20" cy="54" r="1.5" fill="rgba(201,169,110,.45)"/>
+        <circle cx="100" cy="100" r="3" fill="none" stroke="rgba(201,169,110,.4)" stroke-width="1"/>
+      </svg>
     </div>
 
-    <!-- FRASE CENTRAL — centralizada, sem laterais -->
-    <div class="home-phrase">
-      <span class="home-phrase-main">Tava te esperando.</span>
-      <span class="home-phrase-lead">Product Designer com 10 anos. Agora somando design com dados.</span>
-      <span class="home-phrase-sub">Google · BTG · YouTube · Rede Bahia · Kivid</span>
-    </div>
-
-    <!-- TAGS — desktop: posicionadas absolutas. Mobile: via home-tags-mobile -->
-    <!-- Storytelling: à direita da hp2 (bottom:10% left:4%, width:~20vw), com distância -->
-    <div class="ftag ftag-1 ca desktop-only" style="bottom:16%;left:27%">Storytelling</div>
-    <!-- UX/UI restaurada — direita baixo -->
-    <div class="ftag ftag-2 ca desktop-only" style="top:62%;right:17%">UX / UI</div>
-    <div class="ftag ftag-3 ca desktop-only" style="bottom:8%;right:22%">SQL · Python · Power BI</div>
-    <div class="ftag ftag-4 ca desktop-only" style="top:30%;left:17%">Product Analytics</div>
-    <!-- Design Systems entre hp3 e hp1 -->
-    <div class="ftag ftag-5 ca desktop-only" style="top:12%;left:52%">Design Systems</div>
-
-    <!-- Tags mobile — enfileiradas -->
-    <div class="home-tags-mobile">
-      <div class="ftag">Design Systems</div>
-      <div class="ftag">UX / UI</div>
-      <div class="ftag">SQL · Python · Power BI</div>
-      <div class="ftag">Product Analytics</div>
-      <div class="ftag">Storytelling</div>
-    </div>
-
-
-
-  </div>
-
-  <!-- SOBRE — acordeão com foto -->
-  <section id="sobre" class="sobre-section">
-
-    <!-- Cabeçalho acordeão -->
-    <div class="sobre-toggle" id="sobre-toggle" onclick="toggleSobre()">
-      <div class="sobre-toggle-left">
-        <h2 class="sobre-toggle-title">Quem é esse cara?</h2>
+    <div class="hero-content">
+      <div class="hero-label">
+        <span class="hero-dot" aria-hidden="true"></span>
+        Disponível · Salvador, Bahia
       </div>
-      <div class="sobre-toggle-right">
-        <div class="sobre-avail-badge">
-          <div class="sobre-avail-dot"></div>
-          Disponível · Pleno · Salvador ou Remoto
+
+      <h1 class="hero-title">
+        Product<br>
+        <em>Designer</em><br>
+        &amp; Analytics.
+      </h1>
+
+      <div class="hero-sub">
+        <span class="hero-sub-sep" aria-hidden="true"></span>
+        10 anos · Design + Dados
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER DE MARCAS -->
+  <div class="ticker-wrap" aria-label="Empresas e clientes">
+    <div class="ticker-track">
+      <span class="tlogo">Google</span>
+      <span class="tlogo">Rede Bahia</span>
+      <span class="tlogo">BTG Pactual</span>
+      <span class="tlogo">YouTube</span>
+      <span class="tlogo">Wellhub</span>
+      <span class="tlogo">Prefeitura de Salvador</span>
+      <span class="tlogo">Kinvo</span>
+      <span class="tlogo">Kivid</span>
+      <!-- Duplicado para loop contínuo -->
+      <span class="tlogo">Google</span>
+      <span class="tlogo">Rede Bahia</span>
+      <span class="tlogo">BTG Pactual</span>
+      <span class="tlogo">YouTube</span>
+      <span class="tlogo">Wellhub</span>
+      <span class="tlogo">Prefeitura de Salvador</span>
+      <span class="tlogo">Kinvo</span>
+      <span class="tlogo">Kivid</span>
+    </div>
+  </div>
+
+  <!-- PROJETOS -->
+  <section class="projects" id="projetos" aria-label="Projetos selecionados">
+    <div class="projects-hd reveal">
+      <h2 class="projects-title">Projetos</h2>
+      <span class="projects-count">06 casos</span>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Card 1 — Wellhub (wide) -->
+      <article class="pc reveal d1"
+        onclick="openCase('wellhub','340 treinos. Nenhuma celebração.')"
+        tabindex="0" role="button" aria-label="Ver case Wellhub"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCase('wellhub','340 treinos. Nenhuma celebração.')}">
+        <div class="pc-img">
+          <img src="img/wellhub-hero.png" alt="Redesign Check-in Wellhub"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;object-position:center;display:block;transform:scale(0.80);transform-origin:center;">
+          <div class="pc-img-ph" aria-hidden="true"><span>wellhub-hero.png</span></div>
         </div>
-        <div class="sobre-chevron" id="sobre-chevron">↓</div>
-      </div>
-    </div>
-
-    <!-- Conteúdo expansível -->
-    <div class="sobre-body" id="sobre-body">
-      <div class="sobre-inner">
-        <!-- Foto -->
-        <div class="sobre-photo reveal-scale">
-          <div class="sobre-photo-ph"><img src="img/foto.jpg" alt="Lucas de Castro" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
-            
+        <div class="pc-body">
+          <div class="pc-meta">Wellhub · Wellness · 2 semanas</div>
+          <h3 class="pc-title">340 treinos. Nenhuma celebração.</h3>
+          <div class="pc-arrow" aria-hidden="true">
+            <span class="pc-arrow-line"></span> Ver case
           </div>
         </div>
-        <!-- Texto -->
-        <div class="sobre-text reveal-left">
-          <p class="sobre-quote">"Filho de artesão e de uma mãe do sertão. Cresci trigêmeo: aprendi a compartilhar, cocriar, e entender que resultado bom é sempre conjunto. O que faço hoje tem a mesma lógica. Não tem atalho. Vem da persistência, tem método, tem cuidado e tem volta quando precisa. O processo nunca para."</p>
-          <p class="sobre-p">Passei por agências, emissoras e startups criando para <strong>Google, YouTube, Rede Bahia, BTG, Prefeitura de Salvador</strong>. Hoje curso Product Analytics na PM3 e aplico SQL e Python no dia a dia para somar design com dados e tomar decisões com mais evidência.</p>
-          <div class="sobre-areas stagger">
-            <div class="sa"><div class="sa-t">Design de Produto</div><div class="sa-d">Soluções escaláveis com impacto real.</div></div>
-            <div class="sa"><div class="sa-t">UX / UI</div><div class="sa-d">Interfaces com foco em usabilidade.</div></div>
-            <div class="sa"><div class="sa-t">Design Systems</div><div class="sa-d">Componentes que escalam.</div></div>
-            <div class="sa"><div class="sa-t">Análise de Dados</div><div class="sa-d">Python, SQL e Power BI.</div></div>
+      </article>
+
+      <!-- Card 2 — Credenciados -->
+      <article class="pc reveal d2"
+        onclick="openCase('credenciados','O usuário foi no Google.')"
+        tabindex="0" role="button" aria-label="Ver case Credenciados Kivid"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCase('credenciados','O usuário foi no Google.')}">
+        <div class="pc-img">
+          <img src="img/credenciados-hero.png" alt="Perfil Credenciados Kivid"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;object-position:center;display:block;transform:scale(1.15);transform-origin:center;">
+          <div class="pc-img-ph" aria-hidden="true"><span>credenciados-hero.png</span></div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-meta">Kivid · HealthTech · 3 semanas</div>
+          <h3 class="pc-title">O usuário fechou o app e foi no Google.</h3>
+          <div class="pc-arrow" aria-hidden="true">
+            <span class="pc-arrow-line"></span> Ver case
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </article>
 
-  <!-- LOGO TICKER — prova social -->
-  <div class="ticker-wrap reveal-fade">
-    <div class="ticker-track-wrap">
-      <div class="ticker-track" id="ticker-track">
-        <span class="tlogo">Google</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">Rede Bahia</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">BTG Pactual</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">Wellhub</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">YouTube</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">Prefeitura de Salvador</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">YouTube</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">Kinvo</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">Kivid</span>
-        <span class="tsep">·</span>
-        <!-- duplicado para loop infinito -->
-        <span class="tlogo">Google</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">Rede Bahia</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">BTG Pactual</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">Wellhub</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">YouTube</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">Prefeitura de Salvador</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">YouTube</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">Kinvo</span>
-        <span class="tsep">·</span>
-        <span class="tlogo">Kivid</span>
-        <span class="tsep">·</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- CASES -->
-  <section id="cases" class="cases">
-    <div class="cases-hd reveal">
-      <div class="cases-title">Projetos</div>
-    </div>
-    <div class="cases-grid">
-
-      <div class="cc reveal-scale" onclick="openCase('wellhub','340 treinos. Nenhuma celebração.')" tabindex="0" role="button" aria-label="Ver case: 340 treinos. Nenhuma celebração." onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCase('wellhub','340 treinos. Nenhuma celebração.')}">
-        <div class="cc-img" style="background:#2a2a2a">
-          <img src="img/wellhub-hero.png" alt="Wellhub" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;object-position:center;display:block;transform:scale(0.80);transform-origin:center;">
-          <div class="cc-num">02</div>
-
+      <!-- Card 3 — Checkout -->
+      <article class="pc reveal d3"
+        onclick="openCase('checkout','Metade desistia no checkout.')"
+        tabindex="0" role="button" aria-label="Ver case Checkout Kivid"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCase('checkout','Metade desistia no checkout.')}">
+        <div class="pc-img">
+          <img src="img/checkout-hero.png" alt="Checkout Kivid"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;object-position:center;display:block;transform:scale(1.15);transform-origin:center;">
+          <div class="pc-img-ph" aria-hidden="true"><span>checkout-hero.png</span></div>
         </div>
-        <div class="cc-body">
-          <div class="cc-ctx">Wellhub · Wellness</div>
-          <div class="cc-ttl">340 treinos. Nenhuma celebração.</div>
+        <div class="pc-body">
+          <div class="pc-meta">Kivid · HealthTech · 10 semanas</div>
+          <h3 class="pc-title">Metade desistia no meio do checkout.</h3>
+          <div class="pc-arrow" aria-hidden="true">
+            <span class="pc-arrow-line"></span> Ver case
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="cc reveal-scale d1" onclick="openCase('credenciados','O usuário foi no Google.')" tabindex="0" role="button" aria-label="Ver case: O usuário foi no Google." onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCase('credenciados','O usuário foi no Google.')}">
-        <div class="cc-img" style="background:#2a2a2a">
-          <img src="img/credenciados-hero.png" alt="Credenciados" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;object-position:center;display:block;transform:scale(1.15);transform-origin:center;">
-          <div class="cc-num">03</div>
+      <!-- Card 4 — NPS (wide) -->
+      <article class="pc reveal d1"
+        onclick="openCase('nps','O time decidia sem ouvir ninguém.')"
+        tabindex="0" role="button" aria-label="Ver case NPS Kivid"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCase('nps','O time decidia sem ouvir ninguém.')}">
+        <div class="pc-img">
+          <img src="img/nps-hero.png" alt="Avaliação NPS Kivid"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;object-position:center;display:block;transform:scale(1.15);transform-origin:center;">
+          <div class="pc-img-ph" aria-hidden="true"><span>nps-hero.png</span></div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-meta">Kivid · HealthTech · 2 semanas</div>
+          <h3 class="pc-title">O time decidia sem ouvir ninguém.</h3>
+          <div class="pc-arrow" aria-hidden="true">
+            <span class="pc-arrow-line"></span> Ver case
+          </div>
+        </div>
+      </article>
 
+      <!-- Card 5 — Em breve -->
+      <article class="pc reveal d2" style="cursor:default;">
+        <div class="pc-img" style="background:#141414;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#333;">Em breve</span>
         </div>
-        <div class="cc-body">
-          <div class="cc-ctx">Kivid · HealthTech</div>
-          <div class="cc-ttl">O usuário fechou o app e foi no Google.</div>
+        <div class="pc-body">
+          <div class="pc-meta">2025</div>
+          <h3 class="pc-title" style="color:#333;">Case em produção.</h3>
         </div>
-      </div>
+      </article>
 
-      <div class="cc reveal-scale d2" onclick="openCase('checkout','Metade desistia no checkout.')" tabindex="0" role="button" aria-label="Ver case: Metade desistia no checkout." onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCase('checkout','Metade desistia no checkout.')}">
-        <div class="cc-img" style="background:#2a2a2a">
-          <img src="img/checkout-hero.png" alt="Checkout" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;object-position:center;display:block;transform:scale(1.15);transform-origin:center;">
-          <div class="cc-num">04</div>
-
+      <!-- Card 6 — Em breve -->
+      <article class="pc reveal d3" style="cursor:default;">
+        <div class="pc-img" style="background:#141414;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#333;">Em breve</span>
         </div>
-        <div class="cc-body">
-          <div class="cc-ctx">Kivid · HealthTech</div>
-          <div class="cc-ttl">Metade desistia no meio do checkout.</div>
+        <div class="pc-body">
+          <div class="pc-meta">2025</div>
+          <h3 class="pc-title" style="color:#333;">Case em produção.</h3>
         </div>
-      </div>
-
-      <div class="cc reveal-scale d3" onclick="openCase('nps','O time decidia sem ouvir ninguém.')" tabindex="0" role="button" aria-label="Ver case: O time decidia sem ouvir ninguém." onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCase('nps','O time decidia sem ouvir ninguém.')}">
-        <div class="cc-img" style="background:#2a2a2a">
-          <img src="img/nps-hero.png" alt="NPS" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;object-position:center;display:block;transform:scale(1.15);transform-origin:center;">
-          <div class="cc-num">05</div>
-
-        </div>
-        <div class="cc-body">
-          <div class="cc-ctx">Kivid · HealthTech</div>
-          <div class="cc-ttl">O time decidia sem ouvir ninguém.</div>
-        </div>
-      </div>
+      </article>
 
     </div>
   </section>
 
-  <!-- TRAJETÓRIA -->
-  <section id="trajetoria" class="exp">
-    <div class="exp-sticky reveal">
-      <div class="sec-label">Trajetória</div>
-      <div class="exp-title">Por onde<br>ele passou.</div>
-    </div>
-    <div class="exp-list">
-      <div class="ei reveal"><div class="ei-yr">2024 – hoje</div><div><div class="ei-role">Product Designer</div><div class="ei-co">Branef / FESF · GovTech · Salvador, BA</div><div class="ei-tags"><span class="ei-tag">Product Design</span><span class="ei-tag">Design Systems</span></div></div></div>
-      <div class="ei reveal d1"><div class="ei-yr">2024</div><div><div class="ei-role">Product Designer</div><div class="ei-co">BomConsórcio · Fintech · Salvador, BA</div><div class="ei-tags"><span class="ei-tag">UX/UI</span><span class="ei-tag">Mobile</span></div></div></div>
-      <div class="ei reveal d2"><div class="ei-yr">2022 – 2024</div><div><div class="ei-role">Product Designer</div><div class="ei-co">Kivid · HealthTech · Salvador, BA</div><div class="ei-tags"><span class="ei-tag">UX Research</span><span class="ei-tag">25k usuários</span></div></div></div>
-      <div class="ei reveal d3"><div class="ei-yr">2020 – 2022</div><div><div class="ei-role">Product Designer</div><div class="ei-co">Kinvo (BTG Pactual) · Fintech · SP</div><div class="ei-tags"><span class="ei-tag">700k usuários</span><span class="ei-tag">+25% faturamento</span></div></div></div>
-      <div class="ei reveal d4"><div class="ei-yr">2018 – 2020</div><div><div class="ei-role">Designer</div><div class="ei-co">Rede Bahia · Mídia · Salvador, BA</div><div class="ei-tags"><span class="ei-tag">+150% Instagram</span></div></div></div>
-      <div class="ei reveal d4"><div class="ei-yr">2015 – 2018</div><div><div class="ei-role">Designer</div><div class="ei-co">California, EngenhoNovo, Rocha</div><div class="ei-tags"><span class="ei-tag">Google</span><span class="ei-tag">YouTube</span><span class="ei-tag">Rede Bahia</span><span class="ei-tag">Prefeitura de Salvador</span><span class="ei-tag">BTG</span><span class="ei-tag">YouTube</span></div></div></div>
-    </div>
-  </section>
-
-  <!-- FOOTER PRETO com 4 botões -->
-  <footer class="site-footer">
-    <div class="footer-btns">
-      <a href="mailto:llucastourinho@gmail.com" class="fbtn fbtn-hi">
-        <span class="fbtn-val">llucastourinho@gmail.com</span>
-        <span class="fbtn-arr">↗</span>
-      </a>
-      <a href="https://linkedin.com/in/llucasdecastro" target="_blank" rel="noopener" class="fbtn">
-        <span class="fbtn-val">LinkedIn</span>
-        <span class="fbtn-arr">↗</span>
-      </a>
-      <a href="https://drive.google.com/file/d/1rpBL4lilBW7JevMA1ANdUOhJQWg-CA8v/view" target="_blank" rel="noopener" class="fbtn">
-        <span class="fbtn-val">Currículo</span>
-        <span class="fbtn-arr">↓</span>
-      </a>
-      <a href="tel:+5571992080680" class="fbtn">
-        <span class="fbtn-val">(71) 99208-0680</span>
-        <span class="fbtn-arr">↗</span>
-      </a>
-    </div>
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <a href="mailto:llucastourinho@gmail.com" class="fbtn fbtn-hi">
+      llucastourinho@gmail.com
+    </a>
+    <a href="https://linkedin.com/in/llucasdecastro" target="_blank" rel="noopener" class="fbtn">
+      LinkedIn ↗
+    </a>
+    <a href="https://drive.google.com/file/d/1rpBL4lilBW7JevMA1ANdUOhJQWg-CA8v/view" target="_blank" rel="noopener" class="fbtn">
+      Currículo ↓
+    </a>
+    <a href="tel:+5571992080680" class="fbtn">
+      (71) 99208-0680
+    </a>
   </footer>
 
   <!-- FEEDBACK MODAL -->
   <div class="fb-overlay" id="fb-overlay" onclick="closeFeedbackOutside(event)">
-    <div class="fb-modal">
-      <button class="fb-close" onclick="closeFeedback()">×</button>
+    <div class="fb-modal" role="dialog" aria-label="Deixar feedback">
+      <button class="fb-close" onclick="closeFeedback()" aria-label="Fechar">×</button>
       <div class="fb-title">O que você achou?</div>
-      <div class="fb-sub">Recrutador, designer ou visitante — qualquer feedback ajuda a melhorar esse portfólio.</div>
-      <textarea class="fb-textarea" id="fb-text" rows="5" placeholder="Escreve aqui. Pode ser direto."></textarea>
+      <div class="fb-sub">Recrutador, designer ou visitante — qualquer feedback ajuda.</div>
+      <textarea class="fb-textarea" id="fb-text" rows="5" placeholder="Escreve aqui. Pode ser direto." aria-label="Seu feedback"></textarea>
       <div class="fb-foot">
         <span class="fb-anon">Anônimo por padrão.</span>
         <button class="fb-send" onclick="sendFeedback()">Enviar →</button>
@@ -301,27 +288,139 @@
       <div class="fb-thanks" id="fb-thanks">Obrigado. Vai ajudar muito.</div>
     </div>
   </div>
+
 </div><!-- /page-home -->
 
-<!-- ══ CASE PAGE ══ -->
+
+<!-- ════════════════════════════════════
+     PAGE: CASE
+════════════════════════════════════ -->
 <div id="page-case" class="page">
-  <nav class="nav">
-    <div class="nav-name" onclick="closeCase()">Lucas de Castro</div>
-    <div class="nav-links">
-      <a href="https://linkedin.com/in/llucasdecastro" target="_blank" class="nav-link">LinkedIn</a>
-      <div class="nav-sep"></div>
-      <a href="mailto:llucastourinho@gmail.com" class="nav-link">Contato</a>
-      <div class="nav-sep"></div>
-      <button class="nav-feedback" onclick="openFeedback()"><span class="nav-feedback-dot"></span>Feedback</button>
-    </div>
-    <button class="nav-ham" id="case-ham"><span></span><span></span><span></span></button>
+
+  <!-- Case nav bar -->
+  <nav class="case-nav" aria-label="Navegação do case">
+    <button class="case-back" onclick="closeCase()" aria-label="Voltar para home">
+      ← Projetos
+    </button>
+    <span class="case-nav-title" id="case-ttl-nav"></span>
   </nav>
-  <div class="case-nav-bar">
-    <button class="case-back" onclick="closeCase()">← Voltar</button>
-    <div class="case-ttl-nav" id="case-ttl-nav"></div>
-  </div>
+
+  <!-- Case content slot -->
   <div id="case-slot"></div>
-</div>
+
+</div><!-- /page-case -->
+
+
+<!-- ════════════════════════════════════
+     PAGE: SOBRE
+════════════════════════════════════ -->
+<div id="page-sobre" class="page">
+
+  <section class="sobre-page" aria-label="Sobre Lucas de Castro">
+
+    <div class="sobre-eyebrow reveal">Quem é esse cara?</div>
+    <h1 class="sobre-headline reveal d1">Design com alma.<br>Dados com verdade.</h1>
+
+    <div class="sobre-body-grid">
+      <!-- Foto -->
+      <div class="sobre-photo reveal">
+        <img src="img/foto.jpg" alt="Lucas de Castro, Product Designer" loading="lazy">
+      </div>
+
+      <!-- Texto -->
+      <div class="sobre-text-col reveal d1">
+        <p class="sobre-quote">"Filho de artesão e de uma mãe do sertão. Cresci trigêmeo: aprendi a compartilhar, cocriar, e entender que resultado bom é sempre conjunto."</p>
+
+        <p class="sobre-p">Passei por agências, emissoras e startups criando para <strong>Google, YouTube, Rede Bahia, BTG, Prefeitura de Salvador</strong>. Hoje curso Product Analytics na PM3 e aplico SQL e Python no dia a dia para somar design com dados e tomar decisões com mais evidência.</p>
+
+        <p class="sobre-p">"<strong>Dados sem design é ruído. Design sem dados é opinião.</strong>"</p>
+
+        <div class="sobre-skills">
+          <div class="sk"><div class="sk-t">Design de Produto</div><div class="sk-d">Soluções escaláveis com impacto real.</div></div>
+          <div class="sk"><div class="sk-t">UX / UI</div><div class="sk-d">Interfaces com foco em usabilidade.</div></div>
+          <div class="sk"><div class="sk-t">Design Systems</div><div class="sk-d">Componentes que escalam.</div></div>
+          <div class="sk"><div class="sk-t">Análise de Dados</div><div class="sk-d">Python, SQL e Power BI.</div></div>
+        </div>
+
+        <div class="sobre-stats">
+          <div class="stat"><div class="stat-n">10<em>+</em></div><div class="stat-l">Anos em design</div></div>
+          <div class="stat"><div class="stat-n">400<em>%</em></div><div class="stat-l">Crescimento YouTube</div></div>
+          <div class="stat"><div class="stat-n">700<em>k</em></div><div class="stat-l">Usuários impactados</div></div>
+          <div class="stat"><div class="stat-n">25<em>%</em></div><div class="stat-l">Aumento faturamento</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trajetória -->
+    <div class="traj-section reveal">
+      <h2 class="traj-title">Por onde ele passou.</h2>
+
+      <div class="ei reveal d1">
+        <div class="ei-yr">2024 – hoje</div>
+        <div>
+          <div class="ei-role">Designer de Produto Pleno</div>
+          <div class="ei-co">Branef / FESF · GovTech · Salvador, BA</div>
+          <div class="ei-tags"><span class="ei-tag">Product Design</span><span class="ei-tag">Design Systems</span><span class="ei-tag">GovTech</span></div>
+        </div>
+      </div>
+
+      <div class="ei reveal d2">
+        <div class="ei-yr">2024</div>
+        <div>
+          <div class="ei-role">Product Designer</div>
+          <div class="ei-co">BomConsórcio · Fintech · Salvador, BA</div>
+          <div class="ei-tags"><span class="ei-tag">UX/UI</span><span class="ei-tag">Fintech</span><span class="ei-tag">Mobile</span></div>
+        </div>
+      </div>
+
+      <div class="ei reveal d3">
+        <div class="ei-yr">2022 – 2024</div>
+        <div>
+          <div class="ei-role">Product Designer</div>
+          <div class="ei-co">Kivid · HealthTech · Salvador, BA</div>
+          <div class="ei-tags"><span class="ei-tag">Product Design</span><span class="ei-tag">UX Research</span><span class="ei-tag">HealthTech</span><span class="ei-tag">+25k usuários</span></div>
+        </div>
+      </div>
+
+      <div class="ei reveal d1">
+        <div class="ei-yr">2020 – 2022</div>
+        <div>
+          <div class="ei-role">Product Designer</div>
+          <div class="ei-co">Kinvo (BTG Pactual) · Fintech · SP</div>
+          <div class="ei-tags"><span class="ei-tag">Product Design</span><span class="ei-tag">Fintech</span><span class="ei-tag">700k usuários</span></div>
+        </div>
+      </div>
+
+      <div class="ei reveal d2">
+        <div class="ei-yr">2018 – 2020</div>
+        <div>
+          <div class="ei-role">UX/UI Designer</div>
+          <div class="ei-co">Rede Bahia · maior emissora do Nordeste · BA</div>
+          <div class="ei-tags"><span class="ei-tag">UX/UI</span><span class="ei-tag">+150% Instagram</span><span class="ei-tag">700k usuários</span></div>
+        </div>
+      </div>
+
+      <div class="ei reveal d3">
+        <div class="ei-yr">2015 – 2018</div>
+        <div>
+          <div class="ei-role">UX/UI Designer · Agências</div>
+          <div class="ei-co">California, EngenhoNovo, Rocha · Salvador, BA</div>
+          <div class="ei-tags"><span class="ei-tag">Google</span><span class="ei-tag">YouTube</span><span class="ei-tag">Rede Bahia</span><span class="ei-tag">BTG</span><span class="ei-tag">HitLab 400%</span></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Footer da página sobre -->
+  <footer class="site-footer" role="contentinfo">
+    <a href="mailto:llucastourinho@gmail.com" class="fbtn fbtn-hi">llucastourinho@gmail.com</a>
+    <a href="https://linkedin.com/in/llucasdecastro" target="_blank" rel="noopener" class="fbtn">LinkedIn ↗</a>
+    <a href="https://drive.google.com/file/d/1rpBL4lilBW7JevMA1ANdUOhJQWg-CA8v/view" target="_blank" rel="noopener" class="fbtn">Currículo ↓</a>
+    <a href="tel:+5571992080680" class="fbtn">(71) 99208-0680</a>
+  </footer>
+
+</div><!-- /page-sobre -->
 
 <script src="main.js"></script>
 </body>
