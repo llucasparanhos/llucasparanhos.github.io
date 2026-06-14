@@ -382,7 +382,12 @@ function openCase(id,title){
   const imgArea=document.createElement('div');
   imgArea.className='ch-img-area';
   imgArea.style.background='#111';
-  imgArea.innerHTML='<div class="ch-img-ph">'+id+'-hero.jpg</div>';
+  const heroImg=document.createElement('img');
+  heroImg.src='img/'+id+'-case-hero.jpg';
+  heroImg.alt=title;
+  heroImg.style.cssText='width:100%;height:100%;object-fit:cover;display:block;';
+  heroImg.onerror=function(){ this.style.display='none'; imgArea.innerHTML='<div class="ch-img-ph">'+id+'-case-hero.jpg</div>'; };
+  imgArea.appendChild(heroImg);
   ch.appendChild(imgArea);
 
   // Body
