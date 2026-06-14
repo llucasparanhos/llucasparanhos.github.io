@@ -75,53 +75,31 @@
 ════════════════════════════════════ -->
 <div id="page-home" class="page active">
 
-  <!-- HERO -->
+  <!-- HERO — estilo onyourtiptoes: texto grande, seleção animada, cursor -->
   <section class="hero" aria-label="Apresentação">
-    <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
-    <!-- Elemento geométrico SVG animado -->
-    <div class="hero-geo" aria-hidden="true">
-      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Forma geométrica principal — inspirada em lapidação -->
-        <polygon points="100,8 180,54 180,146 100,192 20,146 20,54"
-          fill="rgba(201,169,110,.05)" stroke="rgba(201,169,110,.35)" stroke-width=".5"/>
-        <polygon points="100,8 180,54 100,100 20,54"
-          fill="rgba(201,169,110,.06)" stroke="rgba(201,169,110,.2)" stroke-width=".5"/>
-        <polygon points="100,100 180,54 180,146 100,192"
-          fill="rgba(201,169,110,.04)" stroke="rgba(201,169,110,.15)" stroke-width=".5"/>
-        <polygon points="100,100 20,54 20,146 100,192"
-          fill="rgba(201,169,110,.03)" stroke="rgba(201,169,110,.12)" stroke-width=".5"/>
-        <!-- Linha vertical central -->
-        <line x1="100" y1="8" x2="100" y2="192" stroke="rgba(201,169,110,.08)" stroke-width=".5"/>
-        <!-- Linha horizontal central -->
-        <line x1="20" y1="100" x2="180" y2="100" stroke="rgba(201,169,110,.08)" stroke-width=".5"/>
-        <!-- Pontos nos vértices -->
-        <circle cx="100" cy="8" r="2.5" fill="rgba(201,169,110,.7)"/>
-        <circle cx="180" cy="54" r="1.5" fill="rgba(201,169,110,.45)"/>
-        <circle cx="180" cy="146" r="1.5" fill="rgba(201,169,110,.45)"/>
-        <circle cx="100" cy="192" r="2" fill="rgba(201,169,110,.6)"/>
-        <circle cx="20" cy="146" r="1.5" fill="rgba(201,169,110,.45)"/>
-        <circle cx="20" cy="54" r="1.5" fill="rgba(201,169,110,.45)"/>
-        <circle cx="100" cy="100" r="3" fill="none" stroke="rgba(201,169,110,.4)" stroke-width="1"/>
-      </svg>
-    </div>
+    <!-- Cursor customizado -->
+    <div class="hero-cursor" id="hero-cursor" aria-hidden="true"></div>
 
     <div class="hero-content">
-      <div class="hero-label">
-        <span class="hero-dot" aria-hidden="true"></span>
-        Disponível · Salvador, Bahia
+
+      <!-- Linha 1: nome com efeito digitação -->
+      <div class="hero-type-wrap" aria-label="Lucas de Castro">
+        <span class="hero-type-line" id="hero-line1"></span><span class="hero-caret" id="hero-caret1">|</span>
       </div>
 
-      <h1 class="hero-title">
-        Product<br>
-        <em>Designer</em><br>
-        &amp; Analytics.
-      </h1>
+      <!-- Linha 2: cargo com seleção de texto animada -->
+      <div class="hero-select-wrap">
+        <div class="hero-select-bg" id="hero-select-bg" aria-hidden="true"></div>
+        <span class="hero-select-text" id="hero-line2"></span>
+      </div>
 
+      <!-- Sublinha -->
       <div class="hero-sub">
         <span class="hero-sub-sep" aria-hidden="true"></span>
-        10 anos · Design + Dados
+        <span id="hero-line3"></span>
       </div>
+
     </div>
   </section>
 

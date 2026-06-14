@@ -45,78 +45,102 @@ function closeMob(){
   document.body.style.overflow = '';
 }
 
-/* ── HERO CANVAS — Pixels vivos ── */
+/* ── HERO — Typewriter + Seleção + Cursor (onyourtiptoes style) ── */
 (function(){
-  const canvas = document.getElementById('hero-canvas');
-  if(!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const GOLD = [201,169,110];
-  const WHITE = [240,237,232];
-  const GRID = 32;
-  let particles = [];
+  const hero       = document.querySelector('.hero');
+  const cursor     = document.getElementById('hero-cursor');
+  const line1El    = document.getElementById('hero-line1');
+  const caret1     = document.getElementById('hero-caret1');
+  const line2El    = document.getElementById('hero-line2');
+  const selectBg   = document.getElementById('hero-select-bg');
+  const line3El    = document.getElementById('hero-line3');
+  const subEl      = document.querySelector('.hero-sub');
 
-  function resize(){
-    const r = canvas.parentElement.getBoundingClientRect();
-    canvas.width = r.width;
-    canvas.height = r.height;
-    initParticles();
-  }
+  if(!hero || !line1El) return;
 
-  function initParticles(){
-    const cols = Math.ceil(canvas.width / GRID);
-    const rows = Math.ceil(canvas.height / GRID);
-    particles = [];
-    const total = Math.floor(cols * rows * 0.055);
-    for(let i = 0; i < total; i++){
-      const col = Math.floor(Math.random() * cols);
-      const row = Math.floor(Math.random() * rows);
-      const isGold = Math.random() < .65;
-      particles.push({
-        x: col * GRID + GRID / 2,
-        y: row * GRID + GRID / 2,
-        size: Math.random() < .6 ? 1 : 2,
-        color: isGold ? GOLD : WHITE,
-        speed: .006 + Math.random() * .012,
-        tick: Math.random() * Math.PI * 2,
-        maxA: .2 + Math.random() * .22,
-      });
-    }
-  }
+  const TEXT1 = 'Lucas de Castro';
+  const TEXT2 = 'Product Designer & Analytics';
+  const TEXT3 = 'Salvador, Bahia · Disponível';
 
-  function draw(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const now = Date.now() * .001;
-    particles.forEach(p => {
-      p.tick += p.speed;
-      const a = p.maxA * (1 + Math.sin(p.tick)) * .5;
-      const [r, g, b] = p.color;
-      ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
-      ctx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size);
+  /* Custom cursor */
+  if(cursor){
+    hero.addEventListener('mouseenter', () => cursor.classList.add('visible'));
+    hero.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
+    hero.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
     });
-    requestAnimationFrame(draw);
   }
 
-  resize();
-  draw();
-  window.addEventListener('resize', resize);
-})();
+  /* Typewriter helper */
+  function typeText(el, text, speed, cb){
+    let i = 0;
+    function next(){
+      if(i <= text.length){
+        el.textContent = text.slice(0, i);
+        i++;
+        setTimeout(next, speed + Math.random() * 30);
+      } else {
+        if(cb) cb();
+      }
+    }
+    next();
+  }
 
-/* ── HERO GEO — Interação mouse ── */
-(function(){
-  const geo = document.querySelector('.hero-geo');
-  if(!geo) return;
-  const hero = document.querySelector('.hero');
-  hero.addEventListener('mousemove', e => {
-    const rect = hero.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = (e.clientX - cx) / rect.width;
-    const dy = (e.clientY - cy) / rect.height;
-    geo.style.transform = 'translateY(calc(-50% + ' + (dy * -18) + 'px)) rotate(' + (dx * 8) + 'deg)';
-  });
-  hero.addEventListener('mouseleave', () => {
-    geo.style.transform = '';
-  });
+  /* Selection animation: expand bg overlay left→right */
+  function animateSelection(el, bg, text, cb){
+    el.textContent = text;
+    const w = el.offsetWidth;
+    let start = null;
+    const dur = 500;
+    function step(ts){
+      if(!start) start = ts;
+      const p = Math.min((ts - start) / dur, 1);
+      bg.style.width = (w * p) + 'px';
+      if(p < 1){
+        requestAnimationFrame(step);
+      } else {
+        /* Hold selected for 600ms then deselect */
+        setTimeout(() => {
+          let s2 = null;
+          function desel(ts2){
+            if(!s2) s2 = ts2;
+            const p2 = Math.min((ts2 - s2) / 300, 1);
+            bg.style.width = (w * (1 - p2)) + 'px';
+            if(p2 < 1) requestAnimationFrame(desel);
+            else if(cb) cb();
+          }
+          requestAnimationFrame(desel);
+        }, 600);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* Sequence */
+  setTimeout(() => {
+    /* 1. Type line 1 */
+    typeText(line1El, TEXT1, 55, () => {
+      /* Hide caret on line 1 */
+      setTimeout(() => {
+        if(caret1) caret1.classList.add('hidden');
+
+        /* 2. Type line 2 */
+        typeText(line2El, TEXT2, 45, () => {
+
+          /* 3. Animate selection on line 2 */
+          setTimeout(() => {
+            animateSelection(line2El, selectBg, TEXT2, () => {
+
+              /* 4. Show sub line */
+              if(line3El) line3El.textContent = TEXT3;
+              if(subEl) subEl.classList.add('visible');
+            });
+          }, 300);
+        });
+      }, 200);
+    });
+  }, 800);
 })();
 
 /* ── REVEAL ON SCROLL ── */
