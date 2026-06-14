@@ -1,3 +1,34 @@
+
+/* ── CAROUSEL — case pages ── */
+var _carouselIdx = {};
+
+function carouselMove(btn, dir){
+  var carousel = btn.closest('.ch-carousel');
+  if(!carousel) return;
+  var track = carousel.querySelector('.ch-carousel-track');
+  var slides = track.children.length;
+  var cur = parseInt(carousel.dataset.idx||'0');
+  carousel.dataset.idx = (cur + dir + slides) % slides;
+  _renderCarousel(carousel, track, slides);
+}
+
+function carouselDot(dot){
+  var carousel = dot.closest('.ch-carousel');
+  if(!carousel) return;
+  var track = carousel.querySelector('.ch-carousel-track');
+  carousel.dataset.idx = dot.dataset.idx;
+  _renderCarousel(carousel, track, track.children.length);
+}
+
+function _renderCarousel(carousel, track, slides){
+  var idx = parseInt(carousel.dataset.idx||'0');
+  track.style.transform = 'translateX(-'+(idx*100)+'%)';
+  var dots = carousel.querySelectorAll('.ch-carousel-dot');
+  dots.forEach(function(d,i){ d.classList.toggle('active', i===idx); });
+  var count = carousel.querySelector('.ch-carousel-count');
+  if(count) count.textContent = (idx+1)+' / '+slides;
+}
+
 /* ============================================================
    main.js, Lucas de Castro Portfolio
    ============================================================ */
@@ -209,6 +240,7 @@ setTimeout(() => {
 const CASES={
   wellhub:{
     color:'#0F6E56',bg:'#111',
+    carousel:['wellhub-problema-1.jpg','wellhub-problema-2.jpg','wellhub-problema-3.jpg'],
     ey:'UX/UI · Gamification · Wellness',
     ttl:'340 treinos.<br><em>Nenhuma celebração.</em>',
     meta:['Product Designer','2 semanas','Figma · Adobe CC'],
@@ -362,12 +394,25 @@ function openCase(id,title){
     '<div class="ch-hook">'+c.hook+'</div>'
     +'<div class="ch-role"><span class="ch-role-lbl">Meu papel</span><span class="ch-role-txt">'+c.role+'</span></div>'
 
-    /* DESTAQUE 1 — O Problema + imagem do estado antigo */
+    /* DESTAQUE 1 — O Problema + carrossel (wellhub) ou imagem simples */
     +'<div class="ch-highlight">'
       +'<div class="ch-highlight-label">O Problema</div>'
       +c.context
     +'</div>'
-    +'<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-problema.jpg</div></div></div>'
+    +(c.carousel
+      ? '<div class="ch-carousel" id="carousel-'+id+'">'
+        +'<div class="ch-carousel-track" id="carousel-track-'+id+'">'+c.carousel.map(function(img,i){
+          return'<div class="ch-carousel-slide"><div class="ch-carousel-slide-ph">'+img+'</div></div>';
+        }).join('')+'</div>'
+        +'<button class="ch-carousel-btn prev" onclick="carouselMove(this,-1)" aria-label="Anterior">&#8249;</button>'
+        +'<button class="ch-carousel-btn next" onclick="carouselMove(this,1)" aria-label="Proximo">&#8250;</button>'
+        +'<div class="ch-carousel-dots">'+c.carousel.map(function(_,i){
+          return'<div class="ch-carousel-dot'+(i===0?' active':'')+'" data-idx="'+i+'" onclick="carouselDot(this)"></div>';
+        }).join('')+'</div>'
+        +'<div class="ch-carousel-count" id="carousel-count-'+id+'">1 / '+c.carousel.length+'</div>'
+        +'</div>'
+      : '<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-problema.jpg</div></div></div>'
+    )
 
     /* DESTAQUE 2 — KPIs & OKRs */
     +'<div class="ch-highlight">'

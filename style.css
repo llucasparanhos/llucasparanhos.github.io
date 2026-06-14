@@ -836,3 +836,61 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   content:''; flex:1; height:1px; background:var(--c-line);
 }
 .ch-compare-label span { color:var(--c-gold); }
+
+/* ── Case Carousel ── */
+.ch-carousel {
+  position:relative; margin:1rem 0 3rem;
+  overflow:hidden; border-radius:10px;
+  background:var(--c-bg3); border:1px solid var(--c-line);
+}
+.ch-carousel-track {
+  display:flex; transition:transform .4s cubic-bezier(.4,0,.2,1);
+  will-change:transform;
+}
+.ch-carousel-slide {
+  flex-shrink:0; width:100%;
+  aspect-ratio:16/9;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--c-bg3);
+}
+.ch-carousel-slide img {
+  width:100%; height:100%; object-fit:contain; display:block;
+}
+.ch-carousel-slide-ph {
+  font-family:var(--ff-mono); font-size:.6rem;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--c-dim);
+}
+/* Nav buttons */
+.ch-carousel-btn {
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:36px; height:36px; border-radius:50%;
+  background:rgba(12,12,12,.8); backdrop-filter:blur(8px);
+  border:1px solid var(--c-line); color:var(--c-text);
+  font-size:.9rem; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s, opacity .2s; z-index:2;
+  opacity:.6;
+}
+.ch-carousel-btn:hover { background:var(--c-bg2); opacity:1; }
+.ch-carousel-btn.prev { left:12px; }
+.ch-carousel-btn.next { right:12px; }
+/* Dots */
+.ch-carousel-dots {
+  display:flex; justify-content:center; gap:5px;
+  padding:.75rem 0 .875rem;
+}
+.ch-carousel-dot {
+  width:5px; height:5px; border-radius:50%;
+  background:var(--c-dim); transition:background .2s, width .2s;
+  cursor:pointer;
+}
+.ch-carousel-dot.active {
+  width:16px; border-radius:3px; background:var(--c-text);
+}
+/* Counter */
+.ch-carousel-count {
+  position:absolute; bottom:10px; right:12px;
+  font-family:var(--ff-mono); font-size:.55rem;
+  letter-spacing:.1em; color:rgba(255,255,255,.35);
+  background:rgba(12,12,12,.6); padding:2px 8px; border-radius:4px;
+}
