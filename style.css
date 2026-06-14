@@ -523,7 +523,8 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   .mob-menu { display:flex; }
   .hero { min-height:70vh; padding-top:2.5rem; }
   .hero-geo { display:none; }
-  .projects-grid { grid-template-columns:1fr; gap:8px; background:transparent; padding:0 8px; }
+  .projects { padding-left:8px; padding-right:8px; }
+  .projects-grid { grid-template-columns:1fr; gap:8px; background:transparent; }
   .pc { border-bottom:none; }
   .pc:nth-child(1), .pc:nth-child(4) { grid-column:span 1; }
   .pc:nth-child(1) .pc-img,
