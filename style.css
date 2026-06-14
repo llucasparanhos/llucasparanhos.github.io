@@ -849,7 +849,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 }
 .ch-carousel-slide {
   flex-shrink:0; width:100%;
-  aspect-ratio:16/9;
+  aspect-ratio:4/5;
   display:flex; align-items:center; justify-content:center;
   background:var(--c-bg3);
 }

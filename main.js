@@ -240,7 +240,7 @@ setTimeout(() => {
 const CASES={
   wellhub:{
     color:'#0F6E56',bg:'#111',
-    carousel:['wellhub-problema-1.jpg','wellhub-problema-2.jpg','wellhub-problema-3.jpg'],
+    carousel:['wellhub-problema-1.jpg','wellhub-problema-2.jpg','wellhub-problema-3.jpg','wellhub-problema-4.jpg','wellhub-problema-5.jpg','wellhub-problema-6.jpg','wellhub-problema-7.jpg','wellhub-problema-8.jpg','wellhub-problema-9.jpg','wellhub-problema-10.jpg'],
     ey:'UX/UI · Gamification · Wellness',
     ttl:'340 treinos.<br><em>Nenhuma celebração.</em>',
     meta:['Product Designer','2 semanas','Figma · Adobe CC'],
