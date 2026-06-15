@@ -914,3 +914,12 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 @media(max-width:900px){
   .ch-comp-grid { grid-template-columns:1fr; }
 }
+
+/* ── Processo — altura natural da imagem ── */
+.ch-processo {
+  margin:1.5rem 0 3rem;
+  border-radius:8px;
+  overflow:hidden;
+  background:var(--c-bg3);
+  border:1px solid var(--c-line);
+}
