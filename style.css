@@ -1004,3 +1004,8 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   height:auto;
   display:block;
 }
+
+/* ── Checkout antes 2x2 — proporção 1366x768 ── */
+.ch-comp-grid .ch-comp-item {
+  aspect-ratio:1366/768;
+}
