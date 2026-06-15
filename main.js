@@ -1,3 +1,4 @@
+/* v2 */
 
 /* ── CAROUSEL — case pages ── */
 var _carouselIdx = {};
