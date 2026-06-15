@@ -432,7 +432,7 @@ function openCase(id,title){
     +(c.personaImg ? '<div class="ch-func-img"><img src="img/'+c.personaImg+'" alt="Persona" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
 
     /* Grid 2x2 telas antigas (checkout) */
-    +(c.antes ? '<div class="ch-comp-grid">'+c.antes.map(function(img){
+    +(c.antes ? '<h3>Telas antigas</h3><div class="ch-comp-grid">'+c.antes.map(function(img){
       return '<div class="ch-comp-item"><img src="img/'+img+'" alt="antes" style="width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
     }).join('')+'</div>' : '')
 
@@ -475,7 +475,7 @@ function openCase(id,title){
 
     /* Solução desktop + mobile em coluna (checkout) */
     +(c.solucaoImgs
-      ? c.solucaoImgs.map(function(img){
+      ? '<h3>Telas novas</h3>'+c.solucaoImgs.map(function(img){
           return '<div class="ch-func-img"><img src="img/'+img+'" alt="sol" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
         }).join('')
       : ''
