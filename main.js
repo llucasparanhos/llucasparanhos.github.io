@@ -355,7 +355,7 @@ const CASES={
   nps:{
     color:'#854F0B',bg:'#111',
     wireframes:'nps-wireframes.jpg',
-    solucaoImg:'nps-solucao.jpg',
+    telas:['nps-tela-1.jpg','nps-tela-2.jpg','nps-tela-3.jpg','nps-tela-4.jpg','nps-tela-5.jpg','nps-tela-6.jpg','nps-tela-7.jpg','nps-tela-8.jpg'],
     ey:'NPS · Data · HealthTech',
     ttl:'O time decidia<br>sem ouvir <em>ninguém.</em>',
     meta:['Product Designer','2 semanas','Figma'],
@@ -476,9 +476,6 @@ function openCase(id,title){
     +'<div class="ch-highlight"><div class="ch-highlight-label">Como pensei a solução</div>'+c.insight+c.sol
     +(c.wireframes ? '<div class="ch-func-img"><img src="img/'+c.wireframes+'" alt="wireframes" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
     +'</div>'
-
-    /* Solução wide (nps + credenciados) */
-    +(c.solucaoImg ? '<div class="ch-func-img"><img src="img/'+c.solucaoImg+'" alt="sol" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
 
     /* Solução desktop + mobile em coluna (checkout) */
     +(c.solucaoImgs
