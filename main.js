@@ -322,6 +322,9 @@ const CASES={
   },
   checkout:{
     color:'#993556',bg:'#111',
+    antes:['checkout-antes-1.jpg','checkout-antes-2.jpg','checkout-antes-3.jpg','checkout-antes-4.jpg'],
+    personaImg:'checkout-persona.jpg',
+    solucaoImgs:['checkout-solucao-desktop.jpg','checkout-solucao-mobile.jpg'],
     ey:'Conversão · Mobile · HealthTech',
     ttl:'Metade desistia<br>no meio do <em>checkout.</em>',
     meta:['Product Designer','10 semanas','Figma · Clarity'],
@@ -421,7 +424,29 @@ function openCase(id,title){
   bd.innerHTML=
     '<div class="ch-hook">'+c.hook+'</div>'
     +'<div class="ch-role"><span class="ch-role-lbl">Meu papel</span><span class="ch-role-txt">'+c.role+'</span></div>'
+
+    /* O Problema */
     +'<div class="ch-highlight"><div class="ch-highlight-label">O Problema</div>'+c.context+'</div>'
+
+    /* Persona (checkout) */
+    +(c.personaImg ? '<div class="ch-func-img"><img src="img/'+c.personaImg+'" alt="Persona" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
+
+    /* Carrossel telas antigas (checkout) */
+    +(c.antes ? (function(){
+      return '<div class="ch-carousel" id="car-'+id+'">'
+        +'<div class="ch-carousel-track">'+c.antes.map(function(img,i){
+          return '<div class="ch-carousel-slide"><img src="img/'+img+'" alt="'+i+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></div>';
+        }).join('')+'</div>'
+        +'<button class="ch-carousel-btn prev" onclick="carouselMove(this,-1)">&#8249;</button>'
+        +'<button class="ch-carousel-btn next" onclick="carouselMove(this,1)">&#8250;</button>'
+        +'<div class="ch-carousel-dots">'+c.antes.map(function(_,i){
+          return '<div class="ch-carousel-dot'+(i===0?' active':'')+'" data-idx="'+i+'" onclick="carouselDot(this)"></div>';
+        }).join('')+'</div>'
+        +'<div class="ch-carousel-count">1 / '+c.antes.length+'</div>'
+        +'</div>';
+    })() : '')
+
+    /* Wellhub: carrossel de problema */
     +(c.carousel ? (function(){
       return '<div class="ch-carousel" id="car-'+id+'">'
         +'<div class="ch-carousel-track">'+c.carousel.map(function(img,i){
@@ -435,7 +460,11 @@ function openCase(id,title){
         +'<div class="ch-carousel-count">1 / '+c.carousel.length+'</div>'
         +'</div>';
     })() : '')
+
+    /* Credenciados: funcionalidades wide */
     +(c.funcImg ? '<div class="ch-func-img"><img src="img/'+c.funcImg+'" alt="func" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
+
+    /* KPIs & OKRs */
     +'<div class="ch-highlight"><div class="ch-highlight-label">KPIs &amp; OKRs</div>'
       +'<div class="ch-okr-block">'
         +'<div class="ch-okr-head"><div class="ch-okr-head-icon">&#9678;</div><div><span class="ch-okr-head-label">Objetivo</span><div class="ch-okr-head-obj">'+c.objetivo+'</div></div></div>'
@@ -447,8 +476,24 @@ function openCase(id,title){
         +'<div class="ch-kpi-grid">'+c.kpis.map(function(k){return '<div class="ch-kpi"><div class="ch-kpi-label">'+k.label+'</div><div class="ch-kpi-val">'+k.val+'</div><div class="ch-kpi-desc">'+k.desc+'</div></div>';}).join('')+'</div>'
       +'</div>'
     +'</div>'
+
+    /* Processo */
     +'<div class="ch-func-img"><img src="img/'+id+'-processo.jpg" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>'
+
+    /* Como pensei a solução */
     +'<div class="ch-highlight"><div class="ch-highlight-label">Como pensei a solução</div>'+c.insight+c.sol+'</div>'
+
+    /* Solução desktop + mobile lado a lado (checkout) */
+    +(c.solucaoImgs
+      ? '<div class="ch-imgs">'
+          +c.solucaoImgs.map(function(img){
+            return '<div class="ch-img-slot" style="position:relative;overflow:hidden"><img src="img/'+img+'" alt="sol" style="width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
+          }).join('')
+        +'</div>'
+      : ''
+    )
+
+    /* Credenciados: solucao wide + carrossel telas */
     +(c.solucaoImg ? '<div class="ch-func-img"><img src="img/'+c.solucaoImg+'" alt="sol" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
     +(c.telas ? (function(){
       return '<h3>Telas</h3>'
@@ -464,10 +509,17 @@ function openCase(id,title){
           +'<div class="ch-carousel-count">1 / '+c.telas.length+'</div>'
         +'</div>';
     })() : '')
-    +(c.comparativo ? '<div class="ch-compare-label">Antes <span>&#215;</span> Depois</div>'
-      +'<div class="ch-comp-grid">'+c.comparativo.map(function(img){
-        return '<div class="ch-comp-item"><img src="img/'+img+'" alt="comp" style="width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
-      }).join('')+'</div>' : '')
+
+    /* Wellhub: comparativo 2x2 */
+    +(c.comparativo
+      ? '<div class="ch-compare-label">Antes <span>&#215;</span> Depois</div>'
+        +'<div class="ch-comp-grid">'+c.comparativo.map(function(img){
+          return '<div class="ch-comp-item"><img src="img/'+img+'" alt="comp" style="width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
+        }).join('')+'</div>'
+      : ''
+    )
+
+    /* Resultados */
     +'<h3>Resultados</h3>'
     +'<div class="res-grid">'+c.results.map(function(r){
       return '<div class="res-item"><div class="res-n">'+r[0]+'</div><div class="res-l">'+r[1]+'</div></div>';
