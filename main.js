@@ -290,6 +290,12 @@ const CASES={
   },
   credenciados:{
     color:'#185FA5',bg:'#111',
+    carousel:['credenciados-tela-1.jpg','credenciados-tela-2.jpg','credenciados-tela-3.jpg','credenciados-tela-4.jpg','credenciados-tela-5.jpg','credenciados-tela-6.jpg'],
+    funcImg:'credenciados-func.jpg',
+    solucaoImg:'credenciados-solucao.jpg',
+    carousel:['credenciados-tela-1.jpg','credenciados-tela-2.jpg','credenciados-tela-3.jpg','credenciados-tela-4.jpg','credenciados-tela-5.jpg','credenciados-tela-6.jpg'],
+    funcImg:'credenciados-func.jpg',
+    solucaoImg:'credenciados-solucao.jpg',
     ey:'UX Research · HealthTech · Kivid',
     ttl:'O usuário fechou<br>o app e foi no <em>Google.</em>',
     meta:['Product Designer','3 semanas','Figma'],
@@ -425,19 +431,25 @@ function openCase(id,title){
       +'<div class="ch-highlight-label">O Problema</div>'
       +c.context
     +'</div>'
-    +(c.carousel
+    /* Carrossel de problema (wellhub) */
+    +(c.carousel && !c.funcImg
       ? '<div class="ch-carousel" id="carousel-'+id+'">'
-        +'<div class="ch-carousel-track" id="carousel-track-'+id+'">'+c.carousel.map(function(img,i){
-          return'<div class="ch-carousel-slide lb-trigger" onclick="lbOpen(\"img/'+img+'\")"><img src="img/'+img+'" alt="Slide '+(i+1)+'" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"></div>';
+        +'<div class="ch-carousel-track">'+c.carousel.map(function(img,i){
+          return'<div class="ch-carousel-slide"><img src="img/'+img+'" alt="Slide '+(i+1)+'" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"></div>';
         }).join('')+'</div>'
         +'<button class="ch-carousel-btn prev" onclick="carouselMove(this,-1)" aria-label="Anterior">&#8249;</button>'
         +'<button class="ch-carousel-btn next" onclick="carouselMove(this,1)" aria-label="Proximo">&#8250;</button>'
         +'<div class="ch-carousel-dots">'+c.carousel.map(function(_,i){
           return'<div class="ch-carousel-dot'+(i===0?' active':'')+'" data-idx="'+i+'" onclick="carouselDot(this)"></div>';
         }).join('')+'</div>'
-        +'<div class="ch-carousel-count" id="carousel-count-'+id+'">1 / '+c.carousel.length+'</div>'
+        +'<div class="ch-carousel-count">1 / '+c.carousel.length+'</div>'
         +'</div>'
-      : '<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-problema.jpg</div></div></div>'
+      : ''
+    )
+    /* Funcionalidades wide (credenciados) */
+    +(c.funcImg
+      ? (function(fi){ return '<div class="ch-imgs"><div class="ch-img-slot wide" style="position:relative;overflow:hidden;cursor:zoom-in" onclick="lbOpen(&quot;img/'+fi+'&quot;)"><img src="img/'+fi+'" alt="Funcionalidades" style="width:100%;display:block;"></div></div>'; })(c.funcImg)
+      : (!c.carousel ? '<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-problema.jpg</div></div></div>' : '')
     )
 
     /* DESTAQUE 2 — KPIs & OKRs */
@@ -471,7 +483,7 @@ function openCase(id,title){
     +'<div class="ch-compare-label">Antes <span>×</span> Depois</div>'
     +(c.comparativo
       ? '<div class="ch-comp-grid">'+c.comparativo.map(function(img){
-          return'<div class="ch-comp-item lb-trigger" onclick="lbOpen(\"img/'+img+'\")"><img src="img/'+img+'" alt="Comparativo" style="width:100%;height:100%;object-fit:cover;display:block;"></div>';
+          return'<div class="ch-comp-item lb-trigger" onclick="lbOpen(\"img/'+img+'\")"><img src="img/'+img+'" alt="Comparativo" style="width:100%;height:100%;object-fit:contain;display:block;"></div>';
         }).join('')+'</div>'
       : '<div class="ch-imgs">'
           +'<div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-antes.jpg</div></div>'
