@@ -354,6 +354,8 @@ const CASES={
   },
   nps:{
     color:'#854F0B',bg:'#111',
+    wireframes:'nps-wireframes.jpg',
+    solucaoImg:'nps-solucao.jpg',
     ey:'NPS · Data · HealthTech',
     ttl:'O time decidia<br>sem ouvir <em>ninguém.</em>',
     meta:['Product Designer','2 semanas','Figma'],
@@ -471,7 +473,12 @@ function openCase(id,title){
     +'<div class="ch-func-img"><img src="img/'+id+'-processo.jpg" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>'
 
     /* Como pensei a solução */
-    +'<div class="ch-highlight"><div class="ch-highlight-label">Como pensei a solução</div>'+c.insight+c.sol+'</div>'
+    +'<div class="ch-highlight"><div class="ch-highlight-label">Como pensei a solução</div>'+c.insight+c.sol
+    +(c.wireframes ? '<div class="ch-func-img"><img src="img/'+c.wireframes+'" alt="wireframes" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
+    +'</div>'
+
+    /* Solução wide (nps + credenciados) */
+    +(c.solucaoImg ? '<div class="ch-func-img"><img src="img/'+c.solucaoImg+'" alt="sol" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
 
     /* Solução desktop + mobile em coluna (checkout) */
     +(c.solucaoImgs
@@ -481,8 +488,7 @@ function openCase(id,title){
       : ''
     )
 
-    /* Credenciados: solucao wide + carrossel telas */
-    +(c.solucaoImg ? '<div class="ch-func-img"><img src="img/'+c.solucaoImg+'" alt="sol" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
+    /* Credenciados: carrossel telas */
     +(c.telas ? (function(){
       return '<h3>Telas</h3>'
         +'<div class="ch-carousel telas" id="car-telas-'+id+'">'
