@@ -446,7 +446,7 @@ function openCase(id,title){
       +c.sol
     +'</div>'
     /* Imagem do processo/sketch */
-    +'<div class="ch-imgs"><div class="ch-img-slot wide" style="background:var(--c-bg3)"><img src="img/'+id+'-processo.jpg" alt="Processo" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"></div></div>'
+    +'<div class="ch-imgs"><div class="ch-img-slot wide" style="background:var(--c-bg3)"><img src="img/'+id+'-processo.jpg" alt="Processo" style="width:100%;display:block;"></div></div>'
     /* Par comparativo antes x depois — grid 2x2 se tiver comparativo[] */
     +'<div class="ch-compare-label">Antes <span>×</span> Depois</div>'
     +(c.comparativo
