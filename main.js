@@ -241,6 +241,7 @@ const CASES={
   wellhub:{
     color:'#0F6E56',bg:'#111',
     carousel:['wellhub-problema-1.jpg','wellhub-problema-2.jpg','wellhub-problema-3.jpg','wellhub-problema-4.jpg','wellhub-problema-5.jpg','wellhub-problema-6.jpg','wellhub-problema-7.jpg','wellhub-problema-8.jpg','wellhub-problema-9.jpg','wellhub-problema-10.jpg'],
+    comparativo:['wellhub-comp-1.jpg','wellhub-comp-2.jpg','wellhub-comp-3.jpg','wellhub-comp-4.jpg'],
     ey:'UX/UI · Gamification · Wellness',
     ttl:'340 treinos.<br><em>Nenhuma celebração.</em>',
     meta:['Product Designer','2 semanas','Figma · Adobe CC'],
@@ -445,12 +446,17 @@ function openCase(id,title){
     +'</div>'
     /* Imagem do processo/sketch */
     +'<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-processo.jpg</div></div></div>'
-    /* Par comparativo antes x depois */
+    /* Par comparativo antes x depois — grid 2x2 se tiver comparativo[] */
     +'<div class="ch-compare-label">Antes <span>×</span> Depois</div>'
-    +'<div class="ch-imgs">'
-      +'<div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-antes.jpg</div></div>'
-      +'<div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-depois.jpg</div></div>'
-    +'</div>'
+    +(c.comparativo
+      ? '<div class="ch-comp-grid">'+c.comparativo.map(function(img){
+          return'<div class="ch-comp-item"><img src="img/'+img+'" alt="Comparativo" style="width:100%;height:100%;object-fit:cover;display:block;"></div>';
+        }).join('')+'</div>'
+      : '<div class="ch-imgs">'
+          +'<div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-antes.jpg</div></div>'
+          +'<div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-depois.jpg</div></div>'
+        +'</div>'
+    )
 
     /* Resultados */
     +'<h3>Resultados</h3>'
