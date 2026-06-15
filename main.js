@@ -431,20 +431,10 @@ function openCase(id,title){
     /* Persona (checkout) */
     +(c.personaImg ? '<div class="ch-func-img"><img src="img/'+c.personaImg+'" alt="Persona" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
 
-    /* Carrossel telas antigas (checkout) */
-    +(c.antes ? (function(){
-      return '<div class="ch-carousel" id="car-'+id+'">'
-        +'<div class="ch-carousel-track">'+c.antes.map(function(img,i){
-          return '<div class="ch-carousel-slide"><img src="img/'+img+'" alt="'+i+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></div>';
-        }).join('')+'</div>'
-        +'<button class="ch-carousel-btn prev" onclick="carouselMove(this,-1)">&#8249;</button>'
-        +'<button class="ch-carousel-btn next" onclick="carouselMove(this,1)">&#8250;</button>'
-        +'<div class="ch-carousel-dots">'+c.antes.map(function(_,i){
-          return '<div class="ch-carousel-dot'+(i===0?' active':'')+'" data-idx="'+i+'" onclick="carouselDot(this)"></div>';
-        }).join('')+'</div>'
-        +'<div class="ch-carousel-count">1 / '+c.antes.length+'</div>'
-        +'</div>';
-    })() : '')
+    /* Grid 2x2 telas antigas (checkout) */
+    +(c.antes ? '<div class="ch-comp-grid">'+c.antes.map(function(img){
+      return '<div class="ch-comp-item"><img src="img/'+img+'" alt="antes" style="width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
+    }).join('')+'</div>' : '')
 
     /* Wellhub: carrossel de problema */
     +(c.carousel ? (function(){
@@ -483,13 +473,11 @@ function openCase(id,title){
     /* Como pensei a solução */
     +'<div class="ch-highlight"><div class="ch-highlight-label">Como pensei a solução</div>'+c.insight+c.sol+'</div>'
 
-    /* Solução desktop + mobile lado a lado (checkout) */
+    /* Solução desktop + mobile em coluna (checkout) */
     +(c.solucaoImgs
-      ? '<div class="ch-imgs">'
-          +c.solucaoImgs.map(function(img){
-            return '<div class="ch-img-slot" style="position:relative;overflow:hidden"><img src="img/'+img+'" alt="sol" style="width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
-          }).join('')
-        +'</div>'
+      ? c.solucaoImgs.map(function(img){
+          return '<div class="ch-func-img"><img src="img/'+img+'" alt="sol" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
+        }).join('')
       : ''
     )
 
