@@ -142,7 +142,7 @@
         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCase('credenciados','O usuário foi no Google.')}">
         <div class="pc-overlay" aria-hidden="true">
           <div class="pc-overlay-meta">Kivid · HealthTech</div>
-          <div class="pc-overlay-title">O usuário foi no Google.</div>
+          <div class="pc-overlay-title">O usuário fechou o app e foi no Google.</div>
           <div class="pc-overlay-arr">Ver case →</div>
         </div>
         <div class="pc-img">
@@ -444,5 +444,12 @@
 </div><!-- /page-sobre -->
 
 <script src="main.js"></script>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb-overlay" onclick="lbClose()">
+  <button class="lb-close" onclick="event.stopPropagation();lbClose()" aria-label="Fechar">×</button>
+  <img id="lb-img" src="" alt="Imagem ampliada">
+  <div class="lb-hint">Clique em qualquer lugar para fechar</div>
+</div>
 </body>
 </html>
