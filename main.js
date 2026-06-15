@@ -439,14 +439,15 @@ function openCase(id,title){
       +'</div>'
     +'</div>'
 
-    /* DESTAQUE 3 — Como pensei a solução + processo + antes/depois */
+    /* Imagem do processo — ACIMA de como pensei a solução */
+    +'<div class="ch-imgs"><div class="ch-img-slot wide" style="background:var(--c-bg3)"><img src="img/'+id+'-processo.jpg" alt="Processo" style="width:100%;display:block;"></div></div>'
+
+    /* DESTAQUE 3 — Como pensei a solução */
     +'<div class="ch-highlight">'
       +'<div class="ch-highlight-label">Como pensei a solução</div>'
       +c.insight
       +c.sol
     +'</div>'
-    /* Imagem do processo/sketch */
-    +'<div class="ch-imgs"><div class="ch-img-slot wide" style="background:var(--c-bg3)"><img src="img/'+id+'-processo.jpg" alt="Processo" style="width:100%;display:block;"></div></div>'
     /* Par comparativo antes x depois — grid 2x2 se tiver comparativo[] */
     +'<div class="ch-compare-label">Antes <span>×</span> Depois</div>'
     +(c.comparativo
