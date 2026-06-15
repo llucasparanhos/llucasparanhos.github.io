@@ -839,7 +839,8 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 
 /* ── Case Carousel ── */
 .ch-carousel {
-  position:relative; margin:1rem 0 3rem;
+  position:relative; margin:1rem auto 3rem;
+  max-width:480px;
   overflow:hidden; border-radius:10px;
   background:var(--c-bg3); border:1px solid var(--c-line);
 }
