@@ -408,7 +408,7 @@ function openCase(id,title){
     +(c.carousel
       ? '<div class="ch-carousel" id="carousel-'+id+'">'
         +'<div class="ch-carousel-track" id="carousel-track-'+id+'">'+c.carousel.map(function(img,i){
-          return'<div class="ch-carousel-slide"><img src="img/'+img+'" alt="Slide '+(i+1)+'" style="width:100%;height:100%;object-fit:cover;display:block;"></div>';
+          return'<div class="ch-carousel-slide"><img src="img/'+img+'" alt="Slide '+(i+1)+'" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"></div>';
         }).join('')+'</div>'
         +'<button class="ch-carousel-btn prev" onclick="carouselMove(this,-1)" aria-label="Anterior">&#8249;</button>'
         +'<button class="ch-carousel-btn next" onclick="carouselMove(this,1)" aria-label="Proximo">&#8250;</button>'
@@ -445,7 +445,7 @@ function openCase(id,title){
       +c.sol
     +'</div>'
     /* Imagem do processo/sketch */
-    +'<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-processo.jpg</div></div></div>'
+    +'<div class="ch-imgs"><div class="ch-img-slot wide" style="background:var(--c-bg3)"><img src="img/'+id+'-processo.jpg" alt="Processo" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"></div></div>'
     /* Par comparativo antes x depois — grid 2x2 se tiver comparativo[] */
     +'<div class="ch-compare-label">Antes <span>×</span> Depois</div>'
     +(c.comparativo
