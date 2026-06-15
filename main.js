@@ -1,3 +1,21 @@
+
+/* ── LIGHTBOX ── */
+function lbOpen(src){
+  var img = document.getElementById('lb-img');
+  var overlay = document.getElementById('lb-overlay');
+  if(!img || !overlay) return;
+  img.src = src;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function lbClose(){
+  var overlay = document.getElementById('lb-overlay');
+  if(overlay) overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') lbClose();
+});
 /* v2 */
 
 /* ── CAROUSEL — case pages ── */
@@ -387,7 +405,8 @@ function openCase(id,title){
   const heroImg=document.createElement('img');
   heroImg.src='img/'+id+'-case-hero.jpg';
   heroImg.alt=title;
-  heroImg.style.cssText='width:100%;height:100%;object-fit:cover;display:block;';
+  heroImg.style.cssText='width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;';
+  heroImg.addEventListener('click', function(){ lbOpen(heroImg.src); });
   heroImg.onerror=function(){ this.style.display='none'; imgArea.innerHTML='<div class="ch-img-ph">'+id+'-case-hero.jpg</div>'; };
   imgArea.appendChild(heroImg);
   ch.appendChild(imgArea);
@@ -409,7 +428,7 @@ function openCase(id,title){
     +(c.carousel
       ? '<div class="ch-carousel" id="carousel-'+id+'">'
         +'<div class="ch-carousel-track" id="carousel-track-'+id+'">'+c.carousel.map(function(img,i){
-          return'<div class="ch-carousel-slide"><img src="img/'+img+'" alt="Slide '+(i+1)+'" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"></div>';
+          return'<div class="ch-carousel-slide lb-trigger" onclick="lbOpen(\"img/'+img+'\")"><img src="img/'+img+'" alt="Slide '+(i+1)+'" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"></div>';
         }).join('')+'</div>'
         +'<button class="ch-carousel-btn prev" onclick="carouselMove(this,-1)" aria-label="Anterior">&#8249;</button>'
         +'<button class="ch-carousel-btn next" onclick="carouselMove(this,1)" aria-label="Proximo">&#8250;</button>'
@@ -440,7 +459,7 @@ function openCase(id,title){
     +'</div>'
 
     /* Imagem do processo — ACIMA de como pensei a solução */
-    +'<div class="ch-imgs"><div class="ch-img-slot wide" style="background:var(--c-bg3)"><img src="img/'+id+'-processo.jpg" alt="Processo" style="width:100%;display:block;"></div></div>'
+    +'<div class="ch-imgs"><div class="ch-img-slot wide lb-trigger" onclick="lbOpen(\"img/\"+id+\"-processo.jpg\")" style="background:var(--c-bg3);cursor:zoom-in"><img src="img/'+id+'-processo.jpg" alt="Processo" style="width:100%;display:block;"></div></div>'
 
     /* DESTAQUE 3 — Como pensei a solução */
     +'<div class="ch-highlight">'
@@ -452,7 +471,7 @@ function openCase(id,title){
     +'<div class="ch-compare-label">Antes <span>×</span> Depois</div>'
     +(c.comparativo
       ? '<div class="ch-comp-grid">'+c.comparativo.map(function(img){
-          return'<div class="ch-comp-item"><img src="img/'+img+'" alt="Comparativo" style="width:100%;height:100%;object-fit:cover;display:block;"></div>';
+          return'<div class="ch-comp-item lb-trigger" onclick="lbOpen(\"img/'+img+'\")"><img src="img/'+img+'" alt="Comparativo" style="width:100%;height:100%;object-fit:cover;display:block;"></div>';
         }).join('')+'</div>'
       : '<div class="ch-imgs">'
           +'<div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-antes.jpg</div></div>'
