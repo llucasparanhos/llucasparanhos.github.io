@@ -355,7 +355,7 @@ const CASES={
   nps:{
     color:'#854F0B',bg:'#111',
     wireframes:'nps-wireframes.jpg',
-    telas:['nps-tela-1.jpg','nps-tela-2.jpg','nps-tela-3.jpg','nps-tela-4.jpg','nps-tela-5.jpg','nps-tela-6.jpg','nps-tela-7.jpg','nps-tela-8.jpg'],
+    telas:['nps-tela-1.jpg','nps-tela-2.jpg','nps-tela-3.jpg','nps-tela-4.jpg','nps-tela-5.jpg','nps-tela-6.jpg','nps-tela-7.jpg'],
     ey:'NPS · Data · HealthTech',
     ttl:'O time decidia<br>sem ouvir <em>ninguém.</em>',
     meta:['Product Designer','2 semanas','Figma'],
