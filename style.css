@@ -850,10 +850,13 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 }
 .ch-carousel-slide {
   flex-shrink:0; width:100%;
-  aspect-ratio:392/852;
+  aspect-ratio:4/5;
   position:relative;
   overflow:hidden;
   background:var(--c-bg3);
+}
+.ch-carousel.telas .ch-carousel-slide {
+  aspect-ratio:392/852;
 }
 .ch-carousel-slide img {
   width:100%; height:100%; object-fit:contain; display:block;
@@ -980,4 +983,19 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   font-family:var(--ff-mono); font-size:.58rem;
   letter-spacing:.14em; text-transform:uppercase;
   color:rgba(255,255,255,.25);
+}
+
+/* ── Imagem de largura total (funcionalidades, processo, solução) ── */
+.ch-func-img {
+  margin:1rem 0 2rem;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid var(--c-line);
+  background:var(--c-bg3);
+  line-height:0;
+}
+.ch-func-img img {
+  width:100%;
+  height:auto;
+  display:block;
 }

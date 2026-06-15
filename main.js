@@ -290,10 +290,7 @@ const CASES={
   },
   credenciados:{
     color:'#185FA5',bg:'#111',
-    carousel:['credenciados-tela-1.jpg','credenciados-tela-2.jpg','credenciados-tela-3.jpg','credenciados-tela-4.jpg','credenciados-tela-5.jpg','credenciados-tela-6.jpg'],
-    funcImg:'credenciados-func.jpg',
-    solucaoImg:'credenciados-solucao.jpg',
-    carousel:['credenciados-tela-1.jpg','credenciados-tela-2.jpg','credenciados-tela-3.jpg','credenciados-tela-4.jpg','credenciados-tela-5.jpg','credenciados-tela-6.jpg'],
+    telas:['credenciados-tela-1.jpg','credenciados-tela-2.jpg','credenciados-tela-3.jpg','credenciados-tela-4.jpg','credenciados-tela-5.jpg','credenciados-tela-6.jpg'],
     funcImg:'credenciados-func.jpg',
     solucaoImg:'credenciados-solucao.jpg',
     ey:'UX Research · HealthTech · Kivid',
@@ -422,81 +419,59 @@ function openCase(id,title){
   bd.className='ch-bd';
 
   bd.innerHTML=
-    /* Hook */
     '<div class="ch-hook">'+c.hook+'</div>'
     +'<div class="ch-role"><span class="ch-role-lbl">Meu papel</span><span class="ch-role-txt">'+c.role+'</span></div>'
-
-    /* DESTAQUE 1 — O Problema + carrossel (wellhub) ou imagem simples */
-    +'<div class="ch-highlight">'
-      +'<div class="ch-highlight-label">O Problema</div>'
-      +c.context
-    +'</div>'
-    /* Carrossel de problema (wellhub) */
-    +(c.carousel && !c.funcImg
-      ? '<div class="ch-carousel" id="carousel-'+id+'">'
+    +'<div class="ch-highlight"><div class="ch-highlight-label">O Problema</div>'+c.context+'</div>'
+    +(c.carousel ? (function(){
+      return '<div class="ch-carousel" id="car-'+id+'">'
         +'<div class="ch-carousel-track">'+c.carousel.map(function(img,i){
-          return'<div class="ch-carousel-slide"><img src="img/'+img+'" alt="Slide '+(i+1)+'" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"></div>';
+          return '<div class="ch-carousel-slide"><img src="img/'+img+'" alt="'+i+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>';
         }).join('')+'</div>'
-        +'<button class="ch-carousel-btn prev" onclick="carouselMove(this,-1)" aria-label="Anterior">&#8249;</button>'
-        +'<button class="ch-carousel-btn next" onclick="carouselMove(this,1)" aria-label="Proximo">&#8250;</button>'
+        +'<button class="ch-carousel-btn prev" onclick="carouselMove(this,-1)">&#8249;</button>'
+        +'<button class="ch-carousel-btn next" onclick="carouselMove(this,1)">&#8250;</button>'
         +'<div class="ch-carousel-dots">'+c.carousel.map(function(_,i){
-          return'<div class="ch-carousel-dot'+(i===0?' active':'')+'" data-idx="'+i+'" onclick="carouselDot(this)"></div>';
+          return '<div class="ch-carousel-dot'+(i===0?' active':'')+'" data-idx="'+i+'" onclick="carouselDot(this)"></div>';
         }).join('')+'</div>'
         +'<div class="ch-carousel-count">1 / '+c.carousel.length+'</div>'
-        +'</div>'
-      : ''
-    )
-    /* Funcionalidades wide (credenciados) */
-    +(c.funcImg
-      ? (function(fi){ return '<div class="ch-imgs"><div class="ch-img-slot wide" style="position:relative;overflow:hidden;cursor:zoom-in" onclick="lbOpen(&quot;img/'+fi+'&quot;)"><img src="img/'+fi+'" alt="Funcionalidades" style="width:100%;display:block;"></div></div>'; })(c.funcImg)
-      : (!c.carousel ? '<div class="ch-imgs"><div class="ch-img-slot wide"><div class="ch-img-slot-lbl">'+id+'-problema.jpg</div></div></div>' : '')
-    )
-
-    /* DESTAQUE 2 — KPIs & OKRs */
-    +'<div class="ch-highlight">'
-      +'<div class="ch-highlight-label">KPIs &amp; OKRs</div>'
+        +'</div>';
+    })() : '')
+    +(c.funcImg ? '<div class="ch-func-img"><img src="img/'+c.funcImg+'" alt="func" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
+    +'<div class="ch-highlight"><div class="ch-highlight-label">KPIs &amp; OKRs</div>'
       +'<div class="ch-okr-block">'
-      +'<div class="ch-okr-head"><div class="ch-okr-head-icon">◎</div><div><span class="ch-okr-head-label">Objetivo</span><div class="ch-okr-head-obj">'+c.objetivo+'</div></div></div>'
-      +'<div class="ch-okr-trunk"></div>'
-      +'<div class="ch-kr-branch"><div class="ch-kr-branch-l"></div><div class="ch-kr-branch-r"></div></div>'
-      +'<div class="ch-kr-dots"><div class="ch-kr-dot"></div><div class="ch-kr-dot"></div><div class="ch-kr-dot"></div></div>'
-      +'<div class="ch-kr-list">'+c.krs.map(function(kr,i){
-        return'<div class="ch-kr"><div class="ch-kr-num">KR'+(i+1)+'</div><div class="ch-kr-txt">'+kr.txt+'</div><div class="ch-kr-badge">'+kr.meta+'</div></div>';
-      }).join('')+'</div>'
-      +'<div class="ch-kpi-drops"><div class="ch-kpi-drop"></div><div class="ch-kpi-drop"></div><div class="ch-kpi-drop"></div></div>'
-      +'<div class="ch-kpi-grid">'+c.kpis.map(function(k){
-        return'<div class="ch-kpi"><div class="ch-kpi-label">'+k.label+'</div><div class="ch-kpi-val">'+k.val+'</div><div class="ch-kpi-desc">'+k.desc+'</div></div>';
-      }).join('')+'</div>'
+        +'<div class="ch-okr-head"><div class="ch-okr-head-icon">&#9678;</div><div><span class="ch-okr-head-label">Objetivo</span><div class="ch-okr-head-obj">'+c.objetivo+'</div></div></div>'
+        +'<div class="ch-okr-trunk"></div>'
+        +'<div class="ch-kr-branch"><div class="ch-kr-branch-l"></div><div class="ch-kr-branch-r"></div></div>'
+        +'<div class="ch-kr-dots"><div class="ch-kr-dot"></div><div class="ch-kr-dot"></div><div class="ch-kr-dot"></div></div>'
+        +'<div class="ch-kr-list">'+c.krs.map(function(kr,i){return '<div class="ch-kr"><div class="ch-kr-num">KR'+(i+1)+'</div><div class="ch-kr-txt">'+kr.txt+'</div><div class="ch-kr-badge">'+kr.meta+'</div></div>';}).join('')+'</div>'
+        +'<div class="ch-kpi-drops"><div class="ch-kpi-drop"></div><div class="ch-kpi-drop"></div><div class="ch-kpi-drop"></div></div>'
+        +'<div class="ch-kpi-grid">'+c.kpis.map(function(k){return '<div class="ch-kpi"><div class="ch-kpi-label">'+k.label+'</div><div class="ch-kpi-val">'+k.val+'</div><div class="ch-kpi-desc">'+k.desc+'</div></div>';}).join('')+'</div>'
       +'</div>'
     +'</div>'
-
-    /* Imagem do processo — ACIMA de como pensei a solução */
-    +'<div class="ch-imgs"><div class="ch-img-slot wide lb-trigger" onclick="lbOpen(\"img/\"+id+\"-processo.jpg\")" style="background:var(--c-bg3);cursor:zoom-in"><img src="img/'+id+'-processo.jpg" alt="Processo" style="width:100%;display:block;"></div></div>'
-
-    /* DESTAQUE 3 — Como pensei a solução */
-    +'<div class="ch-highlight">'
-      +'<div class="ch-highlight-label">Como pensei a solução</div>'
-      +c.insight
-      +c.sol
-    +'</div>'
-    /* Par comparativo antes x depois — grid 2x2 se tiver comparativo[] */
-    +'<div class="ch-compare-label">Antes <span>×</span> Depois</div>'
-    +(c.comparativo
-      ? '<div class="ch-comp-grid">'+c.comparativo.map(function(img){
-          return'<div class="ch-comp-item lb-trigger" onclick="lbOpen(\"img/'+img+'\")"><img src="img/'+img+'" alt="Comparativo" style="width:100%;height:100%;object-fit:contain;display:block;"></div>';
-        }).join('')+'</div>'
-      : '<div class="ch-imgs">'
-          +'<div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-antes.jpg</div></div>'
-          +'<div class="ch-img-slot"><div class="ch-img-slot-lbl">'+id+'-depois.jpg</div></div>'
-        +'</div>'
-    )
-
-    /* Resultados */
+    +'<div class="ch-func-img"><img src="img/'+id+'-processo.jpg" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>'
+    +'<div class="ch-highlight"><div class="ch-highlight-label">Como pensei a solução</div>'+c.insight+c.sol+'</div>'
+    +(c.solucaoImg ? '<div class="ch-func-img"><img src="img/'+c.solucaoImg+'" alt="sol" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
+    +(c.telas ? (function(){
+      return '<h3>Telas</h3>'
+        +'<div class="ch-carousel telas" id="car-telas-'+id+'">'
+          +'<div class="ch-carousel-track">'+c.telas.map(function(img,i){
+            return '<div class="ch-carousel-slide"><img src="img/'+img+'" alt="'+i+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></div>';
+          }).join('')+'</div>'
+          +'<button class="ch-carousel-btn prev" onclick="carouselMove(this,-1)">&#8249;</button>'
+          +'<button class="ch-carousel-btn next" onclick="carouselMove(this,1)">&#8250;</button>'
+          +'<div class="ch-carousel-dots">'+c.telas.map(function(_,i){
+            return '<div class="ch-carousel-dot'+(i===0?' active':'')+'" data-idx="'+i+'" onclick="carouselDot(this)"></div>';
+          }).join('')+'</div>'
+          +'<div class="ch-carousel-count">1 / '+c.telas.length+'</div>'
+        +'</div>';
+    })() : '')
+    +(c.comparativo ? '<div class="ch-compare-label">Antes <span>&#215;</span> Depois</div>'
+      +'<div class="ch-comp-grid">'+c.comparativo.map(function(img){
+        return '<div class="ch-comp-item"><img src="img/'+img+'" alt="comp" style="width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
+      }).join('')+'</div>' : '')
     +'<h3>Resultados</h3>'
     +'<div class="res-grid">'+c.results.map(function(r){
-      return'<div class="res-item"><div class="res-n">'+r[0]+'</div><div class="res-l">'+r[1]+'</div></div>';
-    }).join('')+'</div>';
-
+      return '<div class="res-item"><div class="res-n">'+r[0]+'</div><div class="res-l">'+r[1]+'</div></div>';
+    }).join('')+'</div>'
   ch.appendChild(bd);
   slot.appendChild(ch);
 
