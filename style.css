@@ -913,7 +913,6 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   margin-bottom:3rem;
 }
 .ch-comp-item {
-  aspect-ratio:4/3;
   background:var(--c-bg3);
   border-radius:8px;
   overflow:hidden;
@@ -1008,6 +1007,11 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 /* ── Checkout antes 2x2 — proporção 1366x768 ── */
 .ch-comp-grid .ch-comp-item {
   aspect-ratio:1366/768;
+}
+/* ── Wellhub comparativo — altura natural ── */
+.ch-comp-grid:not(.ch-comp-grid-checkout) .ch-comp-item {
+  aspect-ratio:unset;
+  height:auto;
 }
 
 
