@@ -505,7 +505,7 @@ function openCase(id,title){
     +(c.comparativo
       ? '<div class="ch-compare-label">Antes <span>&#215;</span> Depois</div>'
         +'<div class="ch-comp-grid">'+c.comparativo.map(function(img){
-          return '<div class="ch-comp-item"><img src="img/'+img+'" alt="comp" style="width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
+          return '<div class="ch-comp-item"><img src="img/'+img+'" alt="comp" style="width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
         }).join('')+'</div>'
       : ''
     )
