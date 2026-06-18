@@ -1015,3 +1015,15 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 }
 
 
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-toggle {
+  font-family:var(--ff-mono); font-size:var(--t-mono);
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--c-dim); cursor:pointer;
+  background:none; border:1px solid var(--c-line);
+  padding:3px 10px; border-radius:4px;
+  transition:color .2s, border-color .2s;
+  margin-left:.75rem;
+}
+.lang-toggle:hover { color:var(--c-text); border-color:var(--c-dim); }

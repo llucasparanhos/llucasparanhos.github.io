@@ -43,7 +43,8 @@
 <!-- NAV GLOBAL -->
 <nav class="nav" role="navigation" aria-label="Navegação principal">
   <div class="nav-left">
-    <button class="nav-sobre" onclick="goToSobre()" aria-label="Ir para página Sobre">Sobre</button>
+    <button class="nav-sobre" onclick="goToSobre()" aria-label="Ir para página Sobre" id="nav-sobre" data-pt="Sobre" data-en="About">Sobre</button>
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()" aria-label="Switch language">PT · EN</button>
   </div>
 
   <div class="nav-name" id="nav-name" onclick="goToHome()" role="button" tabindex="0" aria-label="Voltar para home">
@@ -55,7 +56,7 @@
     <a href="mailto:llucastourinho@gmail.com" class="nav-cl" aria-label="Enviar email">Email</a>
     <a href="https://wa.me/5571992080680" target="_blank" rel="noopener" class="nav-cl" aria-label="WhatsApp">WhatsApp</a>
     <button class="fb-btn" onclick="openFeedback()" aria-label="Deixar feedback">
-      <span class="fb-dot" aria-hidden="true"></span>Feedback
+      <span class="fb-dot" aria-hidden="true"></span><span data-pt="Feedback" data-en="Feedback">Feedback</span>
     </button>
   </div>
 
@@ -68,7 +69,7 @@
 <div class="mob-menu" id="mob-menu" role="dialog" aria-label="Menu mobile">
   <button class="mob-close" id="mob-close" aria-label="Fechar menu">×</button>
   <span class="mob-item" onclick="goToHome();closeMob()">Home</span>
-  <span class="mob-item" onclick="goToSobre();closeMob()">Sobre</span>
+  <span class="mob-item" onclick="goToSobre();closeMob()" data-pt="Sobre" data-en="About">Sobre</span>
   <a href="https://linkedin.com/in/llucasdecastro" target="_blank" rel="noopener" class="mob-item">LinkedIn</a>
   <a href="mailto:llucastourinho@gmail.com" class="mob-item">Email</a>
   <a href="https://wa.me/5571992080680" target="_blank" rel="noopener" class="mob-item">WhatsApp</a>
@@ -262,7 +263,7 @@
 
   <div class="back-top">
     <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="back-top-link">
-      ↑ Voltar para o topo
+      <span data-pt="↑ Voltar para o topo" data-en="↑ Back to top">↑ Voltar para o topo</span>
     </a>
   </div>
 
@@ -285,14 +286,14 @@
   <div class="fb-overlay" id="fb-overlay" onclick="closeFeedbackOutside(event)">
     <div class="fb-modal" role="dialog" aria-label="Deixar feedback">
       <button class="fb-close" onclick="closeFeedback()" aria-label="Fechar">×</button>
-      <div class="fb-title">O que você achou?</div>
-      <div class="fb-sub">Recrutador, designer ou visitante, qualquer feedback ajuda.</div>
-      <textarea class="fb-textarea" id="fb-text" rows="5" placeholder="Escreve aqui. Pode ser direto." aria-label="Seu feedback"></textarea>
+      <div class="fb-title" data-pt="O que você achou?" data-en="What did you think?">O que você achou?</div>
+      <div class="fb-sub" data-pt="Recrutador, designer ou visitante, qualquer feedback ajuda." data-en="Recruiter, designer or visitor, any feedback helps.">Recrutador, designer ou visitante, qualquer feedback ajuda.</div>
+      <textarea class="fb-textarea" id="fb-text" rows="5" placeholder="Escreve aqui. Pode ser direto." data-pt="Escreve aqui. Pode ser direto." data-en="Write here. Be direct." aria-label="Seu feedback"></textarea>
       <div class="fb-foot">
-        <span class="fb-anon">Anônimo por padrão.</span>
-        <button class="fb-send" onclick="sendFeedback()">Enviar →</button>
+        <span class="fb-anon" data-pt="Anônimo por padrão." data-en="Anonymous by default.">Anônimo por padrão.</span>
+        <button class="fb-send" onclick="sendFeedback()" data-pt="Enviar →" data-en="Send →">Enviar →</button>
       </div>
-      <div class="fb-thanks" id="fb-thanks">Obrigado. Vai ajudar muito.</div>
+      <div class="fb-thanks" id="fb-thanks" data-pt="Obrigado. Vai ajudar muito." data-en="Thank you. That helps a lot.">Obrigado. Vai ajudar muito.</div>
     </div>
   </div>
 
@@ -306,7 +307,7 @@
 
   <!-- Case nav bar -->
   <nav class="case-nav" aria-label="Navegação do case">
-    <button class="case-back" onclick="closeCase()" aria-label="Voltar para home">
+    <button class="case-back" onclick="closeCase()" aria-label="Voltar para home" data-pt="← Projetos" data-en="← Projects">
       ← Projetos
     </button>
     <span class="case-nav-title" id="case-ttl-nav"></span>
@@ -331,35 +332,36 @@
         <img src="img/foto.jpg" alt="Lucas de Castro, Product Designer" loading="lazy">
       </div>
       <div class="sb-text">
-        <div class="sb-eyebrow">Salvador, Bahia · Disponível para projetos</div>
-        <p class="sb-quote">"Filho de artesão e de uma mãe do sertão. Cresci trigêmeo: aprendi a compartilhar, cocriar, e entender que resultado bom é sempre conjunto."</p>
-        <p class="sb-p">Passei por agências, emissoras e startups criando para <strong>Google, YouTube, Rede Bahia, BTG, Prefeitura de Salvador</strong>. Hoje curso Product Analytics na PM3 e Análise e Desenvolvimento de Sistemas para somar design com dados e tomar decisões com mais evidência.</p>
+        <div class="sb-eyebrow" data-pt="Salvador, Bahia · Disponível para projetos · English proficiency" data-en="Salvador, Bahia · Available for projects · English proficiency">Salvador, Bahia · Disponível para projetos · English proficiency</div>
+        <p class="sb-quote" data-pt='"Filho de artesão e de uma mãe do sertão. Cresci trigêmeo: aprendi a compartilhar, cocriar, e entender que resultado bom é sempre conjunto."' data-en='"Son of a craftsman and a mother from the backcountry. I grew up as a triplet: I learned to share, co-create, and understand that good results are always collective."'>"Filho de artesão e de uma mãe do sertão. Cresci trigêmeo: aprendi a compartilhar, cocriar, e entender que resultado bom é sempre conjunto."</p>
+        <p class="sb-p" data-pt="Passei por agências, emissoras e startups criando para <strong>Google, YouTube, Rede Bahia, BTG, Prefeitura de Salvador</strong>. Hoje curso Product Analytics na PM3 e Análise e Desenvolvimento de Sistemas para somar design com dados e tomar decisões com mais evidência." data-en="I've worked at agencies, broadcasters and startups building for <strong>Google, YouTube, Rede Bahia, BTG, and Prefeitura de Salvador</strong>. Currently studying Product Analytics at PM3 and Systems Development to bridge design with data and make more evidence-based decisions.">Passei por agências, emissoras e startups criando para <strong>Google, YouTube, Rede Bahia, BTG, Prefeitura de Salvador</strong>. Hoje curso Product Analytics na PM3 e Análise e Desenvolvimento de Sistemas para somar design com dados e tomar decisões com mais evidência.</p>
         <div class="sb-gold-line"></div>
-        <p class="sb-manifesto">Dados sem design é ruído. Design sem dados é opinião.</p>
+        <p class="sb-manifesto" data-pt="Dados sem design é ruído. Design sem dados é opinião." data-en="Data without design is noise. Design without data is opinion.">Dados sem design é ruído. Design sem dados é opinião.</p>
       </div>
     </div>
 
     <!-- Skills -->
-    <div class="sb-section-label">Skills</div>
+    <div class="sb-section-label" data-pt="Skills" data-en="Skills">Skills</div>
     <div class="sb-skills reveal d1">
-      <div class="sb-sk"><div class="sb-sk-num">01</div><div class="sb-sk-t">Design de Produto</div><div class="sb-sk-d">Soluções escaláveis com impacto real.</div></div>
-      <div class="sb-sk"><div class="sb-sk-num">02</div><div class="sb-sk-t">UX / UI</div><div class="sb-sk-d">Interfaces com foco em usabilidade.</div></div>
-      <div class="sb-sk"><div class="sb-sk-num">03</div><div class="sb-sk-t">Design Systems</div><div class="sb-sk-d">Componentes que escalam.</div></div>
-      <div class="sb-sk"><div class="sb-sk-num">04</div><div class="sb-sk-t">Análise de Dados</div><div class="sb-sk-d">Python, SQL e Power BI.</div></div>
+      <div class="sb-sk"><div class="sb-sk-num">01</div><div class="sb-sk-t" data-pt="Design de Produto" data-en="Product Design">Design de Produto</div><div class="sb-sk-d" data-pt="Soluções escaláveis com impacto real." data-en="Scalable solutions with real impact.">Soluções escaláveis com impacto real.</div></div>
+      <div class="sb-sk"><div class="sb-sk-num">02</div><div class="sb-sk-t" data-pt="UX / UI" data-en="UX / UI">UX / UI</div><div class="sb-sk-d" data-pt="Interfaces com foco em usabilidade." data-en="Interfaces focused on usability.">Interfaces com foco em usabilidade.</div></div>
+      <div class="sb-sk"><div class="sb-sk-num">03</div><div class="sb-sk-t" data-pt="Design Systems" data-en="Design Systems">Design Systems</div><div class="sb-sk-d" data-pt="Componentes que escalam." data-en="Components built to scale.">Componentes que escalam.</div></div>
+      <div class="sb-sk"><div class="sb-sk-num">04</div><div class="sb-sk-t" data-pt="Análise de Dados" data-en="Data Analytics">Análise de Dados</div><div class="sb-sk-d" data-pt="Python, SQL e Power BI." data-en="Python, SQL and Power BI.">Python, SQL e Power BI.</div></div>
+      <div class="sb-sk"><div class="sb-sk-num">05</div><div class="sb-sk-t">English</div><div class="sb-sk-d">Professional reading, writing &amp; comprehension.</div></div>
     </div>
 
     <!-- Stats em cards -->
-    <div class="sb-section-label">Alguns números</div>
+    <div class="sb-section-label" data-pt="Alguns números" data-en="By the numbers">Alguns números</div>
     <div class="sb-stats reveal d2">
-      <div class="sb-stat"><div class="sb-stat-n">10<em>+</em></div><div class="sb-stat-l">Anos em design</div></div>
-      <div class="sb-stat"><div class="sb-stat-n">400<em>%</em></div><div class="sb-stat-l">Crescimento YouTube</div></div>
-      <div class="sb-stat"><div class="sb-stat-n">700<em>k</em></div><div class="sb-stat-l">Usuários impactados</div></div>
-      <div class="sb-stat"><div class="sb-stat-n">25<em>%</em></div><div class="sb-stat-l">Aumento faturamento</div></div>
+      <div class="sb-stat"><div class="sb-stat-n">10<em>+</em></div><div class="sb-stat-l" data-pt="Anos em design" data-en="Years in design">Anos em design</div></div>
+      <div class="sb-stat"><div class="sb-stat-n">400<em>%</em></div><div class="sb-stat-l" data-pt="Crescimento YouTube" data-en="YouTube growth">Crescimento YouTube</div></div>
+      <div class="sb-stat"><div class="sb-stat-n">700<em>k</em></div><div class="sb-stat-l" data-pt="Usuários impactados" data-en="Users impacted">Usuários impactados</div></div>
+      <div class="sb-stat"><div class="sb-stat-n">25<em>%</em></div><div class="sb-stat-l" data-pt="Aumento faturamento" data-en="Revenue increase">Aumento faturamento</div></div>
     </div>
 
     <!-- Logos -->
     <div class="sb-logos reveal d3">
-      <div class="sb-logos-label">Já fiz projetos para</div>
+      <div class="sb-logos-label" data-pt="Já fiz projetos para" data-en="Projects I've worked on">Já fiz projetos para</div>
       <div class="sb-logos-grid">
         <div class="sb-logo"><img src="img/logo-google.png" alt="Google"></div>
         <div class="sb-logo"><img src="img/logo-youtube.png" alt="YouTube"></div>
@@ -374,10 +376,10 @@
 
     <!-- Experiências -->
     <div class="traj-section reveal">
-      <h2 class="traj-title">Experiências</h2>
+      <h2 class="traj-title" data-pt="Experiências" data-en="Experience">Experiências</h2>
 
       <div class="ei reveal d1">
-        <div class="ei-yr">2024, hoje</div>
+        <div class="ei-yr" data-pt="2024, hoje" data-en="2024, present">2024, hoje</div>
         <div>
           <div class="ei-role">Designer de Produto Pleno</div>
           <div class="ei-co">Branef / FESF · GovTech · Salvador, BA</div>
@@ -435,14 +437,14 @@
 
   <div class="back-top">
     <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="back-top-link">
-      ↑ Voltar para o topo
+      <span data-pt="↑ Voltar para o topo" data-en="↑ Back to top">↑ Voltar para o topo</span>
     </a>
   </div>
 
   <footer class="site-footer" role="contentinfo">
     <a href="mailto:llucastourinho@gmail.com" class="fbtn fbtn-hi">llucastourinho@gmail.com</a>
     <a href="https://linkedin.com/in/llucasdecastro" target="_blank" rel="noopener" class="fbtn">LinkedIn ↗</a>
-    <a href="https://drive.google.com/file/d/1rpBL4lilBW7JevMA1ANdUOhJQWg-CA8v/view" target="_blank" rel="noopener" class="fbtn">Currículo ↓</a>
+    <a href="https://drive.google.com/file/d/1rpBL4lilBW7JevMA1ANdUOhJQWg-CA8v/view" target="_blank" rel="noopener" class="fbtn" data-pt="Currículo ↓" data-en="Resume ↓">Currículo ↓</a>
     <a href="tel:+5571992080680" class="fbtn">(71) 99208-0680</a>
   </footer>
 

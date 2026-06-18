@@ -1,4 +1,38 @@
 
+/* ── LANGUAGE TOGGLE ── */
+var currentLang = 'pt';
+
+function toggleLang(){
+  currentLang = currentLang === 'pt' ? 'en' : 'pt';
+  var btn = document.getElementById('lang-toggle');
+  if(btn) btn.textContent = currentLang === 'pt' ? 'PT · EN' : 'EN · PT';
+  applyLang();
+}
+
+function t(en, pt){ return currentLang === 'en' ? en : pt; }
+
+function applyLang(){
+  var lang = currentLang;
+  // Update all elements with data-pt/data-en
+  document.querySelectorAll('[data-pt]').forEach(function(el){
+    var val = el.getAttribute('data-' + lang);
+    if(!val) return;
+    // If it contains HTML tags, use innerHTML, else textContent
+    if(val.indexOf('<') !== -1){
+      el.innerHTML = val;
+    } else {
+      el.textContent = val;
+    }
+  });
+  // Update placeholder on textarea
+  document.querySelectorAll('[data-pt][placeholder]').forEach(function(el){
+    el.placeholder = el.getAttribute('data-' + lang) || el.placeholder;
+  });
+  // Update html lang attribute
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+}
+
+
 /* ── LIGHTBOX ── */
 function lbOpen(src){
   var img = document.getElementById('lb-img');
@@ -286,7 +320,29 @@ const CASES={
       {txt:'Melhorar percepção de personalização no NPS',meta:'+15pts'}
     ],
     sol:'<p>O reframing estratégico: <strong>de botão para ritual. De função para celebração. De ação neutra para microvitória reconhecida.</strong></p>     <p>Benchmark com Duolingo, Apple Fitness, TotalPass e Strava revelou o padrão comum: todos celebram o momento presente e mostram onde o usuário chegou. A gamificação leve, conquistas, streaks, progresso visual, reforça o comportamento sem virar jogo.</p>     <p>Criamos estados diferenciados: primeiro check-in, marcos de 10/50/100 check-ins, sequências semanais. Cada estado tem feedback visual e textual próprio, tornando cada treino único.</p>',
-    results:[['340+','Check-ins reais como usuário, validação autêntica do problema'],['✓','Feedback positivo nos testes com usuários reais do Wellhub'],['↑','Engajamento percebido pós check-in nos testes de usabilidade'],['✓','Senso de progresso e personalização validados em entrevistas']]
+    results:[['340+','Check-ins reais como usuário, validação autêntica do problema'],['✓','Feedback positivo nos testes com usuários reais do Wellhub'],['↑','Engajamento percebido pós check-in nos testes de usabilidade'],['✓','Senso de progresso e personalização validados em entrevistas']],
+    en:{
+      ey:'UX/UI · Gamification · Wellness',
+      ttl:'340 workouts.<br><em>Not a single celebration.</em>',
+      meta:['Product Designer','2 weeks','Figma · Adobe CC'],
+      hook:'"I\'ve been an active Wellhub user for years. Over 340 check-ins. Each one was a conscious decision to get off the couch, go to the gym, and invest in my health. And the app? It treated every single one exactly the same. No difference between the first workout and number 300."',
+      context:'<p>As a frequent user and designer, I saw a real opportunity to create something emotionally engaging in the check-in experience. The redesign was born from a genuine frustration: the app didn\'t acknowledge the effort that brought the user there.</p><p>Wellness apps live on <strong>habit</strong>. Users who build routines come back. Users who feel no progress disappear. The check-in was the biggest missed opportunity to reinforce that habit.</p>',
+      role:'Product Designer responsible end-to-end: research, benchmarking, wireframes, prototype and usability testing.',
+      insight:'<p>Everyone saw the check-in as a <strong>button</strong>. I saw it as the <strong>emotional peak of the journey</strong>, the moment the user delivered on a promise they made to themselves. That reframing changed everything: it wasn\'t about confirming attendance, it was about recognizing effort.</p>',
+      objetivo:'Transform the check-in into a ritual of achievement that reinforces the habit.',
+      krs:[
+        {txt:'Increase time on screen after check-in',meta:'+30%'},
+        {txt:'Reduce drop-off rate in check-in flow',meta:'-20%'},
+        {txt:'Improve personalization perception in NPS',meta:'+15pts'}
+      ],
+      kpis:[
+        {icon:'⏱',label:'Post check-in engagement',val:'Time on screen',desc:'How long users stay after confirming their workout'},
+        {icon:'📊',label:'Drop-off rate',val:'Check-in flow',desc:'Users who start but don\'t complete the check-in'},
+        {icon:'⭐',label:'Personalization NPS',val:'User perception',desc:'Feeling that the app recognizes and values the effort'}
+      ],
+      sol:'<p>Strategic reframing: <strong>from button to ritual. From function to celebration. From neutral action to recognized micro-victory.</strong></p><p>Benchmarking Duolingo, Apple Fitness, TotalPass and Strava revealed the common pattern: all of them celebrate the present moment and show users where they\'ve arrived. Light gamification, achievements, streaks, visual progress, reinforces behavior without becoming a game.</p><p>We created differentiated states: first check-in, milestones at 10/50/100 check-ins, weekly streaks. Each state has its own visual and text feedback, making every workout feel unique.</p>',
+      results:[['340+','Real check-ins as a user, authentic problem validation'],['✓','Positive feedback in tests with real Wellhub users'],['↑','Perceived post check-in engagement in usability tests'],['✓','Sense of progress and personalization validated in interviews']]
+    },
   },
   credenciados:{
     color:'#185FA5',bg:'#111',
@@ -318,7 +374,29 @@ const CASES={
       {txt:'Reduzir tickets de suporte sobre credenciados',meta:'-40%'}
     ],
     sol:'<p>Uma página de perfil completa: o equivalente digital do cartão de visita profissional + agenda + mapa, tudo junto, sem sair do app.</p>     <p>Nome, especialidade, avaliação por estrelas, endereço com mapa integrado, telefone direto, horários de atendimento por dia da semana, convênios aceitos e fotos do consultório. <strong>Decisão tomada em segundos, sem fricção.</strong></p>     <p>Principal descoberta nos testes: o botão "Ligar" precisava estar visível sem scroll. Qualquer posição abaixo da dobra aumentava o abandono. Esse ajuste simples foi o de maior impacto.</p>',
-    results:[['✓','"Finalmente tudo no lugar certo", feedback recorrente nos testes'],['↑','Facilidade percebida para agendar consultas e exames'],['↑','Taxa de uso da funcionalidade de busca no app'],['↓','Tempo médio para localizar dados essenciais de um profissional']]
+    results:[['✓','"Finalmente tudo no lugar certo", feedback recorrente nos testes'],['↑','Facilidade percebida para agendar consultas e exames'],['↑','Taxa de uso da funcionalidade de busca no app'],['↓','Tempo médio para localizar dados essenciais de um profissional']],
+    en:{
+      ey:'UX Research · HealthTech · Kivid',
+      ttl:'The user closed<br>the app and googled it.',
+      meta:['Product Designer','3 weeks','Figma'],
+      hook:'"Imagine you\'re in pain, need to schedule an appointment, and open your health plan app. The screen shows the doctor\'s name and a phone number. That\'s it. No full address. No hours. No accepted insurance. Nothing to help you decide."',
+      context:'<p>Kivid had built a robust network of registered providers, but hadn\'t thought about building an <strong>experience</strong> around that data. The list existed. The information existed. It was scattered, incomplete, or simply absent from the interface.</p><p>The impact was direct: users left the app to search on Google, the appointment rate from within the app was low, and support tickets about basic provider info were high, a direct operational cost to the business.</p>',
+      role:'Product Designer responsible for discovery, research with internal users, information architecture, prototype and validation.',
+      insight:'<p>The provider list existed. The data existed. But it was <strong>scattered and without hierarchy</strong>. The insight wasn\'t creating new information, it was realizing the problem was about <strong>experience, not data</strong>. We just needed to build a decision journey around what already existed.</p>',
+      objetivo:'Make provider search reliable, complete and fast enough to eliminate the need to leave the app.',
+      krs:[
+        {txt:'Reduce drop-off rate on the providers screen',meta:'-30%'},
+        {txt:'Increase appointments started within the app',meta:'+25%'},
+        {txt:'Reduce support tickets about providers',meta:'-40%'}
+      ],
+      kpis:[
+        {icon:'🚶',label:'Drop-off rate',val:'Providers screen',desc:'Users who enter the search and leave without taking action'},
+        {icon:'📅',label:'In-app appointments',val:'% of total',desc:'Consultations initiated within Kivid vs outside'},
+        {icon:'🎧',label:'Support tickets',val:'About providers',desc:'Calls about basic professional information'}
+      ],
+      sol:'<p>A complete profile page: the digital equivalent of a professional business card + schedule + map, all together, without leaving the app.</p><p>Name, specialty, star rating, address with integrated map, direct phone, weekly hours, accepted insurance, and photos of the office. <strong>Decision made in seconds, without friction.</strong></p><p>Key discovery in testing: the "Call" button needed to be visible without scrolling. Any position below the fold increased abandonment. That simple adjustment had the greatest impact.</p>',
+      results:[['✓','"Finally everything in the right place", recurring feedback in tests'],['↑','Perceived ease of scheduling consultations and exams'],['↑','Usage rate of the in-app search feature'],['↓','Average time to find essential professional data']]
+    },
   },
   checkout:{
     color:'#993556',bg:'#111',
@@ -350,7 +428,29 @@ const CASES={
       {txt:'Diminuir tempo médio de conclusão da compra',meta:'-30%'}
     ],
     sol:'<p>Unifiquei todas as etapas em <strong>uma única página</strong>. Preenchimento automático via CPF: o usuário digitava um campo e nome, endereço e dados básicos eram preenchidos automaticamente. Eliminamos tudo que era opcional ou desnecessário para a conclusão.</p>     <p>O resumo do pedido ficou sempre visível, dinâmico e transparente, o valor total aparece desde o primeiro momento, atualizando em tempo real conforme o usuário seleciona opções. Sem surpresas no final. Sem perguntas sem resposta.</p>     <p>Adicionamos indicadores de segurança (cadeado, selos) nas posições exatas onde os heatmaps mostravam maior hesitação. Pequeno detalhe, impacto mensurável na confiança.</p>',
-    results:[['15%','Aumento na taxa de conversão, KR1 atingido'],['20%','Redução no abandono de carrinho, KR2 atingido'],['↓','Tempo médio de conclusão da compra'],['✓','"Muito mais simples e rápido", feedback recorrente']]
+    results:[['15%','Aumento na taxa de conversão, KR1 atingido'],['20%','Redução no abandono de carrinho, KR2 atingido'],['↓','Tempo médio de conclusão da compra'],['✓','"Muito mais simples e rápido", feedback recorrente']],
+    en:{
+      ey:'Conversion · Mobile · HealthTech',
+      ttl:'Half of users quit<br>in the middle of <em>checkout.</em>',
+      meta:['Product Designer','10 weeks','Figma · Clarity'],
+      hook:'"80% of users reached checkout. Half quit halfway through. Every abandonment wasn\'t just a number, it was a family that couldn\'t afford a health plan."',
+      context:'<p>Kivid\'s core persona is Adriana Santos, 56, teacher, lower-middle class, married, two kids. When she enters a checkout screen, she needs three things: <strong>clarity, security and speed</strong>. Any doubt becomes abandonment.</p><p>The existing product asked for excessive information upfront, was fragmented across multiple steps with no visible progress, and didn\'t show the total price until the end — exactly the opposite of what Adriana needed.</p>',
+      role:'Product Designer responsible for data analysis (Clarity), flow redesign, prototype and metrics tracking.',
+      insight:'<p>Clarity heatmaps revealed the exact drop-off point: the <strong>first form field</strong>. The turning point was understanding that each extra field was a chance to give up. Instead of asking for data, the system started <strong>filling in data</strong> automatically via CPF. Less friction, more conversion.</p>',
+      objetivo:'Make buying a Kivid plan so simple that the user completes it without having to think.',
+      krs:[
+        {txt:'Increase checkout conversion rate',meta:'+15%'},
+        {txt:'Reduce cart abandonment',meta:'-20%'},
+        {txt:'Decrease average purchase completion time',meta:'-30%'}
+      ],
+      kpis:[
+        {icon:'💳',label:'Conversion rate',val:'Checkout',desc:'Users who reach checkout and complete the purchase'},
+        {icon:'🛒',label:'Cart abandonment',val:'% per step',desc:'Which step users abandon most frequently'},
+        {icon:'⚡',label:'Completion time',val:'Average per session',desc:'Minutes from start to finish of a completed purchase'}
+      ],
+      sol:'<p>I unified all steps into <strong>a single page</strong>. Auto-fill via CPF: the user typed one field and name, address and basic data were filled automatically. We removed everything optional or unnecessary for completion.</p><p>The order summary stayed always visible, dynamic and transparent — the total price appears from the very first moment, updating in real time as the user selects options. No surprises at the end. No unanswered questions.</p><p>We added security indicators (lock, badges) at the exact positions where heatmaps showed the most hesitation. Small detail, measurable impact on trust.</p>',
+      results:[['15%','Conversion rate increase, KR1 achieved'],['20%','Cart abandonment reduction, KR2 achieved'],['↓','Average purchase completion time'],['✓','"Much simpler and faster", recurring feedback']]
+    },
   },
   nps:{
     color:'#854F0B',bg:'#111',
@@ -381,7 +481,29 @@ const CASES={
       {txt:'Estabelecer linha de base de satisfação trimestral',meta:'Q1 2024'}
     ],
     sol:'<p>O fluxo precisava ser <strong>invisível na fricção mas significativo no resultado</strong>. Emojis para facilitar a expressão emocional sem exigir escrita, cores suaves que não criam ansiedade, textos curtíssimos que respeitam o contexto pós-consulta médica.</p>     <p>Cada elemento foi pensado para reduzir o esforço cognitivo de quem acabou de passar por um atendimento médico, momento em que a pessoa pode estar ansiosa, cansada ou aliviada. O campo qualitativo aberto aparece apenas após a avaliação numérica, como convite, nunca como obrigação.</p>     <p>O impacto mais relevante foi comportamental: o time de produto passou a ter dados para discutir prioridades. O NPS virou pauta de reunião semanal. Os feedbacks qualitativos passaram a embasar decisões sobre treinamento dos credenciados.</p>',
-    results:[['✓','Canal estruturado criado, linha de base de satisfação estabelecida'],['↑','Feedbacks qualitativos chegando ao time toda semana'],['✓','Dados NPS acionáveis integrando o processo de priorização'],['↑','Pacientes sentindo que sua voz importava no produto']]
+    results:[['✓','Canal estruturado criado, linha de base de satisfação estabelecida'],['↑','Feedbacks qualitativos chegando ao time toda semana'],['✓','Dados NPS acionáveis integrando o processo de priorização'],['↑','Pacientes sentindo que sua voz importava no produto']],
+    en:{
+      ey:'NPS · Data · HealthTech',
+      ttl:'The team made decisions<br>without listening to <em>anyone.</em>',
+      meta:['Product Designer','2 weeks','Figma'],
+      hook:'"Kivid had an active network of consultations. Product decisions were made based on gut feeling, assumptions and spontaneous complaints in support. No baseline. No way to measure evolution. No feedback culture."',
+      context:'<p>You can\'t improve what you don\'t measure. And you can\'t measure what you don\'t ask. The absence of structured satisfaction data created a vicious cycle: without evidence, the team prioritized by what screamed loudest — usually isolated complaints, not real patterns.</p><p>The goal wasn\'t just to create an evaluation screen. It was to <strong>create a culture of continuous listening</strong> that fed product decisions with real evidence from patients.</p>',
+      role:'Product Designer responsible for channel conception, benchmarking, flow, microcopy and prototype.',
+      insight:'<p>The problem wasn\'t a missing screen, it was a <strong>missing listening culture</strong>. The insight was treating collection as an invisible part of the journey: <strong>fast, light, at the right emotional moment</strong>, right after the consultation. Emojis instead of cold scales. Qualitative as a bonus, never an obligation.</p>',
+      objetivo:'Create a continuous feedback culture that feeds product decisions with real data from patients.',
+      krs:[
+        {txt:'Collect NPS from at least 30% of monthly consultations',meta:'30%'},
+        {txt:'Generate at least 3 actionable insights per month',meta:'3/month'},
+        {txt:'Establish quarterly satisfaction baseline',meta:'Q1 2024'}
+      ],
+      kpis:[
+        {icon:'📈',label:'NPS response rate',val:'% of consultations',desc:'Proportion of patients who respond after the consultation'},
+        {icon:'💬',label:'Actionable insights',val:'Per month',desc:'Feedback that generates concrete changes in the product or service'},
+        {icon:'📏',label:'Baseline',val:'Quarterly score',desc:'Reference to measure satisfaction evolution over time'}
+      ],
+      sol:'<p>The flow needed to be <strong>invisible in friction but significant in result</strong>. Emojis to ease emotional expression without requiring writing, soft colors that don\'t create anxiety, very short texts that respect the post-medical-consultation context.</p><p>Every element was designed to reduce the cognitive load of someone who just went through a medical appointment — a moment when the person might be anxious, tired or relieved. The open qualitative field appears only after the numerical rating, as an invitation, never an obligation.</p><p>The most relevant impact was behavioral: the product team gained data to discuss priorities. NPS became a weekly meeting topic. Qualitative feedback started informing decisions about provider training.</p>',
+      results:[['✓','Structured channel created, satisfaction baseline established'],['↑','Qualitative feedback reaching the team every week'],['✓','Actionable NPS data integrated into the prioritization process'],['↑','Patients feeling their voice mattered in the product']]
+    }
   }
 };
 
@@ -389,6 +511,8 @@ const CASES={
 function openCase(id,title){
   const c=CASES[id];
   if(!c){console.error('Case not found:',id);return;}
+  // Merge EN translations if active
+  const d = (currentLang === 'en' && c.en) ? Object.assign({}, c, c.en) : c;
   document.getElementById('case-ttl-nav').textContent=title;
 
   const slot=document.getElementById('case-slot');
@@ -401,9 +525,9 @@ function openCase(id,title){
   // Header
   const ct=document.createElement('div');
   ct.className='ch-ct';
-  ct.innerHTML='<div class="ch-ey">'+c.ey+'</div>'
-    +'<div class="ch-title">'+c.ttl+'</div>'
-    +'<div class="ch-meta-row">'+c.meta.map(function(m){return'<span>'+m+'</span>';}).join('')+'</div>';
+  ct.innerHTML='<div class="ch-ey">'+d.ey+'</div>'
+    +'<div class="ch-title">'+d.ttl+'</div>'
+    +'<div class="ch-meta-row">'+d.meta.map(function(m){return'<span>'+m+'</span>';}).join('')+'</div>';
   ch.appendChild(ct);
 
   // Hero image
@@ -424,17 +548,17 @@ function openCase(id,title){
   bd.className='ch-bd';
 
   bd.innerHTML=
-    '<div class="ch-hook">'+c.hook+'</div>'
-    +'<div class="ch-role"><span class="ch-role-lbl">Meu papel</span><span class="ch-role-txt">'+c.role+'</span></div>'
+    '<div class="ch-hook">'+d.hook+'</div>'
+    +'<div class="ch-role"><span class="ch-role-lbl" data-pt="Meu papel" data-en="My role">'+(currentLang==='en'?'My role':'Meu papel')+'</span><span class="ch-role-txt">'+d.role+'</span></div>'
 
     /* O Problema */
-    +'<div class="ch-highlight"><div class="ch-highlight-label">O Problema</div>'+c.context+'</div>'
+    +'<div class="ch-highlight"><div class="ch-highlight-label">'+t("The Problem","O Problema")+'</div>'+d.context+'</div>'
 
     /* Persona (checkout) */
     +(c.personaImg ? '<div class="ch-func-img"><img src="img/'+c.personaImg+'" alt="Persona" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
 
     /* Grid 2x2 telas antigas (checkout) */
-    +(c.antes ? '<h3>Telas antigas</h3><div class="ch-comp-grid">'+c.antes.map(function(img){
+    +(c.antes ? '<h3>'+t("Old screens","Telas antigas")+'</h3><div class="ch-comp-grid">'+c.antes.map(function(img){
       return '<div class="ch-comp-item"><img src="img/'+img+'" alt="antes" style="width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
     }).join('')+'</div>' : '')
 
@@ -459,13 +583,13 @@ function openCase(id,title){
     /* KPIs & OKRs */
     +'<div class="ch-highlight"><div class="ch-highlight-label">KPIs &amp; OKRs</div>'
       +'<div class="ch-okr-block">'
-        +'<div class="ch-okr-head"><div class="ch-okr-head-icon">&#9678;</div><div><span class="ch-okr-head-label">Objetivo</span><div class="ch-okr-head-obj">'+c.objetivo+'</div></div></div>'
+        +'<div class="ch-okr-head"><div class="ch-okr-head-icon">&#9678;</div><div><span class="ch-okr-head-label">'+t("Objective","Objetivo")+'</span><div class="ch-okr-head-obj">'+d.objetivo+'</div></div></div>'
         +'<div class="ch-okr-trunk"></div>'
         +'<div class="ch-kr-branch"><div class="ch-kr-branch-l"></div><div class="ch-kr-branch-r"></div></div>'
         +'<div class="ch-kr-dots"><div class="ch-kr-dot"></div><div class="ch-kr-dot"></div><div class="ch-kr-dot"></div></div>'
-        +'<div class="ch-kr-list">'+c.krs.map(function(kr,i){return '<div class="ch-kr"><div class="ch-kr-num">KR'+(i+1)+'</div><div class="ch-kr-txt">'+kr.txt+'</div><div class="ch-kr-badge">'+kr.meta+'</div></div>';}).join('')+'</div>'
+        +'<div class="ch-kr-list">'+d.krs.map(function(kr,i){return '<div class="ch-kr"><div class="ch-kr-num">KR'+(i+1)+'</div><div class="ch-kr-txt">'+kr.txt+'</div><div class="ch-kr-badge">'+kr.meta+'</div></div>';}).join('')+'</div>'
         +'<div class="ch-kpi-drops"><div class="ch-kpi-drop"></div><div class="ch-kpi-drop"></div><div class="ch-kpi-drop"></div></div>'
-        +'<div class="ch-kpi-grid">'+c.kpis.map(function(k){return '<div class="ch-kpi"><div class="ch-kpi-label">'+k.label+'</div><div class="ch-kpi-val">'+k.val+'</div><div class="ch-kpi-desc">'+k.desc+'</div></div>';}).join('')+'</div>'
+        +'<div class="ch-kpi-grid">'+d.kpis.map(function(k){return '<div class="ch-kpi"><div class="ch-kpi-label">'+k.label+'</div><div class="ch-kpi-val">'+k.val+'</div><div class="ch-kpi-desc">'+k.desc+'</div></div>';}).join('')+'</div>'
       +'</div>'
     +'</div>'
 
@@ -473,13 +597,13 @@ function openCase(id,title){
     +'<div class="ch-func-img"><img src="img/'+id+'-processo.jpg" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>'
 
     /* Como pensei a solução */
-    +'<div class="ch-highlight"><div class="ch-highlight-label">Como pensei a solução</div>'+c.insight+c.sol
+    +'<div class="ch-highlight"><div class="ch-highlight-label">'+t("How I approached the solution","Como pensei a solução")+'</div>'+d.insight+d.sol
     +(c.wireframes ? '<div class="ch-func-img"><img src="img/'+c.wireframes+'" alt="wireframes" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
     +'</div>'
 
     /* Solução desktop + mobile em coluna (checkout) */
     +(c.solucaoImgs
-      ? '<h3>Telas novas</h3>'+c.solucaoImgs.map(function(img){
+      ? '<h3>'+t("New screens","Telas novas")+'</h3>'+c.solucaoImgs.map(function(img){
           return '<div class="ch-func-img"><img src="img/'+img+'" alt="sol" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
         }).join('')
       : ''
@@ -487,7 +611,7 @@ function openCase(id,title){
 
     /* Credenciados: carrossel telas */
     +(c.telas ? (function(){
-      return '<h3>Telas</h3>'
+      return '<h3>'+t("Screens","Telas")+'</h3>'
         +'<div class="ch-carousel telas" id="car-telas-'+id+'">'
           +'<div class="ch-carousel-track">'+c.telas.map(function(img,i){
             return '<div class="ch-carousel-slide"><img src="img/'+img+'" alt="'+i+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></div>';
@@ -503,7 +627,7 @@ function openCase(id,title){
 
     /* Wellhub: comparativo 2x2 */
     +(c.comparativo
-      ? '<div class="ch-compare-label">Antes <span>&#215;</span> Depois</div>'
+      ? '<div class="ch-compare-label">'+t("Before <span>&#215;</span> After","Antes <span>&#215;</span> Depois")+'</div>'
         +'<div class="ch-comp-grid">'+c.comparativo.map(function(img){
           return '<div class="ch-comp-item"><img src="img/'+img+'" alt="comp" style="width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
         }).join('')+'</div>'
@@ -511,8 +635,8 @@ function openCase(id,title){
     )
 
     /* Resultados */
-    +'<h3>Resultados</h3>'
-    +'<div class="res-grid">'+c.results.map(function(r){
+    +'<h3>'+t("Results","Resultados")+'</h3>'
+    +'<div class="res-grid">'+d.results.map(function(r){
       return '<div class="res-item"><div class="res-n">'+r[0]+'</div><div class="res-l">'+r[1]+'</div></div>';
     }).join('')+'</div>'
   ch.appendChild(bd);
