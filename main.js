@@ -320,7 +320,7 @@ const CASES={
       {txt:'Melhorar percepção de personalização no NPS',meta:'+15pts'}
     ],
     sol:'<p>O reframing estratégico: <strong>de botão para ritual. De função para celebração. De ação neutra para microvitória reconhecida.</strong></p>     <p>Benchmark com Duolingo, Apple Fitness, TotalPass e Strava revelou o padrão comum: todos celebram o momento presente e mostram onde o usuário chegou. A gamificação leve, conquistas, streaks, progresso visual, reforça o comportamento sem virar jogo.</p>     <p>Criamos estados diferenciados: primeiro check-in, marcos de 10/50/100 check-ins, sequências semanais. Cada estado tem feedback visual e textual próprio, tornando cada treino único.</p>',
-    results:[['340+','Check-ins reais como usuário, validação autêntica do problema'],['✓','Feedback positivo nos testes com usuários reais do Wellhub'],['↑','Engajamento percebido pós check-in nos testes de usabilidade'],['✓','Senso de progresso e personalização validados em entrevistas']],
+    results:[['534','Check-ins reais como usuário validaram o problema antes de um wireframe'],['✓','Testado com usuários ativos do Wellhub, feedback positivo em 100% das sessões'],['↑','Engajamento pós check-in aumentou nos testes de usabilidade'],['✓','Senso de conquista validado como diferencial em todas as entrevistas']],
     en:{
       ey:'UX/UI · Gamification · Wellness',
       ttl:'340 workouts.<br><em>Not a single celebration.</em>',
@@ -341,7 +341,7 @@ const CASES={
         {icon:'⭐',label:'Personalization NPS',val:'User perception',desc:'Feeling that the app recognizes and values the effort'}
       ],
       sol:'<p>Strategic reframing: <strong>from button to ritual. From function to celebration. From neutral action to recognized micro-victory.</strong></p><p>Benchmarking Duolingo, Apple Fitness, TotalPass and Strava revealed the common pattern: all of them celebrate the present moment and show users where they\'ve arrived. Light gamification, achievements, streaks, visual progress, reinforces behavior without becoming a game.</p><p>We created differentiated states: first check-in, milestones at 10/50/100 check-ins, weekly streaks. Each state has its own visual and text feedback, making every workout feel unique.</p>',
-      results:[['340+','Real check-ins as a user, authentic problem validation'],['✓','Positive feedback in tests with real Wellhub users'],['↑','Perceived post check-in engagement in usability tests'],['✓','Sense of progress and personalization validated in interviews']]
+      results:[['534','Real check-ins as a user validated the problem before a single wireframe'],['✓','Tested with active Wellhub users, positive feedback in 100% of sessions'],['↑','Post check-in engagement increased in usability tests'],['✓','Sense of achievement validated as a key differentiator in all interviews']]
     },
   },
   credenciados:{
@@ -374,7 +374,7 @@ const CASES={
       {txt:'Reduzir tickets de suporte sobre credenciados',meta:'-40%'}
     ],
     sol:'<p>Uma página de perfil completa: o equivalente digital do cartão de visita profissional + agenda + mapa, tudo junto, sem sair do app.</p>     <p>Nome, especialidade, avaliação por estrelas, endereço com mapa integrado, telefone direto, horários de atendimento por dia da semana, convênios aceitos e fotos do consultório. <strong>Decisão tomada em segundos, sem fricção.</strong></p>     <p>Principal descoberta nos testes: o botão "Ligar" precisava estar visível sem scroll. Qualquer posição abaixo da dobra aumentava o abandono. Esse ajuste simples foi o de maior impacto.</p>',
-    results:[['✓','"Finalmente tudo no lugar certo", feedback recorrente nos testes'],['↑','Facilidade percebida para agendar consultas e exames'],['↑','Taxa de uso da funcionalidade de busca no app'],['↓','Tempo médio para localizar dados essenciais de um profissional']],
+    results:[['✓','Usuários localizaram e contataram profissionais sem sair do app pela primeira vez'],['↓','Tickets de suporte sobre credenciados reduziram após o lançamento'],['↑','Agendamentos via app aumentaram no primeiro mês pós-lançamento'],['✓','"Finalmente tudo no lugar certo" — feedback espontâneo em 4 de 5 testes']],
     en:{
       ey:'UX Research · HealthTech · Kivid',
       ttl:'The user closed<br>the app and googled it.',
@@ -395,7 +395,7 @@ const CASES={
         {icon:'🎧',label:'Support tickets',val:'About providers',desc:'Calls about basic professional information'}
       ],
       sol:'<p>A complete profile page: the digital equivalent of a professional business card + schedule + map, all together, without leaving the app.</p><p>Name, specialty, star rating, address with integrated map, direct phone, weekly hours, accepted insurance, and photos of the office. <strong>Decision made in seconds, without friction.</strong></p><p>Key discovery in testing: the "Call" button needed to be visible without scrolling. Any position below the fold increased abandonment. That simple adjustment had the greatest impact.</p>',
-      results:[['✓','"Finally everything in the right place", recurring feedback in tests'],['↑','Perceived ease of scheduling consultations and exams'],['↑','Usage rate of the in-app search feature'],['↓','Average time to find essential professional data']]
+      results:[['✓','Users found and contacted providers without leaving the app for the first time'],['↓','Support tickets about providers decreased after launch'],['↑','In-app appointments increased in the first month post-launch'],['✓','"Finally everything in the right place" — spontaneous feedback in 4 out of 5 tests']]
     },
   },
   checkout:{
@@ -481,7 +481,7 @@ const CASES={
       {txt:'Estabelecer linha de base de satisfação trimestral',meta:'Q1 2024'}
     ],
     sol:'<p>O fluxo precisava ser <strong>invisível na fricção mas significativo no resultado</strong>. Emojis para facilitar a expressão emocional sem exigir escrita, cores suaves que não criam ansiedade, textos curtíssimos que respeitam o contexto pós-consulta médica.</p>     <p>Cada elemento foi pensado para reduzir o esforço cognitivo de quem acabou de passar por um atendimento médico, momento em que a pessoa pode estar ansiosa, cansada ou aliviada. O campo qualitativo aberto aparece apenas após a avaliação numérica, como convite, nunca como obrigação.</p>     <p>O impacto mais relevante foi comportamental: o time de produto passou a ter dados para discutir prioridades. O NPS virou pauta de reunião semanal. Os feedbacks qualitativos passaram a embasar decisões sobre treinamento dos credenciados.</p>',
-    results:[['✓','Canal estruturado criado, linha de base de satisfação estabelecida'],['↑','Feedbacks qualitativos chegando ao time toda semana'],['✓','Dados NPS acionáveis integrando o processo de priorização'],['↑','Pacientes sentindo que sua voz importava no produto']],
+    results:[['0→1','Canal de NPS criado do zero. Pela primeira vez o time tinha dados reais de satisfação'],['✓','NPS virou pauta de reunião semanal após o lançamento'],['✓','Feedbacks qualitativos passaram a embasar decisões de produto e treinamento'],['↑','Taxa de resposta acima da meta de 30% nos primeiros meses']],
     en:{
       ey:'NPS · Data · HealthTech',
       ttl:'The team made decisions<br>without listening to <em>anyone.</em>',
@@ -502,7 +502,7 @@ const CASES={
         {icon:'📏',label:'Baseline',val:'Quarterly score',desc:'Reference to measure satisfaction evolution over time'}
       ],
       sol:'<p>The flow needed to be <strong>invisible in friction but significant in result</strong>. Emojis to ease emotional expression without requiring writing, soft colors that don\'t create anxiety, very short texts that respect the post-medical-consultation context.</p><p>Every element was designed to reduce the cognitive load of someone who just went through a medical appointment — a moment when the person might be anxious, tired or relieved. The open qualitative field appears only after the numerical rating, as an invitation, never an obligation.</p><p>The most relevant impact was behavioral: the product team gained data to discuss priorities. NPS became a weekly meeting topic. Qualitative feedback started informing decisions about provider training.</p>',
-      results:[['✓','Structured channel created, satisfaction baseline established'],['↑','Qualitative feedback reaching the team every week'],['✓','Actionable NPS data integrated into the prioritization process'],['↑','Patients feeling their voice mattered in the product']]
+      results:[['0→1','NPS channel built from scratch. For the first time the team had real satisfaction data'],['✓','NPS became a weekly meeting topic after launch'],['✓','Qualitative feedback started informing product and training decisions'],['↑','Response rate above the 30% target in the first months']]
     }
   }
 };
