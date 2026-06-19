@@ -1031,7 +1031,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 /* ── Results Grid — Modelo B ── */
 .res-grid {
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:1fr 1fr;
   gap:8px;
   margin:1rem 0 3rem;
 }
