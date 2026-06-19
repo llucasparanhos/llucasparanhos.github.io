@@ -320,7 +320,7 @@ const CASES={
       {txt:'Melhorar percepção de personalização no NPS',meta:'+15pts'}
     ],
     sol:'<p>O reframing estratégico: <strong>de botão para ritual. De função para celebração. De ação neutra para microvitória reconhecida.</strong></p>     <p>Benchmark com Duolingo, Apple Fitness, TotalPass e Strava revelou o padrão comum: todos celebram o momento presente e mostram onde o usuário chegou. A gamificação leve, conquistas, streaks, progresso visual, reforça o comportamento sem virar jogo.</p>     <p>Criamos estados diferenciados: primeiro check-in, marcos de 10/50/100 check-ins, sequências semanais. Cada estado tem feedback visual e textual próprio, tornando cada treino único.</p>',
-    results:[['534','Check-ins reais como usuário validaram o problema antes de um wireframe'],['✓','Testado com usuários ativos do Wellhub, feedback positivo em 100% das sessões'],['↑','Engajamento pós check-in aumentou nos testes de usabilidade'],['✓','Senso de conquista validado como diferencial em todas as entrevistas']],
+    results:[['534','Check-ins reais validaram o problema antes do primeiro wireframe','ti-run','check'],['100%','Feedback positivo em todas as sessões de teste com usuários reais','ti-users','up'],['↑','Engajamento pós check-in aumentou nos testes de usabilidade','ti-trending-up','up'],['✓','Senso de conquista validado como diferencial em todas as entrevistas','ti-star','check']],
     en:{
       ey:'UX/UI · Gamification · Wellness',
       ttl:'340 workouts.<br><em>Not a single celebration.</em>',
@@ -341,7 +341,7 @@ const CASES={
         {icon:'⭐',label:'Personalization NPS',val:'User perception',desc:'Feeling that the app recognizes and values the effort'}
       ],
       sol:'<p>Strategic reframing: <strong>from button to ritual. From function to celebration. From neutral action to recognized micro-victory.</strong></p><p>Benchmarking Duolingo, Apple Fitness, TotalPass and Strava revealed the common pattern: all of them celebrate the present moment and show users where they\'ve arrived. Light gamification, achievements, streaks, visual progress, reinforces behavior without becoming a game.</p><p>We created differentiated states: first check-in, milestones at 10/50/100 check-ins, weekly streaks. Each state has its own visual and text feedback, making every workout feel unique.</p>',
-      results:[['534','Real check-ins as a user validated the problem before a single wireframe'],['✓','Tested with active Wellhub users, positive feedback in 100% of sessions'],['↑','Post check-in engagement increased in usability tests'],['✓','Sense of achievement validated as a key differentiator in all interviews']]
+      results:[['534','Real check-ins validated the problem before the first wireframe','ti-run','check'],['100%','Positive feedback in all testing sessions with real users','ti-users','up'],['↑','Post check-in engagement increased in usability tests','ti-trending-up','up'],['✓','Sense of achievement validated as key differentiator in all interviews','ti-star','check']]
     },
   },
   credenciados:{
@@ -374,7 +374,7 @@ const CASES={
       {txt:'Reduzir tickets de suporte sobre credenciados',meta:'-40%'}
     ],
     sol:'<p>Uma página de perfil completa: o equivalente digital do cartão de visita profissional + agenda + mapa, tudo junto, sem sair do app.</p>     <p>Nome, especialidade, avaliação por estrelas, endereço com mapa integrado, telefone direto, horários de atendimento por dia da semana, convênios aceitos e fotos do consultório. <strong>Decisão tomada em segundos, sem fricção.</strong></p>     <p>Principal descoberta nos testes: o botão "Ligar" precisava estar visível sem scroll. Qualquer posição abaixo da dobra aumentava o abandono. Esse ajuste simples foi o de maior impacto.</p>',
-    results:[['✓','Usuários localizaram e contataram profissionais sem sair do app pela primeira vez'],['↓','Tickets de suporte sobre credenciados reduziram após o lançamento'],['↑','Agendamentos via app aumentaram no primeiro mês pós-lançamento'],['✓','"Finalmente tudo no lugar certo" — feedback espontâneo em 4 de 5 testes']],
+    results:[['0→1','Usuários localizaram profissionais sem sair do app pela primeira vez','ti-map-pin','check'],['↓','Tickets de suporte reduziram após o lançamento','ti-headset','down'],['↑','Agendamentos via app aumentaram no primeiro mês','ti-calendar','up'],['4/5','"Finalmente tudo no lugar certo" — feedback espontâneo nos testes','ti-message','check']],
     en:{
       ey:'UX Research · HealthTech · Kivid',
       ttl:'The user closed<br>the app and googled it.',
@@ -395,7 +395,7 @@ const CASES={
         {icon:'🎧',label:'Support tickets',val:'About providers',desc:'Calls about basic professional information'}
       ],
       sol:'<p>A complete profile page: the digital equivalent of a professional business card + schedule + map, all together, without leaving the app.</p><p>Name, specialty, star rating, address with integrated map, direct phone, weekly hours, accepted insurance, and photos of the office. <strong>Decision made in seconds, without friction.</strong></p><p>Key discovery in testing: the "Call" button needed to be visible without scrolling. Any position below the fold increased abandonment. That simple adjustment had the greatest impact.</p>',
-      results:[['✓','Users found and contacted providers without leaving the app for the first time'],['↓','Support tickets about providers decreased after launch'],['↑','In-app appointments increased in the first month post-launch'],['✓','"Finally everything in the right place" — spontaneous feedback in 4 out of 5 tests']]
+      results:[['0→1','Users found providers without leaving the app for the first time','ti-map-pin','check'],['↓','Support tickets decreased after launch','ti-headset','down'],['↑','In-app appointments increased in the first month','ti-calendar','up'],['4/5','"Finally everything in the right place" — spontaneous feedback in tests','ti-message','check']]
     },
   },
   checkout:{
@@ -428,7 +428,7 @@ const CASES={
       {txt:'Diminuir tempo médio de conclusão da compra',meta:'-30%'}
     ],
     sol:'<p>Unifiquei todas as etapas em <strong>uma única página</strong>. Preenchimento automático via CPF: o usuário digitava um campo e nome, endereço e dados básicos eram preenchidos automaticamente. Eliminamos tudo que era opcional ou desnecessário para a conclusão.</p>     <p>O resumo do pedido ficou sempre visível, dinâmico e transparente, o valor total aparece desde o primeiro momento, atualizando em tempo real conforme o usuário seleciona opções. Sem surpresas no final. Sem perguntas sem resposta.</p>     <p>Adicionamos indicadores de segurança (cadeado, selos) nas posições exatas onde os heatmaps mostravam maior hesitação. Pequeno detalhe, impacto mensurável na confiança.</p>',
-    results:[['15%','Aumento na taxa de conversão, KR1 atingido'],['20%','Redução no abandono de carrinho, KR2 atingido'],['↓','Tempo médio de conclusão da compra'],['✓','"Muito mais simples e rápido", feedback recorrente']],
+    results:[['+15%','Aumento na taxa de conversão — KR1 atingido','ti-trending-up','up'],['-20%','Redução no abandono de carrinho — KR2 atingido','ti-shopping-cart','down'],['↓','Tempo médio de conclusão da compra reduziu','ti-clock','down'],['✓','"Muito mais simples e rápido" — feedback recorrente','ti-thumb-up','check']],
     en:{
       ey:'Conversion · Mobile · HealthTech',
       ttl:'Half of users quit<br>in the middle of <em>checkout.</em>',
@@ -481,7 +481,7 @@ const CASES={
       {txt:'Estabelecer linha de base de satisfação trimestral',meta:'Q1 2024'}
     ],
     sol:'<p>O fluxo precisava ser <strong>invisível na fricção mas significativo no resultado</strong>. Emojis para facilitar a expressão emocional sem exigir escrita, cores suaves que não criam ansiedade, textos curtíssimos que respeitam o contexto pós-consulta médica.</p>     <p>Cada elemento foi pensado para reduzir o esforço cognitivo de quem acabou de passar por um atendimento médico, momento em que a pessoa pode estar ansiosa, cansada ou aliviada. O campo qualitativo aberto aparece apenas após a avaliação numérica, como convite, nunca como obrigação.</p>     <p>O impacto mais relevante foi comportamental: o time de produto passou a ter dados para discutir prioridades. O NPS virou pauta de reunião semanal. Os feedbacks qualitativos passaram a embasar decisões sobre treinamento dos credenciados.</p>',
-    results:[['0→1','Canal de NPS criado do zero. Pela primeira vez o time tinha dados reais de satisfação'],['✓','NPS virou pauta de reunião semanal após o lançamento'],['✓','Feedbacks qualitativos passaram a embasar decisões de produto e treinamento'],['↑','Taxa de resposta acima da meta de 30% nos primeiros meses']],
+    results:[['0→1','Canal de NPS criado do zero — pela primeira vez o time tinha dados reais','ti-chart-bar','check'],['✓','NPS virou pauta de reunião semanal após o lançamento','ti-calendar','check'],['↑','Taxa de resposta acima da meta de 30% nos primeiros meses','ti-trending-up','up'],['✓','Feedbacks qualitativos passaram a embasar decisões de produto','ti-message','check']],
     en:{
       ey:'NPS · Data · HealthTech',
       ttl:'The team made decisions<br>without listening to <em>anyone.</em>',
@@ -502,7 +502,7 @@ const CASES={
         {icon:'📏',label:'Baseline',val:'Quarterly score',desc:'Reference to measure satisfaction evolution over time'}
       ],
       sol:'<p>The flow needed to be <strong>invisible in friction but significant in result</strong>. Emojis to ease emotional expression without requiring writing, soft colors that don\'t create anxiety, very short texts that respect the post-medical-consultation context.</p><p>Every element was designed to reduce the cognitive load of someone who just went through a medical appointment — a moment when the person might be anxious, tired or relieved. The open qualitative field appears only after the numerical rating, as an invitation, never an obligation.</p><p>The most relevant impact was behavioral: the product team gained data to discuss priorities. NPS became a weekly meeting topic. Qualitative feedback started informing decisions about provider training.</p>',
-      results:[['0→1','NPS channel built from scratch. For the first time the team had real satisfaction data'],['✓','NPS became a weekly meeting topic after launch'],['✓','Qualitative feedback started informing product and training decisions'],['↑','Response rate above the 30% target in the first months']]
+      results:[['0→1','NPS channel built from scratch — first time the team had real data','ti-chart-bar','check'],['✓','NPS became a weekly meeting topic after launch','ti-calendar','check'],['↑','Response rate above the 30% target in the first months','ti-trending-up','up'],['✓','Qualitative feedback started informing product decisions','ti-message','check']]
     }
   }
 };
@@ -637,7 +637,8 @@ function openCase(id,title){
     /* Resultados */
     +'<h3>'+t("Results","Resultados")+'</h3>'
     +'<div class="res-grid">'+d.results.map(function(r){
-      return '<div class="res-item"><div class="res-n">'+r[0]+'</div><div class="res-l">'+r[1]+'</div></div>';
+      var badge = r[2] ? '<div class="res-badge '+r[3]+'"><i class="ti '+r[2]+'" aria-hidden="true"></i> '+(r[3]==='up'?'↑ atingido':r[3]==='down'?'↓ reduzido':'✓ validado')+'</div>' : '';
+      return '<div class="res-item">'+badge+'<div class="res-n">'+r[0]+'</div><div class="res-l">'+r[1]+'</div></div>';
     }).join('')+'</div>'
   ch.appendChild(bd);
   slot.appendChild(ch);
