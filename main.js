@@ -526,8 +526,7 @@ function openCase(id,title){
   const ct=document.createElement('div');
   ct.className='ch-ct';
   ct.innerHTML='<div class="ch-ey">'+d.ey+'</div>'
-    +'<div class="ch-title">'+d.ttl+'</div>'
-    +'<div class="ch-meta-row">'+d.meta.map(function(m){return'<span>'+m+'</span>';}).join('')+'</div>';
+    +'<div class="ch-title">'+d.ttl+'</div>';
   ch.appendChild(ct);
 
   // Hero image
