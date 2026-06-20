@@ -505,6 +505,77 @@ const CASES={
       results:[['0→1','NPS channel built from scratch — first time the team had real data','ti-chart-bar','check'],['✓','NPS became a weekly meeting topic after launch','ti-calendar','check'],['↑','Response rate above the 30% target in the first months','ti-trending-up','up'],['✓','Qualitative feedback started informing product decisions','ti-message','check']]
     }
   }
+  ,
+  bomconsorcio:{
+    color:'#9247F0',bg:'#111',
+    ey:'UX Writing · Arquitetura da Informação · Fintech',
+    ttl:'Vender uma cota gerava<br><em>mais dúvidas que certezas.</em>',
+    meta:['Product Designer','BomConsórcio · Fintech','Figma'],
+    hook:'"O cliente aceitava a oferta e, a partir daí, não sabia mais o que esperar. A cada tela, a mesma pergunta chegava ao suporte: isso já foi? quanto falta? Não era falta de informação. Era informação demais, do jeito errado."',
+    context:'<p>O fluxo de venda de cota secundária tinha sete a oito etapas reais entre o aceite da oferta e o pagamento. O stepper mostrado ao cliente, porém, agrupava várias dessas etapas sob um único número, escondendo sub-passos inteiros.</p><p>O texto de aceite de termos reunia declarações jurídicas, condições financeiras e regras operacionais em um único bloco extenso, sem hierarquia entre o que era obrigação legal e o que era informação prática. No meio do fluxo, o cliente era redirecionado para um provedor externo de biometria e assinatura, sem preparo prévio para a troca de ambiente. O resultado: dúvida recorrente sobre "em que etapa estou" e "o que falta", medida pelo volume de contatos no suporte.</p>',
+    diags:[
+      {icon:'🔢',title:'Etapas escondidas',desc:'Um número do stepper agrupava de 2 a 3 sub-passos reais. O cliente via "Etapa 2 de 5" e vivia muito mais telas do que isso sugeria.'},
+      {icon:'📄',title:'Texto jurídico em bloco único',desc:'Declarações legais, dados da transação e condições financeiras misturados em um único parágrafo extenso, sem hierarquia entre o obrigatório e o informativo.'},
+      {icon:'🔀',title:'Redirecionamento externo sem preparo',desc:'Biometria e assinatura aconteciam fora do fluxo, em outro provedor, sem nenhuma tela preparando o cliente para a troca de ambiente.'},
+      {icon:'🔁',title:'Confirmação redundante de endereço',desc:'O CEP já informado era solicitado de novo em um modal de confirmação separado, dando a sensação de retrabalho.'}
+    ],
+    kpis:[
+      {icon:'📞',label:'Volume de tickets de suporte',val:'Sobre "próximos passos"',desc:'Quantos contatos mencionam dúvida sobre etapa atual ou tempo restante'},
+      {icon:'🚪',label:'Abandono por sub-etapa',val:'Funil completo',desc:'Em qual etapa real, não só no número do stepper, o cliente mais desiste'},
+      {icon:'⏱',label:'Tempo até a assinatura',val:'Aceite → Assinatura',desc:'Tempo entre o aceite da oferta e a assinatura do contrato'}
+    ],
+    role:'Product Designer responsável pelo redesenho do fluxo pós-aceite de oferta: arquitetura da informação, hierarquia visual, microcopy e prototipação no Figma.',
+    insight:'<p>O problema não era a quantidade de etapas, era a <strong>falta de correspondência entre o que o cliente via e o que de fato estava acontecendo</strong>. Um único número de stepper escondia sub-passos inteiros, dados de natureza diferente (jurídica, financeira, operacional) apareciam misturados, e o ambiente mudava sem aviso na hora da biometria. O cliente não estava perdido por falta de capacidade, estava perdido porque a interface contava uma história diferente da realidade do processo.</p>',
+    objetivo:'Tornar o andamento da venda da cota visível e previsível em cada etapa real, reduzindo a dependência do cliente em relação ao suporte para entender o que vem a seguir.',
+    krs:[
+      {txt:'Reduzir tickets de suporte sobre "próximos passos" após o aceite da oferta',meta:'-30% (hipótese)'},
+      {txt:'Reduzir abandono nas sub-etapas hoje escondidas pelo stepper genérico',meta:'-20% (hipótese)'},
+      {txt:'Reduzir o tempo médio entre aceite da oferta e assinatura do contrato',meta:'-15% (hipótese)'}
+    ],
+    sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Stepper fiel à realidade do processo</div><div class="ch-sol-card-desc">As 8 etapas reais (Aceite de Termos, Dados do Cedente, Endereço, Assinantes, Assinatura do contrato, Aguardando, Transferência, Pagamento) passaram a ter número e nome próprios. Nenhum sub-passo fica mais escondido atrás de uma etapa genérica.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Hierarquia por tipo de informação</div><div class="ch-sol-card-desc">Dados financeiros da venda (valor, taxa, desconto, prazo) foram isolados em um painel lateral próprio. A declaração jurídica ganhou um cartão dedicado, sem se misturar com números da transação.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Da declaração de seis parágrafos ao digest</div><div class="ch-sol-card-desc">O texto de aceite, antes um bloco jurídico denso, virou cinco frases em linguagem direta, cobrindo os mesmos pontos (processo eletrônico, token por e-mail, prazo de pagamento, destino do valor), com link "Ver termos completos" preservando o texto integral para compliance.</div></div></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">A decisão mais negociada</div><p>Avaliamos internalizar a etapa de biometria e assinatura, hoje rodando em um provedor externo — o que quebra visualmente a continuidade do fluxo no momento mais sensível da transação. O ganho de continuidade era claro, mas o custo operacional de homologar verificação biométrica própria, manter compliance e SLA de segurança, somado ao tempo de implementação necessário, tornava a internalização inviável neste ciclo. Optamos por manter o provedor externo e investir o esforço de design em preparar o cliente para a transição, em vez de prometer uma reconstrução que não pagaria o investimento no curto prazo.</p></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">O texto jurídico não precisava desaparecer, precisava de hierarquia</div><p>O bloco de aceite reunia seis parágrafos repetindo a mesma estrutura "Declaro que...". A solução não foi remover conteúdo legal, foi separar camadas: um digest de cinco pontos em linguagem direta para leitura em segundos, e o texto completo preservado por trás de um link, para quem precisa da redação jurídica integral. Validei essa mudança diretamente no arquivo de Figma, comparando a altura do card antes e depois como primeira evidência de redução de carga de leitura.</p></div>',
+    resultsLabel:'Hipóteses a validar',
+    results:[
+      ['-30%','Hipótese: queda nos tickets de suporte sobre "o que vem depois", já que cada sub-etapa real passa a ter seu próprio número visível no stepper.','ti-headset','hyp','hipótese'],
+      ['-20%','Hipótese: menor abandono nas sub-etapas hoje invisíveis, pela granularidade do progresso mostrado ao cliente.','ti-trending-down','hyp','hipótese'],
+      ['-15%','Hipótese: tempo médio entre aceite e assinatura cai, com o texto jurídico digerido e o trajeto até a assinatura mais claro.','ti-clock','hyp','hipótese'],
+      ['↑','Hipótese: clareza percebida sobe nos testes de usabilidade, à medida que cada etapa visível corresponde a uma etapa real do processo.','ti-eye','hyp','hipótese']
+    ],
+    en:{
+      ey:'UX Writing · Information Architecture · Fintech',
+      ttl:'Selling a quota raised<br><em>more questions than answers.</em>',
+      meta:['Product Designer','BomConsórcio · Fintech','Figma'],
+      hook:'"The client accepted the offer and from that point on had no idea what to expect. Every screen, the same question reached support: has this gone through? how much is left? It wasn\'t a lack of information. It was too much information, the wrong way."',
+      context:'<p>The secondary quota sale flow had seven to eight real steps between accepting the offer and final payment. The stepper shown to the client, however, grouped several of those steps under a single number, hiding entire sub-steps.</p><p>The terms acceptance text bundled legal declarations, financial conditions and operational rules into one long block, with no hierarchy between legal obligation and practical information. Midway through the flow, the client was redirected to an external biometrics and signature provider with no preparation for the change of environment. The result: recurring doubt about "what step am I on" and "what\'s left," measured by the volume of support contacts.</p>',
+      diags:[
+        {icon:'🔢',title:'Hidden steps',desc:'One stepper number grouped 2 to 3 real sub-steps. The client saw "Step 2 of 5" and went through far more screens than that suggested.'},
+        {icon:'📄',title:'Legal text in a single block',desc:'Legal declarations, transaction data and financial conditions mixed into one long paragraph, with no hierarchy between what was mandatory and what was informational.'},
+        {icon:'🔀',title:'External redirect with no preparation',desc:'Biometrics and signature happened outside the flow, on another provider, with no screen preparing the client for the change of environment.'},
+        {icon:'🔁',title:'Redundant address confirmation',desc:'The ZIP code already provided was asked again in a separate confirmation modal, creating a sense of rework.'}
+      ],
+      kpis:[
+        {icon:'📞',label:'Support ticket volume',val:'About "what\'s next"',desc:'How many contacts mention doubt about the current step or time remaining'},
+        {icon:'🚪',label:'Drop-off by sub-step',val:'Full funnel',desc:'Which real step, not just the stepper number, sees the most abandonment'},
+        {icon:'⏱',label:'Time to signature',val:'Acceptance → Signature',desc:'Time between accepting the offer and signing the contract'}
+      ],
+      role:'Product Designer responsible for redesigning the post-acceptance flow: information architecture, visual hierarchy, microcopy and prototyping in Figma.',
+      insight:'<p>The problem wasn\'t the number of steps, it was the <strong>mismatch between what the client saw and what was actually happening</strong>. A single stepper number hid entire sub-steps, data of different natures (legal, financial, operational) appeared mixed together, and the environment changed without warning at the biometrics step. The client wasn\'t lost because of lack of ability, they were lost because the interface told a different story than the actual process.</p>',
+      objetivo:'Make the progress of the quota sale visible and predictable at every real step, reducing the client\'s dependency on support to understand what comes next.',
+      krs:[
+        {txt:'Reduce support tickets about "next steps" after offer acceptance',meta:'-30% (hypothesis)'},
+        {txt:'Reduce drop-off in sub-steps currently hidden by the generic stepper',meta:'-20% (hypothesis)'},
+        {txt:'Reduce average time between offer acceptance and contract signature',meta:'-15% (hypothesis)'}
+      ],
+      sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">A stepper that matches the real process</div><div class="ch-sol-card-desc">The 8 real steps (Terms Acceptance, Seller Data, Address, Signatories, Contract Signature, Awaiting, Transfer, Payment) each got their own number and name. No sub-step stays hidden behind a generic step anymore.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Hierarchy by type of information</div><div class="ch-sol-card-desc">Financial data about the sale (amount, fee, discount, term) was isolated into its own side panel. The legal declaration got a dedicated card, no longer mixed with transaction numbers.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">From a six-paragraph declaration to a digest</div><div class="ch-sol-card-desc">The acceptance text, once a dense legal block, became five plain-language sentences covering the same points (electronic process, email token, payment deadline, destination of funds), with a "View full terms" link preserving the complete text for compliance.</div></div></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">The most negotiated decision</div><p>We evaluated bringing the biometrics and signature step in-house, since it currently runs on an external provider that visually breaks flow continuity at the most sensitive moment of the transaction. The continuity gain was clear, but the operational cost of certifying our own biometric verification, maintaining compliance and security SLAs, plus the implementation time required, made bringing it in-house unfeasible for this cycle. We chose to keep the external provider and invest the design effort in preparing the client for the transition, instead of promising a rebuild that wouldn\'t pay off the investment in the short term.</p></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">The legal text didn\'t need to disappear, it needed hierarchy</div><p>The acceptance block had six paragraphs repeating the same "I declare that..." structure. The fix wasn\'t removing legal content, it was separating layers: a five-point digest in plain language for a few seconds of reading, and the full text preserved behind a link for anyone who needs the complete legal wording. I validated this directly in the Figma file, comparing the card\'s height before and after as first evidence of reduced reading load.</p></div>',
+      resultsLabel:'Hypotheses to validate',
+      results:[
+        ['-30%','Hypothesis: drop in support tickets about "what happens next," since every real sub-step now has its own visible number on the stepper.','ti-headset','hyp','hypothesis'],
+        ['-20%','Hypothesis: lower drop-off in sub-steps currently invisible, thanks to the granularity of progress shown to the client.','ti-trending-down','hyp','hypothesis'],
+        ['-15%','Hypothesis: average time between acceptance and signature drops, with digested legal text and a clearer path to signature.','ti-clock','hyp','hypothesis'],
+        ['↑','Hypothesis: perceived clarity rises in usability tests, as each visible step matches a real step in the process.','ti-eye','hyp','hypothesis']
+      ]
+    }
+  }
+
 };
 
 
@@ -634,9 +705,10 @@ function openCase(id,title){
     )
 
     /* Resultados */
-    +'<h3>'+t("Results","Resultados")+'</h3>'
+    +'<h3>'+(d.resultsLabel || t("Results","Resultados"))+'</h3>'
     +'<div class="res-grid">'+d.results.map(function(r){
-      var badge = r[2] ? '<div class="res-badge '+r[3]+'"><i class="ti '+r[2]+'" aria-hidden="true"></i> '+(r[3]==='up'?'↑ atingido':r[3]==='down'?'↓ reduzido':'✓ validado')+'</div>' : '';
+      var badgeWord = r[4] || (r[3]==='up'?'↑ atingido':r[3]==='down'?'↓ reduzido':'✓ validado');
+      var badge = r[2] ? '<div class="res-badge '+r[3]+'"><i class="ti '+r[2]+'" aria-hidden="true"></i> '+badgeWord+'</div>' : '';
       return '<div class="res-item">'+badge+'<div class="res-n">'+r[0]+'</div><div class="res-l">'+r[1]+'</div></div>';
     }).join('')+'</div>'
   ch.appendChild(bd);
