@@ -684,17 +684,16 @@ function openCase(id,title){
       : ''
     )
 
-    /* Antes × Depois slider */
+    /* Antes × Depois lado a lado */
     +(c.comp ? (function(){
-      return '<div class="ch-slider-wrap">'
-        +'<div class="ch-slider-label">Antes <span>&times;</span> Depois</div>'
-        +'<div class="ch-comp-slider">'
-          +'<div class="ch-comp-slider-inner">'
-            +'<div class="ch-comp-slider-before"><img src="img/'+c.comp[0].before+'" alt="Antes" loading="lazy"></div>'
-            +'<div class="ch-comp-slider-after"><img src="img/'+c.comp[0].after+'" alt="Depois" loading="lazy"></div>'
-            +'<div class="ch-comp-slider-handle"><div class="ch-comp-slider-line"></div><div class="ch-comp-slider-btn">&#10231;</div></div>'
-            +'<div class="ch-comp-slider-tags"><span class="ch-comp-slider-tag">Antes</span><span class="ch-comp-slider-tag">Depois</span></div>'
-          +'</div>'
+      return '<div class="ch-comp-sidebyside">'
+        +'<div class="ch-comp-side">'
+          +'<div class="ch-comp-side-img"><img src="img/'+c.comp[0].after+'" alt="Antes" onclick="lbOpen(this.src)" loading="lazy"></div>'
+          +'<div class="ch-comp-side-label">Antes</div>'
+        +'</div>'
+        +'<div class="ch-comp-side">'
+          +'<div class="ch-comp-side-img"><img src="img/'+c.comp[0].before+'" alt="Depois" onclick="lbOpen(this.src)" loading="lazy"></div>'
+          +'<div class="ch-comp-side-label">Depois</div>'
         +'</div>'
       +'</div>';
     })() : '')
