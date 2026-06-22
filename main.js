@@ -697,7 +697,8 @@ function openCase(id,title){
         var cards = c.telas.map(function(img,i){
           var num = ('0'+(i+1)).slice(-2);
           var name = labels[i] || '';
-          return '<div class="cf-card'+(i===0?' active':i===1?' near':'')+'" data-cf-i="'+i+'" data-img="img/'+img+'">'
+          var cls = i===0?' active':i===1?' near':'';
+          return '<div class="cf-card'+cls+'" data-cf-i="'+i+'" data-img="img/'+img+'">'
             +'<img src="img/'+img+'" alt="Tela '+num+'" loading="lazy">'
             +'<div class="cf-card-label">'
               +'<span class="cf-card-num">'+num+'</span>'
@@ -707,13 +708,13 @@ function openCase(id,title){
         }).join('');
         return '<h3>'+t("Screens","Telas")+'</h3>'
           +'<div class="cf-wrap" id="cf-wrap-'+id+'">'
+            +'<div class="cf-track">'+cards+'</div>'
             +'<div class="cf-nav">'
               +'<button class="cf-btn cf-btn-prev">&#8249;</button>'
               +'<div class="cf-dots">'+dots+'</div>'
               +'<button class="cf-btn cf-btn-next">&#8250;</button>'
               +'<span class="cf-counter">1 / '+c.telas.length+'</span>'
             +'</div>'
-            +'<div class="cf-track">'+cards+'</div>'
           +'</div>';
       }
       var ratio = c.telaRatio || '392/852';
@@ -882,6 +883,8 @@ function initCoverflow(id){
   var counter = wrap.querySelector('.cf-counter');
   var total = cards.length;
   var current = 0;
+  var CARD_W = 200;
+  var GAP = 16;
 
   function render(){
     cards.forEach(function(card,i){
@@ -894,10 +897,10 @@ function initCoverflow(id){
       dot.classList.toggle('active', i===current);
     });
     if(counter) counter.textContent = (current+1)+' / '+total;
-    var activeCard = cards[current];
-    if(activeCard){
-      activeCard.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
-    }
+    /* Center active card */
+    var wrapW = wrap.offsetWidth;
+    var tx = (wrapW/2) - current*(CARD_W+GAP) - (CARD_W/2);
+    track.style.transform = 'translateX('+tx+'px)';
   }
 
   cards.forEach(function(card,i){
@@ -906,11 +909,9 @@ function initCoverflow(id){
       else { current=i; render(); }
     });
   });
-
   dots.forEach(function(dot,i){
     dot.addEventListener('click',function(){ current=i; render(); });
   });
-
   wrap.querySelector('.cf-btn-prev').addEventListener('click',function(){
     current=Math.max(0,current-1); render();
   });
