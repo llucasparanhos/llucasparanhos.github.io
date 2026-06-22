@@ -1172,3 +1172,65 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 @media(max-width:900px){
   .res-grid { grid-template-columns:1fr 1fr; }
 }
+
+/* ── Before / After Slider ── */
+.ch-slider-wrap { margin:1rem 0 3rem; }
+.ch-slider-label {
+  font-family:var(--ff-mono); font-size:.6rem;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--c-dim); margin-bottom:.75rem;
+  display:flex; align-items:center; gap:.75rem;
+}
+.ch-slider-label::before,
+.ch-slider-label::after { content:''; flex:1; height:1px; background:var(--c-line); }
+.ch-slider-label span { color:var(--c-gold); }
+.ch-comp-slider {
+  border-radius:10px; border:1px solid var(--c-line);
+  overflow:hidden; background:var(--c-bg3);
+  cursor:ew-resize; user-select:none; -webkit-user-select:none;
+}
+.ch-comp-slider-inner { position:relative; aspect-ratio:1328/1398; }
+.ch-comp-slider-before,
+.ch-comp-slider-after { position:absolute; inset:0; }
+.ch-comp-slider-before { z-index:1; }
+.ch-comp-slider-after { z-index:2; clip-path:inset(0 50% 0 0); }
+.ch-comp-slider-before img,
+.ch-comp-slider-after img {
+  width:100%; height:100%; object-fit:cover;
+  display:block; pointer-events:none;
+}
+.ch-comp-slider-handle {
+  position:absolute; top:0; bottom:0; left:50%;
+  transform:translateX(-50%); z-index:3;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  width:40px; cursor:ew-resize;
+}
+.ch-comp-slider-line {
+  position:absolute; top:0; bottom:0;
+  width:2px; background:#fff; left:50%;
+  transform:translateX(-50%);
+  box-shadow:0 0 8px rgba(0,0,0,.5);
+}
+.ch-comp-slider-btn {
+  position:relative; width:36px; height:36px;
+  border-radius:50%; background:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.9rem; font-weight:700; color:#0c0c0c;
+  box-shadow:0 2px 12px rgba(0,0,0,.4);
+  font-family:var(--ff-mono); flex-shrink:0;
+}
+.ch-comp-slider-tags {
+  position:absolute; bottom:12px; left:0; right:0;
+  display:flex; justify-content:space-between;
+  padding:0 14px; z-index:4; pointer-events:none;
+}
+.ch-comp-slider-tag {
+  font-family:var(--ff-mono); font-size:.55rem;
+  letter-spacing:.12em; text-transform:uppercase;
+  background:rgba(12,12,12,.75); backdrop-filter:blur(4px);
+  color:rgba(255,255,255,.6); padding:3px 10px; border-radius:4px;
+}
+@media(max-width:900px){
+  .ch-comp-slider-inner { aspect-ratio:4/3; }
+}

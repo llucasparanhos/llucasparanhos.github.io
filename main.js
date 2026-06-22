@@ -534,6 +534,11 @@ const CASES={
     ],
     sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Stepper fiel à realidade do processo</div><div class="ch-sol-card-desc">As 8 etapas reais (Aceite de Termos, Dados do Cedente, Endereço, Assinantes, Assinatura do contrato, Aguardando, Transferência, Pagamento) passaram a ter número e nome próprios. Nenhum sub-passo fica mais escondido atrás de uma etapa genérica.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Hierarquia por tipo de informação</div><div class="ch-sol-card-desc">Dados financeiros da venda (valor, taxa, desconto, prazo) foram isolados em um painel lateral próprio. A declaração jurídica ganhou um cartão dedicado, sem se misturar com números da transação.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Da declaração de seis parágrafos ao digest</div><div class="ch-sol-card-desc">O texto de aceite, antes um bloco jurídico denso, virou cinco frases em linguagem direta, cobrindo os mesmos pontos (processo eletrônico, token por e-mail, prazo de pagamento, destino do valor), com link "Ver termos completos" preservando o texto integral para compliance.</div></div></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">A decisão mais negociada</div><p>Avaliamos internalizar a etapa de biometria e assinatura, hoje rodando em um provedor externo — o que quebra visualmente a continuidade do fluxo no momento mais sensível da transação. O ganho de continuidade era claro, mas o custo operacional de homologar verificação biométrica própria, manter compliance e SLA de segurança, somado ao tempo de implementação necessário, tornava a internalização inviável neste ciclo. Optamos por manter o provedor externo e investir o esforço de design em preparar o cliente para a transição, em vez de prometer uma reconstrução que não pagaria o investimento no curto prazo.</p></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">O texto jurídico não precisava desaparecer, precisava de hierarquia</div><p>O bloco de aceite reunia seis parágrafos repetindo a mesma estrutura "Declaro que...". A solução não foi remover conteúdo legal, foi separar camadas: um digest de cinco pontos em linguagem direta para leitura em segundos, e o texto completo preservado por trás de um link, para quem precisa da redação jurídica integral. Validei essa mudança diretamente no arquivo de Figma, comparando a altura do card antes e depois como primeira evidência de redução de carga de leitura.</p></div>',
     resultsLabel:'Hipóteses a validar',
+    comp:[
+      {before:'bomconsorcio-slider-antes.jpg', after:'bomconsorcio-slider-depois.jpg'}
+    ],
+    telas:['bomconsorcio-tela-01.jpg','bomconsorcio-tela-02.jpg','bomconsorcio-tela-03.jpg','bomconsorcio-tela-04.jpg','bomconsorcio-tela-05.jpg','bomconsorcio-tela-06.jpg','bomconsorcio-tela-07.jpg','bomconsorcio-tela-08.jpg','bomconsorcio-tela-09.jpg','bomconsorcio-tela-10.jpg','bomconsorcio-tela-11.jpg'],
+    telaRatio:'1328/1398',
     results:[
       ['-30%','Hipótese: queda nos tickets de suporte sobre "o que vem depois", já que cada sub-etapa real passa a ter seu próprio número visível no stepper.','ti-headset','hyp','hipótese'],
       ['-20%','Hipótese: menor abandono nas sub-etapas hoje invisíveis, pela granularidade do progresso mostrado ao cliente.','ti-trending-down','hyp','hipótese'],
@@ -679,12 +684,28 @@ function openCase(id,title){
       : ''
     )
 
-    /* Credenciados: carrossel telas */
+    /* Antes × Depois slider */
+    +(c.comp ? (function(){
+      return '<div class="ch-slider-wrap">'
+        +'<div class="ch-slider-label">Antes <span>&times;</span> Depois</div>'
+        +'<div class="ch-comp-slider">'
+          +'<div class="ch-comp-slider-inner">'
+            +'<div class="ch-comp-slider-before"><img src="img/'+c.comp[0].before+'" alt="Antes" loading="lazy"></div>'
+            +'<div class="ch-comp-slider-after"><img src="img/'+c.comp[0].after+'" alt="Depois" loading="lazy"></div>'
+            +'<div class="ch-comp-slider-handle"><div class="ch-comp-slider-line"></div><div class="ch-comp-slider-btn">&#10231;</div></div>'
+            +'<div class="ch-comp-slider-tags"><span class="ch-comp-slider-tag">Antes</span><span class="ch-comp-slider-tag">Depois</span></div>'
+          +'</div>'
+        +'</div>'
+      +'</div>';
+    })() : '')
+
+    /* Carrossel telas */
     +(c.telas ? (function(){
+      var ratio = c.telaRatio || '392/852';
       return '<h3>'+t("Screens","Telas")+'</h3>'
         +'<div class="ch-carousel telas" id="car-telas-'+id+'">'
           +'<div class="ch-carousel-track">'+c.telas.map(function(img,i){
-            return '<div class="ch-carousel-slide"><img src="img/'+img+'" alt="'+i+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></div>';
+            return '<div class="ch-carousel-slide" style="aspect-ratio:'+ratio+'"><img src="img/'+img+'" alt="'+i+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></div>';
           }).join('')+'</div>'
           +'<button class="ch-carousel-btn prev" onclick="carouselMove(this,-1)">&#8249;</button>'
           +'<button class="ch-carousel-btn next" onclick="carouselMove(this,1)">&#8250;</button>'
@@ -718,6 +739,7 @@ function openCase(id,title){
   document.getElementById('page-case').classList.add('active');
   window.scrollTo({top:0,behavior:'instant'});
   setTimeout(animateCaseEntrance,50);
+  setTimeout(initCompSliders,100);
 }
 
 
@@ -833,3 +855,27 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeFeedback
     }, {passive:true});
   });
 })();
+
+/* ── Before / After Slider ── */
+function initCompSliders(){
+  document.querySelectorAll('.ch-comp-slider').forEach(function(slider){
+    var inner=slider.querySelector('.ch-comp-slider-inner');
+    var after=slider.querySelector('.ch-comp-slider-after');
+    var handle=slider.querySelector('.ch-comp-slider-handle');
+    var isDragging=false;
+
+    function setPos(clientX){
+      var rect=inner.getBoundingClientRect();
+      var pct=Math.max(2,Math.min(98,((clientX-rect.left)/rect.width)*100));
+      after.style.clipPath='inset(0 '+(100-pct)+'% 0 0)';
+      handle.style.left=pct+'%';
+    }
+
+    slider.addEventListener('mousedown',function(e){isDragging=true;setPos(e.clientX);e.preventDefault();});
+    window.addEventListener('mousemove',function(e){if(isDragging)setPos(e.clientX);});
+    window.addEventListener('mouseup',function(){isDragging=false;});
+    slider.addEventListener('touchstart',function(e){isDragging=true;setPos(e.touches[0].clientX);},{passive:true});
+    window.addEventListener('touchmove',function(e){if(isDragging)setPos(e.touches[0].clientX);},{passive:true});
+    window.addEventListener('touchend',function(){isDragging=false;});
+  });
+}
