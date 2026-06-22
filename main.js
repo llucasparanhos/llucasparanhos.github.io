@@ -691,18 +691,30 @@ function openCase(id,title){
     +(c.telas ? (function(){
       if(c.telasGrid){
         var labels = c.telasLabels || [];
+        var dots = c.telas.map(function(_,i){
+          return '<div class="cf-dot-nav'+(i===0?' active':'')+'" data-cf-idx="'+i+'"></div>';
+        }).join('');
+        var cards = c.telas.map(function(img,i){
+          var num = ('0'+(i+1)).slice(-2);
+          var name = labels[i] || '';
+          return '<div class="cf-card'+(i===0?' active':i===1?' near':'')+'" data-cf-i="'+i+'" data-img="img/'+img+'">'
+            +'<img src="img/'+img+'" alt="Tela '+num+'" loading="lazy">'
+            +'<div class="cf-card-label">'
+              +'<span class="cf-card-num">'+num+'</span>'
+              +(name ? '<span class="cf-card-name">'+name+'</span>' : '')
+            +'</div>'
+          +'</div>';
+        }).join('');
         return '<h3>'+t("Screens","Telas")+'</h3>'
-          +'<div class="ch-telas-list">'+c.telas.map(function(img,i){
-            var num = ('0'+(i+1)).slice(-2);
-            var name = labels[i] || '';
-            return '<div class="ch-telas-list-item" onclick="lbOpen(\'img/'+img+'\')">'
-              +'<div class="ch-telas-list-side">'
-                +'<span class="ch-telas-list-num">'+num+'</span>'
-                +(name ? '<span class="ch-telas-list-name">'+name+'</span>' : '')
-              +'</div>'
-              +'<div class="ch-telas-list-img"><img src="img/'+img+'" alt="Tela '+num+'" loading="lazy"></div>'
-            +'</div>';
-          }).join('')+'</div>';
+          +'<div class="cf-wrap" id="cf-wrap-'+id+'">'
+            +'<div class="cf-nav">'
+              +'<button class="cf-btn cf-btn-prev">&#8249;</button>'
+              +'<div class="cf-dots">'+dots+'</div>'
+              +'<button class="cf-btn cf-btn-next">&#8250;</button>'
+              +'<span class="cf-counter">1 / '+c.telas.length+'</span>'
+            +'</div>'
+            +'<div class="cf-track">'+cards+'</div>'
+          +'</div>';
       }
       var ratio = c.telaRatio || '392/852';
       return '<h3>'+t("Screens","Telas")+'</h3>'
@@ -743,6 +755,7 @@ function openCase(id,title){
   window.scrollTo({top:0,behavior:'instant'});
   setTimeout(animateCaseEntrance,50);
   setTimeout(initCompSliders,100);
+  setTimeout(function(){ initCoverflow(id); },150);
 }
 
 
@@ -858,6 +871,55 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeFeedback
     }, {passive:true});
   });
 })();
+
+/* ── Coverflow ── */
+function initCoverflow(id){
+  var wrap = document.getElementById('cf-wrap-'+id);
+  if(!wrap) return;
+  var track = wrap.querySelector('.cf-track');
+  var cards = Array.from(track.querySelectorAll('.cf-card'));
+  var dots = Array.from(wrap.querySelectorAll('.cf-dot-nav'));
+  var counter = wrap.querySelector('.cf-counter');
+  var total = cards.length;
+  var current = 0;
+
+  function render(){
+    cards.forEach(function(card,i){
+      var dist = Math.abs(i - current);
+      card.classList.remove('active','near');
+      if(dist===0) card.classList.add('active');
+      else if(dist===1) card.classList.add('near');
+    });
+    dots.forEach(function(dot,i){
+      dot.classList.toggle('active', i===current);
+    });
+    if(counter) counter.textContent = (current+1)+' / '+total;
+    var activeCard = cards[current];
+    if(activeCard){
+      activeCard.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+    }
+  }
+
+  cards.forEach(function(card,i){
+    card.addEventListener('click',function(){
+      if(i===current){ lbOpen(card.dataset.img); }
+      else { current=i; render(); }
+    });
+  });
+
+  dots.forEach(function(dot,i){
+    dot.addEventListener('click',function(){ current=i; render(); });
+  });
+
+  wrap.querySelector('.cf-btn-prev').addEventListener('click',function(){
+    current=Math.max(0,current-1); render();
+  });
+  wrap.querySelector('.cf-btn-next').addEventListener('click',function(){
+    current=Math.min(total-1,current+1); render();
+  });
+
+  render();
+}
 
 /* ── Before / After Slider ── */
 function initCompSliders(){
