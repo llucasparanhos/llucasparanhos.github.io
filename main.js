@@ -534,10 +534,10 @@ const CASES={
     ],
     sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Stepper fiel à realidade do processo</div><div class="ch-sol-card-desc">As 8 etapas reais (Aceite de Termos, Dados do Cedente, Endereço, Assinantes, Assinatura do contrato, Aguardando, Transferência, Pagamento) passaram a ter número e nome próprios. Nenhum sub-passo fica mais escondido atrás de uma etapa genérica.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Hierarquia por tipo de informação</div><div class="ch-sol-card-desc">Dados financeiros da venda (valor, taxa, desconto, prazo) foram isolados em um painel lateral próprio. A declaração jurídica ganhou um cartão dedicado, sem se misturar com números da transação.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Da declaração de seis parágrafos ao digest</div><div class="ch-sol-card-desc">O texto de aceite, antes um bloco jurídico denso, virou cinco frases em linguagem direta, cobrindo os mesmos pontos (processo eletrônico, token por e-mail, prazo de pagamento, destino do valor), com link "Ver termos completos" preservando o texto integral para compliance.</div></div></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">A decisão mais negociada</div><p>Avaliamos internalizar a etapa de biometria e assinatura, hoje rodando em um provedor externo — o que quebra visualmente a continuidade do fluxo no momento mais sensível da transação. O ganho de continuidade era claro, mas o custo operacional de homologar verificação biométrica própria, manter compliance e SLA de segurança, somado ao tempo de implementação necessário, tornava a internalização inviável neste ciclo. Optamos por manter o provedor externo e investir o esforço de design em preparar o cliente para a transição, em vez de prometer uma reconstrução que não pagaria o investimento no curto prazo.</p></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">O texto jurídico não precisava desaparecer, precisava de hierarquia</div><p>O bloco de aceite reunia seis parágrafos repetindo a mesma estrutura "Declaro que...". A solução não foi remover conteúdo legal, foi separar camadas: um digest de cinco pontos em linguagem direta para leitura em segundos, e o texto completo preservado por trás de um link, para quem precisa da redação jurídica integral. Validei essa mudança diretamente no arquivo de Figma, comparando a altura do card antes e depois como primeira evidência de redução de carga de leitura.</p></div>',
     resultsLabel:'Hipóteses a validar',
-    comp:[
-      {before:'bomconsorcio-slider-antes.jpg', after:'bomconsorcio-slider-depois.jpg'}
-    ],
+    antesDepois:'bomconsorcio-antes-depois.jpg',
     telas:['bomconsorcio-tela-01.jpg','bomconsorcio-tela-02.jpg','bomconsorcio-tela-03.jpg','bomconsorcio-tela-04.jpg','bomconsorcio-tela-05.jpg','bomconsorcio-tela-06.jpg','bomconsorcio-tela-07.jpg','bomconsorcio-tela-08.jpg','bomconsorcio-tela-09.jpg','bomconsorcio-tela-10.jpg','bomconsorcio-tela-11.jpg'],
+    telasGrid:true,
+    telasLabels:['Aceite de Termos','Dados do Cedente','Confirmação de CEP','Confirmação de Endereço','Assinante do Contrato','Prova de Vida','Etapa Concluída','Assinar Contrato','Confirmar Dados','Token de Autenticação','Assinatura Concluída'],
     telaRatio:'1328/1398',
     results:[
       ['-30%','Hipótese: queda nos tickets de suporte sobre "o que vem depois", já que cada sub-etapa real passa a ter seu próprio número visível no stepper.','ti-headset','hyp','hipótese'],
@@ -684,22 +684,23 @@ function openCase(id,title){
       : ''
     )
 
-    /* Antes × Depois lado a lado */
-    +(c.comp ? (function(){
-      return '<div class="ch-comp-sidebyside">'
-        +'<div class="ch-comp-side">'
-          +'<div class="ch-comp-side-img"><img src="img/'+c.comp[0].after+'" alt="Antes" onclick="lbOpen(this.src)" loading="lazy"></div>'
-          +'<div class="ch-comp-side-label">Antes</div>'
-        +'</div>'
-        +'<div class="ch-comp-side">'
-          +'<div class="ch-comp-side-img"><img src="img/'+c.comp[0].before+'" alt="Depois" onclick="lbOpen(this.src)" loading="lazy"></div>'
-          +'<div class="ch-comp-side-label">Depois</div>'
-        +'</div>'
-      +'</div>';
-    })() : '')
+    /* Antes × Depois — imagem única */
+    +(c.antesDepois ? '<div class="ch-func-img"><img src="img/'+c.antesDepois+'" alt="Antes e Depois" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)" loading="lazy"></div>' : '')
 
-    /* Carrossel telas */
+    /* Carrossel ou grid de telas */
     +(c.telas ? (function(){
+      if(c.telasGrid){
+        var labels = c.telasLabels || [];
+        return '<h3>'+t("Screens","Telas")+'</h3>'
+          +'<div class="ch-telas-grid">'+c.telas.map(function(img,i){
+            var num = ('0'+(i+1)).slice(-2);
+            var name = labels[i] || '';
+            return '<div class="ch-telas-grid-item" onclick="lbOpen(\'img/'+img+'\')">'
+              +'<img src="img/'+img+'" alt="Tela '+num+'" loading="lazy">'
+              +(name ? '<div class="ch-telas-grid-label"><span class="ch-telas-grid-num">'+num+'</span><span class="ch-telas-grid-name">'+name+'</span></div>' : '')
+            +'</div>';
+          }).join('')+'</div>';
+      }
       var ratio = c.telaRatio || '392/852';
       return '<h3>'+t("Screens","Telas")+'</h3>'
         +'<div class="ch-carousel telas" id="car-telas-'+id+'">'
