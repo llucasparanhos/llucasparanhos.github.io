@@ -416,6 +416,15 @@ img { display:block; max-width:100%; }
 .ch-ct { padding:3rem 360px 0; }
 .ch-bd { padding:0 360px var(--gap-sec); }
 .ch-ey { font-family:var(--ff-mono); font-size:var(--t-mono); letter-spacing:.2em; text-transform:uppercase; color:var(--c-dim); margin-bottom:.875rem; }
+.ch-autoral-badge {
+  display:inline-block;
+  font-family:var(--ff-mono); font-size:.55rem;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--c-gold); background:rgba(201,169,110,.1);
+  border:0.5px solid rgba(201,169,110,.3);
+  padding:3px 10px; border-radius:4px;
+  margin-bottom:.75rem;
+}
 .ch-title { font-family:var(--ff-body); font-size:clamp(2.8rem,6vw,5rem); font-weight:700; letter-spacing:-.015em; line-height:.95; color:var(--c-text); margin-bottom:1.5rem; }
 .ch-title em { font-style:italic; color:var(--c-gold); font-weight:400; }
 .ch-meta { display:flex; gap:2.5rem; flex-wrap:wrap; margin-bottom:2.5rem; padding-bottom:2rem; border-bottom:1px solid var(--c-line); }
@@ -1263,28 +1272,26 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 /* ── Coverflow ── */
 .cf-wrap {
   position:relative; overflow:hidden;
-  margin:1rem 0 2rem; padding:2.5rem 0 1rem;
+  margin:1rem 0 2rem; padding:2rem 0 1rem;
 }
 .cf-track {
-  display:flex; align-items:center;
-  gap:16px; width:max-content;
-  transition:transform .5s cubic-bezier(.16,1,.3,1);
-  will-change:transform;
+  position:relative;
+  height:320px;
 }
 .cf-card {
-  flex-shrink:0; width:200px;
+  position:absolute; top:50%;
+  width:200px;
   border-radius:12px; overflow:hidden;
   border:1px solid var(--c-line); background:var(--c-bg2);
   cursor:pointer;
-  transition:transform .5s cubic-bezier(.16,1,.3,1),
+  transform-origin:center center;
+  transition:left .5s cubic-bezier(.16,1,.3,1),
+             transform .5s cubic-bezier(.16,1,.3,1),
              opacity .5s ease,
              box-shadow .5s ease,
              border-color .5s ease;
-  opacity:.35; transform:scale(0.82);
 }
-.cf-card.near { opacity:.65; transform:scale(0.92); }
 .cf-card.active {
-  opacity:1; transform:scale(1.08);
   box-shadow:0 24px 64px rgba(0,0,0,.6), 0 0 0 1px rgba(201,169,110,.2);
   border-color:rgba(201,169,110,.3);
   cursor:zoom-in;
@@ -1329,6 +1336,6 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   min-width:40px; text-align:center;
 }
 @media(max-width:900px){
+  .cf-track { height:220px; }
   .cf-card { width:130px; }
-  .cf-card.active { transform:scale(1.05); }
 }

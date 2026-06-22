@@ -293,6 +293,7 @@ setTimeout(() => {
 const CASES={
   wellhub:{
     color:'#0F6E56',bg:'#111',
+    autoral:true,
     carousel:['wellhub-problema-1.jpg','wellhub-problema-2.jpg','wellhub-problema-3.jpg','wellhub-problema-4.jpg','wellhub-problema-5.jpg','wellhub-problema-6.jpg','wellhub-problema-7.jpg','wellhub-problema-8.jpg','wellhub-problema-9.jpg','wellhub-problema-10.jpg'],
     comparativo:['wellhub-comp-1.jpg','wellhub-comp-2.jpg','wellhub-comp-3.jpg','wellhub-comp-4.jpg'],
     ey:'UX/UI · Gamification · Wellness',
@@ -601,7 +602,8 @@ function openCase(id,title){
   // Header
   const ct=document.createElement('div');
   ct.className='ch-ct';
-  ct.innerHTML='<div class="ch-ey">'+d.ey+'</div>'
+  ct.innerHTML=(d.autoral ? '<div class="ch-autoral-badge" data-pt="Case Autoral" data-en="Personal Project">Case Autoral</div>' : '')
+    +'<div class="ch-ey">'+d.ey+'</div>'
     +'<div class="ch-title">'+d.ttl+'</div>';
   ch.appendChild(ct);
 
@@ -885,38 +887,47 @@ function initCoverflow(id){
   var current = 0;
   var CARD_W = 200;
   var GAP = 16;
+  var VISIBLE = 3;
 
   function render(){
-    cards.forEach(function(card,i){
-      var dist = Math.abs(i - current);
+    var wrapW = wrap.offsetWidth;
+    var centerX = wrapW / 2;
+    cards.forEach(function(card, i){
+      var dist = ((i - current + total) % total);
+      if(dist > total / 2) dist -= total;
+      var absD = Math.abs(dist);
       card.classList.remove('active','near');
-      if(dist===0) card.classList.add('active');
-      else if(dist===1) card.classList.add('near');
+      if(absD === 0) card.classList.add('active');
+      else if(absD === 1) card.classList.add('near');
+      var x = centerX + dist * (CARD_W + GAP) - CARD_W / 2;
+      var scale = absD===0 ? 1.08 : absD===1 ? 0.92 : 0.82;
+      var opacity = absD===0 ? 1 : absD===1 ? 0.65 : absD<=VISIBLE ? 0.35 : 0;
+      card.style.left = x + 'px';
+      card.style.transform = 'translateY(-50%) scale('+scale+')';
+      card.style.opacity = opacity;
+      card.style.zIndex = total - absD;
+      card.style.pointerEvents = absD > VISIBLE ? 'none' : 'auto';
     });
-    dots.forEach(function(dot,i){
-      dot.classList.toggle('active', i===current);
+    dots.forEach(function(dot, i){
+      dot.classList.toggle('active', i === current);
     });
     if(counter) counter.textContent = (current+1)+' / '+total;
-    /* Center active card */
-    var wrapW = wrap.offsetWidth;
-    var tx = (wrapW/2) - current*(CARD_W+GAP) - (CARD_W/2);
-    track.style.transform = 'translateX('+tx+'px)';
   }
 
-  cards.forEach(function(card,i){
-    card.addEventListener('click',function(){
-      if(i===current){ lbOpen(card.dataset.img); }
-      else { current=i; render(); }
+  cards.forEach(function(card, i){
+    card.addEventListener('click', function(){
+      if(i === current){ lbOpen(card.dataset.img); }
+      else { current = i; render(); }
     });
   });
-  dots.forEach(function(dot,i){
-    dot.addEventListener('click',function(){ current=i; render(); });
+  dots.forEach(function(dot, i){
+    dot.addEventListener('click', function(){ current = i; render(); });
   });
-  wrap.querySelector('.cf-btn-prev').addEventListener('click',function(){
-    current=Math.max(0,current-1); render();
+  wrap.querySelector('.cf-btn-prev').addEventListener('click', function(){
+    current = ((current - 1 + total) % total); render();
   });
-  wrap.querySelector('.cf-btn-next').addEventListener('click',function(){
-    current=Math.min(total-1,current+1); render();
+  wrap.querySelector('.cf-btn-next').addEventListener('click', function(){
+    current = ((current + 1) % total); render();
   });
 
   render();
