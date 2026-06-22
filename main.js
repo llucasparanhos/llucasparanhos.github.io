@@ -692,12 +692,15 @@ function openCase(id,title){
       if(c.telasGrid){
         var labels = c.telasLabels || [];
         return '<h3>'+t("Screens","Telas")+'</h3>'
-          +'<div class="ch-telas-grid">'+c.telas.map(function(img,i){
+          +'<div class="ch-telas-list">'+c.telas.map(function(img,i){
             var num = ('0'+(i+1)).slice(-2);
             var name = labels[i] || '';
-            return '<div class="ch-telas-grid-item" onclick="lbOpen(\'img/'+img+'\')">'
-              +'<img src="img/'+img+'" alt="Tela '+num+'" loading="lazy">'
-              +(name ? '<div class="ch-telas-grid-label"><span class="ch-telas-grid-num">'+num+'</span><span class="ch-telas-grid-name">'+name+'</span></div>' : '')
+            return '<div class="ch-telas-list-item" onclick="lbOpen(\'img/'+img+'\')">'
+              +'<div class="ch-telas-list-side">'
+                +'<span class="ch-telas-list-num">'+num+'</span>'
+                +(name ? '<span class="ch-telas-list-name">'+name+'</span>' : '')
+              +'</div>'
+              +'<div class="ch-telas-list-img"><img src="img/'+img+'" alt="Tela '+num+'" loading="lazy"></div>'
             +'</div>';
           }).join('')+'</div>';
       }
