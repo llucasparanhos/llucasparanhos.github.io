@@ -347,6 +347,7 @@ const CASES={
   },
   credenciados:{
     color:'#185FA5',bg:'#111',
+    cfCardW:160,
     telas:['credenciados-tela-1.jpg','credenciados-tela-2.jpg','credenciados-tela-3.jpg','credenciados-tela-4.jpg','credenciados-tela-5.jpg','credenciados-tela-6.jpg'],
     funcImg:'credenciados-func.jpg',
     solucaoImg:'credenciados-solucao.jpg',
@@ -455,6 +456,7 @@ const CASES={
   },
   nps:{
     color:'#854F0B',bg:'#111',
+    cfCardW:160,
     wireframes:'nps-wireframes.jpg',
     telas:['nps-tela-1.jpg','nps-tela-2.jpg','nps-tela-3.jpg','nps-tela-4.jpg','nps-tela-5.jpg','nps-tela-6.jpg','nps-tela-7.jpg'],
     ey:'NPS · Data · HealthTech',
@@ -641,17 +643,24 @@ function openCase(id,title){
 
     /* Wellhub: carrossel de problema */
     +(c.carousel ? (function(){
-      return '<div class="ch-carousel" id="car-'+id+'">'
-        +'<div class="ch-carousel-track">'+c.carousel.map(function(img,i){
-          return '<div class="ch-carousel-slide"><img src="img/'+img+'" alt="'+i+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>';
-        }).join('')+'</div>'
-        +'<button class="ch-carousel-btn prev" onclick="carouselMove(this,-1)">&#8249;</button>'
-        +'<button class="ch-carousel-btn next" onclick="carouselMove(this,1)">&#8250;</button>'
-        +'<div class="ch-carousel-dots">'+c.carousel.map(function(_,i){
-          return '<div class="ch-carousel-dot'+(i===0?' active':'')+'" data-idx="'+i+'" onclick="carouselDot(this)"></div>';
-        }).join('')+'</div>'
-        +'<div class="ch-carousel-count">1 / '+c.carousel.length+'</div>'
+      var cfId = id+'-carousel';
+      var dots = c.carousel.map(function(_,i){
+        return '<div class="cf-dot-nav'+(i===0?' active':'')+'" data-cf-idx="'+i+'"></div>';
+      }).join('');
+      var cards = c.carousel.map(function(img,i){
+        var cls = i===0?' active':i===1?' near':'';
+        return '<div class="cf-card'+cls+'" data-cf-i="'+i+'" data-img="img/'+img+'">'
+          +'<img src="img/'+img+'" alt="'+i+'" loading="lazy">'
         +'</div>';
+      }).join('');
+      return '<div class="cf-wrap" id="cf-wrap-'+cfId+'" data-card-w="250">'
+        +'<div class="cf-track">'+cards+'</div>'
+        +'<div class="cf-nav">'
+          +'<button class="cf-btn cf-btn-prev">&#8249;</button>'
+          +'<div class="cf-dots">'+dots+'</div>'
+          +'<button class="cf-btn cf-btn-next">&#8250;</button>'
+        +'</div>'
+      +'</div>';
     })() : '')
 
     /* Credenciados: funcionalidades wide */
@@ -689,48 +698,30 @@ function openCase(id,title){
     /* Antes × Depois — imagem única */
     +(c.antesDepois ? '<div class="ch-func-img"><img src="img/'+c.antesDepois+'" alt="Antes e Depois" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)" loading="lazy"></div>' : '')
 
-    /* Carrossel ou grid de telas */
+    /* Carrossel coverflow — telas */
     +(c.telas ? (function(){
-      if(c.telasGrid){
-        var labels = c.telasLabels || [];
-        var dots = c.telas.map(function(_,i){
-          return '<div class="cf-dot-nav'+(i===0?' active':'')+'" data-cf-idx="'+i+'"></div>';
-        }).join('');
-        var cards = c.telas.map(function(img,i){
-          var num = ('0'+(i+1)).slice(-2);
-          var name = labels[i] || '';
-          var cls = i===0?' active':i===1?' near':'';
-          return '<div class="cf-card'+cls+'" data-cf-i="'+i+'" data-img="img/'+img+'">'
-            +'<img src="img/'+img+'" alt="Tela '+num+'" loading="lazy">'
-            +'<div class="cf-card-label">'
-              +'<span class="cf-card-num">'+num+'</span>'
-              +(name ? '<span class="cf-card-name">'+name+'</span>' : '')
-            +'</div>'
-          +'</div>';
-        }).join('');
-        return '<h3>'+t("Screens","Telas")+'</h3>'
-          +'<div class="cf-wrap" id="cf-wrap-'+id+'">'
-            +'<div class="cf-track">'+cards+'</div>'
-            +'<div class="cf-nav">'
-              +'<button class="cf-btn cf-btn-prev">&#8249;</button>'
-              +'<div class="cf-dots">'+dots+'</div>'
-              +'<button class="cf-btn cf-btn-next">&#8250;</button>'
-              +'<span class="cf-counter">1 / '+c.telas.length+'</span>'
-            +'</div>'
-          +'</div>';
-      }
-      var ratio = c.telaRatio || '392/852';
+      var labels = c.telasLabels || [];
+      var cardW = c.cfCardW || 200;
+      var dots = c.telas.map(function(_,i){
+        return '<div class="cf-dot-nav'+(i===0?' active':'')+'" data-cf-idx="'+i+'"></div>';
+      }).join('');
+      var cards = c.telas.map(function(img,i){
+        var num = ('0'+(i+1)).slice(-2);
+        var name = labels[i] || '';
+        var cls = i===0?' active':i===1?' near':'';
+        return '<div class="cf-card'+cls+'" data-cf-i="'+i+'" data-img="img/'+img+'">'
+          +'<img src="img/'+img+'" alt="Tela '+num+'" loading="lazy">'
+          +(name ? '<div class="cf-card-label"><span class="cf-card-num">'+num+'</span><span class="cf-card-name">'+name+'</span></div>' : '')
+        +'</div>';
+      }).join('');
       return '<h3>'+t("Screens","Telas")+'</h3>'
-        +'<div class="ch-carousel telas" id="car-telas-'+id+'">'
-          +'<div class="ch-carousel-track">'+c.telas.map(function(img,i){
-            return '<div class="ch-carousel-slide" style="aspect-ratio:'+ratio+'"><img src="img/'+img+'" alt="'+i+'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;"></div>';
-          }).join('')+'</div>'
-          +'<button class="ch-carousel-btn prev" onclick="carouselMove(this,-1)">&#8249;</button>'
-          +'<button class="ch-carousel-btn next" onclick="carouselMove(this,1)">&#8250;</button>'
-          +'<div class="ch-carousel-dots">'+c.telas.map(function(_,i){
-            return '<div class="ch-carousel-dot'+(i===0?' active':'')+'" data-idx="'+i+'" onclick="carouselDot(this)"></div>';
-          }).join('')+'</div>'
-          +'<div class="ch-carousel-count">1 / '+c.telas.length+'</div>'
+        +'<div class="cf-wrap" id="cf-wrap-'+id+'" data-card-w="'+cardW+'">'
+          +'<div class="cf-track">'+cards+'</div>'
+          +'<div class="cf-nav">'
+            +'<button class="cf-btn cf-btn-prev">&#8249;</button>'
+            +'<div class="cf-dots">'+dots+'</div>'
+            +'<button class="cf-btn cf-btn-next">&#8250;</button>'
+          +'</div>'
         +'</div>';
     })() : '')
 
@@ -758,7 +749,7 @@ function openCase(id,title){
   window.scrollTo({top:0,behavior:'instant'});
   setTimeout(animateCaseEntrance,50);
   setTimeout(initCompSliders,100);
-  setTimeout(function(){ initCoverflow(id); },150);
+  setTimeout(function(){ initCoverflow(id); if(c.carousel) initCoverflow(id+'-carousel'); },150);
 }
 
 
@@ -882,14 +873,19 @@ function initCoverflow(id){
   var track = wrap.querySelector('.cf-track');
   var cards = Array.from(track.querySelectorAll('.cf-card'));
   var dots = Array.from(wrap.querySelectorAll('.cf-dot-nav'));
-  var counter = wrap.querySelector('.cf-counter');
   var total = cards.length;
   var current = 0;
-  var CARD_W = 200;
   var GAP = 16;
-  var VISIBLE = 3;
+  var DRAG_THRESHOLD = 50;
+  var dragStartX = null;
+  var isDragging = false;
+
+  function getCardW(){
+    return parseInt(wrap.dataset.cardW) || (cards[0] ? cards[0].offsetWidth : 200);
+  }
 
   function render(){
+    var CARD_W = getCardW();
     var wrapW = wrap.offsetWidth;
     var centerX = wrapW / 2;
     cards.forEach(function(card, i){
@@ -901,33 +897,67 @@ function initCoverflow(id){
       else if(absD === 1) card.classList.add('near');
       var x = centerX + dist * (CARD_W + GAP) - CARD_W / 2;
       var scale = absD===0 ? 1.08 : absD===1 ? 0.92 : 0.82;
-      var opacity = absD===0 ? 1 : absD===1 ? 0.65 : absD<=VISIBLE ? 0.35 : 0;
+      var opacity = absD===0 ? 1 : absD===1 ? 0.65 : absD<=3 ? 0.35 : 0;
       card.style.left = x + 'px';
       card.style.transform = 'translateY(-50%) scale('+scale+')';
       card.style.opacity = opacity;
       card.style.zIndex = total - absD;
-      card.style.pointerEvents = absD > VISIBLE ? 'none' : 'auto';
+      card.style.pointerEvents = absD > 3 ? 'none' : 'auto';
     });
     dots.forEach(function(dot, i){
       dot.classList.toggle('active', i === current);
     });
-    if(counter) counter.textContent = (current+1)+' / '+total;
   }
 
+  function navigate(dir){
+    current = ((current + dir + total) % total);
+    render();
+  }
+
+  /* Click */
   cards.forEach(function(card, i){
     card.addEventListener('click', function(){
-      if(i === current){ lbOpen(card.dataset.img); }
-      else { current = i; render(); }
+      if(!isDragging){
+        if(i === current){ lbOpen(card.dataset.img); }
+        else { current = i; render(); }
+      }
     });
   });
   dots.forEach(function(dot, i){
     dot.addEventListener('click', function(){ current = i; render(); });
   });
-  wrap.querySelector('.cf-btn-prev').addEventListener('click', function(){
-    current = ((current - 1 + total) % total); render();
+  wrap.querySelector('.cf-btn-prev').addEventListener('click', function(){ navigate(-1); });
+  wrap.querySelector('.cf-btn-next').addEventListener('click', function(){ navigate(1); });
+
+  /* Touch swipe */
+  wrap.addEventListener('touchstart', function(e){
+    dragStartX = e.touches[0].clientX;
+  }, {passive:true});
+  wrap.addEventListener('touchend', function(e){
+    if(dragStartX === null) return;
+    var diff = dragStartX - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > DRAG_THRESHOLD) navigate(diff > 0 ? 1 : -1);
+    dragStartX = null;
+  }, {passive:true});
+
+  /* Mouse drag */
+  wrap.addEventListener('mousedown', function(e){
+    dragStartX = e.clientX;
+    isDragging = false;
+    wrap.style.cursor = 'grabbing';
+    e.preventDefault();
   });
-  wrap.querySelector('.cf-btn-next').addEventListener('click', function(){
-    current = ((current + 1) % total); render();
+  window.addEventListener('mousemove', function(e){
+    if(dragStartX !== null && Math.abs(e.clientX - dragStartX) > 5) isDragging = true;
+  });
+  window.addEventListener('mouseup', function(e){
+    if(dragStartX !== null){
+      var diff = dragStartX - e.clientX;
+      if(Math.abs(diff) > DRAG_THRESHOLD) navigate(diff > 0 ? 1 : -1);
+      wrap.style.cursor = '';
+      dragStartX = null;
+      setTimeout(function(){ isDragging = false; }, 50);
+    }
   });
 
   render();

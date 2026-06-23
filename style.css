@@ -1273,10 +1273,12 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 .cf-wrap {
   position:relative; overflow:hidden;
   margin:1rem 0 2rem; padding:2rem 0 1rem;
+  cursor:grab;
 }
+.cf-wrap:active { cursor:grabbing; }
 .cf-track {
   position:relative;
-  height:320px;
+  height:380px;
 }
 .cf-card {
   position:absolute; top:50%;
@@ -1296,7 +1298,11 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   border-color:rgba(201,169,110,.3);
   cursor:zoom-in;
 }
-.cf-card img { width:100%; height:auto; display:block; pointer-events:none; }
+.cf-card img {
+  width:100%; max-height:300px;
+  object-fit:cover; object-position:top center;
+  display:block; pointer-events:none;
+}
 .cf-card-label {
   padding:.5rem .75rem;
   border-top:1px solid var(--c-line); background:var(--c-bg3);
@@ -1330,12 +1336,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   transition:background .2s, width .2s;
 }
 .cf-dot-nav.active { width:16px; border-radius:3px; background:var(--c-gold); }
-.cf-counter {
-  font-family:var(--ff-mono); font-size:.58rem;
-  letter-spacing:.1em; color:var(--c-dim);
-  min-width:40px; text-align:center;
-}
 @media(max-width:900px){
-  .cf-track { height:220px; }
-  .cf-card { width:130px; }
+  .cf-track { height:280px; }
+  .cf-card img { max-height:220px; }
 }
