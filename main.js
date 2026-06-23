@@ -479,12 +479,12 @@ const CASES={
     insight:'<p>O problema não era falta de tela, era <strong>falta de cultura de escuta</strong>. O insight foi tratar a coleta como parte invisível da jornada: <strong>rápida, leve, no momento emocional certo</strong>, logo após o atendimento. Emojis no lugar de escalas frias. O qualitativo como bônus, nunca obrigação.</p>',
     objetivo:'Criar uma cultura de feedback contínuo que alimente decisões de produto com dados reais dos pacientes.',
     krs:[
-      {txt:'Coletar NPS de pelo menos 30% dos atendimentos mensais',meta:'30%'},
+      {txt:'Estabelecer canal de NPS e atingir taxa de resposta acima da baseline do mercado',meta:'base'},
       {txt:'Gerar ao menos 3 insights acionáveis por mês',meta:'3/mês'},
       {txt:'Estabelecer linha de base de satisfação trimestral',meta:'Q1 2024'}
     ],
     sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Momento certo, esforço mínimo</div><div class="ch-sol-card-desc">O disparo acontece logo após o atendimento, quando a experiência ainda está fresca. Fluxo em três telas, nenhuma que exija mais de 10 segundos.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Expressão emocional sem barreiras</div><div class="ch-sol-card-desc">Emojis no lugar de escalas frias. Cores suaves que não criam ansiedade. Microcopy que respeita o contexto de quem acabou de sair de uma consulta médica.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Qualitativo como convite</div><div class="ch-sol-card-desc">O campo aberto aparece só depois da avaliação numérica, como bônus, nunca como obrigação. Isso aumentou a taxa de preenchimento e a qualidade dos insights.</div></div></div>',
-    results:[['0→1','Canal de NPS criado do zero — pela primeira vez o time tinha dados reais','ti-chart-bar','check'],['✓','NPS virou pauta de reunião semanal após o lançamento','ti-calendar','check'],['↑','Taxa de resposta acima da meta de 30% nos primeiros meses','ti-trending-up','up'],['✓','Feedbacks qualitativos passaram a embasar decisões de produto','ti-message','check']],
+    results:[['0→1','Canal de NPS criado do zero — pela primeira vez o time tinha dados reais','ti-chart-bar','check'],['✓','NPS virou pauta de reunião semanal após o lançamento','ti-calendar','check'],['↑','Taxa de resposta acima da baseline do mercado nos primeiros meses','ti-trending-up','up'],['✓','Feedbacks qualitativos passaram a embasar decisões de produto','ti-message','check']],
     en:{
       ey:'NPS · Data · HealthTech',
       ttl:'The team made decisions<br>without listening to <em>anyone.</em>',
@@ -495,7 +495,7 @@ const CASES={
       insight:'<p>The problem wasn\'t a missing screen, it was a <strong>missing listening culture</strong>. The insight was treating collection as an invisible part of the journey: <strong>fast, light, at the right emotional moment</strong>, right after the consultation. Emojis instead of cold scales. Qualitative as a bonus, never an obligation.</p>',
       objetivo:'Create a continuous feedback culture that feeds product decisions with real data from patients.',
       krs:[
-        {txt:'Collect NPS from at least 30% of monthly consultations',meta:'30%'},
+        {txt:'Establish an NPS channel and achieve a response rate above market baseline',meta:'base'},
         {txt:'Generate at least 3 actionable insights per month',meta:'3/month'},
         {txt:'Establish quarterly satisfaction baseline',meta:'Q1 2024'}
       ],
@@ -505,7 +505,7 @@ const CASES={
         {icon:'📏',label:'Baseline',val:'Quarterly score',desc:'Reference to measure satisfaction evolution over time'}
       ],
       sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Right moment, minimum effort</div><div class="ch-sol-card-desc">The trigger fires right after the consultation, when the experience is still fresh. A three-screen flow, none requiring more than 10 seconds.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Emotional expression without barriers</div><div class="ch-sol-card-desc">Emojis instead of cold scales. Soft colors that don\'t create anxiety. Microcopy that respects the context of someone who just left a medical appointment.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Qualitative as an invitation</div><div class="ch-sol-card-desc">The open field appears only after the numerical rating, as a bonus, never an obligation. This increased both the completion rate and the quality of insights.</div></div></div>',
-      results:[['0→1','NPS channel built from scratch — first time the team had real data','ti-chart-bar','check'],['✓','NPS became a weekly meeting topic after launch','ti-calendar','check'],['↑','Response rate above the 30% target in the first months','ti-trending-up','up'],['✓','Qualitative feedback started informing product decisions','ti-message','check']]
+      results:[['0→1','NPS channel built from scratch — first time the team had real data','ti-chart-bar','check'],['✓','NPS became a weekly meeting topic after launch','ti-calendar','check'],['↑','Response rate above market baseline in the first months','ti-trending-up','up'],['✓','Qualitative feedback started informing product decisions','ti-message','check']]
     }
   }
   ,
