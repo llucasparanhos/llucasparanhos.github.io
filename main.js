@@ -407,8 +407,8 @@ const CASES={
   checkout:{
     color:'#993556',bg:'#111',
     prototipo:[
-      {src:'checkout-prototipo-mobile.mp4', ratio:'900/1800', label:'Mobile'},
-      {src:'checkout-prototipo-desktop.mp4', ratio:'2880/1800', label:'Desktop'}
+      {src:'checkout-prototipo-desktop.mp4', ratio:'2880/1800', label:'Desktop'},
+      {src:'checkout-prototipo-mobile.mp4', ratio:'900/1800', label:'Mobile'}
     ],
     antes:['checkout-antes-1.jpg','checkout-antes-2.jpg','checkout-antes-3.jpg','checkout-antes-4.jpg'],
     personaImg:'checkout-persona.jpg',
