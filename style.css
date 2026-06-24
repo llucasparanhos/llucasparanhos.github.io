@@ -215,7 +215,6 @@ img { display:block; max-width:100%; }
   margin-top:1.75rem;
   font-family:var(--ff-body); font-size:clamp(.9rem,1.4vw,1.1rem);
   font-weight:300; color:var(--c-muted); line-height:1.7;
-  max-width:600px;
   opacity:0; transition:opacity .6s var(--ease) .3s;
 }
 .hero-tagline.visible { opacity:1; }

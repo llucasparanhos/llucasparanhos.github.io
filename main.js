@@ -649,7 +649,7 @@ function openCase(id,title){
         var isLandscape = parseInt(parts[0]) > parseInt(parts[1]);
         html += '<div class="ch-video-item">';
         if(v.label) html += '<div class="ch-video-item-label">'+v.label+'</div>';
-        html += '<video class="ch-video-el '+(isLandscape ? 'landscape' : 'portrait')+'" src="img/'+v.src+'" controls playsinline preload="metadata" style="aspect-ratio:'+v.ratio+';"></video>';
+        html += '<video class="ch-video-el '+(isLandscape ? 'landscape' : 'portrait')+'" src="img/'+v.src+'" controls playsinline preload="metadata"></video>';
         html += '</div>';
       });
       html += '</div></div>';
