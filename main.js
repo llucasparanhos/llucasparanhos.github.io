@@ -296,6 +296,7 @@ const CASES={
   wellhub:{
     color:'#0F6E56',bg:'#111',
     autoral:true,
+    prototipo:{src:'wellhub-prototipo.mp4', ratio:'450/900'},
     carousel:['wellhub-problema-1.jpg','wellhub-problema-2.jpg','wellhub-problema-3.jpg','wellhub-problema-4.jpg','wellhub-problema-5.jpg','wellhub-problema-6.jpg','wellhub-problema-7.jpg','wellhub-problema-8.jpg','wellhub-problema-9.jpg','wellhub-problema-10.jpg'],
     comparativo:['wellhub-comp-1.jpg','wellhub-comp-2.jpg','wellhub-comp-3.jpg','wellhub-comp-4.jpg'],
     ey:'UX/UI · Gamification · Wellness',
@@ -350,6 +351,7 @@ const CASES={
   credenciados:{
     color:'#185FA5',bg:'#111',
     cfCardW:160,
+    prototipo:{src:'credenciados-prototipo.mp4', ratio:'608/1080'},
     telas:['credenciados-tela-1.jpg','credenciados-tela-2.jpg','credenciados-tela-3.jpg','credenciados-tela-4.jpg','credenciados-tela-5.jpg','credenciados-tela-6.jpg'],
     funcImg:'credenciados-func.jpg',
     solucaoImg:'credenciados-solucao.jpg',
@@ -404,6 +406,10 @@ const CASES={
   },
   checkout:{
     color:'#993556',bg:'#111',
+    prototipo:[
+      {src:'checkout-prototipo-mobile.mp4', ratio:'900/1800', label:'Mobile'},
+      {src:'checkout-prototipo-desktop.mp4', ratio:'2880/1800', label:'Desktop'}
+    ],
     antes:['checkout-antes-1.jpg','checkout-antes-2.jpg','checkout-antes-3.jpg','checkout-antes-4.jpg'],
     personaImg:'checkout-persona.jpg',
     solucaoImgs:['checkout-solucao-desktop.jpg','checkout-solucao-mobile.jpg'],
@@ -459,6 +465,7 @@ const CASES={
   nps:{
     color:'#854F0B',bg:'#111',
     cfCardW:160,
+    prototipo:{src:'nps-prototipo.mp4', ratio:'1000/1920'},
     wireframes:'nps-wireframes.jpg',
     telas:['nps-tela-1.jpg','nps-tela-2.jpg','nps-tela-3.jpg','nps-tela-4.jpg','nps-tela-5.jpg','nps-tela-6.jpg','nps-tela-7.jpg'],
     ey:'NPS · Data · HealthTech',
@@ -630,6 +637,24 @@ function openCase(id,title){
 
   bd.innerHTML=
     '<div class="ch-hook">'+d.hook+'</div>'
+
+    /* Protótipo em vídeo */
+    +(c.prototipo ? (function(){
+      var vids = Array.isArray(c.prototipo) ? c.prototipo : [c.prototipo];
+      var isLandscape = vids.length > 1 || (vids[0].ratio && parseInt(vids[0].ratio.split('/')[0]) > parseInt(vids[0].ratio.split('/')[1]));
+      var html = '<div class="ch-video-wrap'+(vids.length > 1 ? ' ch-video-duo' : '')+(isLandscape && vids.length === 1 ? ' ch-video-landscape' : '')+'">';
+      html += '<div class="ch-video-label" data-pt="Protótipo" data-en="Prototype">'+t('Prototype','Protótipo')+'</div>';
+      html += '<div class="ch-video-inner">';
+      vids.forEach(function(v){
+        html += '<div class="ch-video-item">';
+        if(v.label) html += '<div class="ch-video-item-label">'+v.label+'</div>';
+        html += '<video class="ch-video-el" src="img/'+v.src+'" controls playsinline preload="metadata" style="aspect-ratio:'+v.ratio+';"></video>';
+        html += '</div>';
+      });
+      html += '</div></div>';
+      return html;
+    })() : '')
+
     +'<div class="ch-role"><span class="ch-role-lbl" data-pt="Meu papel" data-en="My role">'+(currentLang==='en'?'My role':'Meu papel')+'</span><span class="ch-role-txt">'+d.role+'</span></div>'
 
     /* O Problema */
