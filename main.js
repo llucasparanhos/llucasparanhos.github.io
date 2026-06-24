@@ -302,10 +302,10 @@ const CASES={
     hook:'"Sou usuário ativo do Wellhub há anos. Mais de 340 check-ins. Cada um representou uma decisão consciente de sair do sofá, ir à academia e investir na saúde. E o app? Tratava todos exatamente igual. Sem diferença entre o primeiro treino e o de número 300."',
     context:'<p>Um check-in que não reconhece o esforço não é só uma falha de UX. É uma oportunidade de retenção desperdiçada a cada treino.</p><p>Sem feedback emocional, o app não cria memória afetiva. Sem memória afetiva, o usuário cancela na primeira chance. Cada check-in neutro era um argumento silencioso para o churn.</p>',
     diags:[
-      {icon:'👁',title:'Zero feedback emocional',desc:'O check-in não devolvia nada ao usuário além de uma confirmação técnica.'},
-      {icon:'📉',title:'Botão sem peso visual',desc:'Hierarquia quebrada: o momento mais importante da jornada era invisível.'},
-      {icon:'🔁',title:'Sem histórico visível',desc:'Nenhuma forma de ver progresso acumulado ou sequências de treinos.'},
-      {icon:'🎯',title:'Recomendações genéricas',desc:'Sugestões sem conexão com o perfil ou histórico do usuário.'}
+      {icon:'👁',title:'Zero feedback emocional',desc:'O check-in não devolvia nada ao usuário além de uma confirmação técnica. Evidência: uso pessoal com 340+ check-ins e comparativo com Duolingo, Apple Fitness e Strava, que entregam feedback emocional em ações equivalentes.'},
+      {icon:'📉',title:'Botão sem peso visual',desc:'Hierarquia quebrada: o momento mais importante da jornada era o menos destacado visualmente. Evidência: análise heurística do fluxo existente e comparação com padrões de hierarquia visual dos competidores diretos.'},
+      {icon:'🔁',title:'Sem histórico visível',desc:'Nenhuma forma de ver progresso acumulado ou sequências de treinos. Evidência: benchmark com TotalPass e Apple Fitness — ambos expõem conquistas acumuladas como mecanismo de retenção.'},
+      {icon:'🎯',title:'Recomendações genéricas',desc:'Sugestões sem conexão com o perfil ou histórico do usuário. Evidência: observação direta — o conteúdo sugerido não variava independente da frequência ou histórico de treino.'}
     ],
     kpis:[
       {icon:'⏱',label:'Engajamento pós check-in',val:'Tempo na tela',desc:'Quanto tempo o usuário permanece após confirmar o treino'},
@@ -313,12 +313,12 @@ const CASES={
       {icon:'⭐',label:'NPS de personalização',val:'Percepção do usuário',desc:'Sensação de que o app reconhece e valoriza o esforço'}
     ],
     role:'Product Designer responsável de ponta a ponta: pesquisa, benchmark, wireframes, protótipo e testes de usabilidade.',
-    insight:'<p>Todo mundo via o check-in como um <strong>botão</strong>. Eu vi como o <strong>ápice emocional da jornada</strong>, o instante em que o usuário cumpriu o que prometeu a si mesmo. Essa mudança de enquadramento mudou tudo: não era sobre confirmar uma presença, era sobre reconhecer um esforço.</p>',
+    insight:'<p>Todo mundo via o check-in como um <strong>botão</strong>. Eu vi como o <strong>ápice emocional da jornada</strong>, o instante em que o usuário cumpriu o que prometeu a si mesmo. Essa mudança de enquadramento mudou tudo: não era sobre confirmar uma presença, era sobre reconhecer um esforço.</p><p>Como o Wellhub não disponibiliza analytics para pesquisadores externos, a análise foi triangulada entre uso intensivo do produto, benchmark com apps de wellness de referência e 5 entrevistas informais com outros usuários da plataforma. Sem tracking proprietário, o dado foi construído — não estava esperando numa dashboard.</p>',
     objetivo:'Transformar o check-in num ritual de conquista que reforce o hábito.',
     krs:[
-      {txt:'Aumentar o tempo de permanência na tela pós check-in',meta:'+30%'},
-      {txt:'Reduzir taxa de abandono no fluxo de check-in',meta:'-20%'},
-      {txt:'Melhorar percepção de personalização no NPS',meta:'+15pts'}
+      {txt:'Acreditamos que adicionar feedback emocional progressivo aumentará o tempo de sessão pós check-in e a retenção de usuários frequentes',meta:'+30%'},
+      {txt:'Acreditamos que reconhecer marcos de treino reduzirá o abandono de usuários com 50+ check-ins, que hoje recebem o mesmo retorno que um usuário de primeiro dia',meta:'-20%'},
+      {txt:'Validar com teste de usabilidade que 100% dos participantes percebem diferença entre o check-in atual e o redesenhado',meta:'+15pts'}
     ],
     sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Reframing estratégico</div><div class="ch-sol-card-desc">De botão para ritual. De função para celebração. De ação neutra para microvitória reconhecida.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Benchmark revelou o padrão</div><div class="ch-sol-card-desc">Duolingo, Apple Fitness, TotalPass e Strava celebram o momento presente e mostram onde o usuário chegou. Gamificação leve reforça o comportamento sem virar jogo.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Estados por marco</div><div class="ch-sol-card-desc">Primeiro check-in, marcos de 10/50/100, sequências semanais. Cada estado com feedback visual e textual próprio. Cada treino, um significado único.</div></div></div>',
     results:[['534','Check-ins reais validaram o problema antes do primeiro wireframe','ti-run','check'],['100%','Feedback positivo em todas as sessões de teste com usuários reais','ti-users','up'],['↑','Engajamento pós check-in aumentou nos testes de usabilidade','ti-trending-up','up'],['✓','Senso de conquista validado como diferencial em todas as entrevistas','ti-star','check']],
@@ -329,12 +329,12 @@ const CASES={
       hook:'"I\'ve been an active Wellhub user for years. Over 340 check-ins. Each one was a conscious decision to get off the couch, go to the gym, and invest in my health. And the app? It treated every single one exactly the same. No difference between the first workout and number 300."',
       context:'<p>A check-in that doesn\'t acknowledge effort isn\'t just a UX failure. It\'s a retention opportunity wasted with every workout.</p><p>Without emotional feedback, the app creates no affective memory. Without affective memory, users cancel at the first chance. Every neutral check-in was a silent argument for churn.</p>',
       role:'Product Designer responsible end-to-end: research, benchmarking, wireframes, prototype and usability testing.',
-      insight:'<p>Everyone saw the check-in as a <strong>button</strong>. I saw it as the <strong>emotional peak of the journey</strong>, the moment the user delivered on a promise they made to themselves. That reframing changed everything: it wasn\'t about confirming attendance, it was about recognizing effort.</p>',
+      insight:'<p>Everyone saw the check-in as a <strong>button</strong>. I saw it as the <strong>emotional peak of the journey</strong>, the moment the user delivered on a promise they made to themselves. That reframing changed everything: it wasn\'t about confirming attendance, it was about recognizing effort.</p><p>Since Wellhub doesn\'t share analytics with external researchers, the analysis was triangulated across intensive product use, benchmark with reference wellness apps, and 5 informal interviews with other platform users. Without proprietary tracking, the data was built — not waiting in a dashboard.</p>',
       objetivo:'Transform the check-in into a ritual of achievement that reinforces the habit.',
       krs:[
-        {txt:'Increase time on screen after check-in',meta:'+30%'},
-        {txt:'Reduce drop-off rate in check-in flow',meta:'-20%'},
-        {txt:'Improve personalization perception in NPS',meta:'+15pts'}
+        {txt:'We believe adding progressive emotional feedback will increase post check-in session time and retention among frequent users',meta:'+30%'},
+        {txt:'We believe recognizing workout milestones will reduce churn among users with 50+ check-ins, who today receive the same response as a first-day user',meta:'-20%'},
+        {txt:'Validate through usability testing that 100% of participants perceive a difference between the current and redesigned check-in',meta:'+15pts'}
       ],
       kpis:[
         {icon:'⏱',label:'Post check-in engagement',val:'Time on screen',desc:'How long users stay after confirming their workout'},
@@ -357,10 +357,10 @@ const CASES={
     hook:'"Imagine que você está com dor, precisa marcar uma consulta e abre o app do seu plano de saúde. A tela mostra o nome do médico e um número de telefone. Só isso. Sem endereço completo. Sem horários. Sem convênios. Nada que te ajudasse a decidir."',
     context:'<p>O Kivid tinha os dados. O que não tinha era uma experiência em volta deles.</p><p>Usuários que saíam do app para o Google não voltavam com o agendamento feito dentro do app. O custo era triplo: suporte sobrecarregado, agendamentos perdidos e dados de comportamento que nunca chegavam ao time de produto.</p>',
     diags:[
-      {icon:'🗺',title:'Endereço ausente',desc:'Usuário precisava sair do app para encontrar o endereço completo do profissional.'},
-      {icon:'🕐',title:'Sem horários disponíveis',desc:'Impossível saber se o médico atendia no turno desejado.'},
-      {icon:'📞',title:'Só um telefone',desc:'A única ação disponível era ligar, sem alternativas de contato ou agendamento.'},
-      {icon:'🧩',title:'Layout inconsistente',desc:'Experiência quebrada entre dispositivos, sem padrão visual.'}
+      {icon:'🗺',title:'Endereço ausente',desc:'Usuário precisava sair do app para encontrar o endereço completo do profissional. Evidência: tickets de suporte com perguntas recorrentes sobre localização e relatos de usuários internos durante pesquisa exploratória.'},
+      {icon:'🕐',title:'Sem horários disponíveis',desc:'Impossível saber se o médico atendia no turno desejado. Evidência: entrevistas informais com pacientes que relataram ligar para o consultório antes de agendar pelo app.'},
+      {icon:'📞',title:'Só um telefone',desc:'A única ação disponível era ligar, sem alternativas de contato ou agendamento. Evidência: análise do fluxo existente e comparação com Doctoralia e Dr. Consulta, que oferecem múltiplos canais de contato na mesma tela.'},
+      {icon:'🧩',title:'Layout inconsistente',desc:'Experiência quebrada entre dispositivos, sem padrão visual. Evidência: revisão heurística com foco em consistência — a tela de credenciados usava padrões visuais diferentes do restante do app.'}
     ],
     kpis:[
       {icon:'🚶',label:'Taxa de abandono',val:'Tela de credenciados',desc:'Usuários que entram na busca e saem sem tomar ação'},
@@ -368,12 +368,12 @@ const CASES={
       {icon:'🎧',label:'Tickets de suporte',val:'Sobre credenciados',desc:'Chamados sobre informações básicas de profissionais'}
     ],
     role:'Product Designer responsável pela descoberta, pesquisa com usuários internos, arquitetura da informação, protótipo e validação.',
-    insight:'<p>A lista de credenciados existia. Os dados existiam. Mas estavam <strong>espalhados e sem hierarquia</strong>. O insight não foi criar informação nova, foi perceber que o problema era de <strong>experiência, não de dados</strong>. Bastava montar uma jornada de decisão em volta do que já existia.</p>',
+    insight:'<p>A lista de credenciados existia. Os dados existiam. Mas estavam <strong>espalhados e sem hierarquia</strong>. O insight não foi criar informação nova, foi perceber que o problema era de <strong>experiência, não de dados</strong>. Bastava montar uma jornada de decisão em volta do que já existia.</p><p>O Kivid não instrumentalizava eventos na tela de credenciados nesse período — não havia tracking granular por ação. A análise foi construída com tickets de suporte categorizados manualmente, entrevistas com 4 usuários internos e benchmark com Doctoralia, Dr. Consulta, Docway e Zenklub. Ausência de dado não é ausência de evidência: é convite para triangular melhor.</p>',
     objetivo:'Tornar a busca de profissionais confiável, completa e rápida o suficiente para eliminar a necessidade de sair do app.',
     krs:[
-      {txt:'Reduzir taxa de abandono da tela de credenciados',meta:'-30%'},
-      {txt:'Aumentar agendamentos iniciados dentro do app',meta:'+25%'},
-      {txt:'Reduzir tickets de suporte sobre credenciados',meta:'-40%'}
+      {txt:'Acreditamos que exibir informações completas do profissional em tela única reduzirá o abandono da tela de credenciados',meta:'-30%'},
+      {txt:'Acreditamos que adicionar agendamento direto no perfil aumentará consultas iniciadas dentro do app',meta:'+25%'},
+      {txt:'Acreditamos que responder endereço, horário e convênio na tela de perfil reduzirá tickets de suporte sobre credenciados',meta:'-40%'}
     ],
     sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">A informação existia, a experiência não</div><div class="ch-sol-card-desc">A lista de credenciados estava lá. O insight foi montar uma jornada de decisão em volta do que já existia: nome, especialidade, avaliação, mapa, horários, convênios. Tudo em uma tela.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Hierarquia de decisão</div><div class="ch-sol-card-desc">O usuário de saúde decide em segundos. A hierarquia visual responde três perguntas em ordem: este médico aceita meu convênio? Fica perto? Tem horário hoje?</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">O detalhe de maior impacto</div><div class="ch-sol-card-desc">O botão "Ligar" precisava estar visível sem scroll. Descoberto nos testes de usabilidade, esse ajuste teve mais impacto na taxa de ação do que qualquer outra mudança de layout.</div></div></div>',
     results:[['0→1','Usuários localizaram profissionais sem sair do app pela primeira vez','ti-map-pin','check'],['↓','Tickets de suporte reduziram após o lançamento','ti-headset','down'],['↑','Agendamentos via app aumentaram no primeiro mês','ti-calendar','up'],['4/5','"Finalmente tudo no lugar certo" — feedback espontâneo nos testes','ti-message','check']],
@@ -384,12 +384,12 @@ const CASES={
       hook:'"Imagine you\'re in pain, need to schedule an appointment, and open your health plan app. The screen shows the doctor\'s name and a phone number. That\'s it. No full address. No hours. No accepted insurance. Nothing to help you decide."',
       context:'<p>Kivid had the data. What it didn\'t have was an experience built around it.</p><p>Users who left the app for Google didn\'t come back with appointments made inside the app. The cost was threefold: support overload, lost appointments, and behavioral data that never reached the product team.</p>',
       role:'Product Designer responsible for discovery, research with internal users, information architecture, prototype and validation.',
-      insight:'<p>The provider list existed. The data existed. But it was <strong>scattered and without hierarchy</strong>. The insight wasn\'t creating new information, it was realizing the problem was about <strong>experience, not data</strong>. We just needed to build a decision journey around what already existed.</p>',
+      insight:'<p>The provider list existed. The data existed. But it was <strong>scattered and without hierarchy</strong>. The insight wasn\'t creating new information, it was realizing the problem was about <strong>experience, not data</strong>. We just needed to build a decision journey around what already existed.</p><p>Kivid wasn\'t tracking granular events on the providers screen at that time. The analysis was built from manually categorized support tickets, interviews with 4 internal users, and benchmark against Doctoralia, Dr. Consulta, Docway and Zenklub. Absence of data isn\'t absence of evidence — it\'s an invitation to triangulate better.</p>',
       objetivo:'Make provider search reliable, complete and fast enough to eliminate the need to leave the app.',
       krs:[
-        {txt:'Reduce drop-off rate on the providers screen',meta:'-30%'},
-        {txt:'Increase appointments started within the app',meta:'+25%'},
-        {txt:'Reduce support tickets about providers',meta:'-40%'}
+        {txt:'We believe displaying complete provider information on a single screen will reduce drop-off on the providers screen',meta:'-30%'},
+        {txt:'We believe adding direct scheduling on the profile will increase consultations initiated within the app',meta:'+25%'},
+        {txt:'We believe answering address, hours and insurance on the profile screen will reduce support tickets about providers',meta:'-40%'}
       ],
       kpis:[
         {icon:'🚶',label:'Drop-off rate',val:'Providers screen',desc:'Users who enter the search and leave without taking action'},
@@ -411,10 +411,10 @@ const CASES={
     hook:'"80% dos usuários chegavam até o checkout. Metade desistia no meio do processo. Cada abandono não era só um número, era uma família que não conseguiu contratar um plano de saúde acessível."',
     context:'<p>Cada abandono no checkout era mais do que receita perdida.</p><p>Era o custo de aquisição pago sem retorno. Era o suporte sobrecarregado com dúvidas que a tela deveria responder. Era Adriana saindo sem o plano de saúde que precisava, e contando para alguém que o app era complicado.</p><p>O produto fragmentado em múltiplas etapas, com valor total escondido e formulário longo, fazia exatamente o oposto do que a persona central precisava.</p>',
     diags:[
-      {icon:'📋',title:'Formulário longo no início',desc:'O sistema pedia dados que poderiam ser preenchidos automaticamente via CPF.'},
-      {icon:'❓',title:'Valor total escondido',desc:'O preço final só aparecia na última etapa, gerando ansiedade e abandono.'},
-      {icon:'🔀',title:'Múltiplas etapas sem progresso',desc:'O usuário não sabia quantas telas faltavam para concluir a compra.'},
-      {icon:'🔍',title:'Heatmaps reveladores',desc:'Cliques repetidos em elementos não-interativos mostravam confusão sobre o fluxo.'}
+      {icon:'📋',title:'Formulário longo no início',desc:'O sistema pedia dados que poderiam ser preenchidos automaticamente via CPF. Fonte: heatmaps do Clarity mostrando alta concentração de abandono nos primeiros campos do formulário.'},
+      {icon:'❓',title:'Valor total escondido',desc:'O preço final só aparecia na última etapa, gerando ansiedade e abandono. Fonte: gravações de sessão no Clarity com usuários rolando repetidamente até o final tentando encontrar o valor.'},
+      {icon:'🔀',title:'Múltiplas etapas sem progresso',desc:'O usuário não sabia quantas telas faltavam para concluir a compra. Fonte: análise de funil manual cruzando pageviews das etapas com finalizações — proxy construído na ausência de event tracking granular.'},
+      {icon:'🔍',title:'Heatmaps reveladores',desc:'Cliques repetidos em elementos não-interativos mostravam confusão sobre o fluxo. O Clarity foi a principal fonte quantitativa disponível nesse momento — não havia tracking de eventos por sub-etapa implementado.'}
     ],
     kpis:[
       {icon:'💳',label:'Taxa de conversão',val:'Checkout',desc:'Usuários que chegam ao checkout e completam a compra'},
@@ -422,12 +422,12 @@ const CASES={
       {icon:'⚡',label:'Tempo de conclusão',val:'Média por sessão',desc:'Minutos do início ao fim de uma compra concluída'}
     ],
     role:'Product Designer responsável pela análise de dados (Clarity), redesenho do fluxo, protótipo e acompanhamento de métricas.',
-    insight:'<p>Os heatmaps do Clarity revelaram o ponto exato de abandono: o <strong>primeiro campo do formulário</strong>. A virada foi entender que cada campo a mais era uma chance de desistência. Em vez de pedir dados, o sistema passou a <strong>preencher dados</strong>, via CPF, automaticamente. Menos fricção, mais conversão.</p>',
+    insight:'<p>Os heatmaps do Clarity revelaram o ponto exato de abandono: o <strong>primeiro campo do formulário</strong>. A virada foi entender que cada campo a mais era uma chance de desistência. Em vez de pedir dados, o sistema passou a <strong>preencher dados</strong>, via CPF, automaticamente. Menos fricção, mais conversão.</p><p>A análise de funil por sub-etapa não estava instrumentalizada — construímos um proxy manual cruzando pageviews com conversões. Esse dado aproximado foi suficiente para identificar o campo como ponto crítico e defender a mudança internamente. Sem dado perfeito, o dado possível também decide.</p>',
     objetivo:'Tornar a compra do plano Kivid tão simples que o usuário complete sem precisar pensar.',
     krs:[
-      {txt:'Aumentar taxa de conversão do checkout',meta:'+15%'},
-      {txt:'Reduzir abandono de carrinho',meta:'-20%'},
-      {txt:'Diminuir tempo médio de conclusão da compra',meta:'-30%'}
+      {txt:'Acreditamos que tornar o preço visível desde o início e reduzir campos obrigatórios aumentará a taxa de conversão do checkout',meta:'+15%'},
+      {txt:'Acreditamos que eliminar sub-etapas desnecessárias antes da confirmação de pagamento reduzirá o abandono de carrinho',meta:'-20%'},
+      {txt:'Acreditamos que preencher dados via CPF automaticamente reduzirá o tempo médio de conclusão da compra',meta:'-30%'}
     ],
     sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Preço visível desde o início</div><div class="ch-sol-card-desc">O resumo ficou fixo, dinâmico e no topo. O valor total aparece no primeiro momento e atualiza em tempo real. Adriana nunca mais rolava a página tentando descobrir quanto ia pagar.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">O sistema preenche, você confirma</div><div class="ch-sol-card-desc">Via CPF, nome, endereço e dados básicos são preenchidos automaticamente. O usuário passa de digitador para revisor. Menos campos, menos esforço, menos abandono.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Confiança onde a hesitação acontece</div><div class="ch-sol-card-desc">Selos de segurança posicionados onde os heatmaps mostravam maior concentração de cliques sem ação. Não onde pareciam certos, onde os dados mostravam que eram necessários.</div></div></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">A decisão mais negociada</div><p>O time queria manter a criação de senha dentro do fluxo de compra. Os dados mostravam que esse passo respondia por 18% dos abandonos. Defendi remover e enviar credenciais por email pós-compra. A mudança foi aceita depois de apresentar a análise de funil por etapa. Sem dado, essa decisão não teria passado.</p></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">Lançamento em um produto primeiro</div><p>O novo checkout subiu em apenas um curso. Quando os primeiros fluxos quebraram com o novo modelo de parcelamento, tínhamos poucos dias para corrigir sem impacto amplo. Lançamento gradual não era cautela, era método.</p></div>',
     results:[['+15%','Aumento na taxa de conversão — KR1 atingido','ti-trending-up','up'],['-20%','Redução no abandono de carrinho — KR2 atingido','ti-shopping-cart','down'],['↓','Tempo médio de conclusão da compra reduziu','ti-clock','down'],['✓','"Muito mais simples e rápido" — feedback recorrente','ti-thumb-up','check']],
@@ -438,12 +438,12 @@ const CASES={
       hook:'"80% of users reached checkout. Half quit halfway through. Every abandonment wasn\'t just a number, it was a family that couldn\'t afford a health plan."',
       context:'<p>Every checkout abandonment was more than lost revenue.</p><p>It was acquisition cost paid with no return. It was support overloaded with questions the screen should have answered. It was Adriana leaving without the health plan she needed, and telling someone the app was complicated.</p><p>A product fragmented across multiple steps, with a hidden total price and a long form, did exactly the opposite of what the core persona needed.</p>',
       role:'Product Designer responsible for data analysis (Clarity), flow redesign, prototype and metrics tracking.',
-      insight:'<p>Clarity heatmaps revealed the exact drop-off point: the <strong>first form field</strong>. The turning point was understanding that each extra field was a chance to give up. Instead of asking for data, the system started <strong>filling in data</strong> automatically via CPF. Less friction, more conversion.</p>',
+      insight:'<p>Clarity heatmaps revealed the exact drop-off point: the <strong>first form field</strong>. The turning point was understanding that each extra field was a chance to give up. Instead of asking for data, the system started <strong>filling in data</strong> automatically via CPF. Less friction, more conversion.</p><p>Step-level funnel tracking wasn\'t instrumented at the time — we built a manual proxy by crossing pageviews with conversions. That approximate data was enough to identify the field as the critical point and defend the change internally. Without perfect data, the available data still decides.</p>',
       objetivo:'Make buying a Kivid plan so simple that the user completes it without having to think.',
       krs:[
-        {txt:'Increase checkout conversion rate',meta:'+15%'},
-        {txt:'Reduce cart abandonment',meta:'-20%'},
-        {txt:'Decrease average purchase completion time',meta:'-30%'}
+        {txt:'We believe making the price visible from the start and reducing required fields will increase checkout conversion rate',meta:'+15%'},
+        {txt:'We believe eliminating unnecessary sub-steps before payment confirmation will reduce cart abandonment',meta:'-20%'},
+        {txt:'We believe auto-filling data via CPF will decrease average purchase completion time',meta:'-30%'}
       ],
       kpis:[
         {icon:'💳',label:'Conversion rate',val:'Checkout',desc:'Users who reach checkout and complete the purchase'},
@@ -465,10 +465,10 @@ const CASES={
     hook:'"O Kivid tinha uma rede ativa de atendimentos. Decisões sobre o produto eram tomadas com base em feeling, suposições e reclamações espontâneas no suporte. Não havia linha de base. Não havia como medir evolução. Não havia cultura de feedback."',
     context:'<p>Sem dado de satisfação, o time priorizava pelo que gritava mais alto. Geralmente, reclamações isoladas no suporte, não padrões reais de insatisfação.</p><p>O custo era invisível: sprints planejados sem evidência, melhorias entregues sem como medir se funcionaram, e uma base de pacientes cujo nível de satisfação era, literalmente, desconhecido.</p>',
     diags:[
-      {icon:'🌑',title:'Zero linha de base',desc:'Nenhum dado histórico de satisfação para medir evolução ou comparar períodos.'},
-      {icon:'📢',title:'Decisões por feeling',desc:'O time priorizava pelo que gritava mais alto, não por padrões reais de insatisfação.'},
-      {icon:'⏰',title:'Timing errado',desc:'Feedback coletado tarde demais no ciclo perdia o contexto emocional do atendimento.'},
-      {icon:'✍',title:'Fricção no preenchimento',desc:'Formulários longos reduziam drasticamente a taxa de resposta dos pacientes.'}
+      {icon:'🌑',title:'Zero linha de base',desc:'Nenhum dado histórico de satisfação para medir evolução ou comparar períodos. Evidência: retrospectiva com o time — nenhum sprint havia sido aberto com dado de satisfação como critério de priorização.'},
+      {icon:'📢',title:'Decisões por feeling',desc:'O time priorizava pelo que gritava mais alto, não por padrões reais de insatisfação. Evidência: análise manual dos tickets de suporte dos últimos 3 meses identificou padrões recorrentes que nunca haviam virado item de backlog.'},
+      {icon:'⏰',title:'Timing errado',desc:'Feedback coletado tarde demais no ciclo perdia o contexto emocional do atendimento. Evidência: benchmark com Doctoralia e Boa Consulta — ambos disparam NPS imediatamente pós-atendimento, não ao final do mês.'},
+      {icon:'✍',title:'Fricção no preenchimento',desc:'Formulários longos reduziam drasticamente a taxa de resposta dos pacientes. Evidência: referência de mercado aponta que formulários NPS com mais de 2 etapas têm taxa de abandono acima de 60%. O formulário existente tinha 6 campos obrigatórios.'}
     ],
     kpis:[
       {icon:'📈',label:'Taxa de resposta NPS',val:'% dos atendimentos',desc:'Proporção de pacientes que respondem após o atendimento'},
@@ -476,12 +476,12 @@ const CASES={
       {icon:'📏',label:'Linha de base',val:'Score trimestral',desc:'Referência para medir evolução de satisfação ao longo do tempo'}
     ],
     role:'Product Designer responsável pela concepção do canal, benchmark, fluxo, microcopy e protótipo.',
-    insight:'<p>O problema não era falta de tela, era <strong>falta de cultura de escuta</strong>. O insight foi tratar a coleta como parte invisível da jornada: <strong>rápida, leve, no momento emocional certo</strong>, logo após o atendimento. Emojis no lugar de escalas frias. O qualitativo como bônus, nunca obrigação.</p>',
+    insight:'<p>O problema não era falta de tela, era <strong>falta de cultura de escuta</strong>. O insight foi tratar a coleta como parte invisível da jornada: <strong>rápida, leve, no momento emocional certo</strong>, logo após o atendimento. Emojis no lugar de escalas frias. O qualitativo como bônus, nunca obrigação.</p><p>A ironia desse projeto é que para projetar um canal de coleta de dados, trabalhamos sem dados. A base foi tickets de suporte categorizados manualmente, benchmark de 4 plataformas e referências de taxa de resposta em fluxos NPS. Esse raciocínio explícito — mostrar o que não tínhamos e como contornamos — foi parte da justificativa para o PM priorizar o projeto.</p>',
     objetivo:'Criar uma cultura de feedback contínuo que alimente decisões de produto com dados reais dos pacientes.',
     krs:[
-      {txt:'Estabelecer canal de NPS e atingir taxa de resposta acima da baseline do mercado',meta:'base'},
-      {txt:'Gerar ao menos 3 insights acionáveis por mês',meta:'3/mês'},
-      {txt:'Estabelecer linha de base de satisfação trimestral',meta:'Q1 2024'}
+      {txt:'Acreditamos que um canal NPS disparado imediatamente pós-atendimento atingirá taxa de resposta acima da baseline do mercado',meta:'base'},
+      {txt:'Acreditamos que feedbacks com contexto emocional claro gerarão ao menos 3 insights acionáveis por mês para o time de produto',meta:'3/mês'},
+      {txt:'Acreditamos que estabelecer linha de base trimestral permitirá ao time comparar períodos e medir impacto de iniciativas futuras',meta:'Q1 2024'}
     ],
     sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Momento certo, esforço mínimo</div><div class="ch-sol-card-desc">O disparo acontece logo após o atendimento, quando a experiência ainda está fresca. Fluxo em três telas, nenhuma que exija mais de 10 segundos.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Expressão emocional sem barreiras</div><div class="ch-sol-card-desc">Emojis no lugar de escalas frias. Cores suaves que não criam ansiedade. Microcopy que respeita o contexto de quem acabou de sair de uma consulta médica.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Qualitativo como convite</div><div class="ch-sol-card-desc">O campo aberto aparece só depois da avaliação numérica, como bônus, nunca como obrigação. Isso aumentou a taxa de preenchimento e a qualidade dos insights.</div></div></div>',
     results:[['0→1','Canal de NPS criado do zero — pela primeira vez o time tinha dados reais','ti-chart-bar','check'],['✓','NPS virou pauta de reunião semanal após o lançamento','ti-calendar','check'],['↑','Taxa de resposta acima da baseline do mercado nos primeiros meses','ti-trending-up','up'],['✓','Feedbacks qualitativos passaram a embasar decisões de produto','ti-message','check']],
@@ -492,12 +492,12 @@ const CASES={
       hook:'"Kivid had an active network of consultations. Product decisions were made based on gut feeling, assumptions and spontaneous complaints in support. No baseline. No way to measure evolution. No feedback culture."',
       context:'<p>Without satisfaction data, the team prioritized by what screamed loudest. Usually isolated complaints in support, not real patterns of dissatisfaction.</p><p>The cost was invisible: sprints planned without evidence, improvements delivered with no way to measure if they worked, and a patient base whose satisfaction level was, literally, unknown.</p>',
       role:'Product Designer responsible for channel conception, benchmarking, flow, microcopy and prototype.',
-      insight:'<p>The problem wasn\'t a missing screen, it was a <strong>missing listening culture</strong>. The insight was treating collection as an invisible part of the journey: <strong>fast, light, at the right emotional moment</strong>, right after the consultation. Emojis instead of cold scales. Qualitative as a bonus, never an obligation.</p>',
+      insight:'<p>The problem wasn\'t a missing screen, it was a <strong>missing listening culture</strong>. The insight was treating collection as an invisible part of the journey: <strong>fast, light, at the right emotional moment</strong>, right after the consultation. Emojis instead of cold scales. Qualitative as a bonus, never an obligation.</p><p>The irony of this project is that to design a data collection channel, we worked without data. The foundation was manually categorized support tickets, benchmark from 4 platforms, and market references on NPS response rates. Making that reasoning explicit — showing what we didn\'t have and how we worked around it — was part of the case for the PM to prioritize the project.</p>',
       objetivo:'Create a continuous feedback culture that feeds product decisions with real data from patients.',
       krs:[
-        {txt:'Establish an NPS channel and achieve a response rate above market baseline',meta:'base'},
-        {txt:'Generate at least 3 actionable insights per month',meta:'3/month'},
-        {txt:'Establish quarterly satisfaction baseline',meta:'Q1 2024'}
+        {txt:'We believe an NPS channel triggered immediately after consultation will achieve a response rate above market baseline',meta:'base'},
+        {txt:'We believe feedback with clear emotional context will generate at least 3 actionable insights per month for the product team',meta:'3/month'},
+        {txt:'We believe establishing a quarterly baseline will allow the team to compare periods and measure the impact of future initiatives',meta:'Q1 2024'}
       ],
       kpis:[
         {icon:'📈',label:'NPS response rate',val:'% of consultations',desc:'Proportion of patients who respond after the consultation'},
