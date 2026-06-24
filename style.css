@@ -1215,20 +1215,17 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   letter-spacing:.12em; text-transform:uppercase; color:var(--c-dim);
 }
 .ch-video-el {
-  display:block;
-  border-radius:12px; border:1px solid var(--c-line);
-  background:#000;
+  display:block; border-radius:12px;
+  border:1px solid var(--c-line); background:#000;
 }
 .ch-video-el.portrait {
-  width:100%; max-width:340px;
-  height:auto;
+  height:520px; width:auto; max-width:100%;
 }
 .ch-video-el.landscape {
   width:100%; height:auto;
-  max-height:70vh;
 }
 @media(max-width:900px){
-  .ch-video-el.portrait { max-width:260px; }
+  .ch-video-el.portrait { height:360px; }
 }
 .ch-slider-wrap { margin:1rem 0 3rem; }
 .ch-slider-label {
