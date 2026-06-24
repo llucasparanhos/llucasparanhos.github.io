@@ -641,14 +641,15 @@ function openCase(id,title){
     /* Protótipo em vídeo */
     +(c.prototipo ? (function(){
       var vids = Array.isArray(c.prototipo) ? c.prototipo : [c.prototipo];
-      var isLandscape = vids.length > 1 || (vids[0].ratio && parseInt(vids[0].ratio.split('/')[0]) > parseInt(vids[0].ratio.split('/')[1]));
-      var html = '<div class="ch-video-wrap'+(vids.length > 1 ? ' ch-video-duo' : '')+(isLandscape && vids.length === 1 ? ' ch-video-landscape' : '')+'">';
+      var html = '<div class="ch-video-wrap">';
       html += '<div class="ch-video-label" data-pt="Protótipo" data-en="Prototype">'+t('Prototype','Protótipo')+'</div>';
       html += '<div class="ch-video-inner">';
       vids.forEach(function(v){
+        var parts = v.ratio ? v.ratio.split('/') : ['1','1'];
+        var isLandscape = parseInt(parts[0]) > parseInt(parts[1]);
         html += '<div class="ch-video-item">';
         if(v.label) html += '<div class="ch-video-item-label">'+v.label+'</div>';
-        html += '<video class="ch-video-el" src="img/'+v.src+'" controls playsinline preload="metadata" style="aspect-ratio:'+v.ratio+';"></video>';
+        html += '<video class="ch-video-el '+(isLandscape ? 'landscape' : 'portrait')+'" src="img/'+v.src+'" controls playsinline preload="metadata" style="aspect-ratio:'+v.ratio+';"></video>';
         html += '</div>';
       });
       html += '</div></div>';
