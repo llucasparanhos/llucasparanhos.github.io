@@ -325,6 +325,7 @@ const CASES={
     ],
     sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Reframing estratégico</div><div class="ch-sol-card-desc">De botão para ritual. De função para celebração. De ação neutra para microvitória reconhecida.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Benchmark revelou o padrão</div><div class="ch-sol-card-desc">Duolingo, Apple Fitness, TotalPass e Strava celebram o momento presente e mostram onde o usuário chegou. Gamificação leve reforça o comportamento sem virar jogo.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Estados por marco</div><div class="ch-sol-card-desc">Primeiro check-in, marcos de 10/50/100, sequências semanais. Cada estado com feedback visual e textual próprio. Cada treino, um significado único.</div></div></div>',
     results:[['534','Check-ins reais validaram o problema antes do primeiro wireframe','ti-run','check'],['100%','Feedback positivo em todas as sessões de teste com usuários reais','ti-users','up'],['↑','Engajamento pós check-in aumentou nos testes de usabilidade','ti-trending-up','up'],['✓','Senso de conquista validado como diferencial em todas as entrevistas','ti-star','check']],
+    medicao:{texto:'Sessões de teste moderadas com 5 usuários reais usando protótipo no Figma. Critério de aprovação: conclusão das tarefas principais sem bloqueio crítico.',tools:['Figma Prototype','Teste de Usabilidade']},
     en:{
       ey:'UX/UI · Gamification · Wellness',
       ttl:'340 workouts that started<br><em>being celebrated.</em>',
@@ -381,6 +382,7 @@ const CASES={
     ],
     sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">A informação existia, a experiência não</div><div class="ch-sol-card-desc">A lista de credenciados estava lá. O insight foi montar uma jornada de decisão em volta do que já existia: nome, especialidade, avaliação, mapa, horários, convênios. Tudo em uma tela.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Hierarquia de decisão</div><div class="ch-sol-card-desc">O usuário de saúde decide em segundos. A hierarquia visual responde três perguntas em ordem: este médico aceita meu convênio? Fica perto? Tem horário hoje?</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">O detalhe de maior impacto</div><div class="ch-sol-card-desc">O botão "Ligar" precisava estar visível sem scroll. Descoberto nos testes de usabilidade, esse ajuste teve mais impacto na taxa de ação do que qualquer outra mudança de layout.</div></div></div>',
     results:[['0→1','Usuários localizaram profissionais sem sair do app pela primeira vez','ti-map-pin','check'],['↓','Tickets de suporte reduziram após o lançamento','ti-headset','down'],['↑','Agendamentos via app aumentaram no primeiro mês','ti-calendar','up'],['4/5','"Finalmente tudo no lugar certo" — feedback espontâneo nos testes','ti-message','check']],
+    medicao:{texto:'Google Analytics 4 — análise da taxa de saída e eventos de agendamento comparando períodos antes e depois do redesign.',tools:['Google Analytics 4']},
     en:{
       ey:'UX Research · HealthTech · Kivid',
       ttl:'The right professional,<br>found inside the <em>app.</em>',
@@ -407,7 +409,7 @@ const CASES={
   checkout:{
     color:'#993556',bg:'#111',
     prototipo:[
-      {src:'checkout-prototipo-desktop.MP4', ratio:'2880/1800', label:'Desktop'},
+      {src:'checkout-prototipo-desktop.mp4', ratio:'2880/1800', label:'Desktop'},
       {src:'checkout-prototipo-mobile.mp4', ratio:'900/1800', label:'Mobile'}
     ],
     antes:['checkout-antes-1.jpg','checkout-antes-2.jpg','checkout-antes-3.jpg','checkout-antes-4.jpg'],
@@ -439,6 +441,7 @@ const CASES={
     ],
     sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Preço visível desde o início</div><div class="ch-sol-card-desc">O resumo ficou fixo, dinâmico e no topo. O valor total aparece no primeiro momento e atualiza em tempo real. Adriana nunca mais rolava a página tentando descobrir quanto ia pagar.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">O sistema preenche, você confirma</div><div class="ch-sol-card-desc">Via CPF, nome, endereço e dados básicos são preenchidos automaticamente. O usuário passa de digitador para revisor. Menos campos, menos esforço, menos abandono.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Confiança onde a hesitação acontece</div><div class="ch-sol-card-desc">Selos de segurança posicionados onde os heatmaps mostravam maior concentração de cliques sem ação. Não onde pareciam certos, onde os dados mostravam que eram necessários.</div></div></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">A decisão mais negociada</div><p>O time queria manter a criação de senha dentro do fluxo de compra. Os dados mostravam que esse passo respondia por 18% dos abandonos. Defendi remover e enviar credenciais por email pós-compra. A mudança foi aceita depois de apresentar a análise de funil por etapa. Sem dado, essa decisão não teria passado.</p></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">Lançamento em um produto primeiro</div><p>O novo checkout subiu em apenas um curso. Quando os primeiros fluxos quebraram com o novo modelo de parcelamento, tínhamos poucos dias para corrigir sem impacto amplo. Lançamento gradual não era cautela, era método.</p></div>',
     results:[['+15%','Aumento na taxa de conversão — KR1 atingido','ti-trending-up','up'],['-20%','Redução no abandono de carrinho — KR2 atingido','ti-shopping-cart','down'],['↓','Tempo médio de conclusão da compra reduziu','ti-clock','down'],['✓','"Muito mais simples e rápido" — feedback recorrente','ti-thumb-up','check']],
+    medicao:{texto:'GA4 com funil de eventos comparando 30 dias antes vs 30 dias após o lançamento. Microsoft Clarity para análise de gravações de sessão e identificação visual dos pontos de abandono.',tools:['Google Analytics 4','Microsoft Clarity']},
     en:{
       ey:'Conversion · Mobile · HealthTech',
       ttl:'More people completing<br>the <em>purchase.</em>',
@@ -494,8 +497,8 @@ const CASES={
     ],
     sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Momento certo, esforço mínimo</div><div class="ch-sol-card-desc">O disparo acontece logo após o atendimento, quando a experiência ainda está fresca. Fluxo em três telas, nenhuma que exija mais de 10 segundos.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Expressão emocional sem barreiras</div><div class="ch-sol-card-desc">Emojis no lugar de escalas frias. Cores suaves que não criam ansiedade. Microcopy que respeita o contexto de quem acabou de sair de uma consulta médica.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Qualitativo como convite</div><div class="ch-sol-card-desc">O campo aberto aparece só depois da avaliação numérica, como bônus, nunca como obrigação. Isso aumentou a taxa de preenchimento e a qualidade dos insights.</div></div></div>',
     results:[['0→1','Canal de NPS criado do zero — pela primeira vez o time tinha dados reais','ti-chart-bar','check'],['✓','NPS virou pauta de reunião semanal após o lançamento','ti-calendar','check'],['↑','Taxa de resposta acima da baseline do mercado nos primeiros meses','ti-trending-up','up'],['✓','Feedbacks qualitativos passaram a embasar decisões de produto','ti-message','check']],
+    medicao:{texto:'Acompanhamento da taxa de resposta via sistema interno de coleta in-app nas primeiras semanas após o lançamento. Comparação com baseline do mercado de NPS para healthtechs.',tools:['Sistema in-app','Análise de taxa de resposta']},
     en:{
-      ey:'NPS · Data · HealthTech',
       ttl:'NPS channel built from scratch.<br><em>A team that started listening.</em>',
       meta:['Product Designer','2 weeks','Figma'],
       hook:'"Kivid had an active network of consultations. Product decisions were made based on gut feeling, assumptions and spontaneous complaints in support. No baseline. No way to measure evolution. No feedback culture."',
@@ -546,6 +549,7 @@ const CASES={
     ],
     sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Stepper fiel à realidade do processo</div><div class="ch-sol-card-desc">As 8 etapas reais (Aceite de Termos, Dados do Cedente, Endereço, Assinantes, Assinatura do contrato, Aguardando, Transferência, Pagamento) passaram a ter número e nome próprios. Nenhum sub-passo fica mais escondido atrás de uma etapa genérica.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Hierarquia por tipo de informação</div><div class="ch-sol-card-desc">Dados financeiros da venda (valor, taxa, desconto, prazo) foram isolados em um painel lateral próprio. A declaração jurídica ganhou um cartão dedicado, sem se misturar com números da transação.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Da declaração de seis parágrafos ao digest</div><div class="ch-sol-card-desc">O texto de aceite, antes um bloco jurídico denso, virou cinco frases em linguagem direta, cobrindo os mesmos pontos (processo eletrônico, token por e-mail, prazo de pagamento, destino do valor), com link "Ver termos completos" preservando o texto integral para compliance.</div></div></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">A decisão mais negociada</div><p>Avaliamos internalizar a etapa de biometria e assinatura, hoje rodando em um provedor externo — o que quebra visualmente a continuidade do fluxo no momento mais sensível da transação. O ganho de continuidade era claro, mas o custo operacional de homologar verificação biométrica própria, manter compliance e SLA de segurança, somado ao tempo de implementação necessário, tornava a internalização inviável neste ciclo. Optamos por manter o provedor externo e investir o esforço de design em preparar o cliente para a transição, em vez de prometer uma reconstrução que não pagaria o investimento no curto prazo.</p></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">O texto jurídico não precisava desaparecer, precisava de hierarquia</div><p>O bloco de aceite reunia seis parágrafos repetindo a mesma estrutura "Declaro que...". A solução não foi remover conteúdo legal, foi separar camadas: um digest de cinco pontos em linguagem direta para leitura em segundos, e o texto completo preservado por trás de um link, para quem precisa da redação jurídica integral. Validei essa mudança diretamente no arquivo de Figma, comparando a altura do card antes e depois como primeira evidência de redução de carga de leitura.</p></div>',
     resultsLabel:'Hipóteses a validar',
+    medicao:{texto:'Categorização dos tickets de suporte históricos por tipo de dúvida. Identificamos que a maioria se enquadrava em orientação de progresso. Os resultados são hipóteses projetadas — o acesso aos dados pós-lançamento não foi possível dentro do escopo do projeto.',tools:['Sistema de suporte interno','Análise de tickets']},
     antesDepois:'bomconsorcio-antes-depois.jpg',
     telas:['bomconsorcio-tela-01.jpg','bomconsorcio-tela-02.jpg','bomconsorcio-tela-03.jpg','bomconsorcio-tela-04.jpg','bomconsorcio-tela-05.jpg','bomconsorcio-tela-06.jpg','bomconsorcio-tela-07.jpg','bomconsorcio-tela-08.jpg','bomconsorcio-tela-09.jpg','bomconsorcio-tela-10.jpg','bomconsorcio-tela-11.jpg'],
     telasGrid:true,
@@ -761,6 +765,17 @@ function openCase(id,title){
         }).join('')+'</div>'
       : ''
     )
+
+    /* Como medimos */
+    +(c.medicao ? (function(){
+      return '<div class="ch-medicao">'
+        +'<div class="ch-medicao-label">'+t('How we measured','Como medimos')+'</div>'
+        +'<p class="ch-medicao-texto">'+c.medicao.texto+'</p>'
+        +'<div class="ch-medicao-tools">'+c.medicao.tools.map(function(t){
+          return '<span class="ch-medicao-tool">'+t+'</span>';
+        }).join('')+'</div>'
+      +'</div>';
+    })() : '')
 
     /* Resultados */
     +'<h3>'+(d.resultsLabel || t("Results","Resultados"))+'</h3>'

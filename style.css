@@ -1227,6 +1227,35 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 @media(max-width:900px){
   .ch-video-el.portrait { height:360px; }
 }
+
+/* ── Como medimos ── */
+.ch-medicao {
+  margin:2rem 0 1.5rem;
+  padding:1.25rem 1.5rem;
+  background:var(--c-bg2);
+  border:1px solid var(--c-line);
+  border-left:3px solid var(--c-gold);
+  border-radius:8px;
+}
+.ch-medicao-label {
+  font-family:var(--ff-mono); font-size:.58rem;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--c-gold); margin-bottom:.75rem;
+}
+.ch-medicao-texto {
+  font-size:.85rem; font-weight:300;
+  color:var(--c-muted); line-height:1.7;
+  margin-bottom:.875rem;
+}
+.ch-medicao-tools { display:flex; flex-wrap:wrap; gap:.5rem; }
+.ch-medicao-tool {
+  font-family:var(--ff-mono); font-size:.5rem;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--c-dim); background:var(--c-bg3);
+  border:0.5px solid var(--c-line);
+  padding:3px 10px; border-radius:4px;
+}
+
 .ch-slider-wrap { margin:1rem 0 3rem; }
 .ch-slider-label {
   font-family:var(--ff-mono); font-size:.6rem;
