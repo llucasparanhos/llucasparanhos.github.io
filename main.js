@@ -303,7 +303,7 @@ const CASES={
     ttl:'340 treinos que passaram<br>a ser <em>celebrados.</em>',
     meta:['Product Designer','2 semanas','Figma · Adobe CC'],
     hook:'"Sou usuário ativo do Wellhub há anos. Mais de 340 check-ins. Cada um representou uma decisão consciente de sair do sofá, ir à academia e investir na saúde. E o app? Tratava todos exatamente igual. Sem diferença entre o primeiro treino e o de número 300."',
-    context:'<p>Um check-in que não reconhece o esforço não é só uma falha de UX. É uma oportunidade de retenção desperdiçada a cada treino.</p><p>Sem feedback emocional, o app não cria memória afetiva. Sem memória afetiva, o usuário cancela na primeira chance. Cada check-in neutro era um argumento silencioso para o churn.</p>',
+    context:'<p>Para entender o problema real, conduzi testes de usabilidade com usuários ativos do Wellhub — observando o fluxo de check-in ao vivo, sem interferência. O padrão foi consistente: nenhum usuário demonstrou resposta emocional ao completar o check-in. A tela de confirmação era processada como uma etapa burocrática, não como um momento de conquista.</p><p>Um check-in que não reconhece o esforço não é só uma falha de UX. É uma oportunidade de retenção desperdiçada a cada treino. Sem feedback emocional, o app não cria memória afetiva. Sem memória afetiva, o usuário cancela na primeira chance. Cada check-in neutro era um argumento silencioso para o churn.</p>',
     diags:[
       {icon:'👁',title:'Zero feedback emocional',desc:'O check-in não devolvia nada ao usuário além de uma confirmação técnica.'},
       {icon:'📉',title:'Botão sem peso visual',desc:'Hierarquia quebrada: o momento mais importante da jornada era invisível.'},
@@ -526,7 +526,7 @@ const CASES={
     ey:'UX Writing · Arquitetura da Informação · Fintech',
     ttl:'Um sistema que todos<br><em>conseguem usar.</em>',
     meta:['Product Designer','BomConsórcio · Fintech','Figma'],
-    hook:'"O cliente aceitava a oferta e, a partir daí, não sabia mais o que esperar. A cada tela, a mesma pergunta chegava ao suporte: isso já foi? quanto falta? Não era falta de informação. Era informação demais, do jeito errado."',
+    hook:'"O cliente aceitava a oferta e, a partir daí, não sabia mais o que esperar. Em uma transação financeira de alto valor — vender uma cota de consórcio — incerteza não é só frustração. É perda de confiança. A cada tela nova, a mesma pergunta chegava ao suporte: isso já foi? quanto falta? O problema não era interface. Era que o sistema não honrava o processo real."',
     context:'<p>O fluxo de venda de cota secundária tinha sete a oito etapas reais entre o aceite da oferta e o pagamento. O stepper mostrado ao cliente, porém, agrupava várias dessas etapas sob um único número, escondendo sub-passos inteiros.</p><p>O texto de aceite de termos reunia declarações jurídicas, condições financeiras e regras operacionais em um único bloco extenso, sem hierarquia entre o que era obrigação legal e o que era informação prática. No meio do fluxo, o cliente era redirecionado para um provedor externo de biometria e assinatura, sem preparo prévio para a troca de ambiente. O resultado: dúvida recorrente sobre "em que etapa estou" e "o que falta", medida pelo volume de contatos no suporte.</p>',
     diags:[
       {icon:'🔢',title:'Etapas escondidas',desc:'Um número do stepper agrupava de 2 a 3 sub-passos reais. O cliente via "Etapa 2 de 5" e vivia muito mais telas do que isso sugeria.'},
@@ -540,7 +540,7 @@ const CASES={
       {icon:'⏱',label:'Tempo até a assinatura',val:'Aceite → Assinatura',desc:'Tempo entre o aceite da oferta e a assinatura do contrato'}
     ],
     role:'Product Designer responsável pelo redesenho do fluxo pós-aceite de oferta: arquitetura da informação, hierarquia visual, microcopy e prototipação no Figma.',
-    insight:'<p>O problema não era a quantidade de etapas, era a <strong>falta de correspondência entre o que o cliente via e o que de fato estava acontecendo</strong>. Um único número de stepper escondia sub-passos inteiros, dados de natureza diferente (jurídica, financeira, operacional) apareciam misturados, e o ambiente mudava sem aviso na hora da biometria. O cliente não estava perdido por falta de capacidade, estava perdido porque a interface contava uma história diferente da realidade do processo.</p>',
+    insight:'<p>Em produtos financeiros, <strong>confiança precede conversão</strong>. O stepper genérico não estava só escondendo etapas — estava criando uma discrepância entre a promessa da interface e a realidade do processo. Quando o cliente chega na "etapa 2 de 6" e encontra cinco sub-passos internos, ele não se sente guiado. Ele se sente enganado. O redesign partiu dessa premissa: <strong>transparência de jornada não é feature de UX, é condição básica para que a transação continue</strong>. Cada decisão de interface foi tomada com essa lente — do stepper ao texto jurídico, da biometria ao painel financeiro.</p>',
     objetivo:'Tornar o andamento da venda da cota visível e previsível em cada etapa real, reduzindo a dependência do cliente em relação ao suporte para entender o que vem a seguir.',
     krs:[
       {txt:'Reduzir tickets de suporte sobre "próximos passos" após o aceite da oferta',meta:'-30% (hipótese)'},
