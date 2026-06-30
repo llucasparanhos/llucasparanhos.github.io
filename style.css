@@ -1413,3 +1413,55 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   .cf-track { height:280px; }
   .cf-card img { max-height:220px; }
 }
+
+/* ── Grain overlay ── */
+.grain {
+  position:fixed; inset:0;
+  pointer-events:none; z-index:9999;
+  opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px;
+}
+
+/* ── Custom cursor ── */
+@media(hover:hover){
+  *, *::before, *::after { cursor:none !important; }
+}
+.cursor-dot {
+  position:fixed; top:0; left:0;
+  width:5px; height:5px;
+  background:var(--c-text); border-radius:50%;
+  pointer-events:none; z-index:99999;
+  transform:translate(-50%,-50%);
+  transition:opacity .3s;
+  will-change:left,top;
+}
+.cursor-ring {
+  position:fixed; top:0; left:0;
+  width:30px; height:30px;
+  border:1px solid rgba(240,237,232,.35);
+  border-radius:50%;
+  pointer-events:none; z-index:99998;
+  transform:translate(-50%,-50%);
+  transition:width .25s var(--ease), height .25s var(--ease), border-color .25s, opacity .3s;
+  will-change:left,top;
+}
+.cursor-ring.hover {
+  width:54px; height:54px;
+  border-color:var(--c-gold);
+}
+.cursor-ring.clicking {
+  width:22px; height:22px;
+}
+.cursor-hidden .cursor-dot,
+.cursor-hidden .cursor-ring { opacity:0; }
+
+/* ── Card 3D tilt ── */
+.pc {
+  transform-style:preserve-3d;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+  will-change:transform;
+}
+
+/* ── Stat counter ── */
+.sb-stat-n { display:inline-block; }
