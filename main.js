@@ -1082,6 +1082,18 @@ function initCompSliders(){
   });
 }
 
+/* ── Loading screen ── */
+(function(){
+  var loader = document.getElementById('loader');
+  if(!loader) return;
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      loader.classList.add('done');
+      setTimeout(function(){ loader.remove(); }, 750);
+    }, 1500);
+  });
+})();
+
 /* ── Grain overlay ── */
 (function(){
   var g = document.createElement('div');
@@ -1182,4 +1194,55 @@ function initCompSliders(){
   document.querySelectorAll('.sb-stat-n').forEach(function(el){
     obs.observe(el);
   });
+})();
+
+/* ── Magnetic nos botões de nav ── */
+(function(){
+  if(!window.matchMedia('(hover:hover)').matches) return;
+  var STRENGTH = 0.35;
+  function initMagnetic(){
+    document.querySelectorAll('.cf-btn,.nav-ham,.nav-sobre').forEach(function(el){
+      el.addEventListener('mousemove', function(e){
+        var r = el.getBoundingClientRect();
+        var dx = (e.clientX - (r.left + r.width/2)) * STRENGTH;
+        var dy = (e.clientY - (r.top  + r.height/2)) * STRENGTH;
+        el.style.transform = 'translate('+dx+'px,'+dy+'px)';
+        el.style.transition = 'transform .1s';
+      });
+      el.addEventListener('mouseleave', function(){
+        el.style.transform = '';
+        el.style.transition = 'transform .5s cubic-bezier(.16,1,.3,1)';
+      });
+    });
+  }
+  initMagnetic();
+})();
+
+/* ── Parallax no hero ── */
+(function(){
+  var heroType = document.querySelector('.hero-type-wrap');
+  var heroSub  = document.querySelector('.hero-sub');
+  var heroTag  = document.querySelector('.hero-tagline');
+  if(!heroType) return;
+  window.addEventListener('scroll', function(){
+    var s = window.scrollY;
+    if(heroType) heroType.style.transform = 'translateY('+s*.08+'px)';
+    if(heroSub)  heroSub.style.transform  = 'translateY('+s*.12+'px)';
+    if(heroTag)  heroTag.style.transform  = 'translateY('+s*.15+'px)';
+  }, {passive:true});
+})();
+
+/* ── Shimmer no nome após typing ── */
+(function(){
+  var line1 = document.getElementById('hero-line1');
+  if(!line1) return;
+  var obs = new MutationObserver(function(){
+    if(line1.textContent.length > 8){
+      setTimeout(function(){
+        line1.classList.add('hero-shimmer');
+        obs.disconnect();
+      }, 600);
+    }
+  });
+  obs.observe(line1, {childList:true, characterData:true, subtree:true});
 })();
