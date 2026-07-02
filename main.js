@@ -1,6 +1,7 @@
 
 /* ── LANGUAGE TOGGLE ── */
 var currentLang = 'pt';
+var _navCount = 0;
 
 function toggleLang(){
   currentLang = currentLang === 'pt' ? 'en' : 'pt';
@@ -97,18 +98,28 @@ window.addEventListener('load', () => {
 const navName = document.getElementById('nav-name');
 if(navName) navName.addEventListener('click', () => goToHome());
 
-function goToHome(){
+function goToHome(push){
+  if(push === undefined) push = true;
   document.getElementById('page-home').classList.add('active');
   document.getElementById('page-case').classList.remove('active');
   document.getElementById('page-sobre').classList.remove('active');
   window.scrollTo({top:0, behavior:'instant'});
+  if(push){
+    history.pushState({ page: 'home' }, '', window.location.pathname + window.location.search);
+    _navCount++;
+  }
 }
 
-function goToSobre(){
+function goToSobre(push){
+  if(push === undefined) push = true;
   document.getElementById('page-home').classList.remove('active');
   document.getElementById('page-case').classList.remove('active');
   document.getElementById('page-sobre').classList.add('active');
   window.scrollTo({top:0, behavior:'instant'});
+  if(push){
+    history.pushState({ page: 'sobre' }, '', '#sobre');
+    _navCount++;
+  }
 }
 
 /* ── MOBILE MENU ── */
@@ -600,7 +611,8 @@ const CASES={
 };
 
 
-function openCase(id,title){
+function openCase(id,title,push){
+  if(push === undefined) push = true;
   const c=CASES[id];
   if(!c){console.error('Case not found:',id);return;}
   // Merge EN translations if active
@@ -793,13 +805,21 @@ function openCase(id,title){
   setTimeout(animateCaseEntrance,50);
   setTimeout(initCompSliders,100);
   setTimeout(function(){ initCoverflow(id); if(c.carousel) initCoverflow(id+'-carousel'); },150);
+
+  if(push){
+    history.pushState({ page: 'case', id: id, title: title }, '', '#case-' + id);
+    _navCount++;
+  }
 }
 
 
 function closeCase(){
-  document.getElementById('page-case').classList.remove('active');
-  document.getElementById('page-home').classList.add('active');
-  window.scrollTo({top:0,behavior:'instant'});
+  if(_navCount > 0){
+    history.back();
+    _navCount--;
+  } else {
+    goToHome();
+  }
 }
 
 /* ── FEEDBACK MODAL ── */
@@ -1246,3 +1266,61 @@ function initCompSliders(){
   });
   obs.observe(line1, {childList:true, characterData:true, subtree:true});
 })();
+
+/* ── ROUTER INITIALIZATION ── */
+(function(){
+  function initRouter(){
+    // Handle initial page load hash
+    var hash = window.location.hash;
+    if(hash === '#sobre'){
+      history.replaceState({ page: 'sobre' }, '', '#sobre');
+      goToSobre(false);
+    } else if(hash.startsWith('#case-')){
+      var id = hash.replace('#case-', '');
+      var title = '';
+      if(CASES[id]){
+        var rawTtl = CASES[id].ttl || '';
+        title = rawTtl.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+      }
+      history.replaceState({ page: 'case', id: id, title: title }, '', '#case-' + id);
+      openCase(id, title, false);
+    } else {
+      history.replaceState({ page: 'home' }, '', window.location.pathname + window.location.search);
+      goToHome(false);
+    }
+
+    // Popstate listener
+    window.addEventListener('popstate', function(e){
+      if(e.state){
+        if(e.state.page === 'home'){
+          goToHome(false);
+        } else if(e.state.page === 'sobre'){
+          goToSobre(false);
+        } else if(e.state.page === 'case'){
+          openCase(e.state.id, e.state.title, false);
+        }
+      } else {
+        // Fallback
+        var h = window.location.hash;
+        if(h === '#sobre'){
+          goToSobre(false);
+        } else if(h.startsWith('#case-')){
+          var cid = h.replace('#case-', '');
+          var cttl = '';
+          if(CASES[cid]) cttl = (CASES[cid].ttl || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+          openCase(cid, cttl, false);
+        } else {
+          goToHome(false);
+        }
+      }
+    });
+  }
+  
+  // Wait a split second to make sure other load bindings are registered
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initRouter);
+  } else {
+    setTimeout(initRouter, 50);
+  }
+})();
+
