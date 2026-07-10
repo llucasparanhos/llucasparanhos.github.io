@@ -713,7 +713,7 @@ function openCase(id,title,push){
   const heroImg=document.createElement('img');
   heroImg.src='img/'+id+'-case-hero.jpg';
   heroImg.alt=title;
-  heroImg.style.cssText='width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;';
+  heroImg.style.cssText='width:100%;height:auto;display:block;cursor:zoom-in;';
   heroImg.addEventListener('click', function(){ lbOpen(heroImg.src); });
   heroImg.onerror=function(){ this.style.display='none'; imgArea.innerHTML='<div class="ch-img-ph">'+id+'-case-hero.jpg</div>'; };
   imgArea.appendChild(heroImg);
