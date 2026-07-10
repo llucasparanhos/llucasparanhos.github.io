@@ -607,6 +607,77 @@ const CASES={
       ]
     }
   }
+  ,
+  itau:{
+    color:'#EC7000',bg:'#111',
+    ey:'White Label · Design System · Fintech',
+    ttl:'Uma marca inteira<br><em>dentro de outro motor.</em>',
+    meta:['Product Designer','BomConsórcio × Itaú · Fintech','Figma'],
+    hook:'"O prazo era curto e a régua era de banco. Não bastava reaproveitar o motor do BomConsórcio, cada pixel precisava passar pela aprovação de marca do Itaú antes de ir ao ar. O desafio não era desenhar do zero. Era fazer um sistema inteiro parecer que sempre foi do banco, sem parar a operação para reconstruir."',
+    context:'<p>O Itaú fechou parceria com o BomConsórcio para permitir que clientes com cotas de consórcio canceladas antecipassem o crédito de forma digital, seguindo o mesmo motor de venda de cota secundária já validado pela fintech. A proposta não era construir um produto novo, era entregar uma versão white label: mesma arquitetura de fluxo, mesma lógica de negócio, identidade visual 100% Itaú.</p><p>Isso incluía login e cadastro com detecção de administradora, fluxo de encontrar cota, simulação de oferta, verificação de identidade e uma landing page dedicada para apresentar a parceria antes mesmo do cliente entrar no fluxo de venda. Tudo precisava nascer sob a marca do banco, aprovado pelo time de branding do Itaú, dentro de um cronograma definido pela parceria.</p>',
+    diags:[
+      {icon:'🎨',title:'Sem camada de tema isolada',desc:'A base do BomConsórcio não separava marca de lógica de fluxo. Cor, tipografia e logo estavam direto nos componentes, então trocar a marca significava reescrever telas, não substituir uma camada.'},
+      {icon:'🏦',title:'Régua de aprovação de banco',desc:'Cada tela passava pelo time de branding do Itaú antes do desenvolvimento. Um tom de laranja fora do manual ou um peso de fonte errado podia travar a entrega por dias.'},
+      {icon:'🔀',title:'Duas marcas, um mesmo login',desc:'Clientes com cota de outra administradora precisavam ser identificados e redirecionados sem confundir qual sistema estavam usando.'},
+      {icon:'📢',title:'Parceria banco + fintech sem lugar pra explicar',desc:'Não existia página que justificasse por que um cliente do Itaú deveria confiar numa fintech parceira para vender a cota. Sem essa camada, a desconfiança inicial era um risco real de abandono.'}
+    ],
+    kpis:[
+      {icon:'⏱',label:'Tempo de aprovação de marca',val:'Ciclo de revisão',desc:'Dias entre entrega de tela e aprovação do time de branding do Itaú'},
+      {icon:'♻️',label:'Reuso do design system',val:'% de componentes',desc:'Proporção de componentes do BomConsórcio reaproveitados sem reconstrução'},
+      {icon:'🚀',label:'Tempo até o ar',val:'Kickoff → Lançamento',desc:'Tempo total entre o início do projeto e o lançamento da versão white label'}
+    ],
+    role:'Product Designer responsável por adaptar a arquitetura e o fluxo já validados do BomConsórcio à identidade visual e ao compliance do Itaú, incluindo a landing page da parceria. Atuação direta com a responsável por branding do Itaú.',
+    insight:'<p>White label não é reskin. A tentação era tratar a adaptação como troca de cor e logo, mas a régua de aprovação de banco expôs uma dívida estrutural: o BomConsórcio não tinha uma camada de tema separada da lógica de fluxo. O trabalho real foi <strong>tokenizar a marca</strong> — isolar o que era "Itaú" do que era "processo de venda de cota" — para que qualquer próxima marca parceira pudesse ser plugada sem reescrever nada. Compliance de banco não é obstáculo de design, é um teste de arquitetura.</p>',
+    objetivo:'Entregar uma versão white label do fluxo BomConsórcio totalmente alinhada à marca e ao compliance do Itaú, reaproveitando ao máximo o design system existente e dentro do prazo definido pela parceria.',
+    krs:[
+      {txt:'Reduzir o tempo médio de aprovação de marca por tela',meta:'-40% (hipótese)'},
+      {txt:'Aumentar a proporção de componentes reaproveitados sem reconstrução',meta:'80%+ (hipótese)'},
+      {txt:'Lançar a versão white label dentro do prazo acordado com o Itaú',meta:'No prazo'}
+    ],
+    sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Tokenização de marca</div><div class="ch-sol-card-desc">Cor, tipografia, logo e ícones do header foram isolados em uma camada de tema, plugável por cima da arquitetura de fluxo do BomConsórcio — sem tocar na lógica de cadastro, oferta ou verificação de identidade.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Header e navegação com identidade própria</div><div class="ch-sol-card-desc">Logo Itaú, paleta laranja e microcopy adaptado ("Consórcio Itaú") substituíram os equivalentes do BomConsórcio em todos os pontos de contato, do login à tela de "sem oferta no momento".</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Landing page da parceria</div><div class="ch-sol-card-desc">Página dedicada com "Como funciona", vantagens de vender com o BomConsórcio e FAQ, criada para legitimar a parceria bancária antes mesmo do cliente entrar no fluxo de venda.</div></div></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">A decisão mais negociada</div><p>A cada rodada de aprovação, o time de branding do Itaú pedia ajustes finos — tom exato do laranja, peso da fonte no header, distância mínima do logo. Cada ida e volta consumia dias que o cronograma da parceria não previa. A saída não foi negociar menos rodadas, foi antecipar: levantei o manual de marca do Itaú antes de desenhar a primeira tela e validei protótipos de baixa fidelidade direto com a responsável por branding, para só então avançar para alta fidelidade. Isso não eliminou as rodadas de aprovação, mas reduziu o retrabalho em cada uma, protegendo o prazo apertado da parceria.</p></div>',
+    resultsLabel:'Hipóteses a validar',
+    medicao:{texto:'Como não houve acesso a dados pós-lançamento no escopo deste projeto, os resultados são projeções baseadas no acompanhamento qualitativo das rodadas de aprovação de marca e no comparativo de componentes reaproveitados vs. recriados durante a adaptação.',tools:['Rodadas de aprovação — acompanhamento qualitativo','Comparativo de componentes do design system']},
+    results:[
+      ['-40%','Hipótese: menor tempo de aprovação de marca por tela, com protótipos de baixa fidelidade validados antes da alta fidelidade.','ti-clock','hyp','hipótese'],
+      ['80%+','Hipótese: proporção de componentes do BomConsórcio reaproveitados sem reconstrução, graças à tokenização de marca.','ti-puzzle','hyp','hipótese'],
+      ['No prazo','Hipótese: lançamento dentro do prazo acordado com o Itaú, resultado direto da tokenização e do alinhamento antecipado com branding.','ti-calendar-check','hyp','hipótese'],
+      ['✓','Hipótese: a landing page da parceria reduz a desconfiança inicial do cliente Itaú ao entrar no fluxo de uma fintech parceira.','ti-shield-check','hyp','hipótese']
+    ],
+    en:{
+      ey:'White Label · Design System · Fintech',
+      ttl:'An entire brand<br><em>inside another engine.</em>',
+      meta:['Product Designer','BomConsórcio × Itaú · Fintech','Figma'],
+      hook:'"The deadline was tight and the bar was bank-grade. It wasn\'t enough to reuse the BomConsórcio engine, every pixel had to pass Itaú\'s brand approval before going live. The challenge wasn\'t designing from scratch. It was making an entire system look like it had always belonged to the bank, without stopping operations to rebuild it."',
+      context:'<p>Itaú partnered with BomConsórcio to let clients with cancelled consortium quotas anticipate their credit digitally, following the same secondary quota sale engine already validated by the fintech. The brief wasn\'t to build a new product, it was to deliver a white label version: same flow architecture, same business logic, 100% Itaú visual identity.</p><p>That included login and signup with administrator detection, a find-quota flow, offer simulation, identity verification, and a dedicated landing page introducing the partnership before the client even entered the sale flow. Everything had to be born under the bank\'s brand, approved by Itaú\'s branding team, within a timeline set by the partnership.</p>',
+      diags:[
+        {icon:'🎨',title:'No isolated theme layer',desc:'BomConsórcio\'s base didn\'t separate brand from flow logic. Color, typography and logo lived directly inside components, so swapping the brand meant rewriting screens, not swapping a layer.'},
+        {icon:'🏦',title:'Bank-grade approval bar',desc:'Every screen went through Itaú\'s branding team before development. An orange shade off the manual or a wrong font weight could stall delivery for days.'},
+        {icon:'🔀',title:'Two brands, one login',desc:'Clients with a quota from another administrator needed to be identified and redirected without confusing which system they were in.'},
+        {icon:'📢',title:'A bank + fintech partnership with nowhere to explain itself',desc:'There was no page justifying why an Itaú client should trust a partner fintech to sell their quota. Without that layer, initial distrust was a real abandonment risk.'}
+      ],
+      kpis:[
+        {icon:'⏱',label:'Brand approval time',val:'Review cycle',desc:'Days between screen delivery and approval from Itaú\'s branding team'},
+        {icon:'♻️',label:'Design system reuse',val:'% of components',desc:'Proportion of BomConsórcio components reused without rebuild'},
+        {icon:'🚀',label:'Time to launch',val:'Kickoff → Launch',desc:'Total time between project kickoff and the white label launch'}
+      ],
+      role:'Product Designer responsible for adapting BomConsórcio\'s already validated architecture and flow to Itaú\'s visual identity and compliance requirements, including the partnership landing page. Worked directly with Itaú\'s branding lead.',
+      insight:'<p>White label isn\'t a reskin. The temptation was to treat the adaptation as swapping color and logo, but the bank\'s approval bar exposed a structural debt: BomConsórcio had no theme layer separate from its flow logic. The real work was <strong>tokenizing the brand</strong> — isolating what was "Itaú" from what was "quota sale process" — so the next partner brand could be plugged in without rewriting anything. Bank compliance isn\'t a design obstacle, it\'s an architecture test.</p>',
+      objetivo:'Deliver a white label version of the BomConsórcio flow fully aligned with Itaú\'s brand and compliance, reusing as much of the existing design system as possible and within the partnership\'s deadline.',
+      krs:[
+        {txt:'Reduce average brand approval time per screen',meta:'-40% (hypothesis)'},
+        {txt:'Increase the proportion of components reused without rebuild',meta:'80%+ (hypothesis)'},
+        {txt:'Launch the white label version within the deadline agreed with Itaú',meta:'On time'}
+      ],
+      sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Brand tokenization</div><div class="ch-sol-card-desc">Color, typography, logo and header icons were isolated into a theme layer, pluggable on top of BomConsórcio\'s flow architecture — without touching the signup, offer or identity verification logic.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Header and navigation with its own identity</div><div class="ch-sol-card-desc">Itaú\'s logo, orange palette and adapted microcopy ("Consórcio Itaú") replaced BomConsórcio\'s equivalents across every touchpoint, from login to the "no offer available" screen.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Partnership landing page</div><div class="ch-sol-card-desc">A dedicated page with "How it works," reasons to sell through BomConsórcio, and an FAQ, built to legitimize the banking partnership before the client even entered the sale flow.</div></div></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">The most negotiated decision</div><p>At every approval round, Itaú\'s branding team asked for fine adjustments — the exact shade of orange, the header\'s font weight, the logo\'s minimum clear space. Each round-trip ate into days the partnership\'s timeline hadn\'t budgeted for. The fix wasn\'t negotiating fewer rounds, it was getting ahead of them: I pulled Itaú\'s brand manual before drawing the first screen and validated low-fidelity prototypes directly with the branding lead, only moving to high fidelity afterward. That didn\'t eliminate approval rounds, but it cut rework in each one, protecting the partnership\'s tight deadline.</p></div>',
+      resultsLabel:'Hypotheses to validate',
+      results:[
+        ['-40%','Hypothesis: lower brand approval time per screen, with low-fidelity prototypes validated before high fidelity.','ti-clock','hyp','hypothesis'],
+        ['80%+','Hypothesis: proportion of BomConsórcio components reused without rebuild, thanks to brand tokenization.','ti-puzzle','hyp','hypothesis'],
+        ['On time','Hypothesis: launch within the deadline agreed with Itaú, a direct result of tokenization and early alignment with branding.','ti-calendar-check','hyp','hypothesis'],
+        ['✓','Hypothesis: the partnership landing page reduces the Itaú client\'s initial distrust when entering a partner fintech\'s flow.','ti-shield-check','hyp','hypothesis']
+      ]
+    }
+  }
 
 };
 
