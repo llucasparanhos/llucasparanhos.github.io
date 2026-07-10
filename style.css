@@ -1422,6 +1422,16 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   .cf-card img { max-height:220px; }
 }
 
+/* ── Itaú: telas grandes, sem crop ── */
+#cf-wrap-itau .cf-card { width:640px; border-radius:16px; }
+#cf-wrap-itau .cf-card img { max-height:460px; object-fit:contain; background:#0c0c0c; }
+#cf-wrap-itau .cf-track { height:520px; }
+@media(max-width:900px){
+  #cf-wrap-itau .cf-card { width:280px; }
+  #cf-wrap-itau .cf-card img { max-height:260px; }
+  #cf-wrap-itau .cf-track { height:320px; }
+}
+
 /* ── Loading screen ── */
 #loader {
   position:fixed; inset:0;

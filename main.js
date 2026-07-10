@@ -614,6 +614,9 @@ const CASES={
     ttl:'Uma marca inteira<br><em>dentro de outro motor.</em>',
     meta:['Product Designer','BomConsórcio × Itaú · Fintech','Figma'],
     orgImg:'img-figma-white-label.jpg',
+    cfCardW:640,
+    telas:['itau-tela-01.jpg','itau-tela-02.jpg','itau-tela-03.jpg','itau-tela-04.jpg','itau-tela-05.jpg','itau-tela-06.jpg','itau-tela-07.jpg','itau-tela-08.jpg','itau-tela-09.jpg','itau-tela-10.jpg','itau-tela-11.jpg'],
+    telasLabels:['Início — LP Itaú','Cadastro — Início','Cadastro — Dados','Cadastro — Criar conta','Cadastro — Confirmar e-mail','Cadastro — Verificação de identidade','Cadastro — Conta criada com sucesso','Login — Início','Login — Encontrar cota','Login — Oferta','Estado de exceção — cota'],
     hook:'"O prazo era curto e a régua era de banco. Não bastava reaproveitar o motor do BomConsórcio, cada pixel precisava passar pela aprovação de marca do Itaú antes de ir ao ar. O desafio não era desenhar do zero. Era fazer um sistema inteiro parecer que sempre foi do banco, sem parar a operação para reconstruir."',
     context:'<p>O objetivo do fluxo é simples de descrever e complexo de entregar: o cliente Itaú com uma cota de consórcio cancelada entra no sistema e recebe uma oferta de antecipação de crédito pela cota, seguindo o mesmo motor de venda secundária já validado pelo BomConsórcio. Do clique inicial até a oferta na tela, ele passa por um processo completo de identificação, validação e simulação.</p><p>A white label foi dividida em dois ambientes. O <strong>Ambiente 1 (externo)</strong> cobre tudo antes do login — landing page da parceria, cadastro, validação por token e recuperação de senha. O <strong>Ambiente 2 (interno)</strong> começa depois que o cliente entra no sistema — localização da cota, verificação de identidade e simulação da oferta. Os dois precisavam ter a mesma coerência visual e de marca, mesmo sendo etapas e contextos completamente diferentes.</p>',
     diags:[
