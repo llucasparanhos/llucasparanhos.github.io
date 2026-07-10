@@ -461,13 +461,6 @@ img { display:block; max-width:100%; }
 .ch-role { display:flex; flex-direction:column; gap:.4rem; margin:0 0 3rem; padding:1.1rem 1.5rem; border-left:2px solid var(--c-gold); background:var(--c-bg2); }
 .ch-role-lbl { font-family:var(--ff-mono); font-size:1.3rem; letter-spacing:.1em; text-transform:uppercase; color:var(--c-gold); font-weight:700; }
 .ch-role-txt { font-size:1rem; font-weight:300; color:var(--c-muted); line-height:1.65; }
-.ch-brief { display:flex; gap:3rem; align-items:flex-start; padding:2rem 360px 0; margin-bottom:1rem; }
-.ch-brief-info { display:flex; flex-direction:column; gap:1.25rem; flex:0 0 240px; }
-.ch-brief-item { display:flex; flex-direction:column; gap:.3rem; }
-.ch-brief-label { font-family:var(--ff-mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--c-gold); }
-.ch-brief-val { font-size:.95rem; font-weight:400; color:var(--c-text); }
-.ch-brief-img { flex:1; border-radius:8px; overflow:hidden; background:#111; aspect-ratio:16/10; }
-.ch-brief-img img { width:100%; height:100%; object-fit:cover; display:block; cursor:zoom-in; }
 .ch-hook { font-size:clamp(1.1rem,1.8vw,1.35rem); font-weight:300; line-height:1.8; font-style:italic; color:var(--c-text); padding:1.5rem 0; border-top:1px solid var(--c-line); border-bottom:1px solid var(--c-line); margin-bottom:3rem; }
 .ch-bd h3 { font-family:var(--ff-mono); font-size:1.6rem; letter-spacing:.08em; text-transform:uppercase; color:var(--c-dim); margin:3rem 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--c-line); font-weight:700; }
 .ch-bd p { font-size:1.05rem; font-weight:300; color:#cccac6; line-height:1.9; margin-bottom:1.25rem; }
@@ -606,8 +599,6 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   .ch-wrap { padding:2rem var(--gap-nav); }
   .ch-ct { padding:2rem var(--gap-nav) 0; }
   .ch-bd { padding:0 var(--gap-nav) 4rem; }
-  .ch-brief { flex-direction:column; padding:1.5rem var(--gap-nav) 0; gap:1.5rem; margin-bottom:.5rem; }
-  .ch-brief-info { flex-direction:row; flex-wrap:wrap; gap:1.5rem; flex:1 1 auto; }
   .ch-img-area { width:calc(100% - 2*var(--gap-nav)); margin:1rem auto 0; border-radius:8px; }
 
   /* Sobre mobile */
