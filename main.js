@@ -613,6 +613,7 @@ const CASES={
     ey:'White Label · Design System · Fintech',
     ttl:'Uma marca inteira<br><em>dentro de outro motor.</em>',
     meta:['Product Designer','BomConsórcio × Itaú · Fintech','Figma'],
+    orgImg:'img-figma-white-label.jpg',
     hook:'"O prazo era curto e a régua era de banco. Não bastava reaproveitar o motor do BomConsórcio, cada pixel precisava passar pela aprovação de marca do Itaú antes de ir ao ar. O desafio não era desenhar do zero. Era fazer um sistema inteiro parecer que sempre foi do banco, sem parar a operação para reconstruir."',
     context:'<p>O Itaú fechou parceria com o BomConsórcio para permitir que clientes com cotas de consórcio canceladas antecipassem o crédito de forma digital, seguindo o mesmo motor de venda de cota secundária já validado pela fintech. A proposta não era construir um produto novo, era entregar uma versão white label: mesma arquitetura de fluxo, mesma lógica de negócio, identidade visual 100% Itaú.</p><p>Isso incluía login e cadastro com detecção de administradora, fluxo de encontrar cota, simulação de oferta, verificação de identidade e uma landing page dedicada para apresentar a parceria antes mesmo do cliente entrar no fluxo de venda. Tudo precisava nascer sob a marca do banco, aprovado pelo time de branding do Itaú, dentro de um cronograma definido pela parceria.</p>',
     diags:[
@@ -744,6 +745,9 @@ function openCase(id,title,push){
     })() : '')
 
     +'<div class="ch-role"><span class="ch-role-lbl" data-pt="Meu papel" data-en="My role">'+(currentLang==='en'?'My role':'Meu papel')+'</span><span class="ch-role-txt">'+d.role+'</span></div>'
+
+    /* Organização do fluxo (Figma) */
+    +(c.orgImg ? '<div class="ch-func-img"><img src="img/'+c.orgImg+'" alt="Organização do fluxo" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
 
     /* O Problema */
     +'<div class="ch-highlight"><div class="ch-highlight-label">'+t("The Problem","O Problema")+'</div>'+d.context+'</div>'
