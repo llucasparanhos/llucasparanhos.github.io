@@ -613,6 +613,7 @@ const CASES={
     ey:'White Label · Design System · Fintech',
     ttl:'Uma marca inteira<br><em>dentro de outro motor.</em>',
     meta:['Product Designer','BomConsórcio × Itaú · Fintech','Figma'],
+    brief:{role:'Product Designer',platform:'Mobile & Desktop · Responsivo',duration:'Ciclo definido pela parceria Itaú'},
     hook:'"O prazo era curto e a régua era de banco. Não bastava reaproveitar o motor do BomConsórcio, cada pixel precisava passar pela aprovação de marca do Itaú antes de ir ao ar. O desafio não era desenhar do zero. Era fazer um sistema inteiro parecer que sempre foi do banco, sem parar a operação para reconstruir."',
     context:'<p>O Itaú fechou parceria com o BomConsórcio para permitir que clientes com cotas de consórcio canceladas antecipassem o crédito de forma digital, seguindo o mesmo motor de venda de cota secundária já validado pela fintech. A proposta não era construir um produto novo, era entregar uma versão white label: mesma arquitetura de fluxo, mesma lógica de negócio, identidade visual 100% Itaú.</p><p>Isso incluía login e cadastro com detecção de administradora, fluxo de encontrar cota, simulação de oferta, verificação de identidade e uma landing page dedicada para apresentar a parceria antes mesmo do cliente entrar no fluxo de venda. Tudo precisava nascer sob a marca do banco, aprovado pelo time de branding do Itaú, dentro de um cronograma definido pela parceria.</p>',
     diags:[
@@ -647,6 +648,7 @@ const CASES={
       ey:'White Label · Design System · Fintech',
       ttl:'An entire brand<br><em>inside another engine.</em>',
       meta:['Product Designer','BomConsórcio × Itaú · Fintech','Figma'],
+      brief:{role:'Product Designer',platform:'Mobile & Desktop · Responsive',duration:'Timeline set by the Itaú partnership'},
       hook:'"The deadline was tight and the bar was bank-grade. It wasn\'t enough to reuse the BomConsórcio engine, every pixel had to pass Itaú\'s brand approval before going live. The challenge wasn\'t designing from scratch. It was making an entire system look like it had always belonged to the bank, without stopping operations to rebuild it."',
       context:'<p>Itaú partnered with BomConsórcio to let clients with cancelled consortium quotas anticipate their credit digitally, following the same secondary quota sale engine already validated by the fintech. The brief wasn\'t to build a new product, it was to deliver a white label version: same flow architecture, same business logic, 100% Itaú visual identity.</p><p>That included login and signup with administrator detection, a find-quota flow, offer simulation, identity verification, and a dedicated landing page introducing the partnership before the client even entered the sale flow. Everything had to be born under the bank\'s brand, approved by Itaú\'s branding team, within a timeline set by the partnership.</p>',
       diags:[
@@ -717,6 +719,29 @@ function openCase(id,title,push){
   heroImg.onerror=function(){ this.style.display='none'; imgArea.innerHTML='<div class="ch-img-ph">'+id+'-case-hero.jpg</div>'; };
   imgArea.appendChild(heroImg);
   ch.appendChild(imgArea);
+
+  // Brief (Meu papel / Plataforma / Duração ao lado da imagem)
+  if(d.brief){
+    const briefEl=document.createElement('div');
+    briefEl.className='ch-brief';
+    const items=[
+      ['role', t('My role','Meu papel')],
+      ['platform', t('Platform','Plataforma')],
+      ['duration', t('Duration','Duração')]
+    ];
+    let infoHtml='<div class="ch-brief-info">';
+    items.forEach(function(it){
+      const key=it[0], label=it[1];
+      if(d.brief[key]){
+        infoHtml+='<div class="ch-brief-item"><div class="ch-brief-label">'+label+'</div><div class="ch-brief-val">'+d.brief[key]+'</div></div>';
+      }
+    });
+    infoHtml+='</div>';
+    const briefImgSrc='img/'+id+'-case-hero.jpg';
+    infoHtml+='<div class="ch-brief-img"><img src="'+briefImgSrc+'" alt="'+title+'" onclick="lbOpen(this.src)" onerror="this.parentElement.style.display=\'none\'"></div>';
+    briefEl.innerHTML=infoHtml;
+    ch.appendChild(briefEl);
+  }
 
   // Body
   const bd=document.createElement('div');
