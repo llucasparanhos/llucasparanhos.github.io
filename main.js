@@ -1084,7 +1084,7 @@ function initCoverflow(id){
   var isDragging = false;
 
   function getCardW(){
-    return parseInt(wrap.dataset.cardW) || (cards[0] ? cards[0].offsetWidth : 200);
+    return (cards[0] ? cards[0].offsetWidth : 0) || parseInt(wrap.dataset.cardW) || 200;
   }
 
   function render(){
@@ -1131,6 +1131,8 @@ function initCoverflow(id){
   });
   wrap.querySelector('.cf-btn-prev').addEventListener('click', function(){ navigate(-1); });
   wrap.querySelector('.cf-btn-next').addEventListener('click', function(){ navigate(1); });
+
+  window.addEventListener('resize', render);
 
   /* Touch swipe */
   wrap.addEventListener('touchstart', function(e){

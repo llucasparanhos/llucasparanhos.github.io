@@ -599,6 +599,9 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   .ch-ct { padding:2rem var(--gap-nav) 0; }
   .ch-bd { padding:0 var(--gap-nav) 4rem; }
   .ch-img-area { width:calc(100% - 2*var(--gap-nav)); margin:1rem auto 0; border-radius:8px; }
+  .case-nav { gap:.75rem; }
+  .case-back { flex-shrink:0; white-space:nowrap; }
+  .case-nav-title { flex:1 1 auto; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-align:right; }
 
   /* Sobre mobile */
   .sobre-page { padding:2rem var(--gap-nav) 4rem !important; }
@@ -1090,7 +1093,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 @media(max-width:1100px){
   #ch-itau .ch-sol-cards { grid-template-columns:1fr 1fr; }
 }
-@media(max-width:600px){
+@media(max-width:900px){
   #ch-itau .ch-sol-cards { grid-template-columns:1fr; }
 }
 
@@ -1542,5 +1545,5 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 /* KPI grid — variante 4 colunas (cases com 4 KPIs, ex: Itaú) */
 .ch-kpi-grid-4 { grid-template-columns:repeat(4,1fr) !important; }
 @media(max-width:900px){
-  .ch-kpi-grid-4 { grid-template-columns:1fr 1fr !important; }
+  .ch-kpi-grid-4 { grid-template-columns:1fr !important; }
 }
