@@ -1328,6 +1328,29 @@ function initCompSliders(){
   initMagnetic();
 })();
 
+/* ── Parallax nos cards da home ── */
+(function(){
+  var cardImgs = document.querySelectorAll('.pc-img img');
+  if(!cardImgs.length) return;
+  var ticking = false;
+  function updateParallax(){
+    cardImgs.forEach(function(img){
+      var card = img.closest('.pc');
+      var rect = card.getBoundingClientRect();
+      var vh = window.innerHeight;
+      if(rect.bottom < 0 || rect.top > vh) return; /* fora da tela, não calcula */
+      var progress = (rect.top - vh) / (-rect.height - vh) - 0.5; /* -0.5..0.5 aprox */
+      var shift = Math.max(-14, Math.min(14, progress * 28));
+      img.style.setProperty('--pc-parallax', shift.toFixed(1)+'px');
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ window.requestAnimationFrame(updateParallax); ticking = true; }
+  }, {passive:true});
+  updateParallax();
+})();
+
 /* ── Parallax no hero ── */
 (function(){
   var heroType = document.querySelector('.hero-type-wrap');
