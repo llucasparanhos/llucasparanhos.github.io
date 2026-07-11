@@ -611,7 +611,7 @@ const CASES={
   itau:{
     color:'#EC7000',bg:'#111',
     ey:'White Label · Design System · Fintech',
-    ttl:'White label Itaú:<br><em>0 a 1, no prazo.</em>',
+    ttl:'Por fora, Itaú.<br><em>Por dentro, BomConsórcio.</em>',
     meta:['Product Designer','BomConsórcio × Itaú · Fintech','Figma'],
     orgImg:'img-figma-white-label.jpg',
     processoImg:'User-Flow-White-Label-Itaú.jpg',
@@ -653,7 +653,7 @@ const CASES={
     ],
     en:{
       ey:'White Label · Design System · Fintech',
-      ttl:'White label Itaú:<br><em>0 to 1, on time.</em>',
+      ttl:'On the outside, Itaú.<br><em>On the inside, BomConsórcio.</em>',
       meta:['Product Designer','BomConsórcio × Itaú · Fintech','Figma'],
       hook:'"The deadline was tight and the bar was bank-grade. It wasn\'t enough to reuse the BomConsórcio engine, every pixel had to pass Itaú\'s brand approval before going live. The challenge wasn\'t designing from scratch. It was making an entire system look like it had always belonged to the bank, without stopping operations to rebuild it."',
       context:'<p>The flow\'s goal is simple to state and complex to deliver: an Itaú client with a cancelled consortium quota enters the system and receives a credit anticipation offer for that quota, following the same secondary sale engine already validated by BomConsórcio. From the first click to the offer on screen, the client goes through a full process of identification, validation and simulation.</p><p>The white label was split into two environments. <strong>Environment 1 (external)</strong> covers everything before login — the partnership landing page, signup, token validation and password recovery. <strong>Environment 2 (internal)</strong> starts once the client logs in — quota location, identity verification and offer simulation. Both needed the same visual and brand coherence, despite being completely different stages and contexts.</p>',
