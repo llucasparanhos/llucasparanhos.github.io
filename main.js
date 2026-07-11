@@ -293,15 +293,17 @@ function closeMob(){
 
 /* ── REVEAL ON SCROLL ── */
 const allReveal = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-  });
-}, { threshold: .05, rootMargin: '0px 0px -20px 0px' });
-allReveal.forEach(r => obs.observe(r));
-setTimeout(() => {
-  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-}, 1400);
+if('IntersectionObserver' in window){
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: .1, rootMargin: '0px 0px -100px 0px' });
+  allReveal.forEach(r => obs.observe(r));
+} else {
+  /* fallback só pra navegadores sem suporte a IntersectionObserver */
+  allReveal.forEach(el => el.classList.add('visible'));
+}
 
 const CASES={
   wellhub:{
