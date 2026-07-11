@@ -895,7 +895,7 @@ function openCase(id,title,push){
   setTimeout(animateCaseEntrance,50);
   setTimeout(initCompSliders,100);
   setTimeout(function(){ initCoverflow(id); if(c.carousel) initCoverflow(id+'-carousel'); },150);
-  setTimeout(function(){ initCurtainReveal(ch); initLetterReveal(ch); initScrollSkew('.ch-bd'); },150);
+  setTimeout(function(){ initCurtainReveal(ch); initLetterReveal(ch); },150);
 
   if(push){
     history.pushState({ page: 'case', id: id, title: title }, '', '#case-' + id);
@@ -1365,32 +1365,6 @@ function initLetterReveal(root){
 }
 document.addEventListener('DOMContentLoaded', function(){ initLetterReveal(); });
 if(document.readyState !== 'loading') initLetterReveal();
-
-/* 2. Distorção sutil (skew) baseada na velocidade do scroll */
-function initScrollSkew(selector){
-  var el = document.querySelector(selector);
-  if(!el) return;
-  var lastY = window.scrollY, velocity = 0, current = 0, raf = null;
-  function loop(){
-    var target = Math.max(-2.2, Math.min(2.2, velocity * 0.5));
-    current += (target - current) * 0.14;
-    el.style.transform = Math.abs(current) > 0.02 ? 'skewY(' + current.toFixed(2) + 'deg)' : '';
-    velocity *= 0.82;
-    if(Math.abs(velocity) > 0.03 || Math.abs(current) > 0.02){
-      raf = requestAnimationFrame(loop);
-    } else {
-      el.style.transform = '';
-      raf = null;
-    }
-  }
-  window.addEventListener('scroll', function(){
-    var y = window.scrollY;
-    velocity = y - lastY;
-    lastY = y;
-    if(!raf) raf = requestAnimationFrame(loop);
-  }, {passive:true});
-}
-initScrollSkew('.projects-grid');
 
 /* 3. Reveal em "cortina" — painel desliza revelando a imagem por trás */
 function initCurtainReveal(root){

@@ -1566,7 +1566,6 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 }
 .split-in .split-letter { transform:translateY(0); opacity:1; }
 
-/* 2. Skew no scroll — suavização já é feita via JS (requestAnimationFrame), sem transition CSS aqui */
 
 /* 3. Reveal em cortina sobre imagens */
 .curtain-panel {
