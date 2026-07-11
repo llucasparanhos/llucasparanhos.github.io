@@ -1552,3 +1552,30 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 @media(max-width:900px){
   .ch-kpi-grid-4 { grid-template-columns:1fr !important; }
 }
+
+/* ── Efeitos estilo Webflow ── */
+
+/* 1. Texto letra por letra */
+[data-split] { overflow:hidden; display:inline-block; }
+.split-letter {
+  display:inline-block;
+  transform:translateY(110%);
+  opacity:0;
+  transition:transform .6s cubic-bezier(.16,1,.3,1), opacity .5s ease;
+  will-change:transform;
+}
+.split-in .split-letter { transform:translateY(0); opacity:1; }
+
+/* 2. Skew no scroll — suavização já é feita via JS (requestAnimationFrame), sem transition CSS aqui */
+
+/* 3. Reveal em cortina sobre imagens */
+.curtain-panel {
+  position:absolute; inset:0;
+  background:var(--c-bg2);
+  transform-origin:top;
+  transform:scaleY(1);
+  transition:transform .9s cubic-bezier(.76,0,.24,1);
+  z-index:2;
+  pointer-events:none;
+}
+.curtain-panel.curtain-open { transform:scaleY(0); }

@@ -762,7 +762,7 @@ function openCase(id,title,push){
     +(c.orgImg ? '<div class="ch-func-img"><img src="img/'+c.orgImg+'" alt="Organização do fluxo" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
 
     /* O Problema */
-    +'<div class="ch-highlight"><div class="ch-highlight-label">'+t("The Problem","O Problema")+'</div>'+d.context+'</div>'
+    +'<div class="ch-highlight"><div class="ch-highlight-label" data-split>'+t("The Problem","O Problema")+'</div>'+d.context+'</div>'
 
     /* Persona (checkout) */
     +(c.personaImg ? '<div class="ch-func-img"><img src="img/'+c.personaImg+'" alt="Persona" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
@@ -798,7 +798,7 @@ function openCase(id,title,push){
     +(c.funcImg ? '<div class="ch-func-img"><img src="img/'+c.funcImg+'" alt="func" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
 
     /* KPIs & OKRs */
-    +'<div class="ch-highlight"><div class="ch-highlight-label">KPIs &amp; OKRs</div>'
+    +'<div class="ch-highlight"><div class="ch-highlight-label" data-split>KPIs &amp; OKRs</div>'
       +'<div class="ch-okr-block">'
         +'<div class="ch-okr-head"><div class="ch-okr-head-icon">&#9678;</div><div><span class="ch-okr-head-label">'+t("Objective","Objetivo")+'</span><div class="ch-okr-head-obj">'+d.objetivo+'</div></div></div>'
         +'<div class="ch-okr-trunk"></div>'
@@ -814,7 +814,7 @@ function openCase(id,title,push){
     +'<div class="ch-func-img"><img src="img/'+(c.processoImg || (id+'-processo.jpg'))+'" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>'
 
     /* Como pensei a solução */
-    +'<div class="ch-highlight"><div class="ch-highlight-label">'+t("How I approached the solution","Como pensei a solução")+'</div>'+d.insight+d.sol
+    +'<div class="ch-highlight"><div class="ch-highlight-label" data-split>'+t("How I approached the solution","Como pensei a solução")+'</div>'+d.insight+d.sol
     +(c.wireframes ? '<div class="ch-func-img"><img src="img/'+c.wireframes+'" alt="wireframes" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
     +'</div>'
 
@@ -895,6 +895,7 @@ function openCase(id,title,push){
   setTimeout(animateCaseEntrance,50);
   setTimeout(initCompSliders,100);
   setTimeout(function(){ initCoverflow(id); if(c.carousel) initCoverflow(id+'-carousel'); },150);
+  setTimeout(function(){ initCurtainReveal(ch); initLetterReveal(ch); initScrollSkew('.ch-bd'); },150);
 
   if(push){
     history.pushState({ page: 'case', id: id, title: title }, '', '#case-' + id);
@@ -1329,6 +1330,89 @@ function initCompSliders(){
   }
   initMagnetic();
 })();
+
+/* ── Efeitos estilo Webflow: split-letras, skew no scroll, cortina ── */
+
+/* 1. Texto letra por letra ao entrar na tela */
+function initLetterReveal(root){
+  var scope = root || document;
+  var targets = scope.querySelectorAll('[data-split]:not([data-split-done])');
+  targets.forEach(function(el){
+    el.setAttribute('data-split-done','1');
+    var text = el.textContent;
+    el.textContent = '';
+    var frag = document.createDocumentFragment();
+    text.split('').forEach(function(ch, i){
+      var span = document.createElement('span');
+      span.className = 'split-letter';
+      span.style.transitionDelay = (i * 22) + 'ms';
+      span.textContent = ch === ' ' ? '\u00A0' : ch;
+      frag.appendChild(span);
+    });
+    el.appendChild(frag);
+    el.classList.add('split-ready');
+  });
+  if(!targets.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('split-in');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.4});
+  targets.forEach(function(el){ obs.observe(el); });
+}
+document.addEventListener('DOMContentLoaded', function(){ initLetterReveal(); });
+if(document.readyState !== 'loading') initLetterReveal();
+
+/* 2. Distorção sutil (skew) baseada na velocidade do scroll */
+function initScrollSkew(selector){
+  var el = document.querySelector(selector);
+  if(!el) return;
+  var lastY = window.scrollY, velocity = 0, current = 0, raf = null;
+  function loop(){
+    var target = Math.max(-2.2, Math.min(2.2, velocity * 0.5));
+    current += (target - current) * 0.14;
+    el.style.transform = Math.abs(current) > 0.02 ? 'skewY(' + current.toFixed(2) + 'deg)' : '';
+    velocity *= 0.82;
+    if(Math.abs(velocity) > 0.03 || Math.abs(current) > 0.02){
+      raf = requestAnimationFrame(loop);
+    } else {
+      el.style.transform = '';
+      raf = null;
+    }
+  }
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    velocity = y - lastY;
+    lastY = y;
+    if(!raf) raf = requestAnimationFrame(loop);
+  }, {passive:true});
+}
+initScrollSkew('.projects-grid');
+
+/* 3. Reveal em "cortina" — painel desliza revelando a imagem por trás */
+function initCurtainReveal(root){
+  var scope = root || document;
+  var wraps = scope.querySelectorAll('.ch-func-img:not([data-curtain-done]), .ch-img-area:not([data-curtain-done])');
+  wraps.forEach(function(wrap){
+    wrap.setAttribute('data-curtain-done','1');
+    var curtain = document.createElement('div');
+    curtain.className = 'curtain-panel';
+    wrap.style.position = wrap.style.position || 'relative';
+    wrap.appendChild(curtain);
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          setTimeout(function(){ curtain.classList.add('curtain-open'); }, 120);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.2});
+    obs.observe(wrap);
+  });
+}
 
 /* ── Parallax nos cards da home ── */
 (function(){
