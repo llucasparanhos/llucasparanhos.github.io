@@ -614,6 +614,8 @@ const CASES={
     ttl:'Uma marca inteira<br><em>dentro de outro motor.</em>',
     meta:['Product Designer','BomConsórcio × Itaú · Fintech','Figma'],
     orgImg:'img-figma-white-label.jpg',
+    processoImg:'User-Flow-White-Label-Itaú.jpg',
+    mobileImg:'mockup-mobile-itaú.jpg',
     cfCardW:640,
     telas:['itau-tela-01.jpg','itau-tela-02.jpg','itau-tela-03.jpg','itau-tela-04.jpg','itau-tela-05.jpg','itau-tela-06.jpg','itau-tela-07.jpg','itau-tela-08.jpg','itau-tela-09.jpg','itau-tela-10.jpg','itau-tela-11.jpg'],
     telasLabels:['Início — LP Itaú','Cadastro — Início','Cadastro — Dados','Cadastro — Criar conta','Cadastro — Confirmar e-mail','Cadastro — Verificação de identidade','Cadastro — Conta criada com sucesso','Login — Início','Login — Encontrar cota','Login — Oferta','Estado de exceção — cota'],
@@ -627,10 +629,10 @@ const CASES={
       {icon:'📢',title:'Parceria banco + fintech sem lugar pra explicar',desc:'Não existia página que justificasse por que um cliente do Itaú deveria confiar numa fintech parceira para vender a cota. Sem essa camada, a desconfiança inicial era um risco real de abandono.'}
     ],
     kpis:[
+      {icon:'🗺️',label:'Cobertura mapeada',val:'PF + PJ · Desktop + App',desc:'Jornada completa mapeada e desenhada: acesso ao site, cadastro, validação por token, login, recuperação de senha, localização de cota, oferta e estados de erro'},
       {icon:'⏱',label:'Tempo de aprovação de marca',val:'Ciclo de revisão',desc:'Dias entre entrega de tela e aprovação do time de branding do Itaú'},
       {icon:'♻️',label:'Reuso do design system',val:'% de componentes',desc:'Proporção de componentes do BomConsórcio reaproveitados sem reconstrução'},
-      {icon:'🚀',label:'Tempo até o ar',val:'Kickoff → Lançamento',desc:'Tempo total entre o início do projeto e o lançamento da versão white label'},
-      {icon:'🗺️',label:'Cobertura mapeada',val:'PF + PJ · Desktop + App',desc:'Jornada completa mapeada e desenhada: acesso ao site, cadastro, validação por token, login, recuperação de senha, localização de cota, oferta e estados de erro'}
+      {icon:'🚀',label:'Tempo até o ar',val:'Kickoff → Lançamento',desc:'Tempo total entre o início do projeto e o lançamento da versão white label'}
     ],
     role:'Product Designer responsável pela white label completa do fluxo BomConsórcio para o Itaú, cobrindo os dois ambientes do produto — externo (pré-login) e interno (pós-login) — em versão desktop e app, para pessoa física e pessoa jurídica. Mapeei toda a jornada do usuário: acesso ao site, cadastro, validação via token, verificação de identidade, login, recuperação de senha, localização da cota, simulação de oferta e estados de erro. Construí também um mini design system para sustentar essa adaptação. Atuação direta com a responsável por branding do Itaú.',
     insight:'<p>White label não é reskin. A tentação era tratar a adaptação como troca de cor e logo, mas a régua de aprovação de banco expôs uma dívida estrutural: o BomConsórcio não tinha uma camada de tema separada da lógica de fluxo. O trabalho real foi <strong>tokenizar a marca</strong> — isolar o que era "Itaú" do que era "processo de venda de cota" — para que qualquer próxima marca parceira pudesse ser plugada sem reescrever nada. Compliance de banco não é obstáculo de design, é um teste de arquitetura.</p>',
@@ -664,10 +666,10 @@ const CASES={
         {icon:'📢',title:'A bank + fintech partnership with nowhere to explain itself',desc:'There was no page justifying why an Itaú client should trust a partner fintech to sell their quota. Without that layer, initial distrust was a real abandonment risk.'}
       ],
       kpis:[
+        {icon:'🗺️',label:'Mapped coverage',val:'PF + PJ · Desktop + App',desc:'Full journey mapped and designed: site access, signup, token validation, login, password recovery, quota location, offer and error states'},
         {icon:'⏱',label:'Brand approval time',val:'Review cycle',desc:'Days between screen delivery and approval from Itaú\'s branding team'},
         {icon:'♻️',label:'Design system reuse',val:'% of components',desc:'Proportion of BomConsórcio components reused without rebuild'},
-        {icon:'🚀',label:'Time to launch',val:'Kickoff → Launch',desc:'Total time between project kickoff and the white label launch'},
-        {icon:'🗺️',label:'Mapped coverage',val:'PF + PJ · Desktop + App',desc:'Full journey mapped and designed: site access, signup, token validation, login, password recovery, quota location, offer and error states'}
+        {icon:'🚀',label:'Time to launch',val:'Kickoff → Launch',desc:'Total time between project kickoff and the white label launch'}
       ],
       role:'Product Designer responsible for the full white label of the BomConsórcio flow for Itaú, covering both product environments — external (pre-login) and internal (post-login) — in desktop and app versions, for individual and business clients. I mapped the entire user journey: site access, signup, token validation, identity verification, login, password recovery, quota location, offer simulation and error states. I also built a mini design system to sustain the adaptation. Worked directly with Itaú\'s branding lead.',
       insight:'<p>White label isn\'t a reskin. The temptation was to treat the adaptation as swapping color and logo, but the bank\'s approval bar exposed a structural debt: BomConsórcio had no theme layer separate from its flow logic. The real work was <strong>tokenizing the brand</strong> — isolating what was "Itaú" from what was "quota sale process" — so the next partner brand could be plugged in without rewriting anything. Bank compliance isn\'t a design obstacle, it\'s an architecture test.</p>',
@@ -705,6 +707,7 @@ function openCase(id,title,push){
 
   const ch=document.createElement('div');
   ch.className='ch';
+  ch.id='ch-'+id;
   ch.style.setProperty('--case-color',c.color);
 
   // Header
@@ -803,12 +806,12 @@ function openCase(id,title,push){
         +'<div class="ch-kr-dots"><div class="ch-kr-dot"></div><div class="ch-kr-dot"></div><div class="ch-kr-dot"></div></div>'
         +'<div class="ch-kr-list">'+d.krs.map(function(kr,i){return '<div class="ch-kr"><div class="ch-kr-num">KR'+(i+1)+'</div><div class="ch-kr-txt">'+kr.txt+'</div><div class="ch-kr-badge">'+kr.meta+'</div></div>';}).join('')+'</div>'
         +'<div class="ch-kpi-drops"><div class="ch-kpi-drop"></div><div class="ch-kpi-drop"></div><div class="ch-kpi-drop"></div></div>'
-        +'<div class="ch-kpi-grid">'+d.kpis.map(function(k){return '<div class="ch-kpi"><div class="ch-kpi-label">'+k.label+'</div><div class="ch-kpi-val">'+k.val+'</div><div class="ch-kpi-desc">'+k.desc+'</div></div>';}).join('')+'</div>'
+        +'<div class="ch-kpi-grid'+(d.kpis.length===4?' ch-kpi-grid-4':'')+'">'+d.kpis.map(function(k){return '<div class="ch-kpi"><div class="ch-kpi-label">'+k.label+'</div><div class="ch-kpi-val">'+k.val+'</div><div class="ch-kpi-desc">'+k.desc+'</div></div>';}).join('')+'</div>'
       +'</div>'
     +'</div>'
 
     /* Processo */
-    +'<div class="ch-func-img"><img src="img/'+id+'-processo.jpg" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>'
+    +'<div class="ch-func-img"><img src="img/'+(c.processoImg || (id+'-processo.jpg'))+'" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>'
 
     /* Como pensei a solução */
     +'<div class="ch-highlight"><div class="ch-highlight-label">'+t("How I approached the solution","Como pensei a solução")+'</div>'+d.insight+d.sol
@@ -880,6 +883,9 @@ function openCase(id,title,push){
       var badge = r[2] ? '<div class="res-badge '+r[3]+'"><i class="ti '+r[2]+'" aria-hidden="true"></i> '+badgeWord+'</div>' : '';
       return '<div class="res-item">'+badge+'<div class="res-n">'+r[0]+'</div><div class="res-l">'+r[1]+'</div></div>';
     }).join('')+'</div>'
+
+    /* Mockup mobile — imagem final */
+    +(c.mobileImg ? '<div class="ch-func-img" style="margin-top:2rem;"><img src="img/'+c.mobileImg+'" alt="mockup mobile" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
   ch.appendChild(bd);
   slot.appendChild(ch);
 
