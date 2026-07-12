@@ -35,21 +35,44 @@ function applyLang(){
 
 
 /* ── LIGHTBOX ── */
+var _lbGallery = null; // {images:[...], index:0}
 function lbOpen(src){
   var img = document.getElementById('lb-img');
   var overlay = document.getElementById('lb-overlay');
   if(!img || !overlay) return;
+  _lbGallery = null;
   img.src = src;
   overlay.classList.add('open');
+  overlay.classList.remove('lb-has-nav');
   document.body.style.overflow = 'hidden';
+}
+function lbOpenGallery(images, startIndex){
+  var img = document.getElementById('lb-img');
+  var overlay = document.getElementById('lb-overlay');
+  if(!img || !overlay || !images || !images.length) return;
+  _lbGallery = { images: images, index: startIndex || 0 };
+  img.src = images[_lbGallery.index];
+  overlay.classList.add('open');
+  overlay.classList.toggle('lb-has-nav', images.length > 1);
+  document.body.style.overflow = 'hidden';
+}
+function lbNav(dir){
+  if(!_lbGallery) return;
+  var g = _lbGallery;
+  g.index = (g.index + dir + g.images.length) % g.images.length;
+  var img = document.getElementById('lb-img');
+  if(img) img.src = g.images[g.index];
 }
 function lbClose(){
   var overlay = document.getElementById('lb-overlay');
   if(overlay) overlay.classList.remove('open');
   document.body.style.overflow = '';
+  _lbGallery = null;
 }
 document.addEventListener('keydown', function(e){
   if(e.key === 'Escape') lbClose();
+  if(e.key === 'ArrowLeft') lbNav(-1);
+  if(e.key === 'ArrowRight') lbNav(1);
 });
 /* v2 */
 
@@ -309,6 +332,7 @@ const CASES={
   wellhub:{
     color:'#0F6E56',bg:'#111',
     autoral:true,
+    model:['B2C'],
     prototipo:{src:'wellhub-prototipo.mp4', ratio:'450/900'},
     carousel:['wellhub-problema-1.jpg','wellhub-problema-2.jpg','wellhub-problema-3.jpg','wellhub-problema-4.jpg','wellhub-problema-5.jpg','wellhub-problema-6.jpg','wellhub-problema-7.jpg','wellhub-problema-8.jpg','wellhub-problema-9.jpg','wellhub-problema-10.jpg'],
     comparativo:['wellhub-comp-1.jpg','wellhub-comp-2.jpg','wellhub-comp-3.jpg','wellhub-comp-4.jpg'],
@@ -364,6 +388,7 @@ const CASES={
   },
   credenciados:{
     color:'#185FA5',bg:'#111',
+    model:['B2C'],
     cfCardW:160,
     prototipo:{src:'credenciados-prototipo.mp4', ratio:'608/1080'},
     telas:['credenciados-tela-1.jpg','credenciados-tela-2.jpg','credenciados-tela-3.jpg','credenciados-tela-4.jpg','credenciados-tela-5.jpg','credenciados-tela-6.jpg'],
@@ -421,6 +446,7 @@ const CASES={
   },
   checkout:{
     color:'#993556',bg:'#111',
+    model:['B2C'],
     prototipo:[
       {src:'checkout-prototipo-desktop.mp4', ratio:'2880/1800', label:'Desktop'},
       {src:'checkout-prototipo-mobile.mp4', ratio:'900/1800', label:'Mobile'}
@@ -536,6 +562,7 @@ const CASES={
   ,
   bomconsorcio:{
     color:'#9247F0',bg:'#111',
+    model:['B2C'],
     ey:'UX Writing · Arquitetura da Informação · Fintech',
     ttl:'Um sistema que todos<br><em>conseguem usar.</em>',
     meta:['Product Designer','BomConsórcio · Fintech','Figma'],
@@ -612,6 +639,7 @@ const CASES={
   ,
   itau:{
     color:'#EC7000',bg:'#111',
+    model:['B2B','B2C'],
     ey:'White Label · Design System · Fintech',
     ttl:'Por fora, Itaú.<br><em>Por dentro, BomConsórcio.</em>',
     meta:['Product Designer','BomConsórcio × Itaú · Fintech','Figma'],
@@ -693,6 +721,8 @@ const CASES={
   ,
   passaporte:{
     color:'#B8860B',bg:'#111',
+    model:['B2C','B2E'],
+    platformBadge:'📱 App Mobile · Fluxo conversacional na versão do cliente',
     ey:'Assinatura · Pagamentos · HealthTech',
     ttl:'Uma assinatura,<br><em>dois lados da venda.</em>',
     meta:['Product Designer','Kivid · HealthTech · Fintech','Figma'],
@@ -729,6 +759,7 @@ const CASES={
     ],
     en:{
       ey:'Subscription · Payments · HealthTech',
+      platformBadge:'📱 Mobile App · Conversational flow on the client side',
       ttl:'One subscription,<br><em>two sides of the sale.</em>',
       meta:['Product Designer','Kivid · HealthTech · Fintech','Figma'],
       hook:'"Designing the checkout screen is the easy part. The hard part is making sure that the moment a client finishes paying in the app, the seller sees the exact same sale confirmed in their portal — whether the payment was PIX, card, points, or a physical card machine. It wasn\'t one screen. It was two systems telling the same story at the same time."',
@@ -787,8 +818,10 @@ function openCase(id,title,push){
   const ct=document.createElement('div');
   ct.className='ch-ct';
   ct.innerHTML=(d.autoral ? '<div class="ch-autoral-badge" data-pt="Case Autoral" data-en="Personal Project">Case Autoral</div>' : '')
+    +(c.model ? '<div class="ch-model-badges">'+c.model.map(function(m){return '<span class="ch-model-badge">'+m+'</span>';}).join('')+'</div>' : '')
     +'<div class="ch-ey">'+d.ey+'</div>'
-    +'<div class="ch-title">'+d.ttl+'</div>';
+    +'<div class="ch-title">'+d.ttl+'</div>'
+    +(d.platformBadge ? '<div class="ch-platform-badge">'+d.platformBadge+'</div>' : '');
   ch.appendChild(ct);
 
   // Hero image
@@ -803,6 +836,19 @@ function openCase(id,title,push){
   heroImg.onerror=function(){ this.style.display='none'; imgArea.innerHTML='<div class="ch-img-ph">'+id+'-case-hero.jpg</div>'; };
   imgArea.appendChild(heroImg);
   ch.appendChild(imgArea);
+
+  // Resultados em destaque — logo após o hero
+  const resHero=document.createElement('div');
+  resHero.className='ch-res-hero';
+  resHero.innerHTML=
+    '<div class="ch-res-hero-label">'+(d.resultsLabel || t("Results","Resultados"))+'</div>'
+    +'<div class="ch-res-hero-grid">'+d.results.map(function(r){
+      var badgeWord = r[4] || (r[3]==='up'?'↑ atingido':r[3]==='down'?'↓ reduzido':'✓ validado');
+      var badge = r[2] ? '<div class="res-badge '+r[3]+'"><i class="ti '+r[2]+'" aria-hidden="true"></i> '+badgeWord+'</div>' : '';
+      return '<div class="ch-res-hero-item">'+badge+'<div class="ch-res-hero-n">'+r[0]+'</div><div class="ch-res-hero-l">'+r[1]+'</div></div>';
+    }).join('')+'</div>'
+    +(c.medicao ? '<div class="ch-medicao ch-medicao-top"><div class="ch-medicao-label">'+t('How we measured','Como medimos')+'</div><p class="ch-medicao-texto">'+c.medicao.texto+'</p><div class="ch-medicao-tools">'+c.medicao.tools.map(function(tl){return '<span class="ch-medicao-tool">'+tl+'</span>';}).join('')+'</div></div>' : '');
+  ch.appendChild(resHero);
 
   // Body
   const bd=document.createElement('div');
@@ -846,26 +892,7 @@ function openCase(id,title,push){
     }).join('')+'</div>' : '')
 
     /* Wellhub: carrossel de problema */
-    +(c.carousel ? (function(){
-      var cfId = id+'-carousel';
-      var dots = c.carousel.map(function(_,i){
-        return '<div class="cf-dot-nav'+(i===0?' active':'')+'" data-cf-idx="'+i+'"></div>';
-      }).join('');
-      var cards = c.carousel.map(function(img,i){
-        var cls = i===0?' active':i===1?' near':'';
-        return '<div class="cf-card'+cls+'" data-cf-i="'+i+'" data-img="img/'+img+'">'
-          +'<img src="img/'+img+'" alt="'+i+'" loading="lazy">'
-        +'</div>';
-      }).join('');
-      return '<div class="cf-wrap" id="cf-wrap-'+cfId+'" data-card-w="250">'
-        +'<div class="cf-track">'+cards+'</div>'
-        +'<div class="cf-nav">'
-          +'<button class="cf-btn cf-btn-prev">&#8249;</button>'
-          +'<div class="cf-dots">'+dots+'</div>'
-          +'<button class="cf-btn cf-btn-next">&#8250;</button>'
-        +'</div>'
-      +'</div>';
-    })() : '')
+    +(c.carousel ? renderCarousel2(c.carousel, [], id+'-carousel') : '')
 
     /* Credenciados: funcionalidades wide */
     +(c.funcImg ? '<div class="ch-func-img"><img src="img/'+c.funcImg+'" alt="func" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
@@ -902,32 +929,8 @@ function openCase(id,title,push){
     /* Antes × Depois — imagem única */
     +(c.antesDepois ? '<div class="ch-func-img"><img src="img/'+c.antesDepois+'" alt="Antes e Depois" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)" loading="lazy"></div>' : '')
 
-    /* Carrossel coverflow — telas */
-    +(c.telas ? (function(){
-      var labels = c.telasLabels || [];
-      var cardW = c.cfCardW || 200;
-      var dots = c.telas.map(function(_,i){
-        return '<div class="cf-dot-nav'+(i===0?' active':'')+'" data-cf-idx="'+i+'"></div>';
-      }).join('');
-      var cards = c.telas.map(function(img,i){
-        var num = ('0'+(i+1)).slice(-2);
-        var name = labels[i] || '';
-        var cls = i===0?' active':i===1?' near':'';
-        return '<div class="cf-card'+cls+'" data-cf-i="'+i+'" data-img="img/'+img+'">'
-          +'<img src="img/'+img+'" alt="Tela '+num+'" loading="lazy">'
-          +(name ? '<div class="cf-card-label"><span class="cf-card-num">'+num+'</span><span class="cf-card-name">'+name+'</span></div>' : '')
-        +'</div>';
-      }).join('');
-      return '<h3>'+t("Screens","Telas")+'</h3>'
-        +'<div class="cf-wrap" id="cf-wrap-'+id+'" data-card-w="'+cardW+'">'
-          +'<div class="cf-track">'+cards+'</div>'
-          +'<div class="cf-nav">'
-            +'<button class="cf-btn cf-btn-prev">&#8249;</button>'
-            +'<div class="cf-dots">'+dots+'</div>'
-            +'<button class="cf-btn cf-btn-next">&#8250;</button>'
-          +'</div>'
-        +'</div>';
-    })() : '')
+    /* Carrossel — telas */
+    +(c.telas ? '<h3>'+t("Screens","Telas")+'</h3>'+renderCarousel2(c.telas, c.telasLabels || [], id) : '')
 
     /* Wellhub: comparativo 2x2 */
     +(c.comparativo
@@ -937,25 +940,6 @@ function openCase(id,title,push){
         }).join('')+'</div>'
       : ''
     )
-
-    /* Como medimos */
-    +(c.medicao ? (function(){
-      return '<div class="ch-medicao">'
-        +'<div class="ch-medicao-label">'+t('How we measured','Como medimos')+'</div>'
-        +'<p class="ch-medicao-texto">'+c.medicao.texto+'</p>'
-        +'<div class="ch-medicao-tools">'+c.medicao.tools.map(function(t){
-          return '<span class="ch-medicao-tool">'+t+'</span>';
-        }).join('')+'</div>'
-      +'</div>';
-    })() : '')
-
-    /* Resultados */
-    +'<h3>'+(d.resultsLabel || t("Results","Resultados"))+'</h3>'
-    +'<div class="res-grid">'+d.results.map(function(r){
-      var badgeWord = r[4] || (r[3]==='up'?'↑ atingido':r[3]==='down'?'↓ reduzido':'✓ validado');
-      var badge = r[2] ? '<div class="res-badge '+r[3]+'"><i class="ti '+r[2]+'" aria-hidden="true"></i> '+badgeWord+'</div>' : '';
-      return '<div class="res-item">'+badge+'<div class="res-n">'+r[0]+'</div><div class="res-l">'+r[1]+'</div></div>';
-    }).join('')+'</div>'
 
     /* Mockup mobile — imagem final */
     +(c.mobileImg ? '<div class="ch-func-img" style="margin-top:2rem;"><img src="img/'+c.mobileImg+'" alt="mockup mobile" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
@@ -967,7 +951,7 @@ function openCase(id,title,push){
   window.scrollTo({top:0,behavior:'instant'});
   setTimeout(animateCaseEntrance,50);
   setTimeout(initCompSliders,100);
-  setTimeout(function(){ initCoverflow(id); if(c.carousel) initCoverflow(id+'-carousel'); },150);
+  setTimeout(function(){ if(c.telas) initCarousel2(id); if(c.carousel) initCarousel2(id+'-carousel'); },150);
   setTimeout(function(){ initCurtainReveal(ch); initLetterReveal(ch); },150);
 
   if(push){
@@ -1044,6 +1028,16 @@ function animateCaseEntrance(){
       hook.style.opacity='1'; hook.style.transform='translateY(0)';
     }); });
   }
+  /* Resultados em destaque — entra logo após a hero image */
+  var resHero = document.querySelector('.ch-res-hero');
+  if(resHero){
+    resHero.style.opacity='0';
+    resHero.style.transform='translateY(24px) scale(0.98)';
+    resHero.style.transition='opacity .8s var(--ease) .32s, transform .8s var(--ease) .32s';
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      resHero.style.opacity='1'; resHero.style.transform='translateY(0) scale(1)';
+    }); });
+  }
   /* Scroll reveal para o restante */
   setTimeout(initCaseScrollReveal, 600);
 }
@@ -1053,7 +1047,7 @@ function initCaseScrollReveal(){
   if(!ch) return;
   var sel = [
     '.ch-video-wrap','.ch-role','.ch-highlight','.ch-kpi-grid',
-    '.ch-diag-grid','.ch-res-grid','.ch-medicao','.cf-wrap',
+    '.ch-diag-grid','.ch-res-grid','.ch-medicao','.cf2-wrap',
     '.ch-func-img','.ch-antes-grid','.ch-slider-wrap','.ch-comp-sidebyside',
     '.ch-sol-cards','.ch-sol-aside','.ch-autoral-badge',
     '.ch-telas-list','.ch-bd > h3','.ch-bd > p'
@@ -1146,102 +1140,86 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeFeedback
 })();
 
 /* ── Coverflow ── */
-function initCoverflow(id){
-  var wrap = document.getElementById('cf-wrap-'+id);
+function renderCarousel2(images, labels, id){
+  var slides = images.map(function(img, i){
+    var num = ('0'+(i+1)).slice(-2);
+    var name = labels[i] || '';
+    return '<div class="cf2-slide" data-i="'+i+'" data-img="img/'+img+'">'
+      +'<img src="img/'+img+'" alt="Tela '+num+'" loading="lazy">'
+      +(name ? '<div class="cf2-slide-label"><span class="cf2-slide-num">'+num+'</span><span class="cf2-slide-name">'+name+'</span></div>' : '')
+    +'</div>';
+  }).join('');
+  var arrows = images.length > 1
+    ? '<button class="cf2-arrow cf2-arrow-prev" aria-label="Anterior">&#8249;</button><button class="cf2-arrow cf2-arrow-next" aria-label="Próxima">&#8250;</button>'
+    : '';
+  return '<div class="cf2-wrap" id="cf2-wrap-'+id+'">'
+    +'<div class="cf2-track">'+slides+'</div>'
+    +arrows
+  +'</div>';
+}
+
+function initCarousel2(id){
+  var wrap = document.getElementById('cf2-wrap-'+id);
   if(!wrap) return;
-  var track = wrap.querySelector('.cf-track');
-  var cards = Array.from(track.querySelectorAll('.cf-card'));
-  var dots = Array.from(wrap.querySelectorAll('.cf-dot-nav'));
-  var total = cards.length;
-  var current = 0;
-  var GAP = 16;
-  var DRAG_THRESHOLD = 50;
-  var dragStartX = null;
-  var isDragging = false;
+  var track = wrap.querySelector('.cf2-track');
+  var slides = Array.from(track.querySelectorAll('.cf2-slide'));
+  if(!slides.length) return;
+  var images = slides.map(function(s){ return s.dataset.img; });
 
-  function getCardW(){
-    return (cards[0] ? cards[0].offsetWidth : 0) || parseInt(wrap.dataset.cardW) || 200;
+  var prevBtn = wrap.querySelector('.cf2-arrow-prev');
+  var nextBtn = wrap.querySelector('.cf2-arrow-next');
+
+  function slideStep(){
+    return (slides[0].offsetWidth + 20); // largura do slide + gap
   }
-
-  function render(){
-    var CARD_W = getCardW();
-    var wrapW = wrap.offsetWidth;
-    var centerX = wrapW / 2;
-    cards.forEach(function(card, i){
-      var dist = ((i - current + total) % total);
-      if(dist > total / 2) dist -= total;
-      var absD = Math.abs(dist);
-      card.classList.remove('active','near');
-      if(absD === 0) card.classList.add('active');
-      else if(absD === 1) card.classList.add('near');
-      var x = centerX + dist * (CARD_W + GAP) - CARD_W / 2;
-      var scale = absD===0 ? 1.08 : absD===1 ? 0.92 : 0.82;
-      var opacity = absD===0 ? 1 : absD===1 ? 0.65 : absD<=3 ? 0.35 : 0;
-      card.style.left = x + 'px';
-      card.style.transform = 'translateY(-50%) scale('+scale+')';
-      card.style.opacity = opacity;
-      card.style.zIndex = total - absD;
-      card.style.pointerEvents = absD > 3 ? 'none' : 'auto';
+  function scrollToIndex(i){
+    var clamped = Math.max(0, Math.min(slides.length - 1, i));
+    track.scrollTo({ left: slides[clamped].offsetLeft - (track.offsetWidth - slides[clamped].offsetWidth) / 2, behavior:'smooth' });
+  }
+  function currentIndex(){
+    var center = track.scrollLeft + track.offsetWidth / 2;
+    var best = 0, bestDist = Infinity;
+    slides.forEach(function(s, i){
+      var sCenter = s.offsetLeft + s.offsetWidth / 2;
+      var dist = Math.abs(sCenter - center);
+      if(dist < bestDist){ bestDist = dist; best = i; }
     });
-    dots.forEach(function(dot, i){
-      dot.classList.toggle('active', i === current);
-    });
+    return best;
   }
 
-  function navigate(dir){
-    current = ((current + dir + total) % total);
-    render();
-  }
+  if(prevBtn) prevBtn.addEventListener('click', function(){ scrollToIndex(currentIndex() - 1); });
+  if(nextBtn) nextBtn.addEventListener('click', function(){ scrollToIndex(currentIndex() + 1); });
 
-  /* Click */
-  cards.forEach(function(card, i){
-    card.addEventListener('click', function(){
-      if(!isDragging){
-        if(i === current){ lbOpen(card.dataset.img); }
-        else { current = i; render(); }
-      }
+  /* Clique abre lightbox em modo galeria (mantém navegação) */
+  var isDragging = false, dragMoved = false;
+  slides.forEach(function(slide, i){
+    slide.addEventListener('click', function(){
+      if(!dragMoved) lbOpenGallery(images, i);
     });
   });
-  dots.forEach(function(dot, i){
-    dot.addEventListener('click', function(){ current = i; render(); });
-  });
-  wrap.querySelector('.cf-btn-prev').addEventListener('click', function(){ navigate(-1); });
-  wrap.querySelector('.cf-btn-next').addEventListener('click', function(){ navigate(1); });
 
-  window.addEventListener('resize', render);
-
-  /* Touch swipe */
-  wrap.addEventListener('touchstart', function(e){
-    dragStartX = e.touches[0].clientX;
-  }, {passive:true});
-  wrap.addEventListener('touchend', function(e){
-    if(dragStartX === null) return;
-    var diff = dragStartX - e.changedTouches[0].clientX;
-    if(Math.abs(diff) > DRAG_THRESHOLD) navigate(diff > 0 ? 1 : -1);
-    dragStartX = null;
-  }, {passive:true});
-
-  /* Mouse drag */
-  wrap.addEventListener('mousedown', function(e){
+  /* Arrastar com mouse (desktop) */
+  var dragStartX = 0, scrollStart = 0, pointerDown = false;
+  track.addEventListener('mousedown', function(e){
+    pointerDown = true; dragMoved = false;
     dragStartX = e.clientX;
-    isDragging = false;
-    wrap.style.cursor = 'grabbing';
-    e.preventDefault();
+    scrollStart = track.scrollLeft;
+    track.classList.add('dragging');
   });
   window.addEventListener('mousemove', function(e){
-    if(dragStartX !== null && Math.abs(e.clientX - dragStartX) > 5) isDragging = true;
+    if(!pointerDown) return;
+    var dx = e.clientX - dragStartX;
+    if(Math.abs(dx) > 5) dragMoved = true;
+    track.scrollLeft = scrollStart - dx;
   });
-  window.addEventListener('mouseup', function(e){
-    if(dragStartX !== null){
-      var diff = dragStartX - e.clientX;
-      if(Math.abs(diff) > DRAG_THRESHOLD) navigate(diff > 0 ? 1 : -1);
-      wrap.style.cursor = '';
-      dragStartX = null;
-      setTimeout(function(){ isDragging = false; }, 50);
-    }
+  window.addEventListener('mouseup', function(){
+    if(!pointerDown) return;
+    pointerDown = false;
+    track.classList.remove('dragging');
+    setTimeout(function(){ dragMoved = false; }, 50);
   });
 
-  render();
+  window.addEventListener('resize', function(){ /* mantém posição relativa, sem reset forçado */ });
 }
 
 /* ── Before / After Slider ── */
@@ -1320,7 +1298,7 @@ function initCompSliders(){
   document.addEventListener('mouseleave',function(){ document.body.classList.add('cursor-hidden'); });
   document.addEventListener('mouseenter',function(){ document.body.classList.remove('cursor-hidden'); });
 
-  var hoverSel = 'a,button,.pc,.cf-card,.cf-btn,.nav-sobre,.nav-ham,[role="button"],.lb-close';
+  var hoverSel = 'a,button,.pc,.cf2-slide,.cf2-arrow,.nav-sobre,.nav-ham,[role="button"],.lb-close';
   document.addEventListener('mouseover', function(e){
     if(e.target.closest(hoverSel)) ring.classList.add('hover');
   });
@@ -1365,7 +1343,7 @@ function initCompSliders(){
   if(!window.matchMedia('(hover:hover)').matches) return;
   var STRENGTH = 0.35;
   function initMagnetic(){
-    document.querySelectorAll('.cf-btn,.nav-ham,.nav-sobre').forEach(function(el){
+    document.querySelectorAll('.cf2-arrow,.nav-ham,.nav-sobre').forEach(function(el){
       el.addEventListener('mousemove', function(e){
         var r = el.getBoundingClientRect();
         var dx = (e.clientX - (r.left + r.width/2)) * STRENGTH;

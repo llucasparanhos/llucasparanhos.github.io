@@ -551,7 +551,9 @@
 <!-- LIGHTBOX -->
 <div class="lb-overlay" id="lb-overlay" onclick="lbClose()">
   <button class="lb-close" onclick="event.stopPropagation();lbClose()" aria-label="Fechar">×</button>
-  <img id="lb-img" src="" alt="Imagem ampliada">
+  <button class="lb-nav lb-nav-prev" onclick="event.stopPropagation();lbNav(-1)" aria-label="Anterior">&#8249;</button>
+  <img id="lb-img" src="" alt="Imagem ampliada" onclick="event.stopPropagation();">
+  <button class="lb-nav lb-nav-next" onclick="event.stopPropagation();lbNav(1)" aria-label="Próxima">&#8250;</button>
   <div class="lb-hint">Clique em qualquer lugar para fechar</div>
 </div>
 </body>
