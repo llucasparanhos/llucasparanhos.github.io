@@ -563,6 +563,7 @@ const CASES={
   bomconsorcio:{
     color:'#9247F0',bg:'#111',
     model:['B2C'],
+    caseHero:'bomconsorcio-case-hero.png',
     ey:'UX Writing · Arquitetura da Informação · Fintech',
     ttl:'Um sistema que todos<br><em>conseguem usar.</em>',
     meta:['Product Designer','BomConsórcio · Fintech','Figma'],
@@ -829,11 +830,12 @@ function openCase(id,title,push){
   imgArea.className='ch-img-area';
   imgArea.style.background='#111';
   const heroImg=document.createElement('img');
-  heroImg.src='img/'+id+'-case-hero.jpg';
+  const heroImgSrc = c.caseHero || (id+'-case-hero.jpg');
+  heroImg.src='img/'+heroImgSrc;
   heroImg.alt=title;
   heroImg.style.cssText='width:100%;height:auto;display:block;cursor:zoom-in;';
   heroImg.addEventListener('click', function(){ lbOpen(heroImg.src); });
-  heroImg.onerror=function(){ this.style.display='none'; imgArea.innerHTML='<div class="ch-img-ph">'+id+'-case-hero.jpg</div>'; };
+  heroImg.onerror=function(){ this.style.display='none'; imgArea.innerHTML='<div class="ch-img-ph">'+heroImgSrc+'</div>'; };
   imgArea.appendChild(heroImg);
   ch.appendChild(imgArea);
 
