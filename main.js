@@ -1329,28 +1329,6 @@ function initCompSliders(){
   });
 })();
 
-/* ── Card 3D tilt ── */
-(function(){
-  function initTilt(){
-    document.querySelectorAll('.pc').forEach(function(card){
-      card.addEventListener('mousemove', function(e){
-        var r = card.getBoundingClientRect();
-        var x = (e.clientX - r.left) / r.width  - 0.5;
-        var y = (e.clientY - r.top)  / r.height - 0.5;
-        card.style.transform = 'perspective(700px) rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg) translateZ(6px)';
-      });
-      card.addEventListener('mouseleave', function(){
-        card.style.transform = 'perspective(700px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
-      });
-    });
-  }
-  initTilt();
-  /* Re-init after DOM changes (language switch etc.) */
-  var obs = new MutationObserver(initTilt);
-  var grid = document.querySelector('.projects-grid');
-  if(grid) obs.observe(grid, {childList:true, subtree:true});
-})();
-
 /* ── Number counter animation ── */
 (function(){
   function animateStat(el){
