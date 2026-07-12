@@ -724,6 +724,8 @@ const CASES={
     color:'#B8860B',bg:'#111',
     model:['B2C','B2E'],
     platformBadge:'📱 App Mobile · Fluxo conversacional na versão do cliente',
+    orgImg:['fluxo-figma-compra-passaporte-cliente.png','fluxo-figma-venda-passaporte-afiliado.png'],
+    processoImg:['passaporte-userflow-cliente.png','passaporte-userflow-afiliado.png'],
     ey:'Assinatura · Pagamentos · HealthTech',
     ttl:'Uma assinatura,<br><em>dois lados da venda.</em>',
     meta:['Product Designer','Kivid · HealthTech · Fintech','Figma'],
@@ -880,7 +882,9 @@ function openCase(id,title,push){
     +'<div class="ch-role"><span class="ch-role-lbl" data-pt="Meu papel" data-en="My role">'+(currentLang==='en'?'My role':'Meu papel')+'</span><span class="ch-role-txt">'+d.role+'</span></div>'
 
     /* Organização do fluxo (Figma) */
-    +(c.orgImg ? '<div class="ch-func-img"><img src="img/'+c.orgImg+'" alt="Organização do fluxo" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
+    +(c.orgImg ? (Array.isArray(c.orgImg) ? c.orgImg : [c.orgImg]).map(function(img){
+        return '<div class="ch-func-img"><img src="img/'+img+'" alt="Organização do fluxo" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
+      }).join('') : '')
 
     /* O Problema */
     +'<div class="ch-highlight"><div class="ch-highlight-label" data-split>'+t("The Problem","O Problema")+'</div>'+d.context+'</div>'
@@ -913,7 +917,13 @@ function openCase(id,title,push){
     +'</div>'
 
     /* Processo */
-    +'<div class="ch-func-img"><img src="img/'+(c.processoImg || (id+'-processo.jpg'))+'" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>'
+    +(function(){
+      var proc = c.processoImg || (id+'-processo.jpg');
+      var imgs = Array.isArray(proc) ? proc : [proc];
+      return imgs.map(function(img){
+        return '<div class="ch-func-img"><img src="img/'+img+'" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
+      }).join('');
+    })()
 
     /* Como pensei a solução */
     +'<div class="ch-highlight"><div class="ch-highlight-label" data-split>'+t("How I approached the solution","Como pensei a solução")+'</div>'+d.insight+d.sol
