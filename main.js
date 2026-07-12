@@ -723,6 +723,7 @@ const CASES={
   passaporte:{
     color:'#B8860B',bg:'#111',
     model:['B2C','B2E'],
+    caseHero:'compra-passaporte-case-hero.png',
     platformBadge:'📱 App Mobile · Fluxo conversacional na versão do cliente',
     orgImg:['fluxo-figma-compra-passaporte-cliente.png','fluxo-figma-venda-passaporte-afiliado.png'],
     processoImg:['passaporte-userflow-cliente.png','passaporte-userflow-afiliado.png'],
