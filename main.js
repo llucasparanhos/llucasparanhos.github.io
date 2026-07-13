@@ -330,7 +330,7 @@ if('IntersectionObserver' in window){
 
 const CASES={
   wellhub:{
-    color:'#0F6E56',bg:'#111',
+    color:'#fb095e',bg:'#111',
     autoral:true,
     model:['B2C'],
     prototipo:{src:'wellhub-prototipo.mp4', ratio:'450/900'},
@@ -387,7 +387,7 @@ const CASES={
     },
   },
   credenciados:{
-    color:'#185FA5',bg:'#111',
+    color:'#05b4fe',bg:'#111',
     model:['B2C','B2B'],
     caseHero:'Mosaico-Telas-Hero-credenciados.png',
     platformBadge:'🏢 App do paciente (B2C) + portal de onboarding para credenciados (B2B)',
@@ -473,7 +473,7 @@ const CASES={
     },
   },
   checkout:{
-    color:'#993556',bg:'#111',
+    color:'#fc8a86',bg:'#111',
     model:['B2C'],
     prototipo:[
       {src:'checkout-prototipo-desktop.mp4', ratio:'2880/1800', label:'Desktop'},
@@ -589,7 +589,7 @@ const CASES={
   }
   ,
   bomconsorcio:{
-    color:'#9247F0',bg:'#111',
+    color:'#6600ff',bg:'#111',
     model:['B2C'],
     caseHero:'bomconsorcio-case-hero.png',
     ey:'UX Writing · Arquitetura da Informação · Fintech',
@@ -667,7 +667,7 @@ const CASES={
   }
   ,
   itau:{
-    color:'#EC7000',bg:'#111',
+    color:'#fd6604',bg:'#111',
     model:['B2B','B2C'],
     ey:'White Label · Design System · Fintech',
     ttl:'Por fora, Itaú.<br><em>Por dentro, BomConsórcio.</em>',
@@ -749,7 +749,7 @@ const CASES={
   }
   ,
   passaporte:{
-    color:'#B8860B',bg:'#111',
+    color:'#05c045',bg:'#111',
     model:['B2C','B2E'],
     caseHero:'compra-passaporte-case-hero.png',
     platformBadge:'📱 App Mobile · Fluxo conversacional na versão do cliente',

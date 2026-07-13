@@ -452,25 +452,25 @@ img { display:block; max-width:100%; }
   display:inline-block;
   font-family:var(--ff-mono); font-size:.55rem;
   letter-spacing:.14em; text-transform:uppercase;
-  color:var(--c-gold); background:rgba(201,169,110,.1);
+  color:var(--case-color, var(--c-gold)); background:rgba(201,169,110,.1);
   border:0.5px solid rgba(201,169,110,.3);
   padding:3px 10px; border-radius:4px;
   margin-bottom:.75rem;
 }
 .ch-title { font-family:var(--ff-body); font-size:clamp(2.8rem,6vw,5rem); font-weight:700; letter-spacing:-.015em; line-height:.95; color:var(--c-text); margin-bottom:1.5rem; }
-.ch-title em { font-style:italic; color:var(--c-gold); font-weight:400; }
+.ch-title em { font-style:italic; color:var(--case-color, var(--c-gold)); font-weight:400; }
 .ch-meta { display:flex; gap:2.5rem; flex-wrap:wrap; margin-bottom:2.5rem; padding-bottom:2rem; border-bottom:1px solid var(--c-line); }
 .ch-meta-lbl { font-family:var(--ff-mono); font-size:.55rem; letter-spacing:.18em; text-transform:uppercase; color:var(--c-dim); margin-bottom:.25rem; }
 .ch-meta-val { font-size:1rem; font-weight:500; color:var(--c-text); }
-.ch-role { display:flex; flex-direction:column; gap:.4rem; margin:0 0 3rem; padding:1.1rem 1.5rem; border-left:2px solid var(--c-gold); background:var(--c-bg2); }
-.ch-role-lbl { font-family:var(--ff-mono); font-size:1.3rem; letter-spacing:.1em; text-transform:uppercase; color:var(--c-gold); font-weight:700; }
+.ch-role { display:flex; flex-direction:column; gap:.4rem; margin:0 0 3rem; padding:1.1rem 1.5rem; border-left:2px solid var(--case-color, var(--c-gold)); background:var(--c-bg2); }
+.ch-role-lbl { font-family:var(--ff-mono); font-size:1.3rem; letter-spacing:.1em; text-transform:uppercase; color:var(--case-color, var(--c-gold)); font-weight:700; }
 .ch-role-txt { font-size:1rem; font-weight:300; color:var(--c-muted); line-height:1.65; }
 .ch-hook { font-size:clamp(1.1rem,1.8vw,1.35rem); font-weight:300; line-height:1.8; font-style:italic; color:var(--c-text); padding:1.5rem 0; border-top:1px solid var(--c-line); border-bottom:1px solid var(--c-line); margin-bottom:3rem; }
 .ch-bd h3 { font-family:var(--ff-mono); font-size:1.6rem; letter-spacing:.08em; text-transform:uppercase; color:var(--c-dim); margin:3rem 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--c-line); font-weight:700; }
 .ch-bd p { font-size:1.05rem; font-weight:300; color:#cccac6; line-height:1.9; margin-bottom:1.25rem; }
 .ch-bd p strong { font-weight:500; color:var(--c-text); }
 .ch-insight { margin:3rem 0; padding:1.75rem; background:var(--c-bg2); border:1px solid var(--c-line); }
-.ch-insight-lbl { font-family:var(--ff-mono); font-size:.55rem; letter-spacing:.2em; text-transform:uppercase; color:var(--c-gold); margin-bottom:.6rem; }
+.ch-insight-lbl { font-family:var(--ff-mono); font-size:.55rem; letter-spacing:.2em; text-transform:uppercase; color:var(--case-color, var(--c-gold)); margin-bottom:.6rem; }
 .ch-insight p { font-size:1.1rem; color:var(--c-text); font-style:normal; margin:0; line-height:1.75; }
 .ch-insight p strong { font-weight:600; }
 .ch-kpi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:0 0 3rem; }
@@ -496,7 +496,7 @@ img { display:block; max-width:100%; }
 .res-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--c-line); margin:1rem 0 3rem; }
 .res-item { background:var(--c-bg2); padding:1.25rem; }
 .res-n { font-family:var(--ff-body); font-size:2rem; font-weight:700; letter-spacing:-.01em; color:var(--c-text); line-height:1; }
-.res-n em { font-style:normal; color:var(--c-gold); }
+.res-n em { font-style:normal; color:var(--case-color, var(--c-gold)); }
 .res-l { font-size:.82rem; font-weight:300; color:var(--c-muted); margin-top:.4rem; line-height:1.5; }
 
 /* ── SOBRE PAGE ── */
@@ -770,11 +770,11 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   border-radius:8px; padding:1.25rem 1.5rem;
   display:flex; align-items:flex-start; gap:.875rem;
 }
-.ch-okr-head-icon { color:var(--c-gold); font-size:1rem; flex-shrink:0; margin-top:3px; }
+.ch-okr-head-icon { color:var(--case-color, var(--c-gold)); font-size:1rem; flex-shrink:0; margin-top:3px; }
 .ch-okr-head-label {
   font-family:var(--ff-mono); font-size:.62rem;
   letter-spacing:.18em; text-transform:uppercase;
-  color:var(--c-gold); display:block; margin-bottom:5px;
+  color:var(--case-color, var(--c-gold)); display:block; margin-bottom:5px;
 }
 .ch-okr-head-obj { font-size:1.05rem; font-weight:600; color:var(--c-text); line-height:1.35; }
 
@@ -796,7 +796,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 }
 .ch-kr-num {
   font-family:var(--ff-mono); font-size:.58rem;
-  letter-spacing:.14em; text-transform:uppercase; color:var(--c-gold);
+  letter-spacing:.14em; text-transform:uppercase; color:var(--case-color, var(--c-gold));
 }
 .ch-kr-txt { font-size:.92rem; font-weight:400; color:var(--c-text); line-height:1.5; }
 .ch-kr-badge {
@@ -835,7 +835,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 
 /* ── CASE HIGHLIGHTS ── */
 .ch-highlight {
-  border-left:3px solid var(--c-gold);
+  border-left:3px solid var(--case-color, var(--c-gold));
   padding:1.5rem 1.75rem;
   background:var(--c-bg2);
   margin:1rem 0 3rem;
@@ -843,7 +843,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 .ch-highlight-label {
   font-family:var(--ff-mono); font-size:1.3rem;
   letter-spacing:.1em; text-transform:uppercase;
-  color:var(--c-gold); margin-bottom:.875rem;
+  color:var(--case-color, var(--c-gold)); margin-bottom:.875rem;
   font-weight:700;
 }
 .ch-highlight p {
@@ -881,7 +881,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 .ch-compare-label::after {
   content:''; flex:1; height:1px; background:var(--c-line);
 }
-.ch-compare-label span { color:var(--c-gold); }
+.ch-compare-label span { color:var(--case-color, var(--c-gold)); }
 
 /* ── Case Carousel ── */
 .ch-carousel {
@@ -1085,7 +1085,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 }
 .ch-sol-card-num {
   font-family:var(--ff-mono); font-size:1.4rem;
-  font-weight:700; color:var(--c-gold); line-height:1;
+  font-weight:700; color:var(--case-color, var(--c-gold)); line-height:1;
 }
 .ch-sol-card-title {
   font-size:.95rem; font-weight:700;
@@ -1225,7 +1225,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 }
 .res-badge.check {
   background:rgba(201,169,110,.12);
-  color:var(--c-gold);
+  color:var(--case-color, var(--c-gold));
 }
 .res-badge.hyp {
   background:rgba(146,71,240,.12);
@@ -1341,13 +1341,13 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   padding:1.25rem 1.5rem;
   background:var(--c-bg2);
   border:1px solid var(--c-line);
-  border-left:3px solid var(--c-gold);
+  border-left:3px solid var(--case-color, var(--c-gold));
   border-radius:8px;
 }
 .ch-medicao-label {
   font-family:var(--ff-mono); font-size:.58rem;
   letter-spacing:.18em; text-transform:uppercase;
-  color:var(--c-gold); margin-bottom:.75rem;
+  color:var(--case-color, var(--c-gold)); margin-bottom:.75rem;
 }
 .ch-medicao-texto {
   font-size:.85rem; font-weight:300;
@@ -1372,7 +1372,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 }
 .ch-slider-label::before,
 .ch-slider-label::after { content:''; flex:1; height:1px; background:var(--c-line); }
-.ch-slider-label span { color:var(--c-gold); }
+.ch-slider-label span { color:var(--case-color, var(--c-gold)); }
 .ch-comp-slider {
   border-radius:10px; border:1px solid var(--c-line);
   overflow:hidden; background:var(--c-bg3);
@@ -1496,7 +1496,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 }
 .cf2-slide-num {
   font-family:var(--ff-mono); font-size:.55rem;
-  letter-spacing:.1em; color:var(--c-gold); flex-shrink:0;
+  letter-spacing:.1em; color:var(--case-color, var(--c-gold)); flex-shrink:0;
 }
 .cf2-slide-name {
   font-size:.68rem; font-weight:400; color:#fff;
