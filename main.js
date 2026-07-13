@@ -388,7 +388,10 @@ const CASES={
   },
   credenciados:{
     color:'#185FA5',bg:'#111',
-    model:['B2C'],
+    model:['B2C','B2B'],
+    platformBadge:'🏢 App do paciente (B2C) + portal de onboarding para credenciados (B2B)',
+    orgImg:['fluxo-figma-busca-credenciados-cliente.png','fluxo-figma-onboarding-credenciado.png'],
+    processoImg:['credenciados-userflow-cliente.png','credenciados-userflow-credenciado.png'],
     cfCardW:160,
     prototipo:{src:'credenciados-prototipo.mp4', ratio:'608/1080'},
     telas:['credenciados-tela-1.jpg','credenciados-tela-2.jpg','credenciados-tela-3.jpg','credenciados-tela-4.jpg','credenciados-tela-5.jpg','credenciados-tela-6.jpg'],
@@ -396,52 +399,75 @@ const CASES={
     solucaoImg:'credenciados-solucao.jpg',
     ey:'UX Research · HealthTech · Kivid',
     ttl:'O profissional certo,<br>encontrado dentro do <em>app.</em>',
-    meta:['Product Designer','3 semanas','Figma'],
-    hook:'"Imagine que você está com dor, precisa marcar uma consulta e abre o app do seu plano de saúde. A tela mostra o nome do médico e um número de telefone. Só isso. Sem endereço completo. Sem horários. Sem convênios. Nada que te ajudasse a decidir."',
-    context:'<p>O Kivid tinha os dados. O que não tinha era uma experiência em volta deles.</p><p>Usuários que saíam do app para o Google não voltavam com o agendamento feito dentro do app. O custo era triplo: suporte sobrecarregado, agendamentos perdidos e dados de comportamento que nunca chegavam ao time de produto.</p>',
+    meta:['Product Designer','Kivid · HealthTech','Figma'],
+    hook:'"Imagine que você está com dor, precisa marcar uma consulta e abre o app do seu plano de saúde. A tela mostra o nome do médico e um número de telefone. Só isso. Sem endereço completo. Sem horários. Sem convênios. Nada que te ajudasse a decidir. E do outro lado, a clínica que deveria estar naquela tela levou semanas pra terminar o cadastro."',
+    context:'<p>O Kivid tinha os dados. O que não tinha era uma experiência em volta deles — nem para quem buscava, nem para quem precisava aparecer na busca.</p><p>Usuários que saíam do app para o Google não voltavam com o agendamento feito dentro do app. O custo era triplo: suporte sobrecarregado, agendamentos perdidos e dados de comportamento que nunca chegavam ao time de produto. Do outro lado da mesma moeda, os credenciados — clínicas, laboratórios e profissionais parceiros — precisavam passar por um onboarding B2B completo (CNPJ, unidades, tabela de preços, equipe) antes de aparecer corretamente pro paciente. Um cadastro incompleto de um lado virava uma busca vazia do outro.</p>',
     diags:[
       {icon:'🗺',title:'Endereço ausente',desc:'Usuário precisava sair do app para encontrar o endereço completo do profissional.'},
       {icon:'🕐',title:'Sem horários disponíveis',desc:'Impossível saber se o médico atendia no turno desejado.'},
       {icon:'📞',title:'Só um telefone',desc:'A única ação disponível era ligar, sem alternativas de contato ou agendamento.'},
-      {icon:'🧩',title:'Layout inconsistente',desc:'Experiência quebrada entre dispositivos, sem padrão visual.'}
+      {icon:'📤',title:'Cadastro em massa sem rede de segurança',desc:'Credenciados com muitas unidades ou profissionais precisavam importar tabela de preços e equipe em lote — sem tratamento de erro claro, um arquivo malformado travava o onboarding inteiro.'}
     ],
     kpis:[
       {icon:'🚶',label:'Taxa de abandono',val:'Tela de credenciados',desc:'Usuários que entram na busca e saem sem tomar ação'},
       {icon:'📅',label:'Agendamentos no app',val:'% do total',desc:'Consultas iniciadas dentro do Kivid vs fora'},
-      {icon:'🎧',label:'Tickets de suporte',val:'Sobre credenciados',desc:'Chamados sobre informações básicas de profissionais'}
+      {icon:'🎧',label:'Tickets de suporte',val:'Sobre credenciados',desc:'Chamados sobre informações básicas de profissionais'},
+      {icon:'🏢',label:'Completude do cadastro',val:'B2B onboarding',desc:'Proporção de credenciados com unidade, preços e equipe totalmente preenchidos'}
     ],
-    role:'Product Designer responsável pela descoberta, pesquisa com usuários internos, arquitetura da informação, protótipo e validação.',
-    insight:'<p>A lista de credenciados existia. Os dados existiam. Mas estavam <strong>espalhados e sem hierarquia</strong>. O insight não foi criar informação nova, foi perceber que o problema era de <strong>experiência, não de dados</strong>. Bastava montar uma jornada de decisão em volta do que já existia.</p>',
-    objetivo:'Tornar a busca de profissionais confiável, completa e rápida o suficiente para eliminar a necessidade de sair do app.',
+    role:'Product Designer responsável pelas duas pontas do mesmo problema: a busca de profissionais no app do paciente (B2C) e o portal de onboarding do credenciado (B2B) — cadastro de empresa, unidades, tabela de preços/serviços (individual ou em lote) e convite de equipe.',
+    insight:'<p>A lista de credenciados existia. Os dados existiam. Mas estavam <strong>espalhados e sem hierarquia</strong> — de um lado, na tela de busca do paciente; do outro, num formulário de onboarding que não guiava o credenciado até o fim. O insight não foi criar informação nova, foi perceber que os dois problemas eram o mesmo: <strong>experiência de decisão</strong>, seja decidindo um médico ou decidindo terminar um cadastro. Bastava desenhar as duas jornadas com o mesmo cuidado.</p>',
+    objetivo:'Tornar a busca de profissionais confiável, completa e rápida o suficiente para eliminar a necessidade de sair do app — e tornar o onboarding do credenciado simples o bastante para que o cadastro nunca seja o motivo de um perfil incompleto.',
     krs:[
       {txt:'Reduzir taxa de abandono da tela de credenciados',meta:'-30%'},
       {txt:'Aumentar agendamentos iniciados dentro do app',meta:'+25%'},
-      {txt:'Reduzir tickets de suporte sobre credenciados',meta:'-40%'}
+      {txt:'Reduzir tickets de suporte sobre credenciados',meta:'-40%'},
+      {txt:'Reduzir erros de importação em lote no onboarding B2B',meta:'Hipótese'}
     ],
-    sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">A informação existia, a experiência não</div><div class="ch-sol-card-desc">A lista de credenciados estava lá. O insight foi montar uma jornada de decisão em volta do que já existia: nome, especialidade, avaliação, mapa, horários, convênios. Tudo em uma tela.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Hierarquia de decisão</div><div class="ch-sol-card-desc">O usuário de saúde decide em segundos. A hierarquia visual responde três perguntas em ordem: este médico aceita meu convênio? Fica perto? Tem horário hoje?</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">O detalhe de maior impacto</div><div class="ch-sol-card-desc">O botão "Ligar" precisava estar visível sem scroll. Descoberto nos testes de usabilidade, esse ajuste teve mais impacto na taxa de ação do que qualquer outra mudança de layout.</div></div></div>',
-    results:[['0→1','Usuários localizaram profissionais sem sair do app pela primeira vez','ti-map-pin','check'],['↓','Tickets de suporte reduziram após o lançamento','ti-headset','down'],['↑','Agendamentos via app aumentaram no primeiro mês','ti-calendar','up'],['4/5','"Finalmente tudo no lugar certo" — feedback espontâneo nos testes','ti-message','check']],
-    medicao:{texto:'O diagnóstico começou com o time de suporte — tickets recorrentes sobre "como encontrar um profissional" indicavam que o app não estava cumprindo sua função principal. Após o redesign, o acompanhamento foi feito via Google Analytics 4, comparando taxa de saída e eventos de agendamento concluído antes e depois do lançamento.',tools:['Suporte — análise qualitativa de tickets','Google Analytics 4']},
+    sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">A informação existia, a experiência não</div><div class="ch-sol-card-desc">A lista de credenciados estava lá. O insight foi montar uma jornada de decisão em volta do que já existia: nome, especialidade, avaliação, mapa, horários, convênios. Tudo em uma tela.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Hierarquia de decisão</div><div class="ch-sol-card-desc">O usuário de saúde decide em segundos. A hierarquia visual responde três perguntas em ordem: este médico aceita meu convênio? Fica perto? Tem horário hoje?</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">O detalhe de maior impacto</div><div class="ch-sol-card-desc">O botão "Ligar" precisava estar visível sem scroll. Descoberto nos testes de usabilidade, esse ajuste teve mais impacto na taxa de ação do que qualquer outra mudança de layout.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">04</div><div class="ch-sol-card-title">Onboarding B2B com rede de segurança</div><div class="ch-sol-card-desc">Cadastro de preços e equipe em lote ganhou estados de erro explícitos — arquivo com linha malformada aponta exatamente qual linha falhou, em vez de travar o processo inteiro ou rejeitar o arquivo sem explicação.</div></div></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">A decisão mais negociada</div><p>A tentação era tratar erro de importação em lote como um problema técnico — "só mostra uma mensagem genérica de erro". Mas para um credenciado com centenas de profissionais ou serviços, isso significava reabrir a planilha inteira do zero. A saída foi desenhar o estado de erro linha a linha: o sistema processa o que está correto e aponta exatamente o que precisa ser corrigido, sem descartar o trabalho já validado.</p></div>',
+    resultsLabel:'Resultados',
+    results:[
+      ['0→1','Usuários localizaram profissionais sem sair do app pela primeira vez.','ti-map-pin','check','entregue'],
+      ['↓','Tickets de suporte sobre credenciados reduziram após o lançamento.','ti-headset','check','entregue'],
+      ['↑','Agendamentos via app aumentaram no primeiro mês após o redesign.','ti-calendar','check','entregue'],
+      ['↓','Hipótese: erros de importação em lote no onboarding B2B caem com o tratamento linha a linha, reduzindo cadastros abandonados no meio do processo.','ti-upload','hyp','hipótese']
+    ],
+    medicao:{texto:'O diagnóstico começou com o time de suporte — tickets recorrentes sobre "como encontrar um profissional" indicavam que o app não estava cumprindo sua função principal. Após o redesign, o acompanhamento foi feito via Google Analytics 4, comparando taxa de saída e eventos de agendamento concluído antes e depois do lançamento. O resultado do onboarding B2B ainda não teve acesso a dados pós-lançamento no escopo deste projeto, por isso segue como hipótese.',tools:['Suporte — análise qualitativa de tickets','Google Analytics 4']},
     en:{
       ey:'UX Research · HealthTech · Kivid',
       ttl:'The right professional,<br>found inside the <em>app.</em>',
-      meta:['Product Designer','3 weeks','Figma'],
-      hook:'"Imagine you\'re in pain, need to schedule an appointment, and open your health plan app. The screen shows the doctor\'s name and a phone number. That\'s it. No full address. No hours. No accepted insurance. Nothing to help you decide."',
-      context:'<p>Kivid had the data. What it didn\'t have was an experience built around it.</p><p>Users who left the app for Google didn\'t come back with appointments made inside the app. The cost was threefold: support overload, lost appointments, and behavioral data that never reached the product team.</p>',
-      role:'Product Designer responsible for discovery, research with internal users, information architecture, prototype and validation.',
-      insight:'<p>The provider list existed. The data existed. But it was <strong>scattered and without hierarchy</strong>. The insight wasn\'t creating new information, it was realizing the problem was about <strong>experience, not data</strong>. We just needed to build a decision journey around what already existed.</p>',
-      objetivo:'Make provider search reliable, complete and fast enough to eliminate the need to leave the app.',
+      meta:['Product Designer','Kivid · HealthTech','Figma'],
+      platformBadge:'🏢 Patient app (B2C) + onboarding portal for providers (B2B)',
+      hook:'"Imagine you\'re in pain, need to schedule an appointment, and open your health plan app. The screen shows the doctor\'s name and a phone number. That\'s it. No full address. No hours. No accepted insurance. Nothing to help you decide. And on the other side, the clinic that should be on that screen took weeks to finish signing up."',
+      context:'<p>Kivid had the data. What it didn\'t have was an experience built around it — not for the person searching, nor for the one who needed to show up in the search.</p><p>Users who left the app for Google didn\'t come back with appointments made inside the app. The cost was threefold: support overload, lost appointments, and behavioral data that never reached the product team. On the other side of the same coin, providers — clinics, labs, and partner professionals — had to go through a full B2B onboarding (CNPJ, locations, price table, team) before showing up correctly to the patient. An incomplete signup on one side became an empty search on the other.</p>',
+      diags:[
+        {icon:'🗺',title:'Missing address',desc:'Users had to leave the app to find the provider\'s full address.'},
+        {icon:'🕐',title:'No available hours',desc:'Impossible to know if the doctor had appointments in the desired shift.'},
+        {icon:'📞',title:'Just a phone number',desc:'The only available action was calling, with no alternative contact or scheduling options.'},
+        {icon:'📤',title:'Bulk signup with no safety net',desc:'Providers with many locations or professionals needed to bulk-import a price table and team — without clear error handling, one malformed file blocked the entire onboarding.'}
+      ],
+      role:'Product Designer responsible for both ends of the same problem: the provider search in the patient app (B2C) and the provider\'s onboarding portal (B2B) — company signup, locations, price/service table (individual or bulk), and team invites.',
+      insight:'<p>The provider list existed. The data existed. But it was <strong>scattered and without hierarchy</strong> — on one side, in the patient\'s search screen; on the other, in an onboarding form that didn\'t guide the provider to completion. The insight wasn\'t creating new information, it was realizing both problems were the same one: <strong>decision experience</strong>, whether deciding on a doctor or deciding to finish a signup. Both journeys just needed the same level of care.</p>',
+      objetivo:'Make provider search reliable, complete and fast enough to eliminate the need to leave the app — and make provider onboarding simple enough that signup is never the reason for an incomplete profile.',
       krs:[
         {txt:'Reduce drop-off rate on the providers screen',meta:'-30%'},
         {txt:'Increase appointments started within the app',meta:'+25%'},
-        {txt:'Reduce support tickets about providers',meta:'-40%'}
+        {txt:'Reduce support tickets about providers',meta:'-40%'},
+        {txt:'Reduce bulk-import errors in B2B onboarding',meta:'Hypothesis'}
       ],
       kpis:[
         {icon:'🚶',label:'Drop-off rate',val:'Providers screen',desc:'Users who enter the search and leave without taking action'},
         {icon:'📅',label:'In-app appointments',val:'% of total',desc:'Consultations initiated within Kivid vs outside'},
-        {icon:'🎧',label:'Support tickets',val:'About providers',desc:'Calls about basic professional information'}
+        {icon:'🎧',label:'Support tickets',val:'About providers',desc:'Calls about basic professional information'},
+        {icon:'🏢',label:'Signup completeness',val:'B2B onboarding',desc:'Proportion of providers with location, pricing, and team fully filled out'}
       ],
-      sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">The information existed, the experience didn\'t</div><div class="ch-sol-card-desc">The provider list was there. The insight was building a decision journey around what already existed: name, specialty, rating, map, hours, insurance. All in one screen.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Decision hierarchy</div><div class="ch-sol-card-desc">Healthcare users decide in seconds. The visual hierarchy answers three questions in order: does this doctor accept my insurance? Is it nearby? Is there availability today?</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">The highest-impact detail</div><div class="ch-sol-card-desc">The "Call" button needed to be visible without scrolling. Found in usability testing, this adjustment had more impact on action rate than any other layout change.</div></div></div>',
-      results:[['0→1','Users found providers without leaving the app for the first time','ti-map-pin','check'],['↓','Support tickets decreased after launch','ti-headset','down'],['↑','In-app appointments increased in the first month','ti-calendar','up'],['4/5','"Finally everything in the right place" — spontaneous feedback in tests','ti-message','check']]
+      sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">The information existed, the experience didn\'t</div><div class="ch-sol-card-desc">The provider list was there. The insight was building a decision journey around what already existed: name, specialty, rating, map, hours, insurance. All in one screen.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Decision hierarchy</div><div class="ch-sol-card-desc">Healthcare users decide in seconds. The visual hierarchy answers three questions in order: does this doctor accept my insurance? Is it nearby? Is there availability today?</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">The highest-impact detail</div><div class="ch-sol-card-desc">The "Call" button needed to be visible without scrolling. Found in usability testing, this adjustment had more impact on action rate than any other layout change.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">04</div><div class="ch-sol-card-title">B2B onboarding with a safety net</div><div class="ch-sol-card-desc">Bulk price and team signup gained explicit error states — a file with a malformed row points to exactly which row failed, instead of blocking the whole process or rejecting the file with no explanation.</div></div></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">The most negotiated decision</div><p>The temptation was to treat bulk-import errors as a technical problem — "just show a generic error message." But for a provider with hundreds of professionals or services, that meant reopening the entire spreadsheet from scratch. The fix was designing the error state row by row: the system processes what\'s correct and points to exactly what needs fixing, without discarding work already validated.</p></div>',
+      resultsLabel:'Results',
+      results:[
+        ['0→1','Users found providers without leaving the app for the first time.','ti-map-pin','check','delivered'],
+        ['↓','Support tickets about providers decreased after launch.','ti-headset','check','delivered'],
+        ['↑','In-app appointments increased in the first month after the redesign.','ti-calendar','check','delivered'],
+        ['↓','Hypothesis: bulk-import errors in B2B onboarding drop with row-by-row handling, reducing signups abandoned mid-process.','ti-upload','hyp','hypothesis']
+      ]
     },
   },
   checkout:{

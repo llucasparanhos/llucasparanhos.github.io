@@ -1112,12 +1112,12 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 @media(max-width:900px){
   .ch-sol-cards { grid-template-columns:1fr; }
 }
-#ch-itau .ch-sol-cards, #ch-passaporte .ch-sol-cards { grid-template-columns:repeat(4,1fr); }
+#ch-itau .ch-sol-cards, #ch-passaporte .ch-sol-cards, #ch-credenciados .ch-sol-cards { grid-template-columns:repeat(4,1fr); }
 @media(max-width:1100px){
-  #ch-itau .ch-sol-cards, #ch-passaporte .ch-sol-cards { grid-template-columns:1fr 1fr; }
+  #ch-itau .ch-sol-cards, #ch-passaporte .ch-sol-cards, #ch-credenciados .ch-sol-cards { grid-template-columns:1fr 1fr; }
 }
 @media(max-width:900px){
-  #ch-itau .ch-sol-cards, #ch-passaporte .ch-sol-cards { grid-template-columns:1fr; }
+  #ch-itau .ch-sol-cards, #ch-passaporte .ch-sol-cards, #ch-credenciados .ch-sol-cards { grid-template-columns:1fr; }
 }
 
 /* ── Certificações ── */
