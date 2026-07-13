@@ -389,6 +389,7 @@ const CASES={
   credenciados:{
     color:'#185FA5',bg:'#111',
     model:['B2C','B2B'],
+    caseHero:'Mosaico-Telas-Hero-credenciados.png',
     platformBadge:'🏢 App do paciente (B2C) + portal de onboarding para credenciados (B2B)',
     orgImg:['fluxo-figma-credenciados-clientes.png','fluxo-figma-credenciados-empresas.png'],
     processoImg:['credenciados-userflow-cliente.png','credenciados-userflow-empresa.png'],
