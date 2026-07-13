@@ -1515,8 +1515,8 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 .cf2-arrow-prev { left:1rem; }
 .cf2-arrow-next { right:1rem; }
 @media(max-width:900px){
-  .cf2-slide { height:52vh; width:88vw; max-width:88vw; }
-  .cf2-slide img { width:100%; height:100%; max-width:none; object-fit:contain; }
+  .cf2-slide { height:auto; width:auto; max-width:88vw; max-height:52vh; align-items:center; justify-content:center; }
+  .cf2-slide img { width:auto; height:auto; max-width:88vw; max-height:52vh; object-fit:contain; }
   .cf2-arrow { width:38px; height:38px; font-size:1.2rem; }
   .cf2-arrow-prev { left:.5rem; }
   .cf2-arrow-next { right:.5rem; }
