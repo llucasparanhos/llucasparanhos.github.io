@@ -753,6 +753,10 @@ const CASES={
       {txt:'Reduzir a sensação de burocracia no cadastro de membros da família',meta:'Fluxo conversacional, um dado por vez'}
     ],
     sol:'<div class="ch-sol-cards"><div class="ch-sol-card"><div class="ch-sol-card-num">01</div><div class="ch-sol-card-title">Formulário conversacional pra família</div><div class="ch-sol-card-desc">Nome, nascimento, CPF e contato de cada membro são coletados um de cada vez, em bolhas de chat, em vez de um formulário longo — reduz a sensação de burocracia sem abrir mão da validação de cada campo.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">02</div><div class="ch-sol-card-title">Camada de pagamento unificada</div><div class="ch-sol-card-desc">Resumo, confirmação e estado de sucesso seguem a mesma estrutura visual nos quatro métodos de pagamento do app e nos três canais de recebimento do portal — muda o meio, não a lógica da tela.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">03</div><div class="ch-sol-card-title">Portal do afiliado com múltiplos canais</div><div class="ch-sol-card-desc">Link de pagamento, PIX e maquininha física desenhados como variações do mesmo padrão de confirmação, com dashboard de vendas (realizadas, em andamento, canceladas) sempre refletindo o estado real da venda.</div></div><div class="ch-sol-card"><div class="ch-sol-card-num">04</div><div class="ch-sol-card-title">Recibo e confirmação com celebração</div><div class="ch-sol-card-desc">O estado de sucesso fecha o fluxo com uma microinteração de celebração, e gera um recibo formal — equilibrando o lado emocional da compra com a exigência de comprovante para o cliente.</div></div></div><div class="ch-sol-aside"><div class="ch-sol-aside-label">A decisão mais negociada</div><p>A área de compliance queria um formulário tradicional pra coletar os dados de cada membro da família — mais previsível de auditar. O time de produto queria uma experiência conversacional, mais leve pra quem está cadastrando três ou quatro pessoas seguidas. A saída não foi escolher um lado: o fluxo manteve a interface em bolhas de chat, mas cada dado era validado e armazenado exatamente como um formulário formal validaria — a camada visual mudou, a estrutura de dados por trás não.</p></div>',
+    telasApp:['01-app-cliente.png','02-app-cliente.png','03-app-cliente.png','04-app-cliente.png','05-app-cliente.png','06-app-cliente.png'],
+    telasAppLabels:['Adicionar Membro — Nome','Adicionar Membro — Nascimento','Adicionar Membro — Contato','Selecione Usuário','PIX — Selecionado','Pagamento Confirmado'],
+    telasDesktop:['01-dektop-afiliados.png','02-dektop-afiliados.png','03-dektop-afiliados.png','04-dektop-afiliados.png','05-dektop-afiliados.png','06-dektop-afiliados.png','07-dektop-afiliados.png','08-dektop-afiliados.png'],
+    telasDesktopLabels:['Login — Entrar Preenchido','Login — Validação Sucesso','Home — Vendas Concluídas','Passaporte Individual — CPF Sucesso','Passaporte Individual — Termos Confirmado','Passaporte Individual — Endereço Preenchido','Página — Minhas Vendas','Página — Tabela'],
     resultsLabel:'Resultados',
     medicao:{texto:'O sistema foi lançado em produção, então a cobertura completa (app + portal) e os canais de pagamento são fatos verificáveis do escopo entregue. Os demais resultados são projeções, já que não houve acesso a dados de uso pós-lançamento no escopo deste projeto — baseadas no acompanhamento qualitativo do fluxo durante o desenvolvimento.',tools:['Testes internos do fluxo de família','Comparativo de estrutura entre os métodos de pagamento']},
     results:[
@@ -943,7 +947,11 @@ function openCase(id,title,push){
     +(c.antesDepois ? '<div class="ch-func-img"><img src="img/'+c.antesDepois+'" alt="Antes e Depois" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)" loading="lazy"></div>' : '')
 
     /* Carrossel — telas */
-    +(c.telas ? '<h3>'+t("Screens","Telas")+'</h3>'+renderCarousel2(c.telas, c.telasLabels || [], id) : '')
+    /* Carrossel — telas (suporta um único carrossel `telas`, ou dois separados `telasApp`/`telasDesktop`) */
+    +(c.telasApp || c.telasDesktop ? (
+        (c.telasApp ? '<h3>'+t("App Screens","Telas do App")+'</h3>'+renderCarousel2(c.telasApp, c.telasAppLabels || [], id+'-app') : '')
+        + (c.telasDesktop ? '<h3>'+t("Desktop Screens","Telas Desktop")+'</h3>'+renderCarousel2(c.telasDesktop, c.telasDesktopLabels || [], id+'-desktop') : '')
+      ) : (c.telas ? '<h3>'+t("Screens","Telas")+'</h3>'+renderCarousel2(c.telas, c.telasLabels || [], id) : ''))
 
     /* Wellhub: comparativo 2x2 */
     +(c.comparativo
@@ -964,7 +972,12 @@ function openCase(id,title,push){
   window.scrollTo({top:0,behavior:'instant'});
   setTimeout(animateCaseEntrance,50);
   setTimeout(initCompSliders,100);
-  setTimeout(function(){ if(c.telas) initCarousel2(id); if(c.carousel) initCarousel2(id+'-carousel'); },150);
+  setTimeout(function(){
+    if(c.telas) initCarousel2(id);
+    if(c.telasApp) initCarousel2(id+'-app');
+    if(c.telasDesktop) initCarousel2(id+'-desktop');
+    if(c.carousel) initCarousel2(id+'-carousel');
+  },150);
   setTimeout(function(){ initCurtainReveal(ch); initLetterReveal(ch); },150);
 
   if(push){
