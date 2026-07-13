@@ -330,7 +330,7 @@ if('IntersectionObserver' in window){
 
 const CASES={
   wellhub:{
-    color:'#fb095e',bg:'#111',
+    color:'#f24b7b',bg:'#111',
     autoral:true,
     model:['B2C'],
     prototipo:{src:'wellhub-prototipo.mp4', ratio:'450/900'},
@@ -589,7 +589,7 @@ const CASES={
   }
   ,
   bomconsorcio:{
-    color:'#6600ff',bg:'#111',
+    color:'#6724ee',bg:'#111',
     model:['B2C'],
     caseHero:'bomconsorcio-case-hero.png',
     ey:'UX Writing · Arquitetura da Informação · Fintech',
