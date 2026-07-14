@@ -402,7 +402,7 @@ const CASES={
     funcImg:'credenciados-func.jpg',
     solucaoImg:'credenciados-solucao.jpg',
     ey:'UX Research · HealthTech · Kivid',
-    ttl:'Busca B2C e onboarding B2B,<br><em>com erro linha a linha na importação em lote.</em>',
+    ttl:'Busca B2C e onboarding B2B,<br><em>dos dois lados da mesma rede de saúde.</em>',
     meta:['Product Designer','Kivid · HealthTech','Figma'],
     hook:'"Imagine que você está com dor, precisa marcar uma consulta e abre o app do seu plano de saúde. A tela mostra o nome do médico e um número de telefone. Só isso. Sem endereço completo. Sem horários. Sem convênios. Nada que te ajudasse a decidir. E do outro lado, a clínica que deveria estar naquela tela levou semanas pra terminar o cadastro."',
     context:'<p>O Kivid tinha os dados. O que não tinha era uma experiência em volta deles — nem para quem buscava, nem para quem precisava aparecer na busca.</p><p>Usuários que saíam do app para o Google não voltavam com o agendamento feito dentro do app. O custo era triplo: suporte sobrecarregado, agendamentos perdidos e dados de comportamento que nunca chegavam ao time de produto. Do outro lado da mesma moeda, os credenciados — clínicas, laboratórios e profissionais parceiros — precisavam passar por um onboarding B2B completo (CNPJ, unidades, tabela de preços, equipe) antes de aparecer corretamente pro paciente. Um cadastro incompleto de um lado virava uma busca vazia do outro.</p>',
@@ -438,7 +438,7 @@ const CASES={
     medicao:{texto:'O diagnóstico começou com o time de suporte — tickets recorrentes sobre "como encontrar um profissional" indicavam que o app não estava cumprindo sua função principal. Após o redesign, o acompanhamento foi feito via Google Analytics 4, comparando taxa de saída e eventos de agendamento concluído antes e depois do lançamento. O resultado do onboarding B2B ainda não teve acesso a dados pós-lançamento no escopo deste projeto, por isso segue como hipótese.',tools:['Suporte — análise qualitativa de tickets','Google Analytics 4','Apoio de IA (Claude) — documentação e estruturação do case']},
     en:{
       ey:'UX Research · HealthTech · Kivid',
-      ttl:'B2C search and B2B onboarding,<br><em>with row-by-row error handling in bulk import.</em>',
+      ttl:'B2C search and B2B onboarding,<br><em>on both sides of the same healthcare network.</em>',
       meta:['Product Designer','Kivid · HealthTech','Figma'],
       platformBadge:'🏢 Patient app (B2C) + onboarding portal for providers (B2B)',
       hook:'"Imagine you\'re in pain, need to schedule an appointment, and open your health plan app. The screen shows the doctor\'s name and a phone number. That\'s it. No full address. No hours. No accepted insurance. Nothing to help you decide. And on the other side, the clinic that should be on that screen took weeks to finish signing up."',
