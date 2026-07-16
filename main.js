@@ -126,6 +126,7 @@ function goToHome(push){
   document.getElementById('page-home').classList.add('active');
   document.getElementById('page-case').classList.remove('active');
   document.getElementById('page-sobre').classList.remove('active');
+  document.body.classList.add('on-home');
   window.scrollTo({top:0, behavior:'instant'});
   if(push){
     history.pushState({ page: 'home' }, '', window.location.pathname + window.location.search);
@@ -138,6 +139,7 @@ function goToSobre(push){
   document.getElementById('page-home').classList.remove('active');
   document.getElementById('page-case').classList.remove('active');
   document.getElementById('page-sobre').classList.add('active');
+  document.body.classList.remove('on-home');
   window.scrollTo({top:0, behavior:'instant'});
   if(push){
     history.pushState({ page: 'sobre' }, '', '#sobre');
@@ -1001,6 +1003,7 @@ function openCase(id,title,push){
 
   document.getElementById('page-home').classList.remove('active');
   document.getElementById('page-case').classList.add('active');
+  document.body.classList.remove('on-home');
   window.scrollTo({top:0,behavior:'instant'});
   setTimeout(animateCaseEntrance,50);
   setTimeout(initCompSliders,100);
