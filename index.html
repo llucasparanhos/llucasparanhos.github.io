@@ -25,7 +25,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230c0c0c'/><text y='.85em' font-size='55' font-family='system-ui' font-weight='700' fill='%23c9a96e'>LC</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Serif+Display:ital@0;1&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Archivo:ital,wght@0,700;0,800;1,400&family=Geist:wght@400;500;600&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Serif+Display:ital@0;1&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Archivo:ital,wght@0,700;0,800;1,400&family=Geist:wght@400;500;600&family=Sora:wght@700;800&family=Pecita&family=Hanken+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Lucas de Castro","jobTitle":"Product Designer","url":"https://llucasparanhos.github.io","email":"llucastourinho@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Salvador","addressRegion":"BA","addressCountry":"BR"},"sameAs":["https://linkedin.com/in/llucasdecastro"]}
@@ -86,40 +86,55 @@
 ════════════════════════════════════ -->
 <div id="page-home" class="page active">
 
-  <!-- HERO, estilo onyourtiptoes: texto grande, seleção animada, cursor -->
-  <section class="hero" aria-label="Apresentação">
+  <!-- HERO, layout do Figma: nome gigante, imagem, menu de vidro -->
+  <section class="hero hero-v2" aria-label="Apresentação">
 
-    <!-- Cursor animado -->
-    <div class="hero-cursor" id="hero-cursor" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 2L20 12L12 13.5L8.5 21L4 2Z" fill="#f0ede8" stroke="#0c0c0c" stroke-width=".8"/>
-      </svg>
-    </div>
+    <!-- Menu de vidro, só na hero da home -->
+    <nav class="hero-glass-menu" aria-label="Navegação da home">
+      <button class="hgm-item hgm-active" onclick="goToHome()" data-pt="Home" data-en="Home">Home</button>
+      <a class="hgm-item" href="#projetos" data-pt="Cases" data-en="Cases">Cases</a>
+      <button class="hgm-item" onclick="goToSobre()" data-pt="Sobre" data-en="About">Sobre</button>
+      <a class="hgm-item hgm-link" href="https://linkedin.com/in/llucasdecastro" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="hgm-item hgm-link" href="mailto:llucastourinho@gmail.com">Email</a>
+      <a class="hgm-item hgm-link" href="https://wa.me/5571992080680" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
 
-    <div class="hero-content">
+    <div class="hero-v2-grid">
+      <div class="hero-v2-text">
+        <h1 class="hero-v2-name">
+          <span class="hv2-line1">Lucas</span>
+          <span class="hv2-line2">de Castro</span>
+        </h1>
+        <p class="hero-v2-desc"
+          data-pt="Mais de 10 anos em design, 4 focados em produto.<br>Hoje me especializo em analytics para potencializar<br>as decisões entre &lt;span class=&quot;hv2-c-interface&quot;&gt;interface&lt;/span&gt;, &lt;span class=&quot;hv2-c-dado&quot;&gt;dado&lt;/span&gt; e &lt;span class=&quot;hv2-c-negocio&quot;&gt;negócio&lt;/span&gt;&lt;span class=&quot;hv2-c-negocio&quot;&gt;.&lt;/span&gt;"
+          data-en="Over 10 years in design, 4 focused on product.<br>Today I specialize in analytics to enhance<br>decisions between &lt;span class=&quot;hv2-c-interface&quot;&gt;interface&lt;/span&gt;, &lt;span class=&quot;hv2-c-dado&quot;&gt;data&lt;/span&gt; and &lt;span class=&quot;hv2-c-negocio&quot;&gt;business&lt;/span&gt;&lt;span class=&quot;hv2-c-negocio&quot;&gt;.&lt;/span&gt;">
+          Mais de 10 anos em design, 4 focados em produto.<br>Hoje me especializo em analytics para potencializar<br>as decisões entre <span class="hv2-c-interface">interface</span>, <span class="hv2-c-dado">dado</span> e <span class="hv2-c-negocio">negócio</span><span class="hv2-c-negocio">.</span>
+        </p>
 
-      <!-- Linha 1: nome com efeito digitação -->
-      <div class="hero-type-wrap" aria-label="Lucas de Castro">
-        <span class="hero-type-line" id="hero-line1"></span><span class="hero-caret" id="hero-caret1">|</span>
+        <!-- Widget decorativo: botão "Auto layout" -->
+        <div class="hero-decor" aria-hidden="true">
+          <div class="hd-box"></div>
+          <span class="hd-dot" style="left:0;top:0;"></span>
+          <span class="hd-dot" style="right:0;top:0;"></span>
+          <span class="hd-dot" style="right:0;bottom:0;"></span>
+          <span class="hd-dot" style="left:0;bottom:0;"></span>
+          <span class="hd-line hd-line-top"></span>
+          <span class="hd-line hd-line-bottom"></span>
+          <span class="hd-line hd-line-left"></span>
+          <span class="hd-line hd-line-right"></span>
+          <button class="hd-button">Auto layout</button>
+          <svg class="hd-cursor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 2L20 12L12 13.5L8.5 21L4 2Z" fill="#fff" stroke="#000" stroke-width=".6"/>
+          </svg>
+        </div>
       </div>
 
-      <!-- Linha 2: cargo com seleção de texto animada -->
-      <div class="hero-select-wrap">
-        <div class="hero-select-bg" id="hero-select-bg" aria-hidden="true"></div>
-        <span class="hero-select-text" id="hero-line2"></span>
+      <div class="hero-v2-img">
+        <img src="img/Tela-hero-home.png" alt="Interface de produto Lucas de Castro" loading="eager">
       </div>
-
-      <!-- Sublinha -->
-      <div class="hero-sub">
-        <span class="hero-sub-sep" aria-hidden="true"></span>
-        <span id="hero-line3"></span>
-      </div>
-
-      <!-- Tagline duas frases -->
-      <p class="hero-tagline" data-pt="Mais de 10 anos em design, 4 focados em produto. Hoje me especializo em analytics e programação para potencializar as decisões entre interface, dado e negócio." data-en="More than 10 years in design, 4 focused on product. Today I specialize in analytics and programming to enhance decisions between interface, data and business.">Mais de 10 anos em design, 4 focados em produto. Hoje me especializo em analytics e programação para potencializar as decisões entre interface, dado e negócio.</p>
-
     </div>
   </section>
+
 
 
   <!-- PROJETOS -->
