@@ -1840,16 +1840,16 @@ body.on-home .nav { display:none; }
   to   { opacity:1; transform:translateY(0); }
 }
 .hero-glass-menu {
-  animation:heroFadeUp .9s cubic-bezier(.19,1,.22,1) .1s both;
+  animation:heroFadeUp .9s cubic-bezier(.19,1,.22,1) .1s backwards;
 }
 .hv2-role {
-  animation:heroFadeUp .9s cubic-bezier(.19,1,.22,1) .35s both;
+  animation:heroFadeUp .9s cubic-bezier(.19,1,.22,1) .35s backwards;
 }
 .hv2-name {
-  animation:heroFadeUp 1s cubic-bezier(.19,1,.22,1) .5s both;
+  animation:heroFadeUp 1s cubic-bezier(.19,1,.22,1) .5s backwards;
 }
 .hv2-tagline {
-  animation:heroFadeUp .9s cubic-bezier(.19,1,.22,1) .75s both;
+  animation:heroFadeUp .9s cubic-bezier(.19,1,.22,1) .75s backwards;
 }
 @keyframes heroFadeUpDiscovery {
   from { opacity:0; transform:translateY(28px) rotate(-5.89deg); }
@@ -1867,10 +1867,10 @@ body.on-home .nav { display:none; }
   from { opacity:0; transform:translateY(28px) rotate(-9.09deg); }
   to   { opacity:1; transform:translateY(0) rotate(-9.09deg); }
 }
-.hdp-discovery { animation:heroFadeUpDiscovery .8s cubic-bezier(.19,1,.22,1) .95s both; }
-.hdp-designsystem { animation:heroFadeUpDesignsystem .8s cubic-bezier(.19,1,.22,1) 1.05s both; }
-.hdp-codigo { animation:heroFadeUpCodigo .8s cubic-bezier(.19,1,.22,1) 1.15s both; }
-.hdp-dados { animation:heroFadeUpDados .8s cubic-bezier(.19,1,.22,1) 1.25s both; }
+.hdp-discovery { animation:heroFadeUpDiscovery .8s cubic-bezier(.19,1,.22,1) .95s backwards; }
+.hdp-designsystem { animation:heroFadeUpDesignsystem .8s cubic-bezier(.19,1,.22,1) 1.05s backwards; }
+.hdp-codigo { animation:heroFadeUpCodigo .8s cubic-bezier(.19,1,.22,1) 1.15s backwards; }
+.hdp-dados { animation:heroFadeUpDados .8s cubic-bezier(.19,1,.22,1) 1.25s backwards; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-glass-menu, .hv2-role, .hv2-name, .hv2-tagline {
