@@ -1759,3 +1759,47 @@ body.on-home .nav { display:none; }
 @media(max-width:700px){
   .hv2-name { letter-spacing:-.25rem; }
 }
+
+/* ── Glow de fundo (topo e base da hero) ── */
+.hero-glow {
+  position:absolute; left:50%; transform:translateX(-50%);
+  width:120%; max-width:1600px; aspect-ratio:2/1;
+  pointer-events:none; z-index:0;
+  background:radial-gradient(ellipse at center, rgba(194,144,101,.28) 0%, rgba(250,214,183,.12) 35%, transparent 70%);
+}
+.hero-glow-top { top:-18%; }
+.hero-glow-bottom { bottom:-28%; }
+
+/* ── Fotos decorativas (specs Figma, canvas 1920x1080) ── */
+.hero-decor-photos {
+  position:absolute; inset:0;
+  pointer-events:none; z-index:1;
+}
+.hdp {
+  position:absolute;
+  display:block;
+  filter:drop-shadow(0 14px 30px rgba(0,0,0,.5));
+}
+.hdp-discovery {
+  left:11.77%; top:69.63%;
+  width:20.9%;
+  transform:rotate(-5.89deg);
+}
+.hdp-designsystem {
+  left:30.42%; top:65.93%;
+  width:15.71%;
+  transform:rotate(6.08deg);
+}
+.hdp-codigo {
+  left:45.05%; top:64.44%;
+  width:20.28%;
+  transform:rotate(13.46deg);
+}
+.hdp-dados {
+  left:65.68%; top:67.78%;
+  width:21.24%;
+  transform:rotate(-9.09deg);
+}
+@media(max-width:900px){
+  .hero-decor-photos { display:none; }
+}
