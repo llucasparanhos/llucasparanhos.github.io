@@ -1719,7 +1719,7 @@ body.on-home .nav { display:none; }
   display:flex; flex-direction:column; align-items:center;
   text-align:center;
   gap:0;
-  padding-top:120px;
+  padding-top:60px;
   position:relative; z-index:2;
 }
 .hv2-name {
@@ -1745,7 +1745,7 @@ body.on-home .nav { display:none; }
   font-weight:300;
   line-height:1.53;
   letter-spacing:.04rem;
-  margin:0 0 .5rem;
+  margin:0 0 .45rem;
 }
 .hv2-tagline {
   color:#fff;
@@ -1756,7 +1756,7 @@ body.on-home .nav { display:none; }
   font-weight:300;
   line-height:1.5;
   max-width:44em;
-  margin:1.5rem 0 0;
+  margin:1.35rem 0 0;
 }
 @media(max-width:700px){
   .hv2-name { letter-spacing:-.25rem; }
@@ -1788,22 +1788,22 @@ body.on-home .nav { display:none; }
   filter:drop-shadow(0 14px 30px rgba(0,0,0,.5));
 }
 .hdp-discovery {
-  left:13%; top:82%;
+  left:18.05%; top:82%;
   width:16.7%;
   transform:rotate(-5.89deg);
 }
 .hdp-designsystem {
-  left:30.5%; top:79%;
+  left:32.05%; top:79%;
   width:12.6%;
   transform:rotate(6.08deg);
 }
 .hdp-codigo {
-  left:44.5%; top:77.5%;
+  left:43.25%; top:77.5%;
   width:16.2%;
   transform:rotate(13.46deg);
 }
 .hdp-dados {
-  left:63.5%; top:80.5%;
+  left:58.45%; top:80.5%;
   width:17%;
   transform:rotate(-9.09deg);
 }
