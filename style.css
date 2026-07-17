@@ -1719,7 +1719,7 @@ body.on-home .nav { display:none; }
   display:flex; flex-direction:column; align-items:center;
   text-align:center;
   gap:0;
-  padding-top:140px;
+  padding-top:210px;
   position:relative; z-index:2;
 }
 .hv2-name {
@@ -1780,7 +1780,10 @@ body.on-home .nav { display:none; }
 
 /* ── Fotos decorativas (specs Figma, canvas 1920x1080) ── */
 .hero-decor-photos {
-  position:absolute; inset:0;
+  position:relative;
+  width:100%;
+  height:280px;
+  margin-top:3rem;
   pointer-events:none; z-index:1;
 }
 .hdp {
@@ -1789,22 +1792,22 @@ body.on-home .nav { display:none; }
   filter:drop-shadow(0 14px 30px rgba(0,0,0,.5));
 }
 .hdp-discovery {
-  left:18.05%; top:82%;
+  left:18.05%; top:18%;
   width:16.7%;
   transform:rotate(-5.89deg);
 }
 .hdp-designsystem {
-  left:32.05%; top:79%;
+  left:32.05%; top:6%;
   width:12.6%;
   transform:rotate(6.08deg);
 }
 .hdp-codigo {
-  left:43.25%; top:77.5%;
+  left:43.25%; top:0%;
   width:16.2%;
   transform:rotate(13.46deg);
 }
 .hdp-dados {
-  left:58.45%; top:80.5%;
+  left:58.45%; top:12%;
   width:17%;
   transform:rotate(-9.09deg);
 }
