@@ -139,13 +139,13 @@ function goToHome(push){
 
 function _heroEntranceGroups(){
   var groups = [
-    { el: document.querySelector('.hero-glass-menu'), delay: 100 },
-    { el: document.querySelector('.hv2-role'), delay: 350 },
-    { el: document.querySelector('.hv2-name'), delay: 500 },
-    { el: document.querySelector('.hv2-tagline'), delay: 750 }
+    { el: document.querySelector('.hero-glass-menu'), delay: 110 },
+    { el: document.querySelector('.hv2-role'), delay: 385 },
+    { el: document.querySelector('.hv2-name'), delay: 550 },
+    { el: document.querySelector('.hv2-tagline'), delay: 825 }
   ];
   document.querySelectorAll('.hdp').forEach(function(p, i){
-    groups.push({ el: p, delay: 950 + i * 100 });
+    groups.push({ el: p, delay: 1045 + i * 110 });
   });
   return groups;
 }
