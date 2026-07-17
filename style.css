@@ -140,20 +140,12 @@ img { display:block; max-width:100%; }
 .mob-item:hover { color:var(--c-muted); }
 
 /* ── HERO — onyourtiptoes style ── */
-.hero-scroll-zone {
-  position:relative;
-  height:230vh;
-}
 .hero {
-  position:sticky; top:0; min-height:100vh;
+  position:relative; min-height:100vh;
   display:flex; flex-direction:column; justify-content:flex-start;
   padding:0 var(--gap-nav) 3rem; overflow:hidden;
 }
 .hero-content { position:relative; z-index:2; }
-@media(max-width:800px){
-  .hero-scroll-zone { height:auto; }
-  .hero { position:relative; }
-}
 
 /* Cursor animado — seta SVG */
 .hero-cursor {
@@ -1849,27 +1841,35 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   .hero-decor-photos { display:none; }
 }
 
-/* ── Montagem da hero conforme o scroll (JS aplica opacity/transform por frame) ── */
+/* ── Animação de entrada da hero (controlada via JS, classe hv-in) ── */
 .hero-glass-menu {
   opacity:0;
-  transition:opacity .12s linear;
+  transition:opacity 1s cubic-bezier(.19,1,.22,1);
 }
+.hero-glass-menu.hv-in { opacity:1; }
+
 .hv2-role, .hv2-name, .hv2-tagline {
   opacity:0;
   transform:translateY(28px);
-  transition:opacity .12s linear, transform .12s linear;
+  transition:opacity .9s cubic-bezier(.19,1,.22,1), transform .9s cubic-bezier(.19,1,.22,1);
 }
-.hdp {
-  opacity:0;
-  transition:opacity .12s linear, transform .4s cubic-bezier(.16,1,.3,1), filter .4s ease;
+.hv2-role.hv-in, .hv2-name.hv-in, .hv2-tagline.hv-in {
+  opacity:1;
+  transform:translateY(0);
 }
 
-@media(max-width:800px){
-  /* No mobile não há pin/scroll-reveal, tudo já visível */
-  .hero-glass-menu, .hv2-role, .hv2-name, .hv2-tagline, .hdp {
-    opacity:1 !important; transform:none !important;
-  }
-  .hv2-role, .hv2-name, .hv2-tagline { transform:translateY(0) !important; }
+.hdp { opacity:0; }
+.hdp.hv-in { opacity:1; }
+
+/* Reset instantâneo (sem transição), usado antes da página ficar visível de novo */
+.hero-glass-menu.hv-reset,
+.hv2-role.hv-reset, .hv2-name.hv-reset, .hv2-tagline.hv-reset,
+.hdp.hv-reset {
+  transition:none !important;
+  opacity:0 !important;
+}
+.hv2-role.hv-reset, .hv2-name.hv-reset, .hv2-tagline.hv-reset {
+  transform:translateY(28px) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
