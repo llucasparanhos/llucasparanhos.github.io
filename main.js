@@ -114,7 +114,6 @@ function _renderCarousel(carousel, track, slides){
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('splash').classList.add('gone');
-    if(document.body.classList.contains('on-home')) playHeroEntrance();
   }, 1000);
 });
 
@@ -124,49 +123,86 @@ if(navName) navName.addEventListener('click', () => goToHome());
 
 function goToHome(push){
   if(push === undefined) push = true;
-  resetHeroEntrance();
   document.getElementById('page-home').classList.add('active');
   document.getElementById('page-case').classList.remove('active');
   document.getElementById('page-sobre').classList.remove('active');
   document.body.classList.add('on-home');
   window.scrollTo({top:0, behavior:'instant'});
-  requestAnimationFrame(function(){ requestAnimationFrame(playHeroEntrance); });
+  updateHeroScrollProgress();
   if(push){
     history.pushState({ page: 'home' }, '', window.location.pathname + window.location.search);
     _navCount++;
   }
 }
 
-function _heroEntranceGroups(){
-  var groups = [
-    { el: document.querySelector('.hero-glass-menu'), delay: 100 },
-    { el: document.querySelector('.hv2-role'), delay: 350 },
-    { el: document.querySelector('.hv2-name'), delay: 500 },
-    { el: document.querySelector('.hv2-tagline'), delay: 750 }
-  ];
-  document.querySelectorAll('.hdp').forEach(function(p, i){
-    groups.push({ el: p, delay: 950 + i * 100 });
-  });
-  return groups;
+/* ── Hero montando conforme o scroll (hero fica "grudada" via position:sticky) ── */
+function _heroRange(p, start, end){
+  if(p <= start) return 0;
+  if(p >= end) return 1;
+  return (p - start) / (end - start);
 }
 
-/* Esconde tudo de novo, SEM transição, antes da página ficar visível (evita o flash) */
-function resetHeroEntrance(){
-  _heroEntranceGroups().forEach(function(g){
-    if(!g.el) return;
-    g.el.classList.add('hv-reset');
-    g.el.classList.remove('hv-in');
+var _heroEls = null;
+function _getHeroEls(){
+  if(_heroEls) return _heroEls;
+  _heroEls = {
+    zone: document.getElementById('hero-scroll-zone'),
+    menu: document.querySelector('.hero-glass-menu'),
+    role: document.querySelector('.hv2-role'),
+    name: document.querySelector('.hv2-name'),
+    tagline: document.querySelector('.hv2-tagline'),
+    photos: Array.from(document.querySelectorAll('.hdp'))
+  };
+  return _heroEls;
+}
+
+function updateHeroScrollProgress(){
+  var els = _getHeroEls();
+  if(!els.zone || window.innerWidth <= 800) return; /* sem pin no mobile */
+
+  var rect = els.zone.getBoundingClientRect();
+  var total = els.zone.offsetHeight - window.innerHeight;
+  if(total <= 0) return;
+  var p = Math.max(0, Math.min(1, -rect.top / total));
+
+  if(els.menu){
+    var mp = _heroRange(p, 0, 0.14);
+    els.menu.style.opacity = mp;
+  }
+  if(els.role){
+    var rp = _heroRange(p, 0.08, 0.26);
+    els.role.style.opacity = rp;
+    els.role.style.transform = 'translateY(' + (28 * (1 - rp)) + 'px)';
+  }
+  if(els.name){
+    var np = _heroRange(p, 0.22, 0.46);
+    els.name.style.opacity = np;
+    els.name.style.transform = 'translateY(' + (28 * (1 - np)) + 'px)';
+  }
+  if(els.tagline){
+    var tp = _heroRange(p, 0.42, 0.62);
+    els.tagline.style.opacity = tp;
+    els.tagline.style.transform = 'translateY(' + (28 * (1 - tp)) + 'px)';
+  }
+  els.photos.forEach(function(ph, i){
+    var start = 0.6 + i * 0.09;
+    var pp = _heroRange(p, start, start + 0.14);
+    ph.style.opacity = pp;
   });
 }
 
-/* Revela em sequência, chamado só depois que a página já está visível */
-function playHeroEntrance(){
-  _heroEntranceGroups().forEach(function(g){
-    if(!g.el) return;
-    g.el.classList.remove('hv-reset');
-    setTimeout(function(){ g.el.classList.add('hv-in'); }, g.delay);
-  });
-}
+(function(){
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      window.requestAnimationFrame(function(){ updateHeroScrollProgress(); ticking = false; });
+      ticking = true;
+    }
+  }, {passive:true});
+  window.addEventListener('resize', updateHeroScrollProgress);
+  window.addEventListener('DOMContentLoaded', updateHeroScrollProgress);
+  updateHeroScrollProgress();
+})();
 
 function goToSobre(push){
   if(push === undefined) push = true;
