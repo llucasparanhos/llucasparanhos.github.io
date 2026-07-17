@@ -141,7 +141,7 @@ img { display:block; max-width:100%; }
 
 /* ── HERO — onyourtiptoes style ── */
 .hero {
-  position:relative; min-height:78.5vh;
+  position:relative; min-height:100vh;
   display:flex; flex-direction:column; justify-content:center;
   padding:0 var(--gap-nav); overflow:hidden;
 }
@@ -1682,9 +1682,9 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 .hero-glass-menu {
   position:absolute;
   top:64px; left:50%; transform:translateX(-50%);
-  display:flex; align-items:center; gap:40px;
-  padding:16px 32px;
-  border-radius:32px;
+  display:flex; align-items:center; gap:28px;
+  padding:11px 22px;
+  border-radius:24px;
   background:linear-gradient(94.1deg, rgba(255,255,255,.07) 10.566%, rgba(228,228,228,.07) 89.982%);
   backdrop-filter:blur(14px) saturate(140%);
   -webkit-backdrop-filter:blur(14px) saturate(140%);
@@ -1695,8 +1695,8 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 .hgm-item {
   font-family:'Poppins', var(--ff-body);
   font-weight:200;
-  font-size:24px;
-  letter-spacing:-1.2px;
+  font-size:17px;
+  letter-spacing:-.8px;
   text-align:center;
   color:#fff;
   cursor:pointer;
@@ -1719,6 +1719,8 @@ body.on-home .nav { display:none; }
   display:flex; flex-direction:column; align-items:center;
   text-align:center;
   gap:0;
+  padding-top:120px;
+  position:relative; z-index:2;
 }
 .hv2-name {
   font-family:'Poppins', var(--ff-body);
@@ -1743,32 +1745,37 @@ body.on-home .nav { display:none; }
   font-weight:300;
   line-height:1.53;
   letter-spacing:.04rem;
-  margin:0 0 1.5rem;
+  margin:0 0 .5rem;
 }
 .hv2-tagline {
   color:#fff;
   text-align:center;
   font-family:'Poppins', var(--ff-body);
-  font-size:clamp(1rem, 1.6vw, 1.75rem);
+  font-size:clamp(.8rem, 1.28vw, 1.4rem);
   font-style:normal;
   font-weight:300;
   line-height:1.5;
-  max-width:48em;
-  margin:2rem 0 0;
+  max-width:44em;
+  margin:1.5rem 0 0;
 }
 @media(max-width:700px){
   .hv2-name { letter-spacing:-.25rem; }
 }
 
-/* ── Glow de fundo (topo e base da hero) ── */
+/* ── Glow de fundo (topo e base da hero, tipo vinheta) ── */
 .hero-glow {
-  position:absolute; left:50%; transform:translateX(-50%);
-  width:120%; max-width:1600px; aspect-ratio:2/1;
+  position:absolute; left:0; right:0;
+  height:34%;
   pointer-events:none; z-index:0;
-  background:radial-gradient(ellipse at center, rgba(194,144,101,.28) 0%, rgba(250,214,183,.12) 35%, transparent 70%);
 }
-.hero-glow-top { top:-18%; }
-.hero-glow-bottom { bottom:-28%; }
+.hero-glow-top {
+  top:0;
+  background:linear-gradient(to bottom, rgba(194,144,101,.32) 0%, rgba(194,144,101,.08) 55%, transparent 100%);
+}
+.hero-glow-bottom {
+  bottom:0;
+  background:linear-gradient(to top, rgba(194,144,101,.32) 0%, rgba(194,144,101,.08) 55%, transparent 100%);
+}
 
 /* ── Fotos decorativas (specs Figma, canvas 1920x1080) ── */
 .hero-decor-photos {
@@ -1781,23 +1788,23 @@ body.on-home .nav { display:none; }
   filter:drop-shadow(0 14px 30px rgba(0,0,0,.5));
 }
 .hdp-discovery {
-  left:11.77%; top:69.63%;
-  width:20.9%;
+  left:13%; top:82%;
+  width:16.7%;
   transform:rotate(-5.89deg);
 }
 .hdp-designsystem {
-  left:30.42%; top:65.93%;
-  width:15.71%;
+  left:30.5%; top:79%;
+  width:12.6%;
   transform:rotate(6.08deg);
 }
 .hdp-codigo {
-  left:45.05%; top:64.44%;
-  width:20.28%;
+  left:44.5%; top:77.5%;
+  width:16.2%;
   transform:rotate(13.46deg);
 }
 .hdp-dados {
-  left:65.68%; top:67.78%;
-  width:21.24%;
+  left:63.5%; top:80.5%;
+  width:17%;
   transform:rotate(-9.09deg);
 }
 @media(max-width:900px){
