@@ -1719,7 +1719,7 @@ body.on-home .nav { display:none; }
   display:flex; flex-direction:column; align-items:center;
   text-align:center;
   gap:0;
-  padding-top:60px;
+  padding-top:30px;
   position:relative; z-index:2;
 }
 .hv2-name {
@@ -1745,7 +1745,7 @@ body.on-home .nav { display:none; }
   font-weight:300;
   line-height:1.53;
   letter-spacing:.04rem;
-  margin:0 0 .45rem;
+  margin:0 0 .3825rem;
 }
 .hv2-tagline {
   color:#fff;
@@ -1756,7 +1756,7 @@ body.on-home .nav { display:none; }
   font-weight:300;
   line-height:1.5;
   max-width:44em;
-  margin:1.35rem 0 0;
+  margin:1.1475rem 0 0;
 }
 @media(max-width:700px){
   .hv2-name { letter-spacing:-.25rem; }
