@@ -1797,7 +1797,13 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 }
 .hero-glow-bottom {
   bottom:-10%;
-  background:radial-gradient(ellipse at center bottom, rgba(193,143,100,.14) 0%, rgba(193,143,100,.07) 35%, rgba(193,143,100,.02) 65%, transparent 100%);
+  background:none;
+  background-image:url('img/glow-warm.png');
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  background-position:center;
+  transform:translateX(-50%) scaleY(-1);
+  filter:none;
 }
 
 /* ── Fotos decorativas (specs Figma, canvas 1920x1080) ── */
@@ -1889,11 +1895,14 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 /* ── Continuação do glow da hero, atrás dos cards de projeto ── */
 .cases-glow {
   position:absolute;
-  left:50%; transform:translateX(-50%);
+  left:50%;
   top:-18%;
   width:70%; max-width:1100px;
   height:40%;
   pointer-events:none; z-index:0;
-  filter:blur(70px);
-  background:radial-gradient(ellipse at center top, rgba(193,143,100,.14) 0%, rgba(193,143,100,.07) 35%, rgba(193,143,100,.02) 65%, transparent 100%);
+  transform:translateX(-50%);
+  background-image:url('img/glow-warm.png');
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  background-position:center;
 }
