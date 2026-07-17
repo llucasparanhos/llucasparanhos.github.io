@@ -114,7 +114,7 @@ function _renderCarousel(carousel, track, slides){
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('splash').classList.add('gone');
-    if(document.body.classList.contains('on-home')) animateHeroEntrance();
+    if(document.body.classList.contains('on-home')) playHeroEntrance();
   }, 1000);
 });
 
@@ -124,20 +124,20 @@ if(navName) navName.addEventListener('click', () => goToHome());
 
 function goToHome(push){
   if(push === undefined) push = true;
+  resetHeroEntrance();
   document.getElementById('page-home').classList.add('active');
   document.getElementById('page-case').classList.remove('active');
   document.getElementById('page-sobre').classList.remove('active');
   document.body.classList.add('on-home');
   window.scrollTo({top:0, behavior:'instant'});
-  setTimeout(animateHeroEntrance, 50);
+  requestAnimationFrame(function(){ requestAnimationFrame(playHeroEntrance); });
   if(push){
     history.pushState({ page: 'home' }, '', window.location.pathname + window.location.search);
     _navCount++;
   }
 }
 
-/* ── Entrada animada da hero: disparada só quando o conteúdo é visível de verdade ── */
-function animateHeroEntrance(){
+function _heroEntranceGroups(){
   var groups = [
     { el: document.querySelector('.hero-glass-menu'), delay: 100 },
     { el: document.querySelector('.hv2-role'), delay: 350 },
@@ -147,10 +147,23 @@ function animateHeroEntrance(){
   document.querySelectorAll('.hdp').forEach(function(p, i){
     groups.push({ el: p, delay: 950 + i * 100 });
   });
-  groups.forEach(function(g){
+  return groups;
+}
+
+/* Esconde tudo de novo, SEM transição, antes da página ficar visível (evita o flash) */
+function resetHeroEntrance(){
+  _heroEntranceGroups().forEach(function(g){
     if(!g.el) return;
+    g.el.classList.add('hv-reset');
     g.el.classList.remove('hv-in');
-    void g.el.offsetWidth; /* força reflow, garante que a transição rode de novo */
+  });
+}
+
+/* Revela em sequência, chamado só depois que a página já está visível */
+function playHeroEntrance(){
+  _heroEntranceGroups().forEach(function(g){
+    if(!g.el) return;
+    g.el.classList.remove('hv-reset');
     setTimeout(function(){ g.el.classList.add('hv-in'); }, g.delay);
   });
 }

@@ -1855,6 +1855,17 @@ body.on-home .nav { display:none; }
 .hdp { opacity:0; }
 .hdp.hv-in { opacity:1; }
 
+/* Reset instantâneo (sem transição), usado antes da página ficar visível de novo */
+.hero-glass-menu.hv-reset,
+.hv2-role.hv-reset, .hv2-name.hv-reset, .hv2-tagline.hv-reset,
+.hdp.hv-reset {
+  transition:none !important;
+  opacity:0 !important;
+}
+.hv2-role.hv-reset, .hv2-name.hv-reset, .hv2-tagline.hv-reset {
+  transform:translateY(28px) !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-glass-menu, .hv2-role, .hv2-name, .hv2-tagline, .hdp {
     transition:none !important; opacity:1 !important;
