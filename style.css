@@ -142,7 +142,7 @@ img { display:block; max-width:100%; }
 /* ── HERO — onyourtiptoes style ── */
 .hero {
   position:relative; min-height:100vh;
-  display:flex; flex-direction:column; justify-content:center;
+  display:flex; flex-direction:column; justify-content:flex-start;
   padding:0 var(--gap-nav); overflow:hidden;
 }
 .hero-content { position:relative; z-index:2; }
@@ -1719,7 +1719,7 @@ body.on-home .nav { display:none; }
   display:flex; flex-direction:column; align-items:center;
   text-align:center;
   gap:0;
-  padding-top:30px;
+  padding-top:140px;
   position:relative; z-index:2;
 }
 .hv2-name {
