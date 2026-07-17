@@ -114,6 +114,7 @@ function _renderCarousel(carousel, track, slides){
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('splash').classList.add('gone');
+    if(document.body.classList.contains('on-home')) animateHeroEntrance();
   }, 1000);
 });
 
@@ -128,10 +129,30 @@ function goToHome(push){
   document.getElementById('page-sobre').classList.remove('active');
   document.body.classList.add('on-home');
   window.scrollTo({top:0, behavior:'instant'});
+  setTimeout(animateHeroEntrance, 50);
   if(push){
     history.pushState({ page: 'home' }, '', window.location.pathname + window.location.search);
     _navCount++;
   }
+}
+
+/* ── Entrada animada da hero: disparada só quando o conteúdo é visível de verdade ── */
+function animateHeroEntrance(){
+  var groups = [
+    { el: document.querySelector('.hero-glass-menu'), delay: 100 },
+    { el: document.querySelector('.hv2-role'), delay: 350 },
+    { el: document.querySelector('.hv2-name'), delay: 500 },
+    { el: document.querySelector('.hv2-tagline'), delay: 750 }
+  ];
+  document.querySelectorAll('.hdp').forEach(function(p, i){
+    groups.push({ el: p, delay: 950 + i * 100 });
+  });
+  groups.forEach(function(g){
+    if(!g.el) return;
+    g.el.classList.remove('hv-in');
+    void g.el.offsetWidth; /* força reflow, garante que a transição rode de novo */
+    setTimeout(function(){ g.el.classList.add('hv-in'); }, g.delay);
+  });
 }
 
 function goToSobre(push){
