@@ -1,0 +1,36 @@
+name: Regenerar tokens de design
+
+# Roda sozinho toda vez que tokens.json muda na branch main
+"on":
+  push:
+    branches: [main]
+    paths:
+      - tokens.json
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Gerar :root do style.css a partir do tokens.json
+        run: python generate_tokens.py
+
+      - name: Commitar o CSS gerado, se algo mudou
+        run: |
+          git config user.name "token-bot"
+          git config user.email "actions@github.com"
+          git diff --quiet style.css || (
+            git add style.css
+            git commit -m "chore: regenera tokens de design a partir do tokens.json [bot]"
+            git push
+          )
