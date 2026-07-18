@@ -7,34 +7,30 @@
 
 :root {
   /* TOKENS:START — gerado automaticamente a partir de tokens.json, não edite direto aqui */
-  --c-bg:        #000000;
-  --c-bg2:       #141414;
-  --c-bg3:       #1c1c1c;
-  --c-text:      #f0ede8;
-  --c-muted:     #999;
-  --c-dim:       #7a7a7a;
-  --c-line:      rgba(240,237,232,.1);
-  --c-gold:      #C18F64;
-  --c-gold-rgb:  193,143,100;
-
-  --ff-display:  'Roboto', system-ui, sans-serif;
-  --ff-serif:    'DM Serif Display', Georgia, serif;
-  --ff-mono:     'DM Mono', 'Courier New', monospace;
+  --c-bg: #000000;
+  --c-bg2: #141414;
+  --c-bg3: #1c1c1c;
+  --c-text: #f0ede8;
+  --c-muted: #999;
+  --c-dim: #7a7a7a;
+  --c-line: rgba(240,237,232,.1);
+  --c-gold: #C18F64;
+  --c-gold-rgb: 193,143,100;
+  --ff-display: 'Roboto', system-ui, sans-serif;
+  --ff-serif: 'DM Serif Display', Georgia, serif;
+  --ff-mono: 'DM Mono', 'Courier New', monospace;
   --ff-case-heading: 'Geist', var(--ff-body);
-  --ff-case-number:  'Sora', var(--ff-body);
-  --ff-body:     'Roboto', system-ui, sans-serif;
-
-  --t-hero:      clamp(5rem, 12vw, 10rem);
-  --t-h2:        clamp(1.8rem, 3vw, 2.8rem);
-  --t-label:     .65rem;
-  --t-body:      .95rem;
-  --t-mono:      .7rem;
-
-  --gap-nav:     clamp(2rem, 6vw, 5rem);
-  --gap-sec:     clamp(5rem, 10vw, 10rem);
-  --gap-in:      clamp(2rem, 4vw, 4rem);
-
-  --ease:        cubic-bezier(.16,1,.3,1);
+  --ff-case-number: 'Sora', var(--ff-body);
+  --ff-body: 'Roboto', system-ui, sans-serif;
+  --t-hero: clamp(5rem, 12vw, 10rem);
+  --t-h2: clamp(1.8rem, 3vw, 2.8rem);
+  --t-label: .65rem;
+  --t-body: .95rem;
+  --t-mono: .7rem;
+  --gap-nav: clamp(2rem, 6vw, 5rem);
+  --gap-sec: clamp(5rem, 10vw, 10rem);
+  --gap-in: clamp(2rem, 4vw, 4rem);
+  --ease: cubic-bezier(.16,1,.3,1);
   /* TOKENS:END */
 }
 
