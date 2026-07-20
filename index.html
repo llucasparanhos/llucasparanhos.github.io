@@ -351,14 +351,11 @@
 ════════════════════════════════════ -->
 <div id="page-sobre" class="page">
 
-  <!-- Nav do Sobre -->
-  <nav class="nav sobre-nav" role="navigation" aria-label="Navegação sobre">
-    <div class="nav-left">
-      <button class="nav-sobre" onclick="goToHome()" aria-label="Voltar para home" data-pt="← Home" data-en="← Home">← Home</button>
-      <button class="lang-toggle" id="lang-toggle-sobre" onclick="toggleLang()" aria-label="Switch language">PT · EN</button>
-    </div>
-    <div class="nav-name" onclick="goToHome()" role="button" tabindex="0" aria-label="Voltar para home">Lucas de Castro</div>
-    <div class="nav-right"></div>
+  <!-- Breadcrumb simples, igual aos cases -->
+  <nav class="case-nav" aria-label="Navegação sobre">
+    <button class="case-back" onclick="goToHome()" aria-label="Voltar para home" data-pt="← Home" data-en="← Home">
+      ← Home
+    </button>
   </nav>
 
   <section class="sobre-page" aria-label="Sobre Lucas de Castro">
