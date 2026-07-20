@@ -164,40 +164,8 @@ function playHeroEntrance(){
   _heroEntranceGroups().forEach(function(g){
     if(!g.el) return;
     g.el.classList.remove('hv-reset');
-    // Nome: animação de digitação em vez de fade
-    if(g.el.classList.contains('hv2-name')){
-      setTimeout(function(){
-        g.el.classList.add('hv-in');
-        var l1 = g.el.querySelector('.hv2-name-l1');
-        var l2 = g.el.querySelector('.hv2-name-l2');
-        if(l1 && l2){
-          var orig1 = 'Lucas';
-          var orig2 = 'de Castro';
-          l1.textContent = '';
-          l2.textContent = '';
-          typeHeroName(l1, orig1, 80, function(){
-            typeHeroName(l2, orig2, 60, null);
-          });
-        }
-      }, g.delay);
-    } else {
-      setTimeout(function(){ g.el.classList.add('hv-in'); }, g.delay);
-    }
+    setTimeout(function(){ g.el.classList.add('hv-in'); }, g.delay);
   });
-}
-
-function typeHeroName(el, text, speed, cb){
-  var i = 0;
-  function next(){
-    if(i <= text.length){
-      el.textContent = text.slice(0, i);
-      i++;
-      setTimeout(next, speed + Math.random() * 25);
-    } else {
-      if(cb) cb();
-    }
-  }
-  next();
 }
 
 function goToSobre(push){
