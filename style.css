@@ -1747,7 +1747,7 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   font-family:var(--ff-display);
   font-size:clamp(2.69rem, 9.66vw, 11.55rem);
   font-style:normal;
-  font-weight:600;
+  font-weight:400;
   line-height:normal;
   letter-spacing:clamp(-.6rem, -.6vw, -.6875rem);
   text-align:center;
