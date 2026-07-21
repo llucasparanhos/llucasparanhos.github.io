@@ -712,6 +712,7 @@ const CASES={
     ey:'White Label · Design System · Fintech',
     ttl:'Adaptando um Design System de fintech <em>pra white label bancário, com 80%+ de reuso.</em>',
     meta:['Product Designer','BomConsórcio × Itaú · Fintech','Figma · Tokens Studio · Claude'],
+    roleImg:'design-system-white-label-itau.png',
     orgImg:'img-figma-white-label.jpg',
     processoImg:'User-Flow-White-Label-Itaú.jpg',
     mobileImg:'mockup-mobile-itaú.jpg',
@@ -953,6 +954,7 @@ function openCase(id,title,push){
     })() : '')
 
     +'<div class="ch-role"><span class="ch-role-lbl" data-pt="Meu papel" data-en="My role">'+(currentLang==='en'?'My role':'Meu papel')+'</span><span class="ch-role-txt">'+d.role+'</span></div>'
+    +(d.roleImg ? '<div class="ch-func-img"><img src="img/'+d.roleImg+'" alt="" style="width:100%;display:block;border-radius:8px;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
 
     /* Organização do fluxo (Figma) */
     +(c.orgImg ? (Array.isArray(c.orgImg) ? c.orgImg : [c.orgImg]).map(function(img){
