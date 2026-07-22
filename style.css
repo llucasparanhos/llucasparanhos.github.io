@@ -1132,6 +1132,10 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 @media(max-width:900px){
   #ch-itau .ch-sol-cards, #ch-passaporte .ch-sol-cards, #ch-credenciados .ch-sol-cards { grid-template-columns:1fr; }
 }
+#ch-itau .ch-sol-cards.ch-sol-cards-3x2 { grid-template-columns:repeat(3,1fr); }
+@media(max-width:900px){
+  #ch-itau .ch-sol-cards.ch-sol-cards-3x2 { grid-template-columns:1fr; }
+}
 
 /* ── Certificações ── */
 .sb-certs-grid {
