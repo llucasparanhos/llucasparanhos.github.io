@@ -513,6 +513,7 @@ const CASES={
   checkout:{
     color:'#fc8a86',bg:'#111',
     model:['B2C'],
+    caseHero:'checkout-case-hero.png',
     prototipo:[
       {src:'checkout-prototipo-desktop.mp4', ratio:'2880/1800', label:'Desktop'},
       {src:'checkout-prototipo-mobile.mp4', ratio:'900/1800', label:'Mobile'}
