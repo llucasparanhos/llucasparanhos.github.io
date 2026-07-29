@@ -469,6 +469,7 @@ img { display:block; max-width:100%; }
 .ch-role { display:flex; flex-direction:column; gap:.4rem; margin:0 0 3rem; padding:1.1rem 1.5rem; border-left:2px solid var(--case-color, var(--c-gold)); background:var(--c-bg2); }
 .ch-role-lbl { font-family:var(--ff-case-heading); font-size:1.1rem; letter-spacing:.02em; text-transform:uppercase; color:var(--case-color, var(--c-gold)); font-weight:600; }
 .ch-role-txt { font-size:1rem; font-weight:300; color:var(--c-muted); line-height:1.65; }
+.ch-role-process { display:block; margin-top:.65rem; font-size:.8rem; font-weight:500; color:var(--case-color, var(--c-gold)); letter-spacing:.01em; opacity:.85; }
 .ch-hook { font-size:clamp(1.1rem,1.8vw,1.35rem); font-weight:300; line-height:1.8; font-style:italic; color:var(--c-text); padding:1.5rem 0; border-top:1px solid var(--c-line); border-bottom:1px solid var(--c-line); margin-bottom:3rem; }
 .ch-bd h3 { font-family:var(--ff-case-heading); font-size:1.3rem; letter-spacing:.02em; text-transform:uppercase; color:var(--c-dim); margin:3rem 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--c-line); font-weight:600; }
 .ch-bd p { font-size:1.05rem; font-weight:300; color:#cccac6; line-height:1.9; margin-bottom:1.25rem; }
@@ -1131,10 +1132,6 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
 }
 @media(max-width:900px){
   #ch-itau .ch-sol-cards, #ch-passaporte .ch-sol-cards, #ch-credenciados .ch-sol-cards { grid-template-columns:1fr; }
-}
-#ch-itau .ch-sol-cards.ch-sol-cards-3x2 { grid-template-columns:repeat(3,1fr); }
-@media(max-width:900px){
-  #ch-itau .ch-sol-cards.ch-sol-cards-3x2 { grid-template-columns:1fr; }
 }
 
 /* ── Certificações ── */
