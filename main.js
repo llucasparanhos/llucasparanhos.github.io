@@ -524,7 +524,7 @@ const CASES={
     ey:'Conversão · UX Research · Prototipagem · HealthTech',
     ttl:'Conversão de 10% para 33% <em>no checkout de agendamentos de saúde.</em>',
     meta:['Product Designer','10 semanas','Figma · Clarity · GA4 · Claude'],
-    hook:'"80% dos usuários chegavam até o checkout. Metade desistia no meio. Abandono de checkout é receita perdida — e pior: é custo de aquisição já pago sem conversão. O Kivid sabia que o fluxo travava, mas não sabia onde. Sem esse dado, qualquer redesign seria chute de engenharia."',
+    hook:'"Abandono de checkout é receita perdida — e pior: é custo de aquisição já pago sem conversão. O Kivid sabia que o fluxo travava, mas não sabia onde. Sem esse dado, qualquer redesign seria chute de engenharia."',
     context:'<p>Adriana tem 56 anos, é professora, e estava tentando contratar um plano de saúde acessível para a família. Cada abandono no checkout era mais do que receita perdida.</p><p>Era o custo de aquisição pago sem retorno. Era o suporte sobrecarregado com dúvidas que a tela deveria responder. Era Adriana saindo sem o plano que precisava, e contando para alguém que o app era complicado.</p><p>O produto fragmentado em múltiplas etapas, com valor total escondido e formulário longo, fazia exatamente o oposto do que a persona central precisava.</p>',
     diags:[
       {icon:'📋',title:'Formulário longo no início',desc:'O sistema pedia dados que poderiam ser preenchidos automaticamente via CPF.'},
@@ -552,7 +552,7 @@ const CASES={
       ey:'Conversion · Mobile · HealthTech',
       ttl:'Conversion from 10% to 33% <em>in a healthcare scheduling checkout.</em>',
       meta:['Product Designer','10 weeks','Figma · Clarity'],
-      hook:'"80% of users reached checkout. Half quit halfway through. Every abandonment wasn\'t just a number, it was a family that couldn\'t afford a health plan."',
+      hook:'"Checkout abandonment is lost revenue — and worse: acquisition cost already paid without conversion. Kivid knew the flow was breaking, but not where. Without that data, any redesign would be guesswork."',
       context:'<p>Every checkout abandonment was more than lost revenue.</p><p>It was acquisition cost paid with no return. It was support overloaded with questions the screen should have answered. It was Adriana leaving without the health plan she needed, and telling someone the app was complicated.</p><p>A product fragmented across multiple steps, with a hidden total price and a long form, did exactly the opposite of what the core persona needed.</p>',
       role:'Product Designer responsible for data analysis (Clarity), flow redesign, prototype and metrics tracking.',
       insight:'<p>Clarity heatmaps revealed the exact drop-off point: the <strong>first form field</strong>. The turning point was understanding that each extra field was a chance to give up. Instead of asking for data, the system started <strong>filling in data</strong> automatically via CPF. Less friction, more conversion.</p>',
