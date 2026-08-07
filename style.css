@@ -1369,13 +1369,20 @@ a:focus-visible, button:focus-visible, .pc:focus-visible { outline:2px solid var
   color:var(--c-muted); line-height:1.7;
   margin-bottom:.875rem;
 }
-.ch-medicao-tools { display:flex; flex-wrap:wrap; gap:.5rem; }
+.ch-medicao-tools { display:flex; flex-wrap:wrap; gap:.6rem; }
 .ch-medicao-tool {
-  font-family:var(--ff-mono); font-size:.5rem;
-  letter-spacing:.1em; text-transform:uppercase;
-  color:var(--c-dim); background:var(--c-bg3);
+  font-family:var(--ff-body); font-size:.8rem; font-weight:400;
+  letter-spacing:0; text-transform:none;
+  color:var(--c-text); background:var(--c-bg3);
   border:0.5px solid var(--c-line);
-  padding:3px 10px; border-radius:4px;
+  padding:7px 14px; border-radius:20px;
+  display:inline-flex; align-items:center; gap:6px;
+}
+.ch-medicao-tool::before {
+  content:'';
+  width:5px; height:5px; border-radius:50%;
+  background:var(--case-color, var(--c-gold));
+  flex-shrink:0;
 }
 
 .ch-slider-wrap { margin:1rem 0 3rem; }
