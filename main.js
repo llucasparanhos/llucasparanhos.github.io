@@ -432,11 +432,13 @@ const CASES={
     platformBadge:'🏢 App do paciente (B2C) + portal de onboarding para credenciados (B2B)',
     orgImg:['fluxo-figma-credenciados-clientes.png','fluxo-figma-credenciados-empresas.png'],
     processoImg:['credenciados-userflow-cliente.png','credenciados-userflow-empresa.png'],
+    processoLabels:['Jornada do Usuário','Jornada do Credenciado'],
     cfCardW:160,
     prototipo:{src:'credenciados-prototipo.mp4', ratio:'608/1080'},
     telasApp:['credenciados-tela-1.jpg','credenciados-tela-2.jpg','credenciados-tela-3.jpg','credenciados-tela-4.jpg','credenciados-tela-5.jpg','credenciados-tela-6.jpg'],
     telasDesktop:['1-tela-credenciados.png','2-tela-credenciados.png','3-tela-credenciados.png','4-tela-credenciados.png','5-tela-credenciados.png','6-tela-credenciados.png','7-tela-credenciados.png','8-tela-credenciados.png','9-tela-credenciados.png','10-tela-credenciados.png'],
     funcImg:'credenciados-func.jpg',
+    funcImgLabel:'Funcionalidades Implementadas',
     solucaoImg:'credenciados-solucao.jpg',
     ey:'UX Research · Arquitetura da Informação · HealthTech · Kivid',
     ttl:'Busca B2C e onboarding B2B,<br><em>dos dois lados da mesma rede de saúde.</em>',
@@ -922,7 +924,7 @@ function openCase(id,title,push){
     +(c.carousel ? renderCarousel2(c.carousel, [], id+'-carousel') : '')
 
     /* Credenciados: funcionalidades wide */
-    +(c.funcImg ? '<div class="ch-func-img"><img src="img/'+c.funcImg+'" alt="func" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
+    +(c.funcImg ? '<div class="ch-func-img">'+(c.funcImgLabel ? '<span class="ch-img-title">'+c.funcImgLabel+'</span>' : '')+'<img src="img/'+c.funcImg+'" alt="func" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
 
     /* KPIs & OKRs */
     +'<div class="ch-highlight"><div class="ch-highlight-label" data-split>KPIs &amp; OKRs</div>'
@@ -941,8 +943,10 @@ function openCase(id,title,push){
     +(function(){
       var proc = c.processoImg || (id+'-processo.jpg');
       var imgs = Array.isArray(proc) ? proc : [proc];
-      return imgs.map(function(img){
-        return '<div class="ch-func-img"><img src="img/'+img+'" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
+      var labels = c.processoLabels || [];
+      return imgs.map(function(img, i){
+        var label = labels[i] ? '<span class="ch-img-title">'+labels[i]+'</span>' : '';
+        return '<div class="ch-func-img">'+label+'<img src="img/'+img+'" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
       }).join('');
     })()
 
