@@ -431,6 +431,7 @@ const CASES={
     caseHero:'Mosaico-Telas-Hero-credenciados.png',
     platformBadge:'🏢 App do paciente (B2C) + portal de onboarding para credenciados (B2B)',
     orgImg:['fluxo-figma-credenciados-clientes.png','fluxo-figma-credenciados-empresas.png'],
+    orgLabels:['Organização do Fluxo — Paciente','Organização do Fluxo — Credenciado'],
     processoImg:['credenciados-userflow-cliente.png','credenciados-userflow-empresa.png'],
     processoLabels:['Jornada do Usuário','Jornada do Credenciado'],
     cfCardW:160,
@@ -905,8 +906,10 @@ function openCase(id,title,push){
     +(d.roleImg ? '<div class="ch-func-img"><img src="img/'+d.roleImg+'" alt="" style="width:100%;display:block;border-radius:8px;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
 
     /* Organização do fluxo (Figma) */
-    +(c.orgImg ? (Array.isArray(c.orgImg) ? c.orgImg : [c.orgImg]).map(function(img){
-        return '<div class="ch-func-img"><img src="img/'+img+'" alt="Organização do fluxo" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
+    +(c.orgImg ? (Array.isArray(c.orgImg) ? c.orgImg : [c.orgImg]).map(function(img, i){
+        var labels = c.orgLabels || [];
+        var label = labels[i] ? '<h3>'+labels[i]+'</h3>' : '';
+        return label+'<div class="ch-func-img"><img src="img/'+img+'" alt="Organização do fluxo" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
       }).join('') : '')
 
     /* O Problema */
@@ -924,7 +927,7 @@ function openCase(id,title,push){
     +(c.carousel ? renderCarousel2(c.carousel, [], id+'-carousel') : '')
 
     /* Credenciados: funcionalidades wide */
-    +(c.funcImg ? (c.funcImgLabel ? '<span class="ch-img-title">'+c.funcImgLabel+'</span>' : '')+'<div class="ch-func-img"><img src="img/'+c.funcImg+'" alt="func" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
+    +(c.funcImg ? (c.funcImgLabel ? '<h3>'+c.funcImgLabel+'</h3>' : '')+'<div class="ch-func-img"><img src="img/'+c.funcImg+'" alt="func" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
 
     /* KPIs & OKRs */
     +'<div class="ch-highlight"><div class="ch-highlight-label" data-split>KPIs &amp; OKRs</div>'
@@ -945,7 +948,7 @@ function openCase(id,title,push){
       var imgs = Array.isArray(proc) ? proc : [proc];
       var labels = c.processoLabels || [];
       return imgs.map(function(img, i){
-        var label = labels[i] ? '<span class="ch-img-title">'+labels[i]+'</span>' : '';
+        var label = labels[i] ? '<h3>'+labels[i]+'</h3>' : '';
         return label+'<div class="ch-func-img"><img src="img/'+img+'" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
       }).join('');
     })()
