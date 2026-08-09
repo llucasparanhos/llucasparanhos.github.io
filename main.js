@@ -924,7 +924,7 @@ function openCase(id,title,push){
     +(c.carousel ? renderCarousel2(c.carousel, [], id+'-carousel') : '')
 
     /* Credenciados: funcionalidades wide */
-    +(c.funcImg ? '<div class="ch-func-img">'+(c.funcImgLabel ? '<span class="ch-img-title">'+c.funcImgLabel+'</span>' : '')+'<img src="img/'+c.funcImg+'" alt="func" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
+    +(c.funcImg ? (c.funcImgLabel ? '<span class="ch-img-title">'+c.funcImgLabel+'</span>' : '')+'<div class="ch-func-img"><img src="img/'+c.funcImg+'" alt="func" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>' : '')
 
     /* KPIs & OKRs */
     +'<div class="ch-highlight"><div class="ch-highlight-label" data-split>KPIs &amp; OKRs</div>'
@@ -946,7 +946,7 @@ function openCase(id,title,push){
       var labels = c.processoLabels || [];
       return imgs.map(function(img, i){
         var label = labels[i] ? '<span class="ch-img-title">'+labels[i]+'</span>' : '';
-        return '<div class="ch-func-img">'+label+'<img src="img/'+img+'" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
+        return label+'<div class="ch-func-img"><img src="img/'+img+'" alt="proc" style="width:100%;display:block;cursor:zoom-in;" onclick="lbOpen(this.src)"></div>';
       }).join('');
     })()
 
